@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mesa Estrato · Caliza</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap">
+<link rel="stylesheet" href="assets/css/caliza.css">
+</head>
+<body data-page="producto">
+
+<div class="page-curtain" aria-hidden="true"></div>
+<div class="cursor" aria-hidden="true"><span class="cursor__dot"></span><span class="cursor__label"></span></div>
+
+<header class="site-header site-header--solid-start">
+  <a href="index.html" class="logo" aria-label="Caliza, inicio">
+    <img class="light" src="assets/img/lockup_light.svg" alt="">
+    <img class="dark" src="assets/img/lockup_dark.svg" alt="">
+  </a>
+  <nav aria-label="Principal">
+    <a href="index.html#lineas">Stone</a>
+    <a href="index.html#coleccion" aria-current="page">Design</a>
+    <a href="index.html#care">Care</a>
+    <a href="index.html#proyecto">Proyectos</a>
+    <a href="index.html#materiales">Materiales</a>
+    <a href="index.html#estudio">Estudio</a>
+  </nav>
+  <div class="actions">
+    <button class="icon-btn" aria-label="Abrir carrito" data-open-cart>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+      <span class="cart-count" data-cart-count hidden>0</span>
+    </button>
+    <a class="btn btn--ghost cta" data-wa="Hola, tengo una pregunta sobre la Mesa Estrato.">Hablar con el estudio</a>
+  </div>
+</header>
+
+<main class="pdp">
+  <div class="pdp__layout">
+    <div class="pdp__gallery">
+      <figure class="wide" data-img-reveal>
+        <img class="studio" src="assets/img/p1.jpg" alt="Mesa Estrato: cubierta de piedra natural sobre dos bases de roble" style="view-transition-name: pieza-estrato">
+        <span class="tag" style="left:14px;top:14px">Fotografía provisional</span>
+      </figure>
+      <figure class="half"><img src="assets/img/comedor.jpg" alt="La mesa en un comedor con sillas tapizadas"></figure>
+      <figure class="half"><img src="assets/img/m_piedra.jpg" alt="Detalle de la piedra elegida" data-stone-detail></figure>
+    </div>
+
+    <aside class="pdp__panel" aria-label="Configurar pieza">
+      <div class="pdp__sticky">
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <span class="crumbs"><a href="index.html">Inicio</a> / <a href="index.html#coleccion">Design</a> / Mesas de comedor</span>
+          <span class="eyebrow muted">Caliza Design · Bajo pedido</span>
+          <h1 class="h2">Mesa Estrato</h1>
+          <p class="muted" style="margin:0;font-size:15px">Cubierta en piedra natural sobre bases macizas. Cada placa es única: la veta de tu mesa será distinta a la de la foto.</p>
+          <div class="price"><span class="price__value" data-price data-value="0">$ 8.900.000</span><span class="small muted">IVA incluido</span></div>
+          <span class="small muted">O paga <strong data-half style="color:var(--carbon)">$ 4.450.000</strong> hoy y el resto antes del despacho.</span>
+        </div>
+
+        <div class="opt-group">
+          <div class="opt-group__head"><span style="font-weight:500">Piedra</span><span class="muted" data-stone-name>Gris veteado</span></div>
+          <div class="swatches" role="group" aria-label="Piedra">
+            <button class="swatch" aria-pressed="true" data-stone="0" aria-label="Gris veteado"><img src="assets/img/m_piedra.jpg" alt=""></button>
+            <button class="swatch" aria-pressed="false" data-stone="1" aria-label="Oscuro profundo"><img src="assets/img/piedra_macro.jpg" alt=""></button>
+            <button class="swatch" aria-pressed="false" data-stone="2" aria-label="Arena texturizada"><img src="assets/img/m_textura.jpg" alt=""></button>
+          </div>
+        </div>
+
+        <div class="opt-group">
+          <div class="opt-group__head"><span style="font-weight:500">Tamaño</span><span class="muted tnum" data-size-dims>220 × 100 × 75 cm</span></div>
+          <div class="segmented" role="group" aria-label="Tamaño" data-segmented>
+            <span class="segmented__thumb" aria-hidden="true"></span>
+            <button aria-pressed="false" data-size="0">6 personas</button>
+            <button aria-pressed="true" data-size="1">8 personas</button>
+            <button aria-pressed="false" data-size="2">10 personas</button>
+          </div>
+        </div>
+
+        <div class="opt-group">
+          <div class="opt-group__head"><span style="font-weight:500">Base</span></div>
+          <div class="segmented" role="group" aria-label="Base" data-segmented>
+            <span class="segmented__thumb" aria-hidden="true"></span>
+            <button aria-pressed="true" data-base="0">Roble macizo</button>
+            <button aria-pressed="false" data-base="1">Metal negro</button>
+          </div>
+        </div>
+
+        <div class="lead"><span>Fabricación estimada</span><strong style="font-weight:500">6 a 8 semanas</strong></div>
+
+        <div class="pdp__ctas">
+          <button class="btn add-btn" data-add><span class="label">Agregar al carrito</span><span class="done" aria-hidden="true">Agregada ✓</span></button>
+          <a class="btn btn--ghost" data-wa-config><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg><span>Consultar esta configuración</span></a>
+        </div>
+
+        <div class="ship">
+          <label for="city">¿A qué ciudad la enviamos?</label>
+          <input class="field" id="city" placeholder="Ej.: Barranquilla" autocomplete="address-level2" data-city>
+          <span class="ship__ok" data-city-msg aria-live="polite"></span>
+        </div>
+
+        <div>
+          <details class="acc"><summary>Medidas y peso <i></i></summary><p>Alto 75 cm. Espesor de la cubierta 3 cm. Peso aproximado según piedra y tamaño: 140 a 210 kg (ejemplo).</p></details>
+          <details class="acc"><summary>Materiales y cuidado · Caliza Care <i></i></summary><p>Piedra natural sellada en taller. Limpia con paño húmedo y jabón neutro; evita ácidos. Incluye ficha de cuidado con código QR.</p></details>
+          <details class="acc"><summary>Envío, instalación y pagos <i></i></summary><p>Antes de despachar confirmamos piso, ascensor y accesos. Pagas 50% para iniciar y 50% antes del despacho, o el total de una vez.</p></details>
+          <details class="acc"><summary>Garantía <i></i></summary><p>[Condiciones de garantía por definir con Caliza.]</p></details>
+        </div>
+        <p class="note">Nombre, precios y medidas de ejemplo.</p>
+      </div>
+    </aside>
+  </div>
+
+  <section class="on-dark sec-s1 wrap" style="margin-top:var(--s1)">
+    <div class="grid" style="row-gap:36px;align-items:end">
+      <div class="c-1-4" style="display:flex;flex-direction:column;gap:14px">
+        <span class="eyebrow" style="color:var(--claro-2)">Hecha para ti</span>
+        <h2 class="h2" style="color:var(--claro)">Así avanza tu pieza.</h2>
+      </div>
+      <ol class="c-6-7 timeline">
+        <li data-reveal><span class="small" style="color:var(--claro-2)">01</span><span>Anticipo 50%</span></li>
+        <li data-reveal><span class="small" style="color:var(--claro-2)">02</span><span>Elegimos tu placa</span></li>
+        <li data-reveal><span class="small" style="color:var(--claro-2)">03</span><span>Fabricación con fotos</span></li>
+        <li data-reveal><span class="small" style="color:var(--claro-2)">04</span><span>Saldo y despacho</span></li>
+        <li data-reveal><span class="small" style="color:var(--claro-2)">05</span><span>Entrega e instalación</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="sec-s1 wrap">
+    <div class="lines__head"><h2 class="h2">Combina con</h2><a href="index.html#coleccion" class="link"><span class="u">Ver colección</span><span class="arrow">→</span></a></div>
+    <div class="grid" style="row-gap:32px">
+      <a class="product-card c-1-4" href="producto.html" style="width:auto"><div class="product-card__media"><img class="studio" src="assets/img/p3.jpg" alt="Consola en roble y metal"></div><div class="product-card__row"><span class="product-card__name">Consola Umbral</span><span class="tnum">$ 4.600.000</span></div></a>
+      <a class="product-card" href="producto.html" style="width:auto;grid-column:5 / span 4"><div class="product-card__media"><img src="assets/img/lavamanos.jpg" alt="Lavamanos tallado en piedra"></div><div class="product-card__row"><span class="product-card__name">Lavamanos Fuente</span><span class="tnum">Desde $ 3.200.000</span></div></a>
+      <a class="product-card product-card--custom" href="index.html#care" style="width:auto;grid-column:9 / span 4;aspect-ratio:auto"><span class="eyebrow" style="color:var(--claro-2)">Caliza Care</span><span class="h3">Kit de cuidado para piedra natural</span><span class="small" style="color:var(--claro-2)">$ 180.000 · recomendado para esta mesa</span></a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="legal" style="margin-top:0;border-top:0;padding-top:0"><img src="assets/img/lockup_light.svg" alt="Caliza" style="height:26px;width:auto"><span>Prototipo · fotografías provisionales</span></div>
+</footer>
+
+<div class="drawer-backdrop" data-close-cart></div>
+<aside class="drawer" aria-label="Carrito" aria-hidden="true">
+  <div class="drawer__head"><span class="h3">Tu carrito</span><button class="icon-btn" aria-label="Cerrar carrito" data-close-cart><svg width="20" height="20" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg></button></div>
+  <div class="drawer__items" data-cart-items></div>
+  <div class="drawer__foot">
+    <div class="drawer__row"><span>Subtotal</span><span class="tnum" data-cart-total>$ 0</span></div>
+    <span class="small muted">El envío se calcula según la ciudad y el acceso.</span>
+    <a class="btn" href="checkout.html">Ir a pagar <span class="arrow">→</span></a>
+  </div>
+</aside>
+
+<a class="wa-float" data-wa="Hola, tengo una pregunta sobre la Mesa Estrato." aria-label="Escribir a Caliza por WhatsApp">
+  <span class="wa-float__btn"><svg width="30" height="30" viewBox="0 0 24 24" aria-hidden="true"><path fill="#FFFFFF" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/><path fill="#FFFFFF" d="M8.6 7.3c.2-.4.4-.4.7-.4h.5c.2 0 .4 0 .6.4l.8 1.9c.1.2.1.4 0 .6l-.5.7c-.1.2-.1.4 0 .6.6 1.1 1.5 2 2.6 2.6.2.1.4.1.6 0l.7-.6c.2-.2.4-.2.6-.1l1.9.9c.2.1.3.3.3.5 0 .9-.6 1.8-1.5 2-1 .2-2.6-.1-4.6-1.9-1.7-1.5-2.6-3.3-2.8-4.4-.2-.9.1-1.5.4-1.8z"/></svg></span>
+  <span class="wa-float__label">¿Dudas? Escríbenos</span>
+</a>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="assets/js/caliza.js"></script>
+<script src="assets/js/producto.js"></script>
+</body>
+</html>

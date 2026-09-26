@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pago · Caliza</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap">
+<link rel="stylesheet" href="assets/css/caliza.css">
+</head>
+<body data-page="checkout">
+
+<div class="page-curtain" aria-hidden="true"></div>
+
+<header class="site-header site-header--solid-start">
+  <a href="index.html" class="logo" aria-label="Caliza, inicio">
+    <img class="light" src="assets/img/lockup_light.svg" alt="">
+    <img class="dark" src="assets/img/lockup_dark.svg" alt="">
+  </a>
+  <span class="small muted" style="display:flex;align-items:center;gap:8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="5" y="11" width="14" height="9"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Pago seguro</span>
+  <a class="link" data-wa="Hola, necesito ayuda con mi pago."><span class="u">¿Ayuda? WhatsApp</span></a>
+</header>
+
+<main class="checkout wrap">
+  <div class="grid" style="row-gap:24px">
+    <div class="c-1-7">
+      <div class="checkout__form-area">
+        <div class="checkout__steps"><span class="done">✓ Carrito</span><span class="now">Entrega y pago</span><span class="muted">Confirmación</span></div>
+        <form id="checkout-form" novalidate>
+          <fieldset>
+            <legend>Tus datos</legend>
+            <div class="fields">
+              <label for="f-name">Nombre completo<input class="field" id="f-name" autocomplete="name" value="Ana Restrepo (ejemplo)"></label>
+              <label for="f-phone">WhatsApp<input class="field" id="f-phone" autocomplete="tel" inputmode="tel" value="300 000 0000"></label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Entrega e instalación</legend>
+            <div class="fields">
+              <label for="f-city">Ciudad<select class="field" id="f-city"><option>Barranquilla</option><option>Bogotá</option><option>Medellín</option><option>Cartagena</option><option>Otra ciudad</option></select></label>
+              <label for="f-address">Dirección<input class="field" id="f-address" autocomplete="street-address" value="Calle 00 # 00-00 (ejemplo)"></label>
+              <label for="f-type">Tipo de inmueble<select class="field" id="f-type"><option>Apartamento</option><option>Casa</option><option>Local u oficina</option></select></label>
+              <label for="f-floor">Piso<input class="field" id="f-floor" inputmode="numeric" value="8"></label>
+            </div>
+            <div class="access">
+              <strong style="font-weight:500">Revisemos el acceso antes de despachar</strong>
+              <div class="checks">
+                <label for="f-lift"><input type="checkbox" id="f-lift" checked>Hay ascensor</label>
+                <label for="f-stairs"><input type="checkbox" id="f-stairs">Hay escaleras estrechas</label>
+                <label for="f-install"><input type="checkbox" id="f-install" checked>Necesito instalación</label>
+              </div>
+              <span class="small muted">Con esto calculamos el envío. Si el acceso requiere algo especial, te escribimos antes de cobrarlo.</span>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Cómo quieres pagar</legend>
+            <div class="choice-grid" role="group" aria-label="Plan de pago">
+              <button type="button" class="choice" aria-pressed="false" data-plan="1"><strong>Pago completo</strong><span>Pagas el total hoy.</span></button>
+              <button type="button" class="choice" aria-pressed="true" data-plan="0.5"><strong>Anticipo 50%</strong><span>50% hoy y 50% antes del despacho.</span></button>
+            </div>
+            <div class="methods" role="group" aria-label="Método de pago">
+              <button type="button" class="choice" aria-pressed="true" data-method="Tarjeta"><strong>Tarjeta</strong><span>Crédito o débito</span></button>
+              <button type="button" class="choice" aria-pressed="false" data-method="PSE"><strong>PSE</strong><span>Débito bancario</span></button>
+              <button type="button" class="choice" aria-pressed="false" data-method="Nequi"><strong>Nequi</strong><span>Desde la app</span></button>
+              <button type="button" class="choice" aria-pressed="false" data-method="Bancolombia"><strong>Bancolombia</strong><span>Botón de pago</span></button>
+              <button type="button" class="choice" aria-pressed="false" data-method="pago a cuotas"><strong>A cuotas</strong><span>Por validar</span></button>
+            </div>
+            <p class="small muted" style="margin:14px 0 0">Pasarela por definir (Wompi, Mercado Pago o PayU). Caliza no guarda los datos de tu tarjeta.</p>
+          </fieldset>
+        </form>
+      </div>
+
+      <div class="success" aria-live="polite">
+        <span class="eyebrow" style="color:#2F5D50">Pago recibido</span>
+        <h1 class="h2" style="margin-top:14px">Tu pieza empieza hoy.</h1>
+        <p class="muted" style="max-width:520px">Pedido <strong data-order style="color:var(--carbon)">C-0000</strong>. Te enviamos la confirmación por correo y WhatsApp, con este mismo seguimiento.</p>
+        <ol class="track">
+          <li class="done"><span class="dot"></span><div><strong style="font-weight:500">Anticipo recibido</strong><div class="small muted" data-paid-line>Hoy</div></div></li>
+          <li class="now"><span class="dot"></span><div><strong style="font-weight:500">Elegimos tu placa</strong><div class="small muted">Te enviaremos una foto de la placa seleccionada.</div></div></li>
+          <li><span class="dot"></span><div><span class="muted">Fabricación · 6 a 8 semanas</span></div></li>
+          <li><span class="dot"></span><div><span class="muted">Saldo y despacho · transportadora y número de guía</span></div></li>
+          <li><span class="dot"></span><div><span class="muted">Entrega, instalación y guía de cuidado</span></div></li>
+        </ol>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <a class="btn btn--wa" data-wa-order>Escribir sobre mi pedido</a>
+          <a class="btn btn--ghost" href="index.html">Volver a Caliza</a>
+        </div>
+      </div>
+    </div>
+
+    <aside class="c-9-4">
+      <div class="summary">
+        <span class="eyebrow muted">Tu pedido</span>
+        <div data-sum-items style="display:flex;flex-direction:column;gap:16px"></div>
+        <div style="display:flex;flex-direction:column;gap:10px;font-size:15px;border-top:1px solid var(--linea);padding-top:16px">
+          <div style="display:flex;justify-content:space-between"><span>Subtotal</span><span class="tnum" data-subtotal>$ 0</span></div>
+          <div style="display:flex;justify-content:space-between"><span>Envío e instalación</span><span class="tnum">$ 420.000 (ejemplo)</span></div>
+          <div style="display:flex;justify-content:space-between;font-weight:600;border-top:1px solid var(--linea);padding-top:12px"><span>Total</span><span class="tnum" data-total>$ 0</span></div>
+        </div>
+        <div class="summary__today"><span class="small">Hoy pagas</span><span class="v" data-today data-value="0">$ 0</span></div>
+        <button type="submit" form="checkout-form" class="btn pay-btn" data-pay><span class="spinner" aria-hidden="true"></span><span data-pay-label>Pagar con tarjeta</span></button>
+        <span class="small muted">Precios de ejemplo. Al pagar recibes confirmación y un enlace para seguir tu pedido.</span>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="assets/js/caliza.js"></script>
+<script src="assets/js/checkout.js"></script>
+</body>
+</html>
