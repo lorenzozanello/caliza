@@ -340,7 +340,7 @@ export interface Order {
     | 'entregado'
     | 'cancelado';
   /**
-   * Enlace privado de seguimiento para el cliente.
+   * Forma el enlace privado del cliente: /pedido/<código>.
    */
   accessToken?: string | null;
   customerName: string;

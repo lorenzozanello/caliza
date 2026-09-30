@@ -13,6 +13,18 @@ import { ClearCart } from '@/components/cart/ClearCart'
 export const metadata: Metadata = { title: 'Tu pedido', robots: { index: false } }
 export const dynamic = 'force-dynamic'
 
+const HEADLINE: Record<string, string> = {
+  pendiente_pago: 'Tu pedido está reservado.',
+  anticipo_pagado: 'Tu pieza empieza hoy.',
+  pagado: 'Tu pieza empieza hoy.',
+  seleccion_placa: 'Estamos eligiendo tu placa.',
+  fabricacion: 'Tu pieza está en fabricación.',
+  saldo_pendiente: 'Tu pieza está lista para el control final.',
+  despachado: 'Tu pieza va en camino.',
+  entregado: 'Tu pieza ya está en casa.',
+  cancelado: 'Este pedido se canceló.',
+}
+
 export default async function OrderPage({ params, searchParams }: { params: Promise<{ token: string }>; searchParams: Promise<{ pago?: string }> }) {
   const { token } = await params
   const { pago } = await searchParams
@@ -32,7 +44,7 @@ export default async function OrderPage({ params, searchParams }: { params: Prom
       <ClearCart />
       <div className="tracking__main">
         <span className="eyebrow" style={{ color: pending ? 'var(--veta)' : '#2F5D50' }} data-testid="order-stage">{stage?.client}</span>
-        <h1 className="h2">{pending ? 'Tu pedido está reservado.' : order.status === 'entregado' ? 'Tu pieza ya está en casa.' : 'Tu pieza empieza hoy.'}</h1>
+        <h1 className="h2">{HEADLINE[order.status] ?? 'Tu pieza empieza hoy.'}</h1>
         <p className="muted" style={{ margin: 0, maxWidth: 540 }}>Pedido <strong style={{ color: 'var(--carbon)' }} data-testid="order-number">{order.number}</strong>. Guarda este enlace: aquí verás cada avance.</p>
         {pending && (
           <div className="form-error" role="status" style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>

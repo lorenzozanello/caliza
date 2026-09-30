@@ -28,7 +28,7 @@ export const Orders: CollectionConfig = {
         { name: 'status', label: 'Etapa', type: 'select', required: true, defaultValue: 'pendiente_pago', options: ORDER_STAGES.map((s) => ({ label: s.label, value: s.value })) },
       ],
     },
-    { name: 'accessToken', type: 'text', index: true, admin: { readOnly: true, description: 'Enlace privado de seguimiento para el cliente.' } },
+    { name: 'accessToken', label: 'Código de seguimiento', type: 'text', index: true, admin: { readOnly: true, description: 'Forma el enlace privado del cliente: /pedido/<código>.' } },
     {
       type: 'collapsible', label: 'Cliente',
       fields: [
