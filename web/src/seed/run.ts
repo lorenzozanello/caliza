@@ -14,8 +14,9 @@ const IMG = path.resolve(dirname, '../../../prototype/assets/img')
 const payload = await getPayload({ config })
 const log = (m: string) => payload.logger.info(`[seed] ${m}`)
 
-for (const collection of ['orders', 'leads', 'products', 'projects', 'materials', 'media'] as const) {
-  await payload.delete({ collection, where: { id: { exists: true } }, overrideAccess: true })
+for (const collection of ['orders', 'leads', 'products', 'projects', 'materials'] as const) {
+  const res = await payload.delete({ collection, where: { id: { exists: true } }, overrideAccess: true })
+  if (res.errors.length) throw new Error(`No se pudo limpiar ${collection}: ${res.errors.map((e) => e.message).join('; ')}`)
 }
 
 const media: Record<string, number> = {}
@@ -34,7 +35,12 @@ const photos: [string, string, boolean?][] = [
   ['m_textura', 'Piedra con acabado texturizado'],
 ]
 for (const [name, alt, studio] of photos) {
-  const doc = await payload.create({ collection: 'media', data: { alt, provisional: true, studio: Boolean(studio) }, filePath: path.join(IMG, `${name}.jpg`), overrideAccess: true })
+  // Las fotos se reutilizan por nombre de archivo: así sus URLs no cambian entre cargas y las páginas ya generadas siguen apuntando a archivos que existen.
+  const data = { alt, provisional: true, studio: Boolean(studio) }
+  const found = await payload.find({ collection: 'media', where: { filename: { equals: `${name}.jpg` } }, limit: 1, depth: 0 })
+  const doc = found.docs[0]
+    ? await payload.update({ collection: 'media', id: found.docs[0].id, data, overrideAccess: true })
+    : await payload.create({ collection: 'media', data, filePath: path.join(IMG, `${name}.jpg`), overrideAccess: true })
   media[name] = doc.id as number
 }
 log(`${photos.length} fotos provisionales`)

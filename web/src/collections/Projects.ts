@@ -1,7 +1,9 @@
+import { revalidateHooks } from '@/lib/revalidate'
 import type { CollectionConfig } from 'payload'
 import { slugField } from '@/lib/fields'
 
 export const Projects: CollectionConfig = {
+  hooks: revalidateHooks,
   slug: 'projects',
   labels: { singular: 'Proyecto', plural: 'Proyectos' },
   admin: { useAsTitle: 'title', group: 'Catálogo', defaultColumns: ['title', 'line', 'city', 'featured'] },

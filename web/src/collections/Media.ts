@@ -1,6 +1,8 @@
+import { revalidateHooks } from '@/lib/revalidate'
 import type { CollectionConfig } from 'payload'
 
 export const Media: CollectionConfig = {
+  hooks: revalidateHooks,
   slug: 'media',
   labels: { singular: 'Imagen', plural: 'Imágenes' },
   admin: { group: 'Contenido' },

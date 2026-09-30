@@ -1,6 +1,8 @@
+import { revalidateSite } from '@/lib/revalidate'
 import type { GlobalConfig } from 'payload'
 
 export const Settings: GlobalConfig = {
+  hooks: { afterChange: [() => revalidateSite()] },
   slug: 'settings',
   label: 'Ajustes del sitio',
   admin: { group: 'Configuración' },
