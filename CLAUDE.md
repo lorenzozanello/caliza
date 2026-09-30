@@ -21,6 +21,14 @@ Sitio web de Caliza: espacios y piezas en piedra natural. Tres generaciones de m
 - Todo el movimiento se desactiva con `prefers-reduced-motion`.
 - Accesibilidad WCAG 2.2 AA: contraste 4.5:1 en texto (3:1 desde 24px), foco visible, objetivos táctiles de 44px, etiquetas en todos los campos.
 
+## Desarrollo en `web/`
+
+- `npm run dev` levanta sitio y panel (`/admin`). `npm run seed` recarga el contenido de ejemplo (borra catálogo y pedidos).
+- Antes de terminar: `npm run typecheck`, `npm run build`, `npm run test:e2e` (390 y 1440 px, axe) y, si cambia la interfaz, `npm run test:lhci`.
+- Los precios y el anticipo se calculan siempre en el servidor (`src/app/(site)/actions.ts`); el cliente solo los muestra.
+- Pagos: `PAYMENTS_PROVIDER=simulated` en desarrollo; los estados del pedido solo avanzan vía `src/lib/payments/apply.ts`.
+- Los secretos van en variables de entorno, nunca en el repositorio.
+
 ## Definition of done de una tarea
 
 1. Cumple los criterios de aceptación del issue.

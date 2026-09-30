@@ -6,6 +6,8 @@ Líneas: **Caliza Stone** (transformar el espacio), **Caliza Design** (habitarlo
 
 ## Contenido del repositorio
 
+- `web/` — el sitio en producción: Next.js 16 + Payload CMS 3 (tienda, pagos, seguimiento de pedidos y administración). Ver `web/README.md`.
+- `brand/` — sistema de marca: tokens, componentes, fotografía, movimiento, voz y tono.
 - `prototype/` — prototipo navegable de la experiencia (home, producto y checkout) con el sistema visual y las microinteracciones. Ver `prototype/README.md`.
 
 ## Decisiones vigentes
@@ -15,4 +17,4 @@ Líneas: **Caliza Stone** (transformar el espacio), **Caliza Design** (habitarlo
 - La piedra es la protagonista; madera, metal y texturas la acompañan.
 - La web funciona como landing de las campañas de TikTok e Instagram, con WhatsApp como canal principal de conversación.
 - Tienda en línea con productos de entrega inmediata, bajo pedido y configurables, pago 50/50 y seguimiento del pedido.
-- Plataforma recomendada para tienda y administración: Shopify (por confirmar).
+- Desarrollo propio: Next.js + Payload CMS, pasarela Wompi, Postgres en producción.
