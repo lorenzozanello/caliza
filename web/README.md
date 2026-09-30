@@ -13,6 +13,8 @@ npm run dev               # http://localhost:3000 · panel en /admin
 
 En sesiones de Claude Code en la nube, `.claude/hooks/session-start.sh` hace estos pasos solo.
 
+Si cambias colecciones o globales y el arranque falla con `index … already exists`, la base SQLite de desarrollo quedó desfasada: bórrala (`rm caliza.db`) y vuelve a correr `npm run seed`. En producción los cambios de esquema van con migraciones de Payload.
+
 ## Qué hay
 
 | Ruta | Qué es |
@@ -22,7 +24,10 @@ En sesiones de Claude Code en la nube, `.claude/hooks/session-start.sh` hace est
 | `/checkout` | Datos, entrega con accesos, pago completo o anticipo, método de pago. |
 | `/pago/simulado` | Pasarela de prueba (solo con `PAYMENTS_PROVIDER=simulated`). |
 | `/pedido/[token]` | Seguimiento privado: etapas, avances con foto, guía de envío, reintento de pago, WhatsApp con el número de pedido. |
-| `/proyectos/[slug]` | Caso de proyecto. |
+| `/stone`, `/care`, `/estudio` | Páginas de línea y del estudio. Textos y fotos editables en el panel (global **Páginas**). Care arma el mensaje de WhatsApp según lo que le pasa a la superficie. |
+| `/proyectos`, `/proyectos/[slug]` | Índice con filtro por línea y caso editorial (reto, solución, galería ampliable, siguiente proyecto). |
+| `/materiales` | Fichas de piedra, madera, metal y texturas; la piedra siempre primero. |
+| `/legal/[slug]` | Términos, datos personales, envíos y garantía. Marcadas como borrador hasta la revisión legal: muestran el aviso y no se indexan. |
 | `/webhooks/wompi` | Eventos de Wompi con verificación de firma. |
 | `/admin` | Panel en español: productos, precios y disponibilidad, proyectos, materiales, pedidos, prospectos, home y ajustes (WhatsApp, ciudades y costos de envío). |
 

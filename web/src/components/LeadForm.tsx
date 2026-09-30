@@ -12,9 +12,9 @@ const INTENTS = [
   { value: 'orientacion', label: 'Aún no lo sé', text: 'una idea que aún no sé cómo resolver' },
 ]
 
-export function LeadForm() {
+export function LeadForm({ defaultIntent = 'proyecto' }: { defaultIntent?: 'proyecto' | 'pieza' | 'cuidado' | 'orientacion' }) {
   const { whatsapp, source } = useCart()
-  const [intent, setIntent] = useState('proyecto')
+  const [intent, setIntent] = useState<string>(defaultIntent)
   const [errors, setErrors] = useState<Record<string, string>>({})
   const [message, setMessage] = useState<{ kind: 'ok' | 'error'; text: string } | null>(null)
   const [pending, start] = useTransition()

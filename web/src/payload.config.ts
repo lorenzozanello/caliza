@@ -15,6 +15,8 @@ import { Orders } from './collections/Orders'
 import { Leads } from './collections/Leads'
 import { Settings } from './globals/Settings'
 import { Home } from './globals/Home'
+import { Pages } from './globals/Pages'
+import { Legal } from './collections/Legal'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -28,8 +30,8 @@ export default buildConfig({
     meta: { titleSuffix: ' · Caliza' },
   },
   i18n: { supportedLanguages: { es }, fallbackLanguage: 'es' },
-  collections: [Products, Projects, Materials, Orders, Leads, Media, Users],
-  globals: [Home, Settings],
+  collections: [Products, Projects, Materials, Orders, Leads, Legal, Media, Users],
+  globals: [Home, Pages, Settings],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || 'dev-secret-caliza-no-usar-en-produccion',
   typescript: { outputFile: path.resolve(dirname, 'payload-types.ts') },

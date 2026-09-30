@@ -13,13 +13,14 @@ const METHODS = [
 ]
 
 export function CheckoutForm({ cities, defaultCost }: { cities: { city: string; cost: number }[]; defaultCost: number }) {
-  const { items, source, clear } = useCart()
+  const { items, source } = useCart()
   const [plan, setPlan] = useState<'anticipo' | 'completo'>('anticipo')
   const [method, setMethod] = useState('Tarjeta')
   const [city, setCity] = useState(cities[0]?.city ?? '')
   const [errors, setErrors] = useState<Record<string, string>>({})
   const [error, setError] = useState<string | null>(null)
   const [pending, start] = useTransition()
+  const [redirecting, setRedirecting] = useState(false)
 
   const subtotal = items.reduce((s, i) => s + i.unitPrice * i.quantity, 0)
   const shipping = cities.find((c) => c.city === city)?.cost ?? defaultCost
@@ -52,7 +53,8 @@ export function CheckoutForm({ cities, defaultCost }: { cities: { city: string; 
         utmSource: source,
       })
       if (!res.ok) { setErrors(res.fields ?? {}); setError(res.error); window.scrollTo({ top: 0, behavior: 'smooth' }); return }
-      clear()
+      // El carrito se vacía al llegar al pedido (ClearCart); vaciarlo aquí mostraría "carrito vacío" antes de salir.
+      setRedirecting(true)
       window.location.href = res.redirectUrl
     })
   }
@@ -131,8 +133,8 @@ export function CheckoutForm({ cities, defaultCost }: { cities: { city: string; 
               <div style={{ display: 'flex', justifyContent: 'space-between', fontWeight: 600, borderTop: '1px solid var(--linea)', paddingTop: 12 }}><span>Total</span><span className="tnum" data-testid="total">{formatCOP(total)}</span></div>
             </div>
             <div className="summary__today"><span className="small">Hoy pagas</span><span className="v" data-testid="today">{formatCOP(today)}</span></div>
-            <button type="submit" form="checkout-form" className={`btn pay-btn${pending ? ' is-loading' : ''}`} disabled={pending} data-testid="pay">
-              <span className="spinner" aria-hidden="true" />{pending ? 'Preparando el pago…' : `Pagar ${formatCOP(today)} con ${method}`}
+            <button type="submit" form="checkout-form" className={`btn pay-btn${pending || redirecting ? ' is-loading' : ''}`} disabled={pending || redirecting} data-testid="pay">
+              <span className="spinner" aria-hidden="true" />{pending || redirecting ? 'Preparando el pago…' : `Pagar ${formatCOP(today)} con ${method}`}
             </button>
             <span className="small muted">Al pagar recibes confirmación y un enlace para seguir tu pedido.</span>
           </div>

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { siteUrl } from '@/lib/payments'
 import Link from 'next/link'
+import { Zoomable } from '@/components/Zoomable'
 import { notFound } from 'next/navigation'
 import { getPayloadClient } from '@/lib/payload'
 import { ProductConfigurator } from '@/components/ProductConfigurator'
@@ -45,10 +46,9 @@ export default async function ProductPage({ params }: { params: Params }) {
         <div className="pdp__layout">
           <div className="pdp__gallery">
             {images.map((m, i) => (
-              <figure key={i} className={i === 0 ? 'wide' : 'half'} {...(i === 0 ? { 'data-img-reveal': true } : {})}>
-                <img className={typeof m === 'object' && m?.studio ? 'studio' : ''} src={mediaUrl(m, i === 0 ? 'hero' : 'card') ?? ''} alt={mediaAlt(m)} data-gallery-index={i} />
+              <Zoomable key={i} media={m} size={i === 0 ? 'hero' : 'card'} group="producto" eager={i === 0} className={i === 0 ? 'wide' : 'half'} imgClassName={typeof m === 'object' && m?.studio ? 'studio' : undefined} {...(i === 0 ? { 'data-img-reveal': true } : {})}>
                 {i === 0 && isProvisional(m) && <span className="tag" style={{ left: 14, top: 14 }}>Fotografía provisional</span>}
-              </figure>
+              </Zoomable>
             ))}
             {configImages.length > 0 && (
               <figure className="half"><img src={configImages[0].detail ?? ''} alt="Detalle de la piedra elegida" data-stone-detail /></figure>

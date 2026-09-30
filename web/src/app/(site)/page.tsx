@@ -2,7 +2,8 @@ import Link from 'next/link'
 import type { Media, Project } from '@/payload-types'
 import { getPayloadClient } from '@/lib/payload'
 import { ProductCard } from '@/components/ProductCard'
-import { LeadForm } from '@/components/LeadForm'
+import { Method } from '@/components/sections/Method'
+import { Contact } from '@/components/sections/Contact'
 import { isProvisional, mediaAlt, mediaUrl } from '@/components/media'
 
 export const revalidate = 60
@@ -37,7 +38,7 @@ export default async function HomePage() {
           <div className="hero__aside" data-hero-fade>
             <p>{home.heroText}</p>
             <div className="ctas">
-              <Link href="#proyecto" className="btn btn--light" data-magnetic>Ver proyectos <span className="arrow">→</span></Link>
+              <Link href="/proyectos" className="btn btn--light" data-magnetic>Ver proyectos <span className="arrow">→</span></Link>
               <Link href="/design" className="link" style={{ color: 'var(--claro)' }}><span className="u">Explorar piezas</span></Link>
             </div>
           </div>
@@ -65,9 +66,9 @@ export default async function HomePage() {
         </div>
         <div className="lines__row">
           {[
-            { href: '#proyecto', cursor: 'Explorar Stone', image: home.stoneImage, line: 'Caliza Stone', n: 'I', name: 'Transformar', desc: 'Cocinas, baños, pisos, muros, piscinas y fachadas en piedra natural, del diseño a la instalación.', cta: 'Iniciar un proyecto' },
+            { href: '/stone', cursor: 'Explorar Stone', image: home.stoneImage, line: 'Caliza Stone', n: 'I', name: 'Transformar', desc: 'Cocinas, baños, pisos, muros, piscinas y fachadas en piedra natural, del diseño a la instalación.', cta: 'Iniciar un proyecto' },
             { href: '/design', cursor: 'Ver piezas', image: home.designImage, line: 'Caliza Design', n: 'II', name: 'Habitar', desc: 'Mesas, consolas, lavamanos y objetos donde la piedra se encuentra con la madera y el metal.', cta: 'Ver la colección' },
-            { href: '#care', cursor: 'Cuidar', image: home.careImage, line: 'Caliza Care', n: 'III', name: 'Preservar', desc: 'Mantenimiento, protección y restauración de superficies de piedra, para que duren otra generación.', cta: 'Cuidar una superficie' },
+            { href: '/care', cursor: 'Cuidar', image: home.careImage, line: 'Caliza Care', n: 'III', name: 'Preservar', desc: 'Mantenimiento, protección y restauración de superficies de piedra, para que duren otra generación.', cta: 'Cuidar una superficie' },
           ].map((p) => (
             <Link className="panel" href={p.href} data-cursor={p.cursor} key={p.name}>
               <img src={img(p.image, 'card')} alt={mediaAlt(p.image)} />
@@ -145,7 +146,7 @@ export default async function HomePage() {
           <div className="lines__head"><h2 className="h2" data-reveal>La piedra y sus aliados.</h2></div>
           <ul className="materials__list" data-materials>
             {materials.docs.map((m, i) => (
-              <li key={m.id}><a href="#materiales" data-mat={i}>
+              <li key={m.id}><a href={`/materiales#${m.slug}`} data-mat={i}>
                 {mediaUrl(m.image, 'thumb') && <img className="mat-thumb" src={mediaUrl(m.image, 'thumb')!} alt="" />}
                 <span className="mname">{m.name}</span><span className="mdesc">{m.description}</span>
                 <span className="mrole">{m.family === 'piedra' ? 'La protagonista' : m.family === 'textura' ? 'Acabados' : 'Aliada'}</span>
@@ -158,24 +159,7 @@ export default async function HomePage() {
         </section>
       )}
 
-      <section className="sec-s2 wrap bg-papel" aria-label="Cómo trabajamos">
-        <div className="grid">
-          <div className="c-1-4"><div className="method__sticky"><span className="eyebrow muted">Cómo trabajamos</span><h2 className="h2">Del criterio a la obra.</h2></div></div>
-          <div className="c-6-7">
-            <div className="method__steps" data-steps>
-              <div className="method__rail"><i data-rail /></div>
-              {[
-                ['01', 'Seleccionar', 'Elegimos cada placa por su veta, su tono y su comportamiento antes de que exista tu proyecto.'],
-                ['02', 'Interpretar', 'Leemos tu espacio y la piedra juntos: dónde cortar, cómo casar las vetas, qué acabado pide el uso.'],
-                ['03', 'Transformar', 'Fabricamos a la medida, con madera y metal cuando la pieza lo pide, e instalamos.'],
-                ['04', 'Cuidar', 'Caliza Care acompaña la vida de cada superficie con mantenimiento y restauración.'],
-              ].map(([n, t, d], i) => (
-                <div className="step" data-reveal key={n} style={i === 3 ? { paddingBottom: 0 } : undefined}><span className="step__num">{n}</span><h3 className="h3" style={{ fontSize: 'clamp(32px,3.2vw,48px)' }}>{t}</h3><p>{d}</p></div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      <Method />
 
       <section className="sec-s2 wrap" id="care">
         <div className="grid" style={{ alignItems: 'center', rowGap: 36 }}>
@@ -193,20 +177,12 @@ export default async function HomePage() {
               <li><span>Protección y sellado</span><span className="muted">Cocinas y baños</span></li>
               <li><span>Restauración</span><span className="muted">Brillo, manchas, desgaste</span></li>
             </ul>
-            <Link className="link" href="#contacto" data-reveal><span className="u">Cuéntanos qué le pasa a tu superficie</span><span className="arrow">→</span></Link>
+            <Link className="link" href="/care" data-reveal><span className="u">Cuéntanos qué le pasa a tu superficie</span><span className="arrow">→</span></Link>
           </div>
         </div>
       </section>
 
-      <section className="sec-s2 wrap bg-arena" id="contacto">
-        <div className="grid" style={{ rowGap: 40, alignItems: 'start' }}>
-          <div className="c-1-6">
-            <h2 className="closing__title" data-reveal>Cuéntanos tu espacio.</h2>
-            <p className="muted" style={{ maxWidth: 460, margin: '24px 0 0' }} data-reveal>Una conversación con el estudio, por WhatsApp o videollamada. No necesitas saber qué piedra quieres para empezar.</p>
-          </div>
-          <div className="c-7-6"><LeadForm /></div>
-        </div>
-      </section>
+      <Contact />
     </>
   )
 }

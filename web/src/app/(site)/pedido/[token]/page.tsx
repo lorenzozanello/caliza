@@ -8,6 +8,7 @@ import { waLink } from '@/lib/whatsapp'
 import { retryPayment } from '../../actions'
 import { mediaUrl } from '@/components/media'
 import { WaIcon } from '@/components/WaIcon'
+import { ClearCart } from '@/components/cart/ClearCart'
 
 export const metadata: Metadata = { title: 'Tu pedido', robots: { index: false } }
 export const dynamic = 'force-dynamic'
@@ -28,6 +29,7 @@ export default async function OrderPage({ params, searchParams }: { params: Prom
 
   return (
     <div className="tracking">
+      <ClearCart />
       <div className="tracking__main">
         <span className="eyebrow" style={{ color: pending ? 'var(--veta)' : '#2F5D50' }} data-testid="order-stage">{stage?.client}</span>
         <h1 className="h2">{pending ? 'Tu pedido está reservado.' : order.status === 'entregado' ? 'Tu pieza ya está en casa.' : 'Tu pieza empieza hoy.'}</h1>

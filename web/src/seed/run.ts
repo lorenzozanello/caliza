@@ -14,7 +14,7 @@ const IMG = path.resolve(dirname, '../../../prototype/assets/img')
 const payload = await getPayload({ config })
 const log = (m: string) => payload.logger.info(`[seed] ${m}`)
 
-for (const collection of ['orders', 'leads', 'products', 'projects', 'materials'] as const) {
+for (const collection of ['orders', 'leads', 'products', 'projects', 'materials', 'legal'] as const) {
   const res = await payload.delete({ collection, where: { id: { exists: true } }, overrideAccess: true })
   if (res.errors.length) throw new Error(`No se pudo limpiar ${collection}: ${res.errors.map((e) => e.message).join('; ')}`)
 }
@@ -78,10 +78,15 @@ await payload.updateGlobal({
 })
 
 const materials = [
-  { name: 'Piedra', family: 'piedra', description: 'Mármol, travertino, cuarcita y más, seleccionados placa por placa.', image: media.m_piedra },
-  { name: 'Madera', family: 'madera', description: 'Calidez y estructura en bases, muebles y gabinetes.', image: media.m_madera },
-  { name: 'Metal', family: 'metal', description: 'Precisión en estructuras, herrajes y detalles.', image: media.m_metal },
-  { name: 'Texturas', family: 'textura', description: 'Acabados apomazados, flameados y cepillados que se sienten con la mano.', image: media.m_textura },
+  { name: 'Piedra', family: 'piedra', description: 'Mármol, travertino, cuarcita y más, seleccionados placa por placa.', image: media.m_piedra,
+    recommendedUses: 'Cocinas, baños, pisos, muros, fachadas y piezas de mobiliario.',
+    cautions: 'Los mármoles y travertinos son sensibles a ácidos como el limón o el vinagre: en cocinas conviene sellarlos o elegir cuarcita.' },
+  { name: 'Madera', family: 'madera', description: 'Calidez y estructura en bases, muebles y gabinetes.', image: media.m_madera,
+    recommendedUses: 'Bases de mesas, gabinetes y detalles interiores.', cautions: 'Exposición directa al sol o a la humedad constante.' },
+  { name: 'Metal', family: 'metal', description: 'Precisión en estructuras, herrajes y detalles.', image: media.m_metal,
+    recommendedUses: 'Estructuras, bases delgadas, herrajes y griferías.', cautions: 'Ambientes salinos sin el tratamiento adecuado.' },
+  { name: 'Texturas', family: 'textura', description: 'Acabados apomazados, flameados y cepillados que se sienten con la mano.', image: media.m_textura,
+    recommendedUses: 'Pisos exteriores, bordes de piscina y superficies que se tocan.', cautions: 'Zonas donde se necesita limpiar grasa con frecuencia: el poro abierto la retiene.' },
 ] as const
 for (const [i, m] of materials.entries()) await payload.create({ collection: 'materials', data: { ...m, order: i } })
 
@@ -92,6 +97,25 @@ const project = await payload.create({
     challenge: 'Una cocina abierta al jardín que necesitaba una isla resistente al uso diario y en diálogo con la madera existente.',
     solution: 'Elegimos una placa de veta suave, casamos las vetas en la isla y la combinamos con gabinetes en roble y detalles en latón.',
     cover: media.proyecto, gallery: [{ image: media.detalle_borde }, { image: media.m_piedra }], featured: true, isExample: true,
+  },
+})
+
+await payload.create({
+  collection: 'projects',
+  data: {
+    title: 'Baño Travertino', line: 'stone', city: 'Cartagena', space: 'Baño principal', materialsText: 'Piedra natural · latón',
+    challenge: 'Un baño pequeño que debía sentirse como una sola pieza de piedra, sin juntas que interrumpieran la lectura.',
+    solution: 'Tallamos el lavamanos del mismo bloque que el muro y alineamos las vetas de piso a techo.',
+    cover: media.lavamanos, gallery: [{ image: media.m_textura }, { image: media.piedra_macro }], isExample: true,
+  },
+})
+await payload.create({
+  collection: 'projects',
+  data: {
+    title: 'Comedor Sobremesa', line: 'design', city: 'Medellín', space: 'Comedor', materialsText: 'Piedra natural · roble',
+    challenge: 'Una mesa para diez personas que no dominara un comedor de proporciones medianas.',
+    solution: 'Una cubierta delgada de borde suave sobre dos bases en roble retiradas del perímetro.',
+    cover: media.comedor, gallery: [{ image: media.p1 }, { image: media.detalle_borde }, { image: media.m_madera }], isExample: true,
   },
 })
 
@@ -145,5 +169,59 @@ const products = [
   },
 ]
 for (const p of products) await payload.create({ collection: 'products', data: p as never })
-log(`${products.length} productos de ejemplo, 1 proyecto, ${materials.length} materiales`)
+log(`${products.length} productos de ejemplo y ${materials.length} materiales`)
+await payload.updateGlobal({
+  slug: 'pages',
+  data: {
+    stone: {
+      heroImage: media.proyecto,
+      spaces: [
+        { title: 'Cocinas', text: 'Mesones, islas y salpicaderos con las vetas casadas.', image: media.proyecto },
+        { title: 'Baños', text: 'Lavamanos, muros y duchas en una sola lectura de piedra.', image: media.lavamanos },
+        { title: 'Pisos y escaleras', text: 'Superficies continuas, con el acabado que pide el uso.', image: media.m_piedra },
+        { title: 'Muros y chimeneas', text: 'La piedra como protagonista del espacio.', image: media.piedra_macro },
+        { title: 'Piscinas y exteriores', text: 'Acabados antideslizantes que resisten sol y agua.', image: media.m_textura },
+        { title: 'Fachadas', text: 'Revestimientos que envejecen con dignidad.', image: media.hero },
+      ],
+    },
+    care: { heroImage: media.detalle_borde },
+    studio: { heroImage: media.piedra_macro },
+  },
+})
+
+// Texto enriquecido de Lexical a partir de bloques simples.
+const text = (t: string) => ({ type: 'text', text: t, format: 0, detail: 0, mode: 'normal', style: '', version: 1 })
+const block = ([kind, t]: [string, string]) =>
+  kind === 'h'
+    ? { type: 'heading', tag: 'h2', format: '', indent: 0, version: 1, direction: 'ltr', children: [text(t)] }
+    : { type: 'paragraph', format: '', indent: 0, version: 1, direction: 'ltr', textFormat: 0, children: [text(t)] }
+const rich = (blocks: [string, string][]) => ({ root: { type: 'root', format: '', indent: 0, version: 1, direction: 'ltr', children: blocks.map(block) } }) as never
+
+const legal: { title: string; slug: string; body: [string, string][] }[] = [
+  { title: 'Términos y condiciones', slug: 'terminos', body: [
+    ['p', 'Estos términos regulan las compras hechas en este sitio. Son un borrador y deben ser revisados por un abogado antes de publicarse como definitivos.'],
+    ['h', 'Piezas por encargo'],
+    ['p', 'Las piezas bajo pedido y configurables se fabrican después de tu elección. Cada placa de piedra natural es única: la veta, el tono y las marcas naturales pueden variar respecto a las fotografías.'],
+    ['h', 'Precios y pagos'],
+    ['p', 'Los precios están en pesos colombianos e incluyen los impuestos aplicables. Puedes pagar el total o un anticipo para iniciar la fabricación y el saldo antes del despacho.'],
+    ['h', 'Plazos'],
+    ['p', 'Los plazos de fabricación son estimados y se confirman al elegir la placa. Te informamos cualquier cambio por WhatsApp.'],
+  ] },
+  { title: 'Tratamiento de datos personales', slug: 'datos-personales', body: [
+    ['p', 'Borrador de política de tratamiento de datos conforme a la Ley 1581 de 2012. Debe ser revisado por un abogado antes de publicarse como definitivo.'],
+    ['h', 'Qué datos recogemos'],
+    ['p', 'Nombre, número de WhatsApp, correo, ciudad y dirección de entrega, y el origen de tu visita, solo para atender tu solicitud o tu pedido.'],
+    ['h', 'Tus derechos'],
+    ['p', 'Puedes conocer, actualizar, rectificar y pedir la supresión de tus datos escribiéndonos por WhatsApp.'],
+  ] },
+  { title: 'Envíos, cambios y garantía', slug: 'envios-y-garantia', body: [
+    ['p', 'Borrador pendiente de revisión legal.'],
+    ['h', 'Envíos e instalación'],
+    ['p', 'Antes de despachar confirmamos piso, ascensor y accesos. El costo de envío e instalación depende de la ciudad y se muestra antes de pagar.'],
+    ['h', 'Cambios'],
+    ['p', 'Las piezas hechas a la medida no admiten cambio por gusto, porque se fabrican para tu espacio. Las piezas de entrega inmediata se revisan caso por caso.'],
+  ] },
+]
+for (const l of legal) await payload.create({ collection: 'legal', data: { title: l.title, slug: l.slug, draft: true, body: rich(l.body) } })
+log(`3 proyectos de ejemplo, páginas y ${legal.length} textos legales en borrador`)
 process.exit(0)

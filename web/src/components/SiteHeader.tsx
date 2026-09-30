@@ -6,17 +6,20 @@ import { useCart } from './cart/CartProvider'
 import { waLink } from '@/lib/whatsapp'
 
 const NAV = [
-  { href: '/#lineas', label: 'Stone' },
+  { href: '/stone', label: 'Stone' },
   { href: '/design', label: 'Design' },
-  { href: '/#care', label: 'Care' },
-  { href: '/#proyecto', label: 'Proyectos' },
-  { href: '/#materiales', label: 'Materiales' },
-  { href: '/#estudio', label: 'Estudio' },
+  { href: '/care', label: 'Care' },
+  { href: '/proyectos', label: 'Proyectos' },
+  { href: '/materiales', label: 'Materiales' },
+  { href: '/estudio', label: 'Estudio' },
 ]
+
+/** Páginas que abren con foto a pantalla completa: el encabezado empieza transparente. */
+const HERO_PAGES = ['/', '/stone', '/care', '/materiales', '/estudio']
 
 export function SiteHeader() {
   const pathname = usePathname()
-  const overlay = pathname === '/' || pathname.startsWith('/proyectos/')
+  const overlay = HERO_PAGES.includes(pathname) || pathname.startsWith('/proyectos/')
   const { items, setOpen, whatsapp, source, bump } = useCart()
   const [solid, setSolid] = useState(!overlay)
   const [hidden, setHidden] = useState(false)
@@ -56,7 +59,7 @@ export function SiteHeader() {
         </Link>
         <nav aria-label="Principal">
           {NAV.map((n) => (
-            <Link key={n.href} href={n.href} aria-current={pathname.startsWith('/design') && n.href === '/design' ? 'page' : undefined}>{n.label}</Link>
+            <Link key={n.href} href={n.href} aria-current={pathname === n.href || pathname.startsWith(n.href + '/') ? 'page' : undefined}>{n.label}</Link>
           ))}
         </nav>
         <div className="actions">
@@ -76,7 +79,7 @@ export function SiteHeader() {
           </button>
         </div>
         <ul>
-          {NAV.map((n) => <li key={n.href}><Link href={n.href} onClick={() => setMenu(false)}>{n.label}</Link></li>)}
+          {NAV.map((n) => <li key={n.href}><Link href={n.href} onClick={() => setMenu(false)} aria-current={pathname === n.href ? 'page' : undefined}>{n.label}</Link></li>)}
         </ul>
         <div className="bottom">
           <a className="btn btn--wa" href={waLink(whatsapp, 'Hola, quiero hablar con el estudio.', source)} target="_blank" rel="noopener">Escribir por WhatsApp</a>

@@ -72,6 +72,7 @@ export interface Config {
     materials: Material;
     orders: Order;
     leads: Lead;
+    legal: Legal;
     media: Media;
     users: User;
     'payload-kv': PayloadKv;
@@ -86,6 +87,7 @@ export interface Config {
     materials: MaterialsSelect<false> | MaterialsSelect<true>;
     orders: OrdersSelect<false> | OrdersSelect<true>;
     leads: LeadsSelect<false> | LeadsSelect<true>;
+    legal: LegalSelect<false> | LegalSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
@@ -99,10 +101,12 @@ export interface Config {
   fallbackLocale: null;
   globals: {
     home: Home;
+    pages: Page;
     settings: Setting;
   };
   globalsSelect: {
     home: HomeSelect<false> | HomeSelect<true>;
+    pages: PagesSelect<false> | PagesSelect<true>;
     settings: SettingsSelect<false> | SettingsSelect<true>;
   };
   locale: null;
@@ -414,6 +418,39 @@ export interface Lead {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "legal".
+ */
+export interface Legal {
+  id: number;
+  title: string;
+  /**
+   * Se genera desde el nombre si lo dejas vacío.
+   */
+  slug?: string | null;
+  /**
+   * Mientras esté marcado, la página muestra un aviso de borrador.
+   */
+  draft?: boolean | null;
+  body: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
 export interface User {
@@ -482,6 +519,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'leads';
         value: number | Lead;
+      } | null)
+    | ({
+        relationTo: 'legal';
+        value: number | Legal;
       } | null)
     | ({
         relationTo: 'media';
@@ -717,6 +758,18 @@ export interface LeadsSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "legal_select".
+ */
+export interface LegalSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  draft?: T;
+  body?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "media_select".
  */
 export interface MediaSelect<T extends boolean = true> {
@@ -863,6 +916,74 @@ export interface Home {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pages".
+ */
+export interface Page {
+  id: number;
+  stone?: {
+    heroImage?: (number | null) | Media;
+    eyebrow?: string | null;
+    title?: string | null;
+    titleItalic?: string | null;
+    intro?: string | null;
+    manifesto?: string | null;
+    spaces?:
+      | {
+          title: string;
+          text?: string | null;
+          image?: (number | null) | Media;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  care?: {
+    heroImage?: (number | null) | Media;
+    eyebrow?: string | null;
+    title?: string | null;
+    titleItalic?: string | null;
+    intro?: string | null;
+    services?:
+      | {
+          title: string;
+          text?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+    symptoms?:
+      | {
+          title: string;
+          text?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+    steps?:
+      | {
+          title: string;
+          text?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  studio?: {
+    heroImage?: (number | null) | Media;
+    eyebrow?: string | null;
+    title?: string | null;
+    titleItalic?: string | null;
+    intro?: string | null;
+    story?: string | null;
+    principles?:
+      | {
+          title: string;
+          text?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "settings".
  */
 export interface Setting {
@@ -911,6 +1032,80 @@ export interface HomeSelect<T extends boolean = true> {
         id?: T;
       };
   careSectionImage?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pages_select".
+ */
+export interface PagesSelect<T extends boolean = true> {
+  stone?:
+    | T
+    | {
+        heroImage?: T;
+        eyebrow?: T;
+        title?: T;
+        titleItalic?: T;
+        intro?: T;
+        manifesto?: T;
+        spaces?:
+          | T
+          | {
+              title?: T;
+              text?: T;
+              image?: T;
+              id?: T;
+            };
+      };
+  care?:
+    | T
+    | {
+        heroImage?: T;
+        eyebrow?: T;
+        title?: T;
+        titleItalic?: T;
+        intro?: T;
+        services?:
+          | T
+          | {
+              title?: T;
+              text?: T;
+              id?: T;
+            };
+        symptoms?:
+          | T
+          | {
+              title?: T;
+              text?: T;
+              id?: T;
+            };
+        steps?:
+          | T
+          | {
+              title?: T;
+              text?: T;
+              id?: T;
+            };
+      };
+  studio?:
+    | T
+    | {
+        heroImage?: T;
+        eyebrow?: T;
+        title?: T;
+        titleItalic?: T;
+        intro?: T;
+        story?: T;
+        principles?:
+          | T
+          | {
+              title?: T;
+              text?: T;
+              id?: T;
+            };
+      };
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

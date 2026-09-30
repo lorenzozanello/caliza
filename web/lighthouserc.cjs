@@ -4,7 +4,7 @@ module.exports = {
     collect: {
       startServerCommand: 'npx next start -p 3300',
       startServerReadyPattern: 'Ready',
-      url: ['http://localhost:3300/', 'http://localhost:3300/design', 'http://localhost:3300/design/mesa-estrato'],
+      url: ['http://localhost:3300/', 'http://localhost:3300/design', 'http://localhost:3300/design/mesa-estrato', 'http://localhost:3300/stone', 'http://localhost:3300/proyectos/casa-bosque'],
       numberOfRuns: 1,
       settings: { chromeFlags: '--no-sandbox --headless=new' },
     },
