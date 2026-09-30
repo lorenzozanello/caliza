@@ -193,7 +193,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
 
 /* Manifiesto */
 .manifesto__text { font-family: var(--serif); font-size: var(--t-h2); line-height: 1.08; letter-spacing: -.015em; margin: 0; text-wrap: pretty; }
-.manifesto__text .w { color: #B7ADA2; transition: color 200ms linear; }
+.manifesto__text .w { color: #8A8177; transition: color 200ms linear; }
 .manifesto__text .w.is-on { color: var(--carbon); }
 .manifesto__side { display: flex; flex-direction: column; gap: 18px; padding-top: 12px; }
 .signature { display: flex; align-items: center; gap: 14px; margin-top: 40px; font-size: var(--t-small); color: var(--veta); }
@@ -281,7 +281,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .materials__list .mname { grid-column: 1 / span 6; font-family: var(--serif); font-size: clamp(48px, 7vw, 112px); line-height: .95; letter-spacing: -.02em; }
 .materials__list .mdesc { grid-column: 7 / span 4; font-size: 15px; color: var(--veta); }
 .materials__list .mrole { grid-column: 11 / span 2; justify-self: end; font-size: var(--t-micro); letter-spacing: .16em; text-transform: uppercase; }
-.materials__list:hover li a { color: #A9A095; }
+.materials__list:hover li a { color: #8A8177; }
 .materials__list li a:hover { color: var(--carbon); padding-left: 24px; }
 .materials__list li a:hover .mdesc { color: var(--carbon); }
 .mat-thumb { display: none; }

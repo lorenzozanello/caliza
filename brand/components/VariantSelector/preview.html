@@ -1,0 +1,19 @@
+<!-- @dsCard group="Comercio" height=330 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap"><style>body{margin:0;background:var(--piedra)}</style></head>
+<body>
+<div class="cz" style="padding:28px;background:var(--piedra)">
+<div style="max-width:420px;display:flex;flex-direction:column;gap:20px">
+<div class="cz-price"><span class="cz-price__value">$ 8.900.000</span><span class="cz-muted" style="font-size:14px">IVA incluido</span></div>
+<div class="cz-variant"><div class="cz-variant__head"><span style="font-weight:500">Piedra</span><span class="cz-muted">Gris veteado</span></div>
+<div class="cz-swatches" role="group" aria-label="Piedra"><button class="cz-swatch" aria-pressed="true" aria-label="Gris veteado"><img src="/_blob/3eecb41ba2cd8b08793eccd7a1114c02" alt=""></button><button class="cz-swatch" aria-pressed="false" aria-label="Oscuro profundo"><img src="/_blob/4bf7e215eee4318a1dd943666ddab78c" alt=""></button><button class="cz-swatch" aria-pressed="false" aria-label="Arena texturizada"><img src="/_blob/b8fd58c67aeeaf34526b5b98b4606829" alt=""></button></div></div>
+<div class="cz-variant"><div class="cz-variant__head"><span style="font-weight:500">Tamaño</span><span class="cz-muted cz-tnum">220 × 100 × 75 cm</span></div>
+<div class="cz-segmented" role="group" aria-label="Tamaño"><span class="cz-segmented__thumb"></span><button aria-pressed="false">6 personas</button><button aria-pressed="true">8 personas</button><button aria-pressed="false">10 personas</button></div></div>
+</div>
+</div>
+<script>function place(g){var on=g.querySelector('[aria-pressed="true"]'),t=g.querySelector('.cz-segmented__thumb');t.style.width=on.offsetWidth+'px';t.style.transform='translateX('+on.offsetLeft+'px)'}
+document.querySelectorAll('.cz-segmented').forEach(function(g){place(g);g.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;g.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',String(x===b))});place(g)})});
+document.querySelectorAll('.cz-swatch').forEach(function(s){s.addEventListener('click',function(){document.querySelectorAll('.cz-swatch').forEach(function(x){x.setAttribute('aria-pressed','false')});s.setAttribute('aria-pressed','true');document.querySelector('.cz-variant__head .cz-muted').textContent=s.getAttribute('aria-label')})});</script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!-- @dsCard group="Acciones" height=130 -->
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap"><style>body{margin:0;background:var(--piedra)}</style></head>
+<body>
+<div class="cz" style="padding:28px;background:var(--piedra)">
+<span class="cz-muted" style="font-size:12px;letter-spacing:.16em;text-transform:uppercase">Empiezo con</span>
+<div class="cz-chips" role="group" aria-label="¿Con qué empiezas?" style="margin-top:12px">
+  <button class="cz-chip" aria-pressed="true">Un proyecto</button>
+  <button class="cz-chip" aria-pressed="false">Una pieza</button>
+  <button class="cz-chip" aria-pressed="false">Cuidar una superficie</button>
+  <button class="cz-chip" aria-pressed="false">Aún no lo sé</button>
+</div>
+</div>
+<script>document.querySelectorAll(".cz-chip").forEach(function(c){c.addEventListener("click",function(){document.querySelectorAll(".cz-chip").forEach(function(x){x.setAttribute("aria-pressed","false")});c.setAttribute("aria-pressed","true")})});</script>
+</body>
+</html>
