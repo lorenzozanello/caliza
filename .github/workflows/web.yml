@@ -1,11 +1,7 @@
 name: web
 
 on:
-  push:
-    branches: [main, 'claude/**']
-    paths: ['web/**', 'brand/**', 'prototype/assets/img/**', '.github/workflows/web.yml']
-  pull_request:
-    paths: ['web/**', 'brand/**', 'prototype/assets/img/**', '.github/workflows/web.yml']
+  workflow_dispatch:
 
 concurrency:
   group: web-${{ github.ref }}
