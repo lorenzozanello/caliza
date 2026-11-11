@@ -46,6 +46,23 @@ test('redes visibles, sin conexión externa sin consentimiento', async ({ page }
   expect(outside).toHaveLength(0)
 })
 
+
+test('TikTok: solo se pide el script externo tras clic explícito', async ({ page }) => {
+  let externalRequests = 0
+  await page.route('https://www.tiktok.com/embed.js', async route => {
+    externalRequests += 1
+    await route.fulfill({ status: 200, contentType: 'application/javascript', body: '/* stub oficial en QA: no representa feed real */' })
+  })
+  await page.goto('/index.html#/')
+  await expect(page.locator('#caliza-tiktok-widget')).toBeHidden()
+  expect(externalRequests).toBe(0)
+  await page.getByRole('button', { name: /Mostrar videos de TikTok/ }).click()
+  await expect(page.locator('#caliza-tiktok-widget')).toBeVisible()
+  await expect(page.locator('#caliza-tiktok-widget blockquote.tiktok-embed')).toHaveAttribute('data-unique-id', 'calizastone')
+  await expect.poll(() => externalRequests).toBe(1)
+  expect(externalRequests).toBe(1)
+})
+
 test('auditoría de accesibilidad WCAG A/AA en todas las rutas importantes', async ({ page }) => {
   const findings: Array<{ route: string; id: string; impact: string | null; selectors: string[][] }> = []
   for (const route of ['/', '/stone-design', '/stone-design/brief', '/living-design', '/living-design/coleccion', '/living-design/familia/mesas-de-comedor', '/stone-care', '/stone-care/diagnostico', '/proyectos', '/materiales', '/grupo', '/inspiracion', '/contacto']) {
