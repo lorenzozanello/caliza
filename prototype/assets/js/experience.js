@@ -290,7 +290,9 @@
   function render(scroll = true) {
     const route = getRoute();
     main.innerHTML = currentPage(route);
-    document.title = `${main.querySelector('h1')?.textContent?.replace(/\s+/g, ' ').trim() || 'CALIZA GROUP'} · CALIZA GROUP`;
+    const heading = main.querySelector('h1');
+    const pageTitle = heading?.innerHTML?.replace(/<br\s*\/?\s*>/gi, ' ').replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim() || heading?.textContent?.trim();
+    document.title = `${pageTitle || 'CALIZA GROUP'} · CALIZA GROUP`;
     document.querySelectorAll('.o8-nav a').forEach((link) => link.setAttribute('aria-current', route === link.getAttribute('href')?.substring(1) ? 'page' : 'false'));
     syncConversionDock();
     if (scroll) {

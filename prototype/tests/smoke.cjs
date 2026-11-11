@@ -65,6 +65,7 @@ for (const route of routes) {
 }
 for (const route of linkedRoutes) visit(route)
 assert.match(visit('/'), /La materia/)
+assert.equal(document.title, 'La materia toma forma. · CALIZA GROUP')
 assert.match(visit('/'), /caliza-journeys/)
 assert.match(visit('/'), /caliza-social-showcase/)
 assert.match(visit('/'), /@calizastonedesign/)
