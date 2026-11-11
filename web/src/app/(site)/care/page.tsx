@@ -11,7 +11,7 @@ import { isProvisional, mediaAlt, mediaUrl } from '@/components/media'
 export const revalidate = 60
 
 export const metadata: Metadata = {
-  title: 'Care · Mantenimiento y restauración de piedra',
+  title: 'Stone Care · Cuidar también es diseñar',
   description: 'Mantenimiento, protección y restauración de superficies en piedra natural.',
 }
 
@@ -48,9 +48,9 @@ export default async function CarePage() {
       <section className="sec-s2 wrap on-dark" id="diagnostico" aria-label="Diagnóstico">
         <div className="grid" style={{ rowGap: 40, alignItems: 'center' }}>
           <div className="c-1-6" style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
-            <span className="eyebrow" style={{ color: 'var(--claro-2)' }} data-reveal>Diagnóstico por WhatsApp</span>
+            <span className="eyebrow" style={{ color: 'var(--claro-2)' }} data-reveal>Orientación sobre piedra natural</span>
             <h2 className="h2" data-reveal>¿Qué le pasa a tu superficie?</h2>
-            <p className="muted" style={{ margin: 0, maxWidth: 460 }} data-reveal>Marca lo que ves. Te abrimos WhatsApp con el mensaje escrito; solo adjunta fotos con luz natural.</p>
+            <p className="muted" style={{ margin: 0, maxWidth: 460 }} data-reveal>Identifica lo que ves en tu superficie. Cuando el canal comercial esté configurado, podrás compartir el diagnóstico y fotos con luz natural.</p>
             <CareSymptoms symptoms={(c.symptoms ?? []).map((s) => s.title)} />
           </div>
           {mediaUrl(side, 'card') && (

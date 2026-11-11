@@ -13,6 +13,7 @@ export function CareSymptoms({ symptoms }: { symptoms: string[] }) {
   const message = picked.length
     ? `Hola, mi superficie en piedra ${list.length > 1 ? list.slice(0, -1).join(', ') + ' y ' + list[list.length - 1] : list[0]}. Te envío fotos.`
     : 'Hola, quiero cuidar una superficie en piedra. Te envío fotos.'
+  const whatsappReady = !!whatsapp && whatsapp.replace(/\D/g, '') !== '570000000000'
   return (
     <div className="symptoms">
       <div className="chips" role="group" aria-label="Qué le pasa a tu superficie">
@@ -21,9 +22,9 @@ export function CareSymptoms({ symptoms }: { symptoms: string[] }) {
         ))}
       </div>
       <p className="symptoms__preview" aria-live="polite" data-testid="care-message">“{message}”</p>
-      <a className="btn btn--wa" href={waLink(whatsapp, message, source)} target="_blank" rel="noopener" data-testid="care-wa" data-magnetic>
-        <WaIcon size={18} />Enviar fotos por WhatsApp
-      </a>
+      {whatsappReady
+        ? <a className="btn btn--wa" href={waLink(whatsapp, message, source)} target="_blank" rel="noopener" data-testid="care-wa" data-magnetic><WaIcon size={18} />Enviar fotos por WhatsApp</a>
+        : <p className="small muted">El canal de WhatsApp estará disponible cuando Caliza confirme su número comercial.</p>}
     </div>
   )
 }

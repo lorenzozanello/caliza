@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: 'Espacios y piezas en piedra natural diseñados y fabricados por Caliza.',
 }
 
-const FILTERS = [{ value: '', label: 'Todos' }, { value: 'stone', label: 'Stone' }, { value: 'design', label: 'Design' }, { value: 'care', label: 'Care' }] as const
+const FILTERS = [{ value: '', label: 'Todos' }, { value: 'stone', label: 'Stone Design' }, { value: 'design', label: 'Living Design' }, { value: 'care', label: 'Stone Care' }] as const
 
 export default async function ProjectsPage({ searchParams }: { searchParams: Promise<{ linea?: string }> }) {
   const { linea = '' } = await searchParams

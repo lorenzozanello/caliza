@@ -10,7 +10,7 @@ import { ProjectCard } from '@/components/sections/ProjectCard'
 export const revalidate = 60
 
 export const metadata: Metadata = {
-  title: 'Stone · Proyectos en piedra natural',
+  title: 'Stone Design · Espacios que perduran',
   description: 'Cocinas, baños, pisos, muros, piscinas y fachadas en piedra natural, del diseño a la instalación.',
 }
 
@@ -32,7 +32,7 @@ export default async function StonePage() {
       {s.manifesto && (
         <section className="sec-s2 wrap">
           <div className="grid">
-            <div className="c-1-4 manifesto__side" data-reveal><span className="eyebrow muted">Caliza Stone</span></div>
+            <div className="c-1-4 manifesto__side" data-reveal><span className="eyebrow muted">Caliza Stone Design</span></div>
             <p className="c-4-9 manifesto__text" data-words>{s.manifesto}</p>
           </div>
         </section>

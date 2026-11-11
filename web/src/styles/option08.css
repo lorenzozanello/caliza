@@ -134,14 +134,33 @@ body { background:var(--paper); font-family:var(--sans); color:var(--ink); }
 .o8-contact-wrap #contacto { background:var(--limewash); }
 .o8-contact-wrap #contacto .closing__title { font-family:var(--serif); font-weight:400; letter-spacing:-.06em; }
 .o8-visual-disclaimer { background:var(--ink); color:var(--limewash); text-align:center; font:400 10px var(--sans); letter-spacing:.05em; margin:0; padding:7px 12px; }
+/* Portadas interiores: la composición editorial clara reemplaza el antiguo hero nocturno. */
+.hero--page { margin-top:85px; height:clamp(470px,63svh,690px); background:var(--limewash); color:var(--ink); }
+.hero--page .hero__scrim { background:linear-gradient(90deg,rgba(248,240,228,.94) 0%,rgba(248,240,228,.86) 30%,rgba(248,240,228,.12) 75%); }
+.hero--page .hero__content { top:50%; bottom:auto; transform:translateY(-50%); display:flex; align-items:flex-start; flex-direction:column; gap:20px; padding-left:clamp(25px,6vw,110px); }
+.hero--page .hero__title { width:min(680px,70%); gap:14px; }
+.hero--page .hero__title .display { color:var(--ink); font-size:clamp(48px,6vw,87px); }
+.hero--page .hero__aside { width:min(420px,50%); padding:0; gap:15px; }
+.hero--page .hero__aside p { color:var(--ink); font-size:13px; max-width:380px; }
+.hero--page .btn--light { background:var(--terracotta); color:white; border-color:var(--terracotta); }
+.hero--page .btn--light::before { background:#8e533a; }
+.hero--page .tag { top:14px; }
+.page-top { padding-top:128px; }
 @media(max-width:1000px) {
   .site-header,.site-header.is-solid,.site-header--solid-start { height:70px; }
   .site-header .logo .o8-wordmark { font-size:24px; }
   .o8-site { padding-top:70px; }
   .o8-cms-product-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .hero--page { margin-top:70px; }
+  .page-top { padding-top:105px; }
 }
 @media(max-width:520px) {
   .o8-material-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
   .o8-cms-product-grid { gap:8px; }
   .o8-site .o8-section-heading h2 { font-size:12px; }
+  .hero--page .hero__content { left:0; right:0; width:100%; padding:0 22px; }
+  .hero--page .hero__title { width:92%; }
+  .hero--page .hero__aside { width:87%; }
+  .hero--page .hero__title .display { font-size:clamp(39px,10vw,57px); }
+  .hero--page .hero__scrim { background:linear-gradient(90deg,#f8f0e4ee 0%,#f8f0e4bc 60%,transparent); }
 }
