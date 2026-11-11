@@ -187,8 +187,8 @@
     return `${hero({ image: 'option08-hero.webp', eyebrow: 'Caliza Stone Design · Crear', title: 'Espacios<br>que perduran.', desc: 'Diseño y transformación de espacios a través de la piedra natural.', cta: 'Iniciar un proyecto', href: '/stone-design/brief' })}
       <section class="exp-copy-split"><div>${lineIcon('stone')}${label('Piedra · Arquitectura · Oficio')}<h2>De la idea a la materia.</h2></div><div><p>Concebimos proyectos en los que cada superficie, textura y encuentro construye una relación duradera entre las personas y el espacio.</p><p>Explore posibilidades en cubiertas, lavamanos, revestimientos, mesas y soluciones a medida.</p></div></section>
       <section class="o8-section">${sectionHead('Universo de proyectos', '/stone-design/proyectos', 'Ver galería')}<div class="exp-grid exp-grid-3">${[
-        ['option08-hero.webp', 'Cocinas', 'Superficies para encuentros cotidianos.'], ['lavamanos.jpg', 'Baños', 'Gestos de piedra y agua.'], ['proyecto.jpg', 'Espacios', 'Arquitectura y detalles a medida.']
-      ].map(([image, title, desc]) => `<a class="exp-card" href="#/stone-design/proyectos">${picture(image, `Referencia conceptual para ${title}`)}<div class="exp-card-info"><div><h3>${title}</h3><p>${desc}</p></div><span aria-hidden="true">↗</span></div></a>`).join('')}</div></section>
+        ['proyecto.jpg', 'Cocinas', 'Superficies para encuentros cotidianos.'], ['lavamanos.jpg', 'Baños', 'Gestos de piedra y agua.'], ['detalle_borde.jpg', 'Espacios', 'Arquitectura y detalles a medida.']
+      ].map(([image, title, desc]) => `<a class="exp-card" href="#/stone-design/proyectos">${picture(image, `Referencia editorial para ${title}`)}<div class="exp-card-info"><div><h3>${title}</h3><p>${desc}</p></div><span aria-hidden="true">↗</span></div></a>`).join('')}</div></section>
       <section class="exp-process">${label('Nuestro proceso')}<h2>Diseñamos con usted.</h2><div class="exp-grid exp-grid-4">${[
         ['Entender', 'Escuchamos lo que busca transformar, el uso del espacio y las referencias disponibles.'],
         ['Dar forma', 'Exploramos alternativas de materiales, superficies y diseño junto con usted.'],
@@ -197,11 +197,23 @@
       ].map(([title, desc], i) => `<div><span>0${i + 1}</span><h3>${title}</h3><p>${desc}</p></div>`).join('')}</div></section>${contactRibbon()}${disclaimer}`;
   }
   function projects() {
-    return `${pageIntro('Stone Design / Proyectos', 'Arquitectura y materia.', 'Una galería de direcciones creativas. Las imágenes mostradas no se presentan como obras ejecutadas por Caliza.')}
-      <section class="exp-page-pad"><div class="exp-grid exp-grid-3">${[
-        ['option08-hero.webp', 'Cocinas y superficies'], ['proyecto.jpg', 'Arquitectura y revestimientos'], ['lavamanos.jpg', 'Lavamanos y baños'], ['comedor.jpg', 'Mobiliario a medida'], ['detalle_borde.jpg', 'Detalles de oficio'], ['option08-living.webp', 'Interiorismo en piedra'],
-      ].map(([image, title]) => `<article class="exp-project">${picture(image, `${title}: imagen de referencia sin atribución de obra`)}<h2>${title}</h2><p>Concepto visual para explorar con el equipo.</p></article>`).join('')}</div><div class="exp-cta-centered">${button('/stone-design/brief', 'Contar mi proyecto')}</div></section>${disclaimer}`;
-  }
+  const areas = [
+    ['Cocinas y superficies', 'proyecto.jpg', 'La biblioteca de CALIZA contiene fotografías de cocinas y superficies. Los casos individuales y sus créditos todavía se están identificando.'],
+    ['Lavamanos y baños', 'lavamanos.jpg', 'Hay documentación visual de lavamanos en el archivo de origen. La identificación de modelos, materiales y obras específicas está pendiente.'],
+  ];
+  return `${pageIntro('Stone Design / Proyectos', 'Espacios que toman forma.', 'Explore los ámbitos de aplicación documentados en el archivo de CALIZA. Los proyectos con autoría y datos técnicos se incorporarán cuando estén verificados.')}
+    <section class="exp-page-pad">
+      <div class="caliza-project-archive">
+        ${areas.map(([title, image, description]) => `<article class="caliza-project-archive-card">${picture(image, `${title}: imagen conceptual de apoyo editorial`)}<div>${label('Archivo visual en revisión')}<h2>${title}</h2><p>${description}</p><a href="#/stone-design/brief" class="o8-text-link">Converse sobre un proyecto →</a></div></article>`).join('')}
+      </div>
+      <section class="caliza-project-capabilities" aria-labelledby="capability-title">${label('Otras aplicaciones') }
+        <h2 id="capability-title">La materia, según su espacio.</h2>
+        <p>El alcance de cada propuesta se define mediante una consulta técnica.</p>
+        <div>${['Revestimientos y muros', 'Pisos y superficies', 'Piezas especiales', 'Proyectos comerciales'].map((name) => `<a href="#/stone-design/brief">${name}<span aria-hidden="true">→</span></a>`).join('')}</div>
+      </section>
+      <div class="exp-cta-centered">${button('/stone-design/brief', 'Empezar un proyecto')}</div>
+    </section>`;
+}
   function living() {
     return `${hero({ image: 'option08-living.webp', eyebrow: 'Caliza Living Design · Habitar', title: 'Piezas<br>para habitar.', desc: 'Mobiliario, mesas y objetos que dan forma a los espacios y a nuestra manera de vivir.', cta: 'Explorar colección', href: '/living-design/coleccion' })}${subnav('/living-design')}
       <section class="exp-copy-split"><div>${lineIcon('living')}<h2>La belleza de lo esencial.</h2></div><div><p>Cada pieza parte de una conversación entre geometría, material y oficio. Explore las familias documentadas en CALIZA y solicite una asesoría personalizada.</p><p>Las fichas individuales, fotografías comerciales, medidas, precios y disponibilidad se publicarán únicamente después de la aprobación de CALIZA.</p></div></section>
@@ -236,10 +248,18 @@
       <section class="exp-banner exp-banner-care">${picture('option08-care.webp', 'Persona limpiando piedra natural con herramienta manual')}<div>${label('Conozca su superficie')}<h2>El primer paso es observar.</h2><p>Cuéntenos qué tipo de piedra y síntoma desea evaluar.</p>${button('/stone-care/diagnostico', 'Empezar diagnóstico')}</div></section>${disclaimer}`;
   }
   function materialsPage() {
-    return `${pageIntro('Caliza Group / Materiales', 'Cada piedra, una historia.', 'Texturas, vetas y tonos naturales. Estas muestras son referencias visuales, no un inventario de placas disponibles.')}
-      <section class="exp-page-pad"><div class="exp-grid exp-grid-2 exp-material-details">${materials.map(([name, image, desc]) => `<article>${picture(image, `Textura de referencia ${name}`)}<div>${label('Biblioteca de materia')}<h2>${name}</h2><p>${desc}</p><a href="#/stone-design/brief" class="o8-text-link">Consultar este acabado →</a></div></article>`).join('')}</div></section>
-      ${contactRibbon()}`;
-  }
+  return `${pageIntro('CALIZA / Exploración de materiales', 'La materia, antes de tomar forma.', 'Una selección de texturas y referencias de acabado para iniciar una conversación. No constituye una lista de piedras, placas ni existencias disponibles.')}
+    <section class="exp-page-pad">
+      <div class="caliza-materials-opening">
+        <h2>Elija primero cómo desea sentir su espacio.</h2>
+        <p>El catálogo maestro conserva las fichas de materiales pendientes de validación. Por eso, estas imágenes funcionan como referencias visuales de color, textura y detalles, no como identificaciones técnicas o comerciales de piedra.</p>
+      </div>
+      <div class="exp-grid exp-grid-4 exp-material-preview caliza-materials-gallery">
+        ${materials.map(([name, image, desc]) => `<article>${picture(image, `Imagen editorial de textura: ${name}`)}<div>${label('Referencia de acabado')}<h3>${name}</h3><p>${desc}</p></div></article>`).join('')}
+      </div>
+      <section class="caliza-materials-next">${label('Converse con un especialista')}<h2>La selección depende del uso.</h2><p>El espacio, la exposición a humedad, el mantenimiento y el tipo de proyecto deben revisarse antes de confirmar materiales y acabados.</p>${button('/stone-design/brief', 'Consultar materiales')}</section>
+    </section>`;
+}
   function group() {
     return `${hero({ image: 'option08-hero.webp', eyebrow: 'Grupo · Arquitectura · Diseño', title: 'Crear.<br>Habitar.<br>Preservar.', desc: 'Un ecosistema de marcas que dialogan con la piedra natural, el diseño y el bienestar.', cta: 'Conocer nuestras líneas', href: '/stone-design' })}
       <section class="exp-copy-split"><div>${label('Nuestra visión')}<h2>La materia conecta.</h2></div><div><p>CALIZA GROUP reúne tres perspectivas complementarias: transformar espacios, diseñar piezas y preservar superficies. La piedra es el punto de partida de una conversación con el tiempo.</p><p>Desde Colombia, una mirada contemporánea inspirada por la arquitectura, la naturaleza y el oficio.</p></div></section>

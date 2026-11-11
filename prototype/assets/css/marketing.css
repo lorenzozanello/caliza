@@ -225,3 +225,25 @@ body.menu-open .caliza-conversion-dock{visibility:hidden;opacity:0;pointer-event
 @media(max-width:900px){.caliza-detail-layout,.caliza-detail-inquiry{grid-template-columns:1fr}.caliza-source-list li{flex-wrap:wrap}.caliza-source-list small{text-align:left}}
 @media(max-width:660px){.caliza-detail-layout{padding:32px var(--o8-gap)}.caliza-detail-inquiry{padding:48px var(--o8-gap)}}
 @media(prefers-reduced-motion:reduce){.caliza-family-card:hover .caliza-family-media img{transform:none}}
+
+/* Portafolio por ámbitos documentados y biblioteca de materiales sin fichas inventadas. */
+.caliza-project-archive{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(22px,3vw,48px)}
+.caliza-project-archive-card{background:var(--surface-raised);border:1px solid var(--line);display:flex;flex-direction:column;min-width:0}
+.caliza-project-archive-card>img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;filter:saturate(.9) contrast(1.025)}
+.caliza-project-archive-card>div{padding:clamp(24px,3vw,43px)}
+.caliza-project-archive-card h2,.caliza-materials-opening h2,.caliza-project-capabilities h2,.caliza-materials-next h2{font:400 clamp(32px,3.5vw,51px)/1.13 var(--font-serif);letter-spacing:0;margin:15px 0}
+.caliza-project-archive-card p,.caliza-project-capabilities p,.caliza-materials-opening p,.caliza-materials-next p{font:400 15px/1.7 var(--font-sans);color:var(--ink-muted)}
+.caliza-project-capabilities{margin:clamp(70px,7vw,112px) 0}
+.caliza-project-capabilities>div{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--line);margin-top:26px}
+.caliza-project-capabilities a{padding:20px 7px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;min-height:56px;font:500 13px/1.4 var(--font-sans)}
+.caliza-project-capabilities a:hover{color:var(--accent-text)}
+.caliza-materials-opening{max-width:920px;margin:0 0 55px}
+.caliza-materials-gallery{margin:35px 0}
+.caliza-materials-gallery article{background:var(--surface-raised);min-width:0;border:1px solid var(--line)}
+.caliza-materials-gallery img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
+.caliza-materials-gallery article>div{padding:18px}
+.caliza-materials-gallery h3{margin:8px 0;font:400 25px/1.2 var(--font-serif)}
+.caliza-materials-gallery p{font:400 13px/1.65 var(--font-sans);color:var(--ink-muted)}
+.caliza-materials-next{padding:clamp(35px,5vw,80px) clamp(23px,5vw,70px);background:var(--surface-sand);margin-top:60px;max-width:920px}
+.caliza-materials-next .o8-button{margin-top:16px}
+@media(max-width:760px){.caliza-project-archive,.caliza-project-capabilities>div{grid-template-columns:1fr}}
