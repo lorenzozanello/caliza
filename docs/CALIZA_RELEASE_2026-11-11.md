@@ -12,7 +12,11 @@ La segunda auditoría identificó pérdida de impacto visual en las cinco famili
 - **Composición:** rejilla fluida sin celda vacía, fotografía con foco por categoría, cuerpo y CTA de ancho contenido, tipografía y etiquetas legibles en móviles de 360/390 px. La advertencia general de QA se reubica al pie; las aclaraciones conceptuales siguen junto a cada imagen.
 - **Next/Payload:** cuando no hay productos aprobados, `/design` y la portada ofrecen la misma experiencia de familias ilustradas; los filtros de productos y el carrito solo se muestran si existen piezas publicadas que pasan los controles. Las ventas reales permanecen bloqueadas por sus propios gates.
 
-**Pruebas de código:** `node prototype/tests/smoke.cjs` (18 rutas, incluidos legados), `node brand/identity/tests/identity.test.mjs`, tests de publicación y `npm run typecheck && npm run build` en `web/` concluyeron PASS local. **Pendiente:** QA visual de la vista previa desplegada, confirmación del proyecto y decisión explícita de incorporar a rama QA estable. Esto no constituye aprobación editorial para comercio ni publicación de productos reales.
+**Pruebas de código:** `node prototype/tests/smoke.cjs` (18 rutas, incluidos legados), `node brand/identity/tests/identity.test.mjs`, tests de publicación y `npm run typecheck && npm run build` en `web/` concluyeron PASS local.
+
+**QA visual realizada en Vercel:** [vista previa del PR #16](https://caliza-prototipo-qa-git-fe-b7a4ef-lorenzozanello-5040s-projects.vercel.app/) en escritorio y móvil (390 y 360 px). Las cinco imágenes cargan, el filtro Sillas devuelve exactamente dos familias con fotografías de sillas, la subnavegación móvil no se recorta, el menú responde, los CTAs no desbordan y el documento no presenta scroll horizontal. Vercel reportó **Ready** y GitHub mostró dos verificaciones satisfactorias, sin conflictos contra la rama base.
+
+**Decisión de liberación:** mantener el PR #16 abierto en borrador y conservar `caliza-prototipo-qa.vercel.app` sin cambios mientras no se complete la revisión independiente de contenido y el plan de migración de Payload. La vista previa sí está lista para aceptación visual de CALIZA. No habilitar checkout, pagos ni publicaciones de SKU antes de completar los gates de contenido, seguridad e infraestructura.
 
 ## Decisiones rectoras
 
