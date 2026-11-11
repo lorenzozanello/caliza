@@ -57,7 +57,7 @@ export default async function ProductPage({ params }: { params: Params }) {
           <aside className="pdp__panel" aria-label="Configurar pieza">
             <div className="pdp__sticky">
               <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-                <span className="crumbs"><Link href="/">Inicio</Link> / <Link href="/design">Design</Link> / {p.name}</span>
+                <span className="crumbs"><Link href="/">Inicio</Link> / <Link href="/design">Living Design</Link> / {p.name}</span>
                 <span className="eyebrow muted">{LINE_LABEL[p.line]} · {SALE_MODE_LABEL[p.saleMode]}</span>
                 <h1 className="h2">{p.name}</h1>
                 <p className="muted" style={{ margin: 0, fontSize: 15 }}>{p.shortDescription}</p>
@@ -75,7 +75,7 @@ export default async function ProductPage({ params }: { params: Params }) {
               />
               <div>
                 {p.details && <details className="acc"><summary>Medidas y peso <i /></summary><p>{p.details}</p></details>}
-                {p.care && <details className="acc"><summary>Materiales y cuidado · Caliza Care <i /></summary><p>{p.care}</p></details>}
+                {p.care && <details className="acc"><summary>Materiales y cuidado · Caliza Stone Care <i /></summary><p>{p.care}</p></details>}
                 <details className="acc"><summary>Envío, instalación y pagos <i /></summary><p>Antes de despachar confirmamos piso, ascensor y accesos. {p.saleMode === 'inmediata' ? 'Pagas el total al comprar.' : `Pagas ${p.depositPercent ?? 50}% para iniciar y el resto antes del despacho, o el total de una vez.`}</p></details>
               </div>
               {p.isExample && <p className="note">Nombre, precios y medidas de ejemplo.</p>}

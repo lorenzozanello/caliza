@@ -4,7 +4,7 @@ import type { Where } from 'payload'
 import { getPayloadClient } from '@/lib/payload'
 import { ProductCard } from '@/components/ProductCard'
 
-export const metadata: Metadata = { title: 'Colección Design', description: 'Mesas, consolas, lavamanos y objetos en piedra natural, hechos por encargo o listos para entrega.' }
+export const metadata: Metadata = { title: 'Living Design · Piezas para habitar', description: 'Mesas, consolas, lavamanos y objetos en piedra natural, hechos por encargo o listos para entrega.' }
 export const revalidate = 60
 
 const TYPES = [
@@ -44,7 +44,7 @@ export default async function ShopPage({ searchParams }: { searchParams: SP }) {
     <div className="page-top">
       <div className="wrap" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', gap: 24, flexWrap: 'wrap', paddingBottom: 36 }}>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-          <span className="small muted"><Link href="/">Inicio</Link> / Design</span>
+          <span className="small muted"><Link href="/">Inicio</Link> / Living Design</span>
           <h1 className="h2" style={{ fontSize: 'clamp(44px,5.4vw,80px)' }}>Piezas para habitar</h1>
         </div>
         <span className="small muted" data-testid="product-count">{products.totalDocs} {products.totalDocs === 1 ? 'pieza' : 'piezas'}</span>

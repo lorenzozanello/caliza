@@ -30,7 +30,7 @@
   function render(animate) {
     var v = total * plan;
     if (animate) C.tweenNumber(today, v, C.formatCOP); else { today.textContent = C.formatCOP(v); today.setAttribute('data-value', v); }
-    payLabel.textContent = 'Pagar ' + C.formatCOP(v) + ' con ' + method.toLowerCase().replace('pse', 'PSE').replace('nequi', 'Nequi').replace('bancolombia', 'Bancolombia');
+    payLabel.textContent = 'Pago no habilitado · demostración';
   }
 
   function group(selector, onPick) {
@@ -47,30 +47,10 @@
 
   var form = document.getElementById('checkout-form');
   var payBtn = document.querySelector('[data-pay]');
+  payBtn.disabled = true;
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    if (payBtn.classList.contains('is-loading')) return;
-    payBtn.classList.add('is-loading');
-    payLabel.textContent = 'Procesando pago…';
-    setTimeout(function () {
-      var order = 'C-' + String(Math.floor(1000 + Math.random() * 9000));
-      document.querySelector('[data-order]').textContent = order;
-      document.querySelector('[data-paid-line]').textContent = 'Hoy · ' + C.formatCOP(total * plan) + ' · ' + method;
-      var wa = document.querySelector('[data-wa-order]');
-      wa.setAttribute('href', C.waLink('Hola, tengo una pregunta sobre mi pedido ' + order + '.'));
-      wa.setAttribute('target', '_blank'); wa.setAttribute('rel', 'noopener');
-      document.body.classList.add('is-paid');
-      payBtn.classList.remove('is-loading');
-      payBtn.disabled = true;
-      payLabel.textContent = 'Pago recibido ✓';
-      C.store.set('caliza_cart', []);
-      C.updateCartCount(false);
-      window.scrollTo({ top: 0, behavior: C.reduce ? 'auto' : 'smooth' });
-      if (window.gsap && !C.reduce) {
-        window.gsap.from('.success > *', { y: 24, opacity: 0, duration: 1, stagger: .08, ease: 'power3.out' });
-        window.gsap.from('.track li', { x: -12, opacity: 0, duration: .8, stagger: .1, ease: 'power3.out', delay: .3 });
-      }
-    }, 1400);
+    payLabel.textContent = 'Pago no habilitado · demostración';
   });
 
   render(false);

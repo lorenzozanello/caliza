@@ -29,7 +29,8 @@ export function WhatsAppFloat({ message = 'Hola, quiero hablar con el estudio.' 
     return () => { window.removeEventListener('scroll', update); io?.disconnect() }
   }, [pathname])
 
-  if (pathname.startsWith('/checkout') || pathname.startsWith('/pago')) return null
+  // Nunca abrir un canal de atención ficticio en una vista de tienda.
+  if (!whatsapp || whatsapp.replace(/\D/g, '') === '570000000000' || pathname.startsWith('/checkout') || pathname.startsWith('/pago')) return null
   return (
     <a
       className={`wa-float${visible && !open ? ' is-visible' : ''}${teasing ? ' is-teasing' : ''}`}

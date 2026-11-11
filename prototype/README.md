@@ -1,5 +1,7 @@
 # Prototipo navegable — Caliza
 
+**Identidad vigente:** CALIZA GROUP Opción 08, conforme a [manual de implementación](../brand/APPROVED_OPTION08.md). La portada es una aproximación de los diseños aprobados con fotografías conceptuales; `producto.html` conserva ejemplos de configuración y `checkout.html` tiene el cobro deshabilitado. No ingresar datos reales ni tomar sus precios como oferta comercial.
+
 Prototipo en HTML, CSS y JavaScript para validar la experiencia antes del desarrollo final. Está pensado para trasladarse luego a un tema de Shopify (Liquid) o a un front propio sin cambiar el diseño.
 
 ## Páginas

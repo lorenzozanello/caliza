@@ -2,7 +2,7 @@ import Link from 'next/link'
 import type { Project } from '@/payload-types'
 import { isProvisional, mediaAlt, mediaUrl } from '../media'
 
-export const LINE_NAME = { stone: 'Stone', design: 'Design', care: 'Care' } as const
+export const LINE_NAME = { stone: 'Stone Design', design: 'Living Design', care: 'Stone Care' } as const
 
 export function ProjectCard({ p, size = 'card', priority = false }: { p: Project; size?: 'card' | 'hero'; priority?: boolean }) {
   return (
