@@ -325,3 +325,6 @@ body.o8-page .caliza-whatsapp-float:focus-visible #floating-wa-label,
 body.o8-page .caliza-whatsapp-float:active #floating-wa-label{color:var(--marine-ink)}
 body.o8-page .caliza-whatsapp-float .caliza-whatsapp-logo{color:rgb(255 255 255)}
 body.o8-page .caliza-whatsapp-float:focus-visible{outline:3px solid var(--focus);outline-offset:4px}
+
+/* El CTA flotante no se desvanece entre rutas: evite contraste transitorio bajo WCAG. */
+body.o8-page .caliza-conversion-dock{transition:none}
