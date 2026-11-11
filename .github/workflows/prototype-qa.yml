@@ -4,19 +4,13 @@ on:
     paths:
       - "prototype/**"
       - ".github/workflows/prototype-qa.yml"
-  push:
-    branches:
-      - "feat/caliza-v1-real-media-audit3-20261111"
-    paths:
-      - "prototype/**"
-      - ".github/workflows/prototype-qa.yml"
   workflow_dispatch:
 
 permissions:
   contents: read
 
 concurrency:
-  group: caliza-prototype-qa
+  group: caliza-prototype-qa-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -42,3 +36,35 @@ jobs:
         run: |
           grep -q 'name="robots" content="noindex,nofollow"' prototype/index.html
           grep -q 'Disallow: /' prototype/robots.txt
+
+  visual-qa:
+    needs: consultative-qa
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - name: Install locked test tooling
+        run: npm ci --ignore-scripts --no-audit --no-fund
+      - name: Install Chromium only
+        run: npx playwright install --with-deps chromium
+      - name: UI, mobile and axe accessibility checks
+        run: npx playwright test --config=playwright.prototype.config.ts
+        env:
+          CI: 'true'
+      - name: Upload browser captures on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: caliza-visual-qa
+          path: |
+            web/test-results-prototype
+            web/playwright-report-prototype
+          retention-days: 7
