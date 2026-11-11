@@ -4,6 +4,7 @@ import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { useCart } from './cart/CartProvider'
 import { waLink } from '@/lib/whatsapp'
+import { BrandMark } from './BrandMark'
 
 const NAV = [
   { href: '/stone', label: 'Stone Design' },
@@ -54,7 +55,7 @@ export function SiteHeader() {
     <>
       <header className={cls}>
         <Link href="/" className="logo" aria-label="Caliza, inicio">
-          <span className="o8-wordmark"><span>CALIZA</span><span>GROUP</span><i aria-hidden="true" /></span>
+          <BrandMark decorative width={105} />
         </Link>
         <nav aria-label="Principal">
           {NAV.map((n) => (
@@ -72,7 +73,7 @@ export function SiteHeader() {
       </header>
       <div className={`mobile-menu${menu ? ' is-open' : ''}`} id="menu" aria-hidden={!menu} inert={!menu}>
         <div className="top">
-          <span className="o8-wordmark"><span>CALIZA</span><span>GROUP</span><i aria-hidden="true" /></span>
+          <BrandMark variant="inverse" width={95} />
           <button className="icon-btn" aria-label="Cerrar menú" style={{ color: 'var(--claro)' }} onClick={() => setMenu(false)}>
             <svg width="20" height="20" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19" /></svg>
           </button>
