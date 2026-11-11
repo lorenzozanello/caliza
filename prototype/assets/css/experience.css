@@ -113,7 +113,9 @@ body.o8-page{background:var(--surface-raised);min-width:300px}
 @supports (animation-timeline:view()) {
   @media(prefers-reduced-motion:no-preference) {
     .caliza-family-card,.exp-card {animation:caliza-reveal linear both;animation-timeline:view();animation-range:entry 0% cover 23%}
-    @keyframes caliza-reveal {from{opacity:.65;transform:translateY(12px)}to{opacity:1;transform:none}}
+    @keyframes caliza-reveal {from{transform:translateY(12px)}to{transform:translateY(0)}}
   }
 }
 @media(prefers-reduced-motion:reduce){.caliza-family-card,.exp-card{animation:none;transform:none}}
+
+/* A11y: el movimiento nunca reduce la opacidad del texto de las tarjetas. */
