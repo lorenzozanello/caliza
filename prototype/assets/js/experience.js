@@ -26,7 +26,7 @@
   const button = (url, label, cls = 'o8-button') => `<a class="${cls}" href="#${url}">${label} <span aria-hidden="true">→</span></a>`;
   const label = (text) => `<span class="o8-overline">${text}</span>`;
   const lineIcon = (name) => `<img class="brand-line-icon" src="${IMG}brand/symbol-${{ stone: 'stone-design', living: 'living-design', care: 'stone-care' }[name]}-primary.svg" alt="" aria-hidden="true" width="64" height="64">`;
-  const disclaimer = ''; // El aviso QA único está en index.html.
+  const disclaimer = ''; // Nota editorial discreta en el pie; etiquetas individuales en imágenes.
   const getRoute = () => {
     const raw = (location.hash.startsWith('#/') ? location.hash.substring(1) : '/').split('?')[0].replace(/\/+$/, '') || '/';
     if (raw === '/tienda' || raw === '/living-design/carrito' || raw.startsWith('/living-design/pieza/')) return '/living-design/coleccion';
@@ -167,7 +167,7 @@
     return `${hero({ image: 'option08-hero.webp', eyebrow: 'Piedra natural · Diseño de vida', title: 'La materia<br>toma forma.', desc: 'Diseño, vida y cuidado en piedra natural para espacios que perduran.', cta: 'Explorar proyectos', href: '/proyectos' })}
       <section class="o8-pillars" aria-label="Nuestras tres líneas">
         ${[
-          ['stone', 'option08-hero.webp', 'Crear', 'Stone Design', 'Proyectos en piedra natural a medida.', '/stone-design'],
+          ['stone', 'lavamanos.jpg', 'Crear', 'Stone Design', 'Proyectos en piedra natural a medida.', '/stone-design'],
           ['living', 'option08-living.webp', 'Habitar', 'Living Design', 'Mobiliario y objetos que dan forma a la vida.', '/living-design'],
           ['care', 'option08-care.webp', 'Preservar', 'Stone Care', 'Cuidado y restauración para que la belleza perdure.', '/stone-care'],
         ].map(([icon, image, name, brand, desc, href]) => `<a href="#${href}" class="o8-pillar">${picture(image, `Escena conceptual de ${brand}`)}<div class="o8-pillar-copy">${lineIcon(icon)}<div><h2>${name}</h2><span>${brand}</span><p>${desc}</p></div><b aria-hidden="true">→</b></div></a>`).join('')}
@@ -199,7 +199,7 @@
   }
 
   function stone() {
-    return `${hero({ image: 'option08-hero.webp', eyebrow: 'Caliza Stone Design · Crear', title: 'Espacios<br>que perduran.', desc: 'Diseño y transformación de espacios a través de la piedra natural.', cta: 'Iniciar un proyecto', href: '/stone-design/brief' })}
+    return `${hero({ image: 'proyecto.jpg', eyebrow: 'Caliza Stone Design · Crear', title: 'Espacios<br>que perduran.', desc: 'Diseño y transformación de espacios a través de la piedra natural.', cta: 'Iniciar un proyecto', href: '/stone-design/brief' })}
       <section class="exp-copy-split"><div>${lineIcon('stone')}${label('Piedra · Arquitectura · Oficio')}<h2>De la idea a la materia.</h2></div><div><p>Concebimos proyectos en los que cada superficie, textura y encuentro construye una relación duradera entre las personas y el espacio.</p><p>Explore posibilidades en cubiertas, lavamanos, revestimientos, mesas y soluciones a medida.</p></div></section>
       <section class="o8-section">${sectionHead('Universo de proyectos', '/stone-design/proyectos', 'Ver galería')}<div class="exp-grid exp-grid-3">${[
         ['proyecto.jpg', 'Cocinas', 'Superficies para encuentros cotidianos.'], ['lavamanos.jpg', 'Baños', 'Gestos de piedra y agua.'], ['detalle_borde.jpg', 'Espacios', 'Arquitectura y detalles a medida.']
@@ -276,7 +276,7 @@
     </section>`;
 }
   function group() {
-    return `${hero({ image: 'option08-hero.webp', eyebrow: 'Grupo · Arquitectura · Diseño', title: 'Crear.<br>Habitar.<br>Preservar.', desc: 'Un ecosistema de marcas que dialogan con la piedra natural, el diseño y el bienestar.', cta: 'Conocer nuestras líneas', href: '/stone-design' })}
+    return `${hero({ image: 'option08-living.webp', eyebrow: 'Grupo · Arquitectura · Diseño', title: 'Crear.<br>Habitar.<br>Preservar.', desc: 'Un ecosistema de marcas que dialogan con la piedra natural, el diseño y el bienestar.', cta: 'Conocer nuestras líneas', href: '/stone-design' })}
       <section class="exp-copy-split"><div>${label('Nuestra visión')}<h2>La materia conecta.</h2></div><div><p>CALIZA GROUP reúne tres perspectivas complementarias: transformar espacios, diseñar piezas y preservar superficies. La piedra es el punto de partida de una conversación con el tiempo.</p><p>Desde Colombia, una mirada contemporánea inspirada por la arquitectura, la naturaleza y el oficio.</p></div></section>
       <section class="exp-page-pad"><div class="exp-grid exp-grid-3 exp-brand-deck">${[
         ['stone', 'Crear', 'Stone Design', '/stone-design'], ['living', 'Habitar', 'Living Design', '/living-design'], ['care', 'Preservar', 'Stone Care', '/stone-care'],
@@ -522,12 +522,9 @@
       else main.focus({ preventScroll: true });
     }
     };
-    const reduce = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches === true;
-    if (scroll && !reduce && typeof document.startViewTransition === 'function') {
-      document.startViewTransition(paint);
-    } else {
-      paint();
-    }
+    // Navegación síncrona, sin capturas de toda la página. La animación root
+    // superponía cabecera, contenido previo y footer en cambios de ruta.
+    paint();
   }
 
   function copyText(text) {

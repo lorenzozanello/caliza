@@ -1,0 +1,934 @@
+/* CALIZA GROUP / CSS unificado. NO EDITAR DIRECTAMENTE.
+   Fuentes: option08, experience, identity, authority-tokens, marketing, boutique-v2.
+   Regenerar con: node web/scripts/check-prototype-css.mjs --write */
+/* BEGIN option08.css */
+/* CALIZA GROUP · Opción 08 Warm Mediterranean · portada de revisión */
+/* Variables de marca definidas únicamente en authority-tokens.css. */
+*,*::before,*::after { box-sizing:border-box; }
+html { scroll-behavior:smooth; scroll-padding-top:92px; }
+body.o8-page { margin:0; background:var(--surface); color:var(--ink); font-family:var(--font-sans); font-size:15px; line-height:1.6; }
+img { display:block; width:100%; } a { color:inherit; text-decoration:none; }
+:focus-visible { outline:3px solid var(--terracotta); outline-offset:4px; }
+.o8-demo-note { background:var(--ink); color:var(--limewash); padding:6px 20px; text-align:center; font-size:11px; letter-spacing:.08em; }
+.o8-header { position:relative; display:flex; align-items:center; justify-content:space-between; gap:28px; min-height:90px; padding:14px clamp(22px,5vw,88px); background:var(--limewash); z-index:5; border-bottom:1px solid var(--line); }
+.o8-wordmark { font-family:var(--font-serif); line-height:.83; font-size:clamp(23px,2.1vw,30px); font-weight:500; letter-spacing:0; display:inline-flex; flex-direction:column; flex-shrink:0; width:max-content; }
+.o8-wordmark span:last-child { padding-top:3px; }
+.o8-nav { display:flex; justify-content:center; gap:clamp(14px,2.3vw,35px); }
+.o8-nav a { white-space:nowrap; text-transform:uppercase; font-size:11px; letter-spacing:.065em; font-weight:500; transition:color .2s; }
+.o8-nav a:hover,.o8-section-heading a:hover { color:var(--terracotta); }
+.o8-button { display:inline-flex; align-items:center; justify-content:space-between; gap:20px; background:var(--terracotta); color:white; padding:14px 18px; font-size:11px; letter-spacing:.025em; border:1px solid var(--terracotta); font-weight:500; width:max-content; transition:background .2s,transform .2s; }
+.o8-button:hover { background:var(--accent-text); transform:translateY(-1px); }
+.o8-button span { font-size:20px; font-weight:400; line-height:.7; }
+.o8-header-cta { flex-shrink:0; }
+.o8-mobile-menu { display:none; }
+.o8-hero { height:clamp(475px,47vw,670px); position:relative; overflow:hidden; isolation:isolate; background:var(--surface-raised); }
+.o8-hero>img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 55%; z-index:-2; }
+.o8-hero::after { content:''; position:absolute; inset:0; z-index:-1; background:linear-gradient(90deg,var(--scrim),transparent 75%); }
+.o8-hero-copy { position:absolute; left:clamp(25px,6vw,110px); top:50%; transform:translateY(-50%); width:min(450px,45%); }
+.o8-overline { display:block; font-size:11px; letter-spacing:.24em; text-transform:uppercase; font-weight:500; }
+.o8-hero h1,.o8-feature h2,.o8-contact h2 { font-family:var(--font-serif); font-weight:400; letter-spacing:0; line-height:1.04; }
+.o8-hero h1 { margin:20px 0 15px; font-size:clamp(48px,5.5vw,89px); }
+.o8-terracotta-rule { display:block; background:var(--terracotta); width:56px; height:1px; }
+.o8-hero-copy p { max-width:285px; line-height:1.5; font-size:13px; margin:19px 0 19px; }
+.o8-hero-caption { position:absolute; right:4.5%; bottom:38px; max-width:100px; color:white; text-shadow:0 1px 6px var(--marine-ink); font-size:11px; text-transform:uppercase; letter-spacing:.2em; line-height:1.7; }
+.o8-pagination { position:absolute; left:clamp(25px,6vw,110px); bottom:22px; display:flex; gap:9px; align-items:center; font-size:11px; }
+.o8-pagination span { width:16px; height:1px; background:var(--ink); opacity:.55; }
+.o8-pillars { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; padding:10px clamp(15px,4vw,70px) 0; background:var(--surface); }
+.o8-pillar { position:relative; height:clamp(235px,27vw,390px); overflow:hidden; background:var(--limewash); }
+.o8-pillar>img { width:100%; height:100%; object-fit:cover; transition:transform .6s ease; }
+.o8-pillar:hover>img { transform:scale(1.04); }
+.o8-pillar-copy { display:flex; align-items:end; gap:13px; position:absolute; left:0; right:0; bottom:0; min-height:126px; padding:23px; background:var(--surface-sand); }
+.o8-pillar-copy .o8-line-mark { height:34px; width:34px; object-fit:contain; align-self:flex-start; margin-top:7px; }
+.o8-pillar-copy h2 { font:400 clamp(27px,2.6vw,40px)/1 var(--font-serif); letter-spacing:0; margin:0 0 5px; }
+.o8-pillar-copy span { text-transform:uppercase; letter-spacing:.16em; font-size:11px; }
+.o8-pillar-copy p { font-size:11px; margin:6px 0 0; max-width:200px; }
+.o8-pillar-copy b { margin-left:auto; font-size:20px; font-weight:400; }
+.o8-section { max-width:1540px; margin:auto; padding:66px clamp(20px,4vw,70px) 0; }
+.o8-section-heading { display:flex; justify-content:space-between; align-items:baseline; gap:20px; margin-bottom:17px; border-bottom:1px solid var(--line); padding-bottom:9px; }
+.o8-section-heading h2 { margin:0; font:500 15px var(--font-serif); text-transform:uppercase; letter-spacing:.14em; }
+.o8-section-heading a { font-size:11px; }
+.o8-product-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+.o8-product { min-width:0; }
+.o8-product>img { aspect-ratio:2/1; height:auto; object-fit:cover; }
+.o8-product:first-child>img { object-position:center 58%; }
+.o8-product>div { display:grid; grid-template-columns:1fr auto; padding:11px 2px; gap:4px 10px; font-size:11px; }
+.o8-product strong { font-family:var(--font-serif); font-size:17px; font-weight:400; }
+.o8-product>div span:nth-child(2) { grid-column:1; color:var(--ink-muted); font-size:11px; }
+.o8-product>div span:last-child { grid-column:2; grid-row:1 / 3; color:var(--terracotta); font-size:20px; }
+.o8-swatches { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; }
+.o8-swatches>div { display:flex; flex-direction:column; text-align:center; gap:3px; font-size:11px; text-transform:uppercase; letter-spacing:.09em; }
+.o8-swatches>div>span { display:block; aspect-ratio:1.7/1; border:1px solid var(--line); margin-bottom:9px; }
+.o8-swatches strong { font-weight:500; }
+.o8-swatches small { font-size:11px; }
+.o8-feature { position:relative; display:flex; align-items:center; min-height:410px; margin:75px clamp(20px,4vw,70px) 0; isolation:isolate; overflow:hidden; background:var(--limewash); }
+.o8-feature>img { position:absolute; inset:0; z-index:-2; width:100%; height:100%; object-fit:cover; object-position:center 64%; }
+.o8-feature::after { content:''; position:absolute; inset:0; z-index:-1; background:linear-gradient(90deg,var(--scrim),transparent 75%); }
+.o8-feature>div { margin-left:clamp(30px,7vw,90px); padding:40px 0; width:min(390px,45%); }
+.o8-feature h2 { font-size:clamp(40px,4vw,60px); margin:20px 0 13px; }
+.o8-feature p { font-size:12px; max-width:310px; margin-bottom:22px; }
+.o8-feature-care { margin-top:10px; }
+.o8-feature-care>img { object-position:center 45%; }
+.o8-text-link { color:var(--terracotta); border-bottom:1px solid var(--terracotta); padding-bottom:4px; font-weight:600; }
+.o8-contact { display:flex; align-items:center; justify-content:space-between; gap:35px; background:var(--limewash); margin-top:70px; padding:60px clamp(25px,7vw,120px); }
+.o8-contact>div { max-width:570px; }
+.o8-contact h2 { font-size:clamp(40px,4.8vw,65px); margin:15px 0; }
+.o8-contact p { font-size:12px; max-width:430px; }
+.o8-contact-mark { color:var(--terracotta); font:400 clamp(30px,3vw,48px)/1.2 var(--font-serif); text-align:right; }
+.o8-footer { display:flex; justify-content:space-between; align-items:center; gap:25px; flex-wrap:wrap; padding:29px clamp(20px,4vw,70px); border-top:1px solid var(--line); background:var(--surface); font-size:11px; text-transform:uppercase; letter-spacing:.08em; }
+.o8-footer .o8-wordmark { font-size:19px; text-transform:none; letter-spacing:0; }
+.o8-footer small { font-size:11px; }
+@media(max-width:1020px) { .o8-nav { gap:14px; } .o8-nav a { font-size:11px; } .o8-header { gap:12px; } }
+@media(max-width:820px) {
+  .o8-header { min-height:72px; padding:12px 20px; } .o8-nav,.o8-header-cta { display:none; }
+  .o8-mobile-menu { display:block; position:relative; margin-left:auto; z-index:8; }
+  .o8-mobile-menu summary { list-style:none; cursor:pointer; font-size:24px; } .o8-mobile-menu summary::-webkit-details-marker { display:none; }
+  .o8-mobile-menu nav { position:absolute; top:39px; right:-20px; width:min(350px,85vw); display:flex; flex-direction:column; background:var(--limewash); padding:22px; gap:16px; box-shadow:none; font-size:12px; text-transform:uppercase; }
+  .o8-hero { height:490px; } .o8-hero-copy { width:60%; } .o8-hero h1 { font-size:clamp(43px,8vw,60px); }
+  .o8-pillars { grid-template-columns:1fr; padding:10px 14px 0; }
+  .o8-pillar { height:184px; display:grid; grid-template-columns:41% 59%; }
+  .o8-pillar>img { height:184px; }
+  .o8-pillar-copy { position:static; background:var(--limewash); min-height:0; padding:19px 14px; align-items:center; gap:8px; }
+  .o8-pillar-copy .o8-line-mark { display:none; }
+  .o8-pillar-copy h2 { font-size:30px; } .o8-pillar-copy p { font-size:11px; } .o8-pillar-copy b { align-self:center; }
+  .o8-feature>div { width:57%; }
+}
+@media(max-width:520px) {
+  .o8-demo-note { font-size:11px; } .o8-header .o8-wordmark { font-size:24px; }
+  .o8-hero { height:465px; } .o8-hero>img { object-position:58% center; }
+  .o8-hero::after { background:linear-gradient(90deg,var(--scrim),transparent 75%); }
+  .o8-hero-copy { width:71%; left:21px; top:45%; } .o8-hero h1 { font-size:clamp(39px,10vw,50px); }
+  .o8-hero-copy p { font-size:11px; } .o8-hero-caption { display:none; } .o8-pagination { left:21px; }
+  .o8-overline { font-size:11px; letter-spacing:.15em; }
+  .o8-section { padding:48px 18px 0; } .o8-section-heading h2 { font-size:12px; } .o8-product-grid { gap:8px; }
+  .o8-product>img { aspect-ratio:1.1; } .o8-product strong { font-size:14px; } .o8-product>div span:nth-child(2) { font-size:11px; }
+  .o8-swatches { gap:5px; } .o8-swatches>div { font-size:11px; } .o8-swatches small { font-size:11px; }
+  .o8-feature { margin:52px 14px 0; min-height:330px; } .o8-feature>div { margin-left:23px; width:65%; } .o8-feature h2 { font-size:37px; }
+  .o8-feature::after { background:linear-gradient(90deg,var(--scrim),transparent 75%); }
+  .o8-contact { margin-top:50px; padding:45px 20px; } .o8-contact-mark { display:none; }
+  .o8-footer { gap:13px; } .o8-footer small { width:100%; }
+}
+@media(prefers-reduced-motion:reduce){ html {scroll-behavior:auto} .o8-pillar>img,.o8-button {transition:none} }
+
+/* END option08.css */
+/* BEGIN experience.css */
+/* CALIZA GROUP / Opción 08 — ecosistema navegable, versión de revisión */
+:root{--o8-gap:clamp(20px,4.5vw,80px);--o8-w:1480px;--o8-shadow:0 18px 40px var(--line)}
+body.o8-page{background:var(--surface-raised);min-width:300px}
+.skip-link{position:absolute;left:12px;top:-100px;z-index:100;background:white;padding:12px 18px}.skip-link:focus{top:10px}
+.o8-header{position:sticky;top:0;z-index:30;min-height:86px;gap:17px;box-shadow:none}
+.o8-wordmark{font-size:27px;letter-spacing:0;line-height:.85;align-items:center;position:relative;padding-bottom:7px}
+.o8-wordmark span:last-of-type{padding-top:4px}.o8-wordmark i{width:40%;height:1px;background:var(--terracotta);margin-top:9px}
+.o8-nav{gap:clamp(10px,1.6vw,25px)}.o8-nav a{font-size:11px;letter-spacing:.11em}.o8-nav a[aria-current=page]{color:var(--terracotta)}
+.o8-header-actions{display:flex;gap:18px;align-items:center}.o8-header-cta{white-space:nowrap}.header-bag{font-size:11px;text-transform:uppercase;letter-spacing:.08em;white-space:nowrap}
+.header-bag span{display:inline-grid;place-items:center;background:var(--ink);color:var(--surface);border-radius:var(--radius-none);min-width:22px;height:22px;margin-left:5px;padding:2px}
+.menu-toggle,.mobile-nav{display:none}.o8-demo-note{line-height:1.4}
+.site-footer-plus{align-items:start;display:grid;grid-template-columns:1.5fr repeat(3,1fr);gap:30px;max-width:unset;padding-top:60px;padding-bottom:60px}
+.site-footer-plus>div{display:flex;flex-direction:column;align-items:start;gap:8px}.site-footer-plus strong{font-size:11px;color:var(--terracotta);margin-bottom:8px}
+.site-footer-plus .o8-wordmark{font-size:26px}.site-footer-plus p{margin:9px 0 0;color:var(--ink-muted);font-size:11px}
+.site-footer-plus a:hover{text-decoration:underline;text-underline-offset:3px}.site-footer-plus small{font-size:11px}
+.loading-state{min-height:50vh;display:grid;place-content:center;text-align:center}.loading-state h1{font:400 54px var(--font-serif)}
+.js-required{padding:25px;text-align:center}.feedback{position:fixed;right:24px;bottom:25px;background:var(--ink);color:var(--on-primary);z-index:70;padding:17px 20px;box-shadow:none;max-width:min(370px,90vw);font-size:12px}
+.exp-hero{height:clamp(470px,49vw,700px);position:relative;isolation:isolate;background:var(--sand);overflow:hidden}
+.exp-hero>img{width:100%;height:100%;position:absolute;inset:0;object-fit:cover;z-index:-2}
+.exp-hero:after{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,var(--scrim),transparent 75%)}
+.exp-hero-content{color:var(--on-primary);position:absolute;left:clamp(30px,6vw,115px);top:50%;transform:translateY(-50%);width:min(540px,56%)}
+.exp-hero h1{font:400 clamp(51px,6vw,95px)/.99 var(--font-serif);letter-spacing:0;margin:21px 0 19px}
+.exp-hero p{font-size:13px;max-width:325px;margin:20px 0 22px;line-height:1.65}.exp-hero-corner{position:absolute;right:35px;bottom:30px;color:var(--on-primary);font-size:11px;letter-spacing:.16em;text-shadow:0 1px 12px var(--ink-muted)}
+.exp-page-intro{padding:clamp(55px,7vw,110px) var(--o8-gap) 45px;max-width:var(--o8-w);margin:auto}.exp-page-intro h1{font:400 clamp(47px,6vw,86px)/1.04 var(--font-serif);letter-spacing:0;max-width:950px;margin:17px 0 19px}.exp-page-intro p{font-size:13px;max-width:650px;color:var(--ink-muted);margin:0 0 23px;line-height:1.8}
+.exp-page-pad{max-width:var(--o8-w);margin:0 auto;padding:20px var(--o8-gap) 75px}
+.exp-grid{display:grid;gap:18px}.exp-grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}.exp-grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}.exp-grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.exp-card{display:block;min-width:0;background:var(--surface-raised)}.exp-card>img{width:100%;aspect-ratio:1.12;object-fit:cover;transition:transform .45s}.exp-card:hover>img{filter:brightness(.97)}
+.exp-card-info{display:flex;align-items:start;justify-content:space-between;gap:16px;padding:17px 16px 20px}.exp-card-info h3{font:400 clamp(20px,2vw,30px)/1.15 var(--font-serif);letter-spacing:0;margin:0 0 7px}.exp-card-info p{font-size:11px;color:var(--ink-muted);margin:0}.exp-card-info>span{color:var(--terracotta);font-size:20px}
+.exp-editorial>img{aspect-ratio:1.3;object-fit:cover}.exp-editorial h3{font:400 32px var(--font-serif);margin:15px 0 0}.exp-editorial p{font-size:11px;margin:3px 0 0}
+.exp-material-preview img{aspect-ratio:1.4;object-fit:cover}.exp-material-preview strong{font-weight:500;font-size:11px;letter-spacing:.08em;text-transform:uppercase;display:block;margin-top:13px}
+.exp-banner{position:relative;isolation:isolate;display:flex;align-items:center;min-height:435px;margin:65px var(--o8-gap) 0;background:var(--limewash);overflow:hidden}
+.exp-banner>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:-2}
+.exp-banner:after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,var(--scrim),transparent 75%);z-index:-1}
+.exp-banner>div{color:var(--on-primary);margin-left:clamp(30px,7vw,100px);width:min(420px,52%);padding:35px 0}.exp-banner h2{font:400 clamp(40px,4.5vw,68px)/1.06 var(--font-serif);letter-spacing:0;margin:17px 0}.exp-banner p{font-size:13px;max-width:310px;margin:0 0 22px}.exp-banner-care{margin-top:12px}.exp-banner-care>img{object-position:60% center}
+.review-label{margin:25px var(--o8-gap) 40px;text-align:center;color:var(--ink-muted);font-size:11px}
+.brand-line-icon{width:54px;height:54px;object-fit:contain;flex-shrink:0}
+.exp-copy-split{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;max-width:var(--o8-w);margin:auto;padding:90px var(--o8-gap)}
+.exp-copy-split h2{font:400 clamp(38px,4vw,64px)/1.08 var(--font-serif);letter-spacing:0;max-width:520px;margin:22px 0}.exp-copy-split p{font-size:15px;line-height:1.9;margin:0 0 17px;max-width:500px}
+.exp-process{padding:74px var(--o8-gap);margin-top:70px;background:var(--limewash)}.exp-process>h2,.exp-pathways>h2{font:400 clamp(38px,4vw,60px) var(--font-serif);letter-spacing:0;margin:17px 0 35px}
+.exp-process .exp-grid>div{border-top:1px solid var(--line);padding:21px 4px}.exp-process .exp-grid>div>span{color:var(--accent-text);font-size:12px;font-weight:500}.exp-process h3{font:400 23px var(--font-serif);margin:18px 0}
+.exp-project>img{aspect-ratio:1.28;object-fit:cover}.exp-project h2{font:400 28px var(--font-serif);margin:15px 0 4px}.exp-project p{font-size:11px;color:var(--ink-muted);margin:0}
+.exp-cta-centered{display:flex;justify-content:center;padding:50px 0 10px}
+.exp-subnav{display:flex;gap:30px;padding:16px var(--o8-gap);border-block:1px solid var(--line);background:var(--surface-raised);font-size:11px;letter-spacing:.1em;text-transform:uppercase;overflow-x:auto}
+.exp-subnav a{white-space:nowrap}.exp-subnav a[aria-current=page]{color:var(--terracotta);text-decoration:underline;text-underline-offset:5px}
+.exp-pathways{padding:80px var(--o8-gap);background:var(--limewash);margin-top:70px}.exp-pathways .exp-grid>a,.exp-service-cards>a{padding:32px 27px;background:var(--surface-raised);display:flex;flex-direction:column;min-height:250px}
+.exp-pathways .exp-grid>a>span,.exp-service-cards>a>span{font-size:12px;color:var(--accent-text);font-weight:500}.exp-pathways h3,.exp-service-cards h3{font:400 33px var(--font-serif);margin:40px 0 9px}.exp-pathways p,.exp-service-cards p{font-size:12px;max-width:250px}.exp-pathways b,.exp-service-cards b{margin-top:auto;align-self:end;color:var(--terracotta);font-size:24px;font-weight:400}
+.exp-service-cards>a{background:var(--limewash)}.exp-service-cards h3{margin-top:26px}
+.exp-toolbar{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:24px;border-bottom:1px solid var(--line);padding-bottom:14px}.exp-toolbar p{font-size:11px}.exp-filters{display:flex;flex-wrap:wrap;gap:8px}
+.exp-filters button,.exp-outline,.exp-social-actions button{border:1px solid var(--line);color:var(--ink);background:transparent;padding:10px 14px;font-family:var(--font-sans);font-size:11px;cursor:pointer}.exp-filters button.selected,.exp-filters button:hover{background:var(--ink);color:var(--on-primary)}
+.exp-catalogue-warning,.exp-social-disclaimer{font-size:11px;color:var(--ink-muted);line-height:1.8;margin-top:35px}.exp-catalogue-warning{border-top:1px solid var(--line);padding-top:17px}
+.exp-breadcrumb{font-size:11px;padding:24px var(--o8-gap);border-bottom:1px solid var(--line)}.exp-breadcrumb a{text-decoration:underline;text-underline-offset:3px}
+.exp-product-detail{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(25px,5vw,90px);padding:40px var(--o8-gap) 90px;max-width:var(--o8-w);margin:auto}
+.exp-product-photo{position:relative;align-self:start}.exp-product-photo img{aspect-ratio:1/1.15;object-fit:cover}.exp-product-photo>span{position:absolute;left:15px;bottom:15px;color:var(--ink);font-size:11px;padding:6px 10px;background:var(--surface)}
+.exp-product-config{max-width:510px}.exp-product-config h1{font:400 clamp(48px,5vw,74px) var(--font-serif);letter-spacing:0;margin:20px 0}.exp-product-config p{font-size:13px;line-height:1.8;margin:20px 0 30px}
+.exp-product-config label,.exp-wizard label,.exp-contact-form label,.exp-social-form label{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.13em;margin:19px 0 8px;font-weight:600}
+.exp-product-config select,.exp-product-config input,.exp-wizard select,.exp-wizard input,.exp-wizard textarea,.exp-contact-form select,.exp-contact-form input,.exp-contact-form textarea,.exp-social-form input{width:100%;font:400 15px var(--font-sans);background:var(--surface-raised);color:var(--ink);border:1px solid var(--line);border-radius:var(--radius-none);padding:13px 14px;max-width:100%}
+.exp-product-config input[type=number]{width:90px}.exp-action{cursor:pointer;font-family:var(--font-sans);margin:28px 0 17px}.exp-product-config .o8-text-link{display:block;width:max-content;margin-bottom:25px}
+.exp-spec{border-top:1px solid var(--line)}.exp-spec details{border-bottom:1px solid var(--line);padding:15px 0}.exp-spec summary{cursor:pointer;font-weight:500}.exp-spec p{margin:12px 0;font-size:12px}
+.exp-choice-cards article{background:var(--limewash);padding:34px 28px;min-height:335px;display:flex;flex-direction:column}.exp-choice-cards h2{font:400 clamp(30px,3vw,42px) var(--font-serif);margin:26px 0 12px}.exp-choice-cards p{font-size:12px;line-height:1.7;max-width:270px}.exp-choice-cards .o8-button{margin-top:auto}
+.exp-cart{display:grid;grid-template-columns:1.5fr .75fr;gap:50px}.exp-cart-row{display:grid;grid-template-columns:130px 1fr auto;gap:20px;align-items:start;border-bottom:1px solid var(--line);padding:17px 0}
+.exp-cart-row img{height:115px;object-fit:cover}.exp-cart-row h2{font:400 28px var(--font-serif);margin:0 0 8px}.exp-cart-row p{font-size:11px;color:var(--ink-muted)}.exp-remove{background:transparent;border:0;text-decoration:underline;cursor:pointer;color:var(--terracotta);font-size:11px}
+.exp-quantity{display:flex;gap:18px;align-items:center}.exp-quantity button{background:var(--limewash);border:0;width:26px;height:26px;cursor:pointer}.exp-cart-summary{background:var(--limewash);padding:34px;align-self:start}.exp-cart-summary h2,.exp-empty h2{font:400 34px var(--font-serif);margin:0}.exp-cart-summary p{font-size:12px;line-height:1.7}.exp-empty{grid-column:1/-1;background:var(--limewash);padding:50px;min-height:280px}.exp-empty p{font-size:13px;max-width:480px}.exp-empty .o8-button{margin-top:15px}
+.exp-material-details article{background:var(--surface-raised)}.exp-material-details article>img{aspect-ratio:1.55;object-fit:cover}.exp-material-details article>div{padding:23px 28px 30px}.exp-material-details h2{font:400 34px var(--font-serif);margin:10px 0}.exp-material-details p{font-size:12px}
+.exp-brand-colors .exp-grid>div,.exp-brand-colors>div{text-align:center}.exp-brand-colors span{display:block;width:100%;aspect-ratio:2.5;border:1px solid var(--line)}.exp-brand-colors strong{display:block;font-size:11px;margin-top:10px}.exp-brand-colors small{font-size:11px}
+.exp-brand-deck>a{background:var(--limewash);text-align:center;padding:55px 20px;display:flex;flex-direction:column;align-items:center}.exp-brand-deck .brand-line-icon{width:68px;height:68px}.exp-brand-deck h2{font:400 44px var(--font-serif);margin:24px 0 3px}.exp-brand-deck h3{font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:500}.exp-brand-deck span{color:var(--terracotta);font-size:11px;margin-top:30px}
+.exp-wizard{max-width:var(--o8-w);display:grid;grid-template-columns:1.3fr .7fr;gap:50px;margin:auto;padding:0 var(--o8-gap) 90px}.exp-wizard-panel{background:var(--limewash);padding:40px clamp(25px,4vw,60px)}
+.exp-steps{display:flex;flex-wrap:wrap;gap:14px;border-bottom:1px solid var(--line);padding-bottom:20px;margin-bottom:35px}.exp-steps span{font-size:11px;color:var(--ink-muted)}.exp-steps span[aria-current=step]{color:var(--accent-text);font-weight:600}
+.exp-wizard h2,.exp-contact-form h2{font:400 clamp(32px,3vw,45px) var(--font-serif);margin:0 0 28px}.exp-wizard textarea,.exp-contact-form textarea{resize:vertical}.exp-wizard-nav{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-top:33px}
+.exp-wizard aside img{aspect-ratio:.91;object-fit:cover}.exp-wizard aside p{font-size:11px;color:var(--ink-muted);max-width:300px;line-height:1.7}.exp-hint{font-size:11px;color:var(--ink-muted);margin-top:15px}.exp-summary{border-left:2px solid var(--terracotta);padding:8px 20px;background:var(--surface-raised)}.exp-summary p{font-size:12px;line-height:1.7;overflow-wrap:anywhere}
+.exp-contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,5vw,80px);max-width:var(--o8-w);margin:auto;padding:10px var(--o8-gap) 90px}.exp-contact-layout>div img{aspect-ratio:.91;object-fit:cover}.exp-contact-layout>div p{font-size:11px;letter-spacing:.12em;text-transform:uppercase}.exp-contact-form{padding:25px 0}
+.exp-social-intro{display:grid;grid-template-columns:1fr .7fr;gap:50px;align-items:center;margin-bottom:50px}.exp-social-intro h2{font:400 clamp(36px,4vw,60px) var(--font-serif);margin:19px 0}.exp-social-intro p{font-size:13px;line-height:1.8;max-width:500px}.exp-social-example img{aspect-ratio:1.7;object-fit:cover}
+.exp-social-form{background:var(--limewash);padding:20px 30px 27px;margin-bottom:38px}.exp-social-form>div{display:flex;gap:12px;align-items:stretch}.exp-social-form input{flex:1;min-width:0}.exp-social-form button{cursor:pointer;font-family:var(--font-sans);white-space:nowrap}.exp-social-form p{font-size:11px;color:var(--ink-muted);line-height:1.6}
+.exp-social-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.exp-social-card{background:var(--limewash);min-width:0}.exp-social-card>div:first-child{padding:20px}.exp-social-card>div:first-child span{font-size:11px;text-transform:uppercase;color:var(--terracotta);display:block}.exp-social-card strong{font:400 28px var(--font-serif)}.exp-social-card p{font-size:11px;overflow-wrap:anywhere}
+.exp-embed-placeholder{height:360px;background:var(--surface-raised);display:flex;flex-direction:column;align-items:center;justify-content:center}.exp-iframe-wrap{height:500px;overflow:hidden}.exp-iframe-wrap iframe{border:0;width:100%;height:100%;background:white}
+.exp-social-actions{display:flex;gap:9px;align-items:center;flex-wrap:wrap;padding:14px}.exp-social-actions button{padding:8px}.exp-social-actions a{font-size:11px;text-decoration:underline}.exp-social-disclaimer{background:var(--surface-raised);padding:25px}.exp-social-empty{min-height:180px}.exp-social-empty h2{font-size:32px}
+@media(max-width:1170px){.o8-nav{gap:9px}.o8-nav a{font-size:11px}.o8-header-actions{gap:8px}.o8-header-cta{padding:12px}.header-bag{font-size:11px}}
+@media(max-width:1320px){.o8-nav,.o8-header-actions{display:none}.o8-header{min-height:76px}.menu-toggle{display:block;border:0;background:transparent;color:var(--ink);font-size:26px;margin-left:auto;cursor:pointer}.mobile-nav:not([hidden]){display:flex;position:absolute;top:100%;left:0;right:0;background:var(--surface);box-shadow:none;padding:20px var(--o8-gap);flex-direction:column;gap:17px;max-height:calc(100vh - 90px);overflow:auto;text-transform:uppercase;font-size:12px;letter-spacing:.08em}.mobile-nav a{border-bottom:1px solid var(--line);padding-bottom:9px}}
+@media(max-width:950px){
+.o8-pillar-copy .brand-line-icon{display:none}
+.exp-grid-4{grid-template-columns:repeat(2,minmax(0,1fr))}.exp-grid-3{grid-template-columns:repeat(2,minmax(0,1fr))}.exp-social-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.site-footer-plus{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:660px){.o8-demo-note{font-size:11px;padding:7px 16px}.o8-header{padding:11px 20px;min-height:65px}.o8-header .o8-wordmark{font-size:24px}.exp-hero{height:500px}.exp-hero>img{object-position:57% center}.exp-hero:after{background:linear-gradient(90deg,var(--scrim),transparent 75%)}.exp-hero-content{left:23px;width:78%;top:48%}.exp-hero h1{font-size:clamp(44px,11vw,60px)}.exp-hero p{font-size:11px}.exp-hero-corner{display:none}
+.exp-page-intro{padding:52px 20px 35px}.exp-page-intro h1{font-size:clamp(42px,11vw,62px)}.exp-page-pad{padding:15px 18px 55px}.exp-grid-2,.exp-grid-3{grid-template-columns:1fr}.exp-grid-4{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.exp-card>img{aspect-ratio:1.36}.exp-material-preview img{aspect-ratio:1.2}.o8-pillars{padding:9px 12px 0}.o8-pillar{grid-template-columns:42% 58%}.o8-pillar-copy{padding:15px}.o8-pillar-copy p{font-size:11px}
+.exp-banner{margin:40px 12px 0;min-height:360px}.exp-banner>div{margin-left:23px;width:72%}.exp-banner h2{font-size:42px}.exp-banner p{font-size:11px}.exp-banner:after{background:linear-gradient(90deg,var(--scrim),transparent 75%)}
+.exp-copy-split{grid-template-columns:1fr;gap:9px;padding:55px 22px}.exp-copy-split h2{font-size:41px}.exp-copy-split p{font-size:13px}.exp-process,.exp-pathways{padding:55px 20px;margin-top:40px}.exp-pathways .exp-grid>a{min-height:205px}.exp-pathways h3{margin-top:20px}
+.exp-product-detail{grid-template-columns:1fr;padding:15px 18px 65px;gap:30px}.exp-product-photo img{aspect-ratio:1.15}.exp-product-config h1{font-size:55px}.exp-choice-cards article{min-height:275px}.exp-cart{grid-template-columns:1fr}.exp-cart-row{grid-template-columns:90px 1fr;gap:12px}.exp-cart-row img{height:100px}.exp-cart-row h2{font-size:22px}.exp-remove{grid-column:2;justify-self:start}.exp-cart-summary{padding:24px}.exp-material-details article>div{padding:20px}.exp-wizard,.exp-contact-layout{grid-template-columns:1fr;padding:0 18px 60px;gap:20px}.exp-wizard-panel{padding:24px 20px}.exp-wizard aside{display:none}.exp-contact-layout>div img{aspect-ratio:1.5}.exp-contact-form{padding:8px 0}
+.exp-social-intro{grid-template-columns:1fr;gap:15px}.exp-social-intro h2{font-size:42px}.exp-social-example img{aspect-ratio:1.9}.exp-social-form{padding:20px}.exp-social-form>div{flex-direction:column}.exp-social-grid{grid-template-columns:1fr}.exp-embed-placeholder{height:300px}.site-footer-plus{padding:40px 20px;gap:28px}.site-footer-plus .o8-wordmark{font-size:23px}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+/* Legibilidad: overlays estrictamente funcionales para fotografías de los héroes. */
+.exp-hero:after{background:linear-gradient(90deg,var(--scrim) 0%,var(--scrim) 20%,transparent 84%)}
+.exp-hero-content .o8-overline{color:var(--on-primary)}
+.exp-hero p{font-size:17px;line-height:28px;font-weight:300}
+.exp-page-intro p{font-size:17px;line-height:28px;font-weight:300}
+.site-footer-plus p{color:var(--sand);font-size:12px}
+.exp-summary{border-left:0;border-top:1px solid var(--line)}
+@media(max-width:660px){.exp-hero:after{background:linear-gradient(0deg,var(--scrim) 0%,var(--scrim) 55%,transparent 100%)}.exp-hero-content{top:58%}.exp-hero p{font-size:17px;line-height:28px}}
+
+/* Auditoría 3: pie de página y legibilidad comercial. */
+.site-footer-plus strong{font-family:var(--font-sans);font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--sand)}
+.exp-social-actions a,.caliza-profile-links a,.exp-social-card small{font-size:12px}
+.o8-button span,.caliza-wa-action span{color:var(--on-primary)}
+.exp-hero h1,.exp-page-intro h1,.exp-banner h2{letter-spacing:0}
+@media(prefers-reduced-motion:no-preference){
+ /* Las transiciones de página completas están desactivadas para preservar claridad. */
+ .exp-card img,.caliza-family-card img{transition:transform .45s ease}
+ .exp-card:hover img,.caliza-family-card:hover img{transform:scale(1.035)}
+}
+@media(prefers-reduced-motion:reduce){
+ /* Sin animaciones de navegación. */
+}
+
+/* Movimiento nativo ligero, sin dependencias ni animaciones cuando reduce-motion está activo. */
+@supports (animation-timeline:view()) {
+  @media(prefers-reduced-motion:no-preference) {
+    .caliza-family-card,.exp-card {animation:caliza-reveal linear both;animation-timeline:view();animation-range:entry 0% cover 23%}
+    @keyframes caliza-reveal {from{transform:translateY(12px)}to{transform:translateY(0)}}
+  }
+}
+@media(prefers-reduced-motion:reduce){.caliza-family-card,.exp-card{animation:none;transform:none}}
+
+/* A11y: el movimiento nunca reduce la opacidad del texto de las tarjetas. */
+
+/* Reserva el espacio de la aplicación antes del primer render de rutas hash. Evita CLS masivo al desplazar el footer. */
+#main{min-height:100vh;min-height:100svh}
+.loading-state{min-height:100vh;min-height:100svh}
+
+/* END experience.css */
+/* BEGIN identity.css */
+/* CALIZA GROUP — adaptación web del manual rector. Archivo generado. */
+:root { --caliza-mark-min-group:96px; --caliza-mark-min-division:72px; --caliza-mark-min-symbol:24px; }
+.caliza-brand-logo { display:block; flex:none; width:var(--caliza-mark-width,120px); max-width:100%; height:auto; object-fit:contain; object-position:center; aspect-ratio:347.2 / 199; }
+.caliza-brand-logo[data-caliza-mark="division"] { aspect-ratio:347.2 / 258.8; }
+.caliza-brand-logo[data-caliza-mark="symbol"] { aspect-ratio:auto; }
+.caliza-brand-link { display:inline-flex; align-items:center; flex:none; min-width:0; text-decoration:none; }
+.caliza-brand-link .caliza-brand-logo { width:var(--caliza-mark-width,120px); height:auto; }
+.site-header .logo img.caliza-brand-logo { position:static; inset:auto; width:var(--caliza-mark-width,104px); height:auto; opacity:1; transform:none; max-height:none; }
+.mobile-menu img.caliza-brand-logo,.site-footer img.caliza-brand-logo { width:var(--caliza-mark-width,104px); height:auto; position:static; }
+.o8-page,.o8-site { background:var(--surface); color:var(--ink); font-family:var(--font-sans); }
+.o8-header,.site-header,.site-header.is-solid,.site-header--solid-start { background:var(--surface); color:var(--ink); border-bottom:1px solid var(--line); box-shadow:none; }
+.o8-nav a,.site-header nav a { font:400 11px/16px var(--font-sans); letter-spacing:.22em; text-transform:uppercase; }
+.o8-nav a[aria-current=page],.site-header nav a[aria-current=page] { color:var(--ink); border-bottom:1px solid var(--accent); }
+.o8-page .o8-button,.o8-site .o8-button,.site-header .cta,.site-header.is-solid .cta { min-height:44px; height:44px; padding:0 28px; background:var(--primary); border:1px solid var(--primary); color:var(--on-primary); font:500 12px/1 var(--font-sans); letter-spacing:.2em; text-transform:uppercase; border-radius:0; box-shadow:none; }
+.o8-page .o8-button:hover,.o8-site .o8-button:hover,.site-header .cta:hover { background:var(--accent-text); border-color:var(--accent-text); color:var(--on-primary); transform:none; }
+.o8-page :focus-visible,.o8-site :focus-visible { outline:2px solid var(--focus); outline-offset:2px; }
+.o8-page .exp-card,.o8-page .exp-social-card,.o8-page .exp-social-form { border-radius:0; box-shadow:none; }
+.o8-page .exp-hero h1,.o8-site .o8-hero h1 { font-family:var(--font-serif); font-weight:400; letter-spacing:0; }
+.o8-page .exp-social-card strong,.o8-page .exp-card-info h3 { font-family:var(--font-serif); }
+.o8-page .exp-social-actions a,.o8-page .o8-text-link { color:var(--accent-text); }
+.o8-page .o8-hero::after,.o8-page .exp-hero::after { background:linear-gradient(90deg,var(--scrim) 0%,rgba(24,52,60,.42) 43%,rgba(24,52,60,0) 85%); }
+.o8-page .o8-hero-copy,.o8-page .exp-hero-content { color:var(--limewash); }
+.o8-page .o8-hero .o8-button,.o8-page .exp-hero .o8-button { color:var(--limewash); border:1px solid var(--limewash); background:transparent; }
+.o8-page .o8-hero .o8-button:hover,.o8-page .exp-hero .o8-button:hover { background:var(--limewash); color:var(--marine-ink); }
+.o8-page .exp-social-card>div:first-child span,.o8-page .exp-brand-deck span,.o8-page .exp-subnav a[aria-current=page],.o8-page .exp-remove,.o8-page .o8-section-heading a { color:var(--accent-text); }
+.o8-page .o8-footer strong { color:var(--sand); }
+.o8-page .o8-demo-note { background:var(--marine-ink); color:var(--limewash); }
+.o8-page .o8-footer,.site-footer { background:var(--marine-ink); color:var(--limewash); }
+@media(max-width:660px) { .o8-header .caliza-brand-logo,.site-header .logo img.caliza-brand-logo { width:96px; } .site-footer .caliza-brand-logo { width:110px; } }
+@media(prefers-reduced-motion:reduce){.o8-button{transition:none!important}}
+
+/* END identity.css */
+/* BEGIN authority-tokens.css */
+/* CALIZA GROUP — variables CSS generadas desde tokens.json */
+
+@font-face { font-family: "Playfair Display"; src: url("/brand/fonts/PlayfairDisplay-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Playfair Display"; src: url("/brand/fonts/PlayfairDisplay-400-italic.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "Playfair Display"; src: url("/brand/fonts/PlayfairDisplay-500-normal.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "Playfair Display"; src: url("/brand/fonts/PlayfairDisplay-600-normal.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "Montserrat"; src: url("/brand/fonts/Montserrat-300-normal.woff2") format("woff2"); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: "Montserrat"; src: url("/brand/fonts/Montserrat-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Montserrat"; src: url("/brand/fonts/Montserrat-500-normal.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "Montserrat"; src: url("/brand/fonts/Montserrat-600-normal.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: swap; }
+
+:root, [data-theme="light"] {
+  --marine-ink: #18343c;
+  --terracotta: #ae7256;
+  --sand: #ceb99b;
+  --limewash: #f2eadc;
+  --surface: var(--limewash);
+  --surface-raised: #f8f3ea;
+  --surface-sand: #e9dcc7;
+  --line: #d8c8b0;
+  --line-strong: #8c7f6c;
+  --ink: var(--marine-ink);
+  --ink-muted: #5f5a52;
+  --accent: var(--terracotta);
+  --accent-text: #85513b;
+  --primary: var(--marine-ink);
+  --on-primary: var(--limewash);
+  --focus: var(--marine-ink);
+  --rule: var(--terracotta);
+  --scrim: rgba(24, 52, 60, 0.65);
+  --shadow-float: 0 12px 32px rgba(24, 52, 60, 0.12);
+}
+[data-theme="dark"] {
+  --surface: var(--marine-ink);
+  --surface-raised: #1f414a;
+  --surface-sand: #122a31;
+  --line: #3a5961;
+  --line-strong: #7d9196;
+  --ink: var(--limewash);
+  --ink-muted: #c8b9a2;
+  --accent: var(--terracotta);
+  --accent-text: #d49a7e;
+  --primary: var(--limewash);
+  --on-primary: var(--marine-ink);
+  --focus: var(--limewash);
+  --rule: var(--terracotta);
+  --shadow-float: 0 12px 32px rgba(0, 0, 0, 0.35);
+}
+:root {
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --radius-none: 0;
+  --radius-xs: 2px;
+  --radius-arch: 999px;
+  --radius-round: 50%;
+  --hairline: 1px;
+  --rule-weight: 2px;
+  --font-serif: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-sans: Montserrat, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Estilos de texto: clase .<nombre>. Los marcados MAYÚSCULAS en el manual llevan text-transform. */
+.display { font-family: var(--font-serif); font-size: 72px; line-height: 0.95; font-weight: 400; letter-spacing: 0.01em; text-transform: uppercase; }
+.headline { font-family: var(--font-serif); font-size: 44px; line-height: 1.1; font-weight: 400; }
+.title { font-family: var(--font-serif); font-size: 30px; line-height: 1.2; font-weight: 400; }
+.subtitle { font-family: var(--font-serif); font-size: 21px; line-height: 1.35; font-weight: 400; }
+.section { font-family: var(--font-serif); font-size: 15px; line-height: 20px; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase; }
+.quote { font-family: var(--font-serif); font-size: 21px; line-height: 1.4; font-weight: 400; font-style: italic; }
+.lead { font-family: var(--font-sans); font-size: 17px; line-height: 28px; font-weight: 300; }
+.body { font-family: var(--font-sans); font-size: 15px; line-height: 24px; font-weight: 400; }
+.descriptor { font-family: var(--font-sans); font-size: 13px; line-height: 18px; font-weight: 400; letter-spacing: 0.22em; text-transform: uppercase; }
+.label { font-family: var(--font-sans); font-size: 11px; line-height: 16px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; }
+.caption { font-family: var(--font-sans); font-size: 12px; line-height: 18px; font-weight: 400; }
+
+/* END authority-tokens.css */
+/* BEGIN marketing.css */
+/* CALIZA GROUP — capa UX comercial. Todos los valores cromáticos y tipográficos
+   proceden del sistema rector de identidad; no modifica los logotipos ni sus SVG. */
+.caliza-conversion-dock{position:fixed;right:clamp(16px,2.6vw,38px);bottom:24px;z-index:65;display:flex;flex-direction:column;gap:0;width:min(263px,calc(100vw - 32px));background:var(--surface-raised);border:1px solid var(--line);box-shadow:none;padding:9px}
+.caliza-whatsapp-float{display:flex;align-items:center;justify-content:center;gap:11px;min-height:52px;background:var(--primary);color:var(--on-primary);font:500 11px/1.4 var(--font-sans);letter-spacing:.06em;text-transform:uppercase;border-radius:var(--radius-none);padding:10px 13px;text-decoration:none;transition:background .2s}
+.caliza-whatsapp-float svg{flex:none}
+.caliza-whatsapp-float:hover,.caliza-whatsapp-float:focus-visible{background:var(--primary);color:var(--on-primary)}
+.caliza-selection-float{display:flex;align-items:center;justify-content:space-between;min-height:35px;padding:7px 12px;text-transform:uppercase;letter-spacing:.12em;font-size:11px;font-weight:500;color:var(--ink)}
+.caliza-selection-float span{font-size:11px;font-weight:600}
+.caliza-conversion-dock small{display:block;text-align:center;color:var(--ink-muted);font:400 11px/1.5 var(--font-sans);padding:0 4px 3px}
+.caliza-conversion-dock a:focus-visible,.caliza-social-showcase a:focus-visible,.caliza-journeys a:focus-visible,.caliza-social-filters button:focus-visible{outline:2px solid var(--focus);outline-offset:3px}
+.caliza-journeys{max-width:var(--o8-w);margin:0 auto;padding:clamp(60px,7vw,110px) var(--o8-gap) 28px;display:grid;grid-template-columns:minmax(210px,.9fr) minmax(0,1.6fr);gap:clamp(26px,5vw,90px);align-items:start}
+.caliza-journeys-lead h2{font:400 clamp(36px,4vw,57px)/1.12 var(--font-serif);letter-spacing:0;margin:24px 0 12px}
+.caliza-journeys-lead p{font-size:13px;line-height:1.8;color:var(--ink-muted);max-width:380px}
+.caliza-journey-links{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line-strong)}
+.caliza-journey-links a{display:flex;flex-direction:column;gap:12px;min-height:230px;padding:26px 19px 18px;border-right:1px solid var(--line);transition:background .2s;background:var(--surface-raised)}
+.caliza-journey-links a:first-child{border-left:1px solid var(--line)}
+.caliza-journey-links a:hover{background:var(--surface-sand)}
+.caliza-journey-links span{font:500 11px var(--font-sans);letter-spacing:.11em;text-transform:uppercase;color:var(--accent-text)}
+.caliza-journey-links strong{font:400 23px/1.23 var(--font-serif);letter-spacing:0}
+.caliza-journey-links small{display:flex;justify-content:space-between;align-items:end;gap:6px;margin-top:auto;font:400 11px/1.6 var(--font-sans);color:var(--ink-muted)}
+.caliza-journey-links small span{font-size:17px;font-weight:400;color:var(--accent-text)}
+.caliza-social-showcase{padding-block:65px 90px;background:var(--surface-raised);margin-top:70px}
+.caliza-social-showcase-intro{display:flex;justify-content:space-between;align-items:end;gap:35px;margin:15px 0 28px}
+.caliza-social-showcase-intro h3{font:400 clamp(29px,3.2vw,48px)/1.2 var(--font-serif);letter-spacing:0;margin:14px 0}
+.caliza-social-showcase-intro p{font-size:12px;line-height:1.85;max-width:590px;color:var(--ink-muted)}
+.caliza-social-showcase-intro>a{font:500 11px var(--font-sans);letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;border-bottom:1px solid var(--line-strong);padding-bottom:8px}
+.caliza-social-onboard{display:grid;grid-template-columns:minmax(220px,.8fr) minmax(0,1.2fr);gap:clamp(26px,5vw,76px);background:var(--surface);padding:clamp(24px,4vw,58px);align-items:center}
+.caliza-social-onboard-visual{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;align-items:center;min-height:240px}
+.caliza-social-onboard-visual span{display:grid;place-items:center;aspect-ratio:1;background:var(--marine-ink);color:var(--limewash);font:400 clamp(30px,4vw,56px)/1 var(--font-serif);border-radius:var(--radius-none)}
+.caliza-social-onboard-visual span+span{background:var(--sand);color:var(--marine-ink)}
+.caliza-social-onboard-visual p{grid-column:1/-1;font:500 11px/1.6 var(--font-sans);letter-spacing:.12em;text-align:center;text-transform:uppercase;color:var(--ink-muted)}
+.caliza-social-onboard h4{font:400 clamp(31px,3vw,44px)/1.18 var(--font-serif);letter-spacing:0;margin:17px 0}
+.caliza-social-onboard>div:last-child>p{font:400 12px/1.9 var(--font-sans);color:var(--ink-muted);max-width:550px}
+.caliza-social-composer{margin:23px 0 0;padding:21px;background:var(--surface-raised);border:1px solid var(--line)}
+.caliza-social-composer button{font-size:11px}
+.caliza-social-more{display:flex;justify-content:center;margin-top:27px}
+.caliza-social-grid-preview .exp-embed-placeholder{height:275px}
+.caliza-social-grid-preview .exp-iframe-wrap{height:410px}
+.caliza-social-monogram{display:grid;place-items:center;width:84px;height:84px;border:1px solid var(--line-strong);border-radius:var(--radius-none);font:400 37px var(--font-serif);color:var(--marine-ink)}
+.caliza-social-profiles{display:flex;gap:13px;flex-wrap:wrap;margin:-18px 0 35px}
+.caliza-social-profiles a{display:inline-flex;align-items:center;gap:15px;padding:13px 18px;border:1px solid var(--line-strong);font:500 11px var(--font-sans);letter-spacing:.08em;text-transform:uppercase}
+.caliza-social-profiles a:hover{background:var(--surface-sand)}
+.caliza-social-filters{display:flex;gap:5px;flex-wrap:wrap}
+.caliza-social-filters button{border:1px solid var(--line-strong);background:transparent;color:var(--ink);padding:10px 16px;font:500 11px var(--font-sans);text-transform:uppercase;letter-spacing:.1em;cursor:pointer}
+.caliza-social-filters button.selected{background:var(--primary);color:var(--on-primary);border-color:var(--primary)}
+.caliza-social-toolbar .exp-outline:disabled{cursor:not-allowed;opacity:.45}
+.caliza-shop-tools{display:flex;align-items:end;justify-content:space-between;gap:25px;margin-bottom:28px}
+.caliza-shop-tools>p{font:400 11px/1.7 var(--font-sans);color:var(--ink-muted);white-space:nowrap;margin-bottom:3px}
+.caliza-collection-search{flex:1;max-width:560px}
+.caliza-collection-search label{display:block;font:500 11px/1.5 var(--font-sans);letter-spacing:.12em;text-transform:uppercase;margin-bottom:9px}
+.caliza-collection-search>div{display:flex;gap:8px}
+.caliza-collection-search input{min-width:0;flex:1;min-height:46px;border:1px solid var(--line-strong);background:var(--surface-raised);color:var(--ink);border-radius:var(--radius-none);padding:12px 14px;font:400 12px var(--font-sans)}
+.caliza-collection-search button{min-height:46px;white-space:nowrap}
+.exp-subnav{scrollbar-width:none}
+.exp-subnav::-webkit-scrollbar{display:none}
+.caliza-cta-pair,.caliza-summary-actions{display:flex;align-items:center;flex-wrap:wrap;gap:11px}
+.caliza-cta-pair .o8-button,.caliza-summary-actions .o8-button{font:500 11px/1.5 var(--font-sans);white-space:normal;text-align:center}
+.caliza-wa-action{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:44px;background:var(--primary);color:var(--on-primary)!important;border-radius:var(--radius-none);text-decoration:none;letter-spacing:.1em;text-transform:uppercase}
+.caliza-wa-action:hover{background:var(--primary)}
+.caliza-channel-note{font:400 11px/1.65 var(--font-sans)!important;color:var(--ink-muted);max-width:535px;margin-top:14px!important}
+.caliza-summary-actions{margin-top:22px}
+.caliza-summary-actions .exp-outline{min-height:44px}
+.caliza-contact-promise{display:flex;flex-direction:column;gap:10px;margin-top:35px;padding:22px 24px;background:var(--surface);border-top:1px solid var(--line)}
+.caliza-contact-promise strong{font:400 24px var(--font-serif)}
+.caliza-contact-promise span{font:400 11px/1.55 var(--font-sans);color:var(--ink-muted)}
+.caliza-contact-result{border:1px solid var(--line-strong);padding:23px;background:var(--surface);margin-top:24px;scroll-margin:110px}
+.caliza-contact-result[hidden]{display:none}
+.caliza-contact-result h3{font:400 30px var(--font-serif);margin:0 0 12px}
+.caliza-contact-result p{font:400 12px/1.75 var(--font-sans)}
+.caliza-contact-result pre{font:400 11px/1.7 var(--font-sans);white-space:pre-wrap;overflow-wrap:anywhere;border:1px solid var(--line);padding:16px;background:var(--surface-raised)}
+@media(max-width:1100px){.caliza-journeys{grid-template-columns:1fr;gap:28px}.caliza-journey-links a{min-height:200px}}
+@media(max-width:760px){.caliza-social-onboard{grid-template-columns:1fr}.caliza-social-onboard-visual{min-height:170px;max-width:410px}.caliza-social-showcase-intro{align-items:start;flex-direction:column;gap:10px}.caliza-social-showcase-intro>a{white-space:normal}.caliza-journey-links{grid-template-columns:1fr}.caliza-journey-links a{min-height:0;padding:20px;gap:9px;border-left:1px solid var(--line);border-bottom:1px solid var(--line)}.caliza-journey-links strong{font-size:26px}.caliza-journeys{padding-inline:22px}.caliza-shop-tools{flex-direction:column;align-items:stretch;gap:6px}.caliza-shop-tools>p{white-space:normal}}
+@media(max-width:660px){body.o8-page{padding-bottom:95px}.caliza-conversion-dock{left:0;right:0;bottom:0;width:100%;max-width:none;display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:8px;padding:8px 12px max(8px,env(safe-area-inset-bottom));border:0;border-top:1px solid var(--line);box-shadow:none}.caliza-whatsapp-float{min-height:49px;font-size:11px;padding:7px 9px;gap:7px}.caliza-whatsapp-float svg{width:19px;height:19px}.caliza-selection-float{border:1px solid var(--line);min-height:49px;font-size:11px;gap:3px}.caliza-conversion-dock small{display:none}.feedback{bottom:95px;right:10px}.caliza-social-showcase{padding:43px 20px 55px;margin-top:40px}.caliza-social-onboard{padding:20px}.caliza-social-onboard h4{font-size:31px}.caliza-social-onboard-visual{min-height:150px}.caliza-social-onboard-visual span{max-height:140px}.caliza-social-toolbar{align-items:start}.caliza-cta-pair,.caliza-summary-actions{align-items:stretch}.caliza-cta-pair>*{flex:1 1 100%}.caliza-summary-actions>*{flex:1 1 180px}.caliza-social-filters{order:2;width:100%}.caliza-social-toolbar .exp-outline{margin-left:auto}}
+@media(prefers-reduced-motion:reduce){.caliza-whatsapp-float,.caliza-journey-links a{transition:none}}
+
+/* Rectificación a la autoridad: arcos solo en fotografías, texto legible y controles accesibles. */
+body.o8-page{background:var(--surface)}
+.exp-hero h1,.exp-page-intro h1,.caliza-journeys-lead h2,.caliza-social-showcase h3{letter-spacing:.005em}
+.exp-quantity button{min-width:44px;min-height:44px;width:44px;height:44px;border:1px solid var(--line-strong)}
+.exp-product-config select,.exp-product-config input,.exp-wizard select,.exp-wizard input,.exp-wizard textarea,.exp-contact-form select,.exp-contact-form input,.exp-contact-form textarea,.exp-social-form input{border:1px solid var(--line-strong);font-size:15px;background:var(--surface-raised)}
+.caliza-whatsapp-float,.caliza-wa-action{border-radius:var(--radius-none)}
+.caliza-whatsapp-float:hover,.caliza-wa-action:hover{background:var(--accent-text)}
+.caliza-conversion-dock small{font-size:12px}
+.caliza-social-onboard-visual span,.caliza-social-monogram{border-radius:var(--radius-none)}
+.caliza-journeys-lead p,.caliza-social-showcase-intro p,.caliza-social-onboard>div:last-child>p,.caliza-contact-result p{font-size:15px;line-height:1.7}
+.caliza-journey-links span,.caliza-journey-links small,.caliza-social-profiles a,.caliza-social-filters button,.caliza-channel-note{font-size:12px}
+.caliza-shop-tools>p,.caliza-collection-search label,.caliza-collection-search input,.caliza-conversion-dock a{font-size:12px}
+.caliza-family-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.caliza-family-card{background:var(--surface-raised);padding:clamp(22px,3vw,44px);min-height:220px;display:flex;flex-direction:column;gap:16px}
+.caliza-family-card span{color:var(--accent-text);font:500 12px var(--font-sans);text-transform:uppercase;letter-spacing:.12em}
+.caliza-family-card h3{font:400 clamp(26px,2.5vw,36px)/1.2 var(--font-serif);letter-spacing:.005em}
+.caliza-family-card p{color:var(--ink-muted);font:400 15px/1.7 var(--font-sans)}
+.caliza-family-card>a{margin-top:auto;color:var(--ink);font:500 12px var(--font-sans);text-transform:uppercase;letter-spacing:.07em}
+.caliza-family-card>div{margin-top:auto}
+.caliza-family-card .caliza-wa-action{font-size:12px;line-height:1.5;padding:13px 17px}
+.caliza-family-card>small{font:400 12px/1.5 var(--font-sans);color:var(--ink-muted)}
+.caliza-family-card>a:hover{text-decoration:underline}
+.caliza-shop-intro{padding:28px 0 36px;max-width:780px}
+.caliza-shop-intro p{font:400 15px/1.8 var(--font-sans)}
+.caliza-profile-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.caliza-profile-links>a{min-height:180px;padding:30px;display:flex;flex-direction:column;justify-content:space-between;gap:12px;background:var(--marine-ink);color:var(--limewash);font:500 12px var(--font-sans);text-transform:uppercase;letter-spacing:.08em}
+.caliza-profile-links>a+a{background:var(--surface-sand);color:var(--marine-ink)}
+.caliza-profile-links strong{font:400 clamp(28px,3vw,43px)/1.2 var(--font-serif);letter-spacing:.005em;text-transform:none}
+.caliza-profile-links>a:hover{background:var(--terracotta);color:var(--limewash)}
+@media(max-width:760px){.caliza-family-grid,.caliza-profile-links{grid-template-columns:1fr}.caliza-family-card{min-height:185px}}
+@media(max-width:660px){.caliza-whatsapp-float,.caliza-selection-float{font-size:12px}.caliza-conversion-dock{box-shadow:none}}
+
+/* Segunda revisión editorial: fotografía por familia, conversión consultiva sin carrito ficticio. */
+.caliza-family-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(14px,1.8vw,26px);background:transparent;border:0}
+.caliza-family-card{min-width:0;min-height:0;padding:0;display:flex;flex-direction:column;background:var(--surface-raised);border:1px solid var(--line);overflow:hidden}
+.caliza-family-card .caliza-family-media{position:relative;overflow:hidden;margin:0;background:var(--surface-sand);aspect-ratio:1.34}
+.caliza-family-media img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 52%;transition:transform .5s ease}
+.caliza-family-card:hover .caliza-family-media img{transform:scale(1.035)}
+.caliza-family-media .caliza-image-note{position:absolute;right:12px;bottom:12px;margin:0;padding:8px 10px;background:var(--surface-raised);color:var(--marine-ink);font:500 11px/1.4 var(--font-sans);letter-spacing:.06em;text-transform:uppercase}
+.caliza-family-content{display:flex;flex:1;flex-direction:column;gap:12px;padding:clamp(22px,2.6vw,32px)}
+.caliza-family-content .o8-overline{font-size:11px;letter-spacing:.12em}
+.caliza-family-content h3{font-size:clamp(29px,2.6vw,37px);margin:0;line-height:1.15}
+.caliza-family-content p{font-size:15px;line-height:1.7;margin:0}
+.caliza-family-content .caliza-family-action{margin-top:auto;padding-top:12px;min-width:0}
+.caliza-family-card .caliza-wa-action{box-sizing:border-box;width:100%;max-width:100%;height:auto;min-height:48px;padding:12px 14px;justify-content:space-between;gap:10px;white-space:normal;text-align:left;line-height:1.4;font-size:11px;letter-spacing:.055em}
+.caliza-family-card .caliza-wa-action span{flex:none;font-size:19px}
+.caliza-family-content>small{display:block;color:var(--ink-muted);font:400 11px/1.55 var(--font-sans)}
+.caliza-conversion-dock{width:220px;gap:5px;box-shadow:none;border:0;background:transparent;padding:0}
+.caliza-whatsapp-float{box-shadow:none;font-size:11px}
+.caliza-conversion-dock small{background:var(--surface-raised);padding:6px 4px;font-size:11px}
+.caliza-preview-note{display:block;max-width:250px;letter-spacing:0;text-transform:none;line-height:1.65;opacity:.77}
+@media(max-width:760px){.caliza-family-media{aspect-ratio:1.25}.caliza-family-content{padding:22px}.caliza-family-content h3{font-size:32px}}
+@media(max-width:660px){
+  body.o8-page{padding-bottom:72px}
+  .exp-subnav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 18px;overflow:visible;padding:15px 18px}
+  .exp-subnav a{white-space:normal;font-size:11px;line-height:1.5}
+  .caliza-conversion-dock{left:0;right:0;bottom:0;width:100%;display:block;max-width:none;padding:10px 14px max(10px,env(safe-area-inset-bottom));background:var(--surface-raised);border-top:1px solid var(--line);box-shadow:none}
+  .caliza-whatsapp-float{width:100%;min-height:48px;font-size:12px;box-shadow:none}
+  .caliza-conversion-dock small{display:none}
+  .feedback{bottom:78px}
+}
+@media(prefers-reduced-motion:reduce){.caliza-family-media img{transition:none}}
+
+/* P0: familias reales sin fotografías individuales autorizadas. */
+.caliza-family-card .caliza-family-media{aspect-ratio:3/2;background:var(--surface-sand)}
+.caliza-family-placeholder{display:flex;width:100%;height:100%;min-height:190px;flex-direction:column;align-items:center;justify-content:center;gap:var(--space-3);color:var(--ink-muted);font:500 11px/1.45 var(--font-sans);letter-spacing:.16em;text-transform:uppercase;text-align:center;padding:var(--space-5)}
+.caliza-family-placeholder img{width:80px;height:80px;object-fit:contain;opacity:.4}
+.caliza-family-card .caliza-wa-action{max-width:100%;white-space:normal;min-height:48px}
+@media(max-width:660px){.caliza-family-card .caliza-family-media{aspect-ratio:4/5}}
+/* 2026-11-11 — accesibilidad, tipografía editorial y menú. */
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.caliza-conversion-dock{box-shadow:var(--shadow-float)}
+.caliza-whatsapp-float{box-shadow:var(--shadow-float)}
+.caliza-family-grid{grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr))}
+.caliza-family-placeholder{color:var(--ink-muted)}
+.caliza-family-content p{font-size:15px;line-height:1.6}
+.caliza-family-content .o8-overline,.caliza-image-note,.caliza-conversion-dock small{font-size:11px}
+.caliza-journeys-lead h2,.caliza-social-showcase h3,.caliza-family-content h3{letter-spacing:0}
+.menu-toggle{min-width:44px;min-height:44px;display:none;align-items:center;justify-content:center}
+.menu-icon{display:block}
+.menu-icon path{transform-origin:center;transition:transform .2s ease,opacity .2s ease}
+.menu-toggle[aria-expanded="true"] .menu-bar-top{transform:translateY(5px) rotate(45deg)}
+.menu-toggle[aria-expanded="true"] .menu-bar-mid{opacity:0}
+.menu-toggle[aria-expanded="true"] .menu-bar-bottom{transform:translateY(-5px) rotate(-45deg)}
+.mobile-nav-group{display:flex;flex-direction:column;gap:12px}
+.mobile-nav-group+.mobile-nav-group{padding-top:var(--space-4);border-top:1px solid var(--line)}
+.mobile-nav a{min-height:44px;display:flex;align-items:center}
+@media(max-width:1320px){.menu-toggle{display:flex}}
+@media(max-width:660px){body.o8-page{padding-bottom:calc(74px + env(safe-area-inset-bottom))}.caliza-family-media{aspect-ratio:4/5}}
+@media(prefers-reduced-motion:reduce){.menu-icon path{transition:none}}
+
+/* Banner editorial único y conducta del acceso flotante en escritorio. */
+.caliza-qa-banner{display:flex;gap:var(--space-5);align-items:center;justify-content:space-between;background:var(--surface-sand);color:var(--ink);border-bottom:1px solid var(--line);padding:var(--space-3) var(--space-7)}
+.caliza-qa-banner p{font:400 12px/18px var(--font-sans);margin:0;max-width:950px}
+.caliza-qa-banner button{flex:none;border:1px solid var(--line-strong);background:var(--surface-raised);color:var(--ink);font:500 11px/16px var(--font-sans);padding:var(--space-3);cursor:pointer;min-height:44px}
+.caliza-conversion-dock.is-hidden{opacity:0;pointer-events:none;visibility:hidden}
+@media(max-width:660px){.caliza-qa-banner{padding:var(--space-3) var(--space-4);align-items:flex-start;gap:var(--space-2)}.caliza-qa-banner button{min-width:64px}}
+@media(prefers-reduced-motion:no-preference){.caliza-conversion-dock{transition:opacity .2s ease}}
+
+@media(max-width:660px){.caliza-conversion-dock.is-hidden{opacity:1;pointer-events:auto;visibility:visible}}
+
+/* Auditoría 3: rejilla editorial, aviso compacto y WhatsApp que no tape el catálogo. */
+.caliza-family-grid-featured{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(18px,2.4vw,36px)}
+.caliza-qa-banner{position:relative;display:flex;align-items:center;flex-wrap:wrap;padding:var(--space-2) var(--space-5);gap:var(--space-3)}
+.caliza-qa-banner>p{font:400 11px/16px var(--font-sans);white-space:normal}
+.caliza-qa-banner>p strong{font-weight:500}
+.caliza-qa-banner details{font-size:11px}
+.caliza-qa-banner summary{cursor:pointer;text-decoration:underline;text-underline-offset:3px;min-height:24px}
+.caliza-qa-banner details[open]{flex-basis:100%;order:3;padding:var(--space-2) 0;border-top:1px solid var(--line)}
+.caliza-qa-banner details p{margin:var(--space-2) 0;max-width:920px;line-height:1.6}
+.caliza-qa-banner button{margin-left:auto;min-height:36px;padding:var(--space-2) var(--space-3)}
+.caliza-conversion-dock{width:auto;max-width:190px}
+.caliza-whatsapp-float{min-height:44px;padding:var(--space-3) var(--space-4);box-shadow:var(--shadow-float)}
+.caliza-conversion-dock small{display:none}
+body.menu-open .caliza-conversion-dock{visibility:hidden;opacity:0;pointer-events:none}
+@media(max-width:760px){.caliza-family-grid-featured{grid-template-columns:1fr}}
+@media(max-width:660px){
+ .caliza-qa-banner{padding:var(--space-2) var(--space-3)}
+ .caliza-qa-banner>p{flex:1 1 175px}
+ .caliza-qa-banner button{margin-left:0}
+ .caliza-conversion-dock{width:100%;max-width:none}
+}
+@media(prefers-reduced-motion:reduce){.caliza-conversion-dock{transition:none}}
+
+/* Fichas editoriales y contacto consultivo basados en 11_CATEGORIAS_FUENTE. */
+.caliza-family-media-link{display:block;outline-offset:4px}
+.caliza-family-content h3 a{color:inherit;text-decoration:none}
+.caliza-family-content h3 a:hover{text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:5px}
+.caliza-family-content p.caliza-family-sources{font-size:12px;line-height:1.55;color:var(--accent-text);margin:0}
+.caliza-family-action{display:flex;flex-direction:column;gap:12px}
+.caliza-family-details{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:44px;border-bottom:1px solid var(--line-strong);padding:7px 0;color:var(--ink);font:500 11px/1.4 var(--font-sans);text-transform:uppercase;letter-spacing:.1em}
+.caliza-family-details:hover{color:var(--accent-text)}
+.caliza-detail-layout{max-width:var(--o8-w);margin:0 auto;padding:clamp(32px,5vw,76px) var(--o8-gap);display:grid;grid-template-columns:minmax(0,1.1fr) minmax(300px,1fr);gap:clamp(30px,5vw,90px)}
+.caliza-detail-visual{min-width:0}
+.caliza-detail-visual>picture,.caliza-detail-visual>img,.caliza-detail-visual>.caliza-family-placeholder{width:100%;aspect-ratio:4/4.4;background:var(--surface-sand);object-fit:cover}
+.caliza-detail-visual>picture img{width:100%;height:100%;object-fit:cover}
+.caliza-detail-placeholder{display:flex!important;min-height:330px}
+.caliza-detail-visual>p{margin:12px 0;color:var(--ink-muted);font:400 11px/1.5 var(--font-sans)}
+.caliza-detail-content h2,.caliza-detail-inquiry h2{font:400 clamp(35px,4.3vw,59px)/1.1 var(--font-serif);letter-spacing:0;margin:14px 0 20px}
+.caliza-detail-content h3{font:400 clamp(22px,2.3vw,28px)/1.3 var(--font-serif);margin:30px 0 12px}
+.caliza-detail-content p,.caliza-detail-inquiry p{font:400 15px/1.8 var(--font-sans);color:var(--ink-muted)}
+.caliza-source-list{padding:0;margin:0;list-style:none;border-top:1px solid var(--line)}
+.caliza-source-list li{display:flex;justify-content:space-between;gap:20px;align-items:baseline;border-bottom:1px solid var(--line);padding:13px 0;font:500 13px/1.5 var(--font-sans)}
+.caliza-source-list small{color:var(--ink-muted);font:400 11px/1.5 var(--font-sans);text-align:right}
+.caliza-question-list{margin:0 0 28px;padding-left:21px;color:var(--ink-muted);font:400 14px/1.9 var(--font-sans)}
+.caliza-detail-inquiry{background:var(--surface-sand);padding:clamp(45px,6vw,100px) var(--o8-gap);display:grid;grid-template-columns:minmax(250px,.95fr) minmax(0,1fr);gap:clamp(24px,5vw,100px)}
+.caliza-detail-inquiry>div{max-width:530px}
+.caliza-detail-inquiry form{background:var(--surface-raised);padding:clamp(20px,3vw,45px)}
+.caliza-detail-inquiry form>small{font:400 11px/1.6 var(--font-sans);color:var(--ink-muted)}
+@media(max-width:900px){.caliza-detail-layout,.caliza-detail-inquiry{grid-template-columns:1fr}.caliza-source-list li{flex-wrap:wrap}.caliza-source-list small{text-align:left}}
+@media(max-width:660px){.caliza-detail-layout{padding:32px var(--o8-gap)}.caliza-detail-inquiry{padding:48px var(--o8-gap)}}
+@media(prefers-reduced-motion:reduce){.caliza-family-card:hover .caliza-family-media img{transform:none}}
+
+/* Portafolio por ámbitos documentados y biblioteca de materiales sin fichas inventadas. */
+.caliza-project-archive{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(22px,3vw,48px)}
+.caliza-project-archive-card{background:var(--surface-raised);border:1px solid var(--line);display:flex;flex-direction:column;min-width:0}
+.caliza-project-archive-card>img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;filter:saturate(.9) contrast(1.025)}
+.caliza-project-archive-card>div{padding:clamp(24px,3vw,43px)}
+.caliza-project-archive-card h2,.caliza-materials-opening h2,.caliza-project-capabilities h2,.caliza-materials-next h2{font:400 clamp(32px,3.5vw,51px)/1.13 var(--font-serif);letter-spacing:0;margin:15px 0}
+.caliza-project-archive-card p,.caliza-project-capabilities p,.caliza-materials-opening p,.caliza-materials-next p{font:400 15px/1.7 var(--font-sans);color:var(--ink-muted)}
+.caliza-project-capabilities{margin:clamp(70px,7vw,112px) 0}
+.caliza-project-capabilities>div{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--line);margin-top:26px}
+.caliza-project-capabilities a{padding:20px 7px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;min-height:56px;font:500 13px/1.4 var(--font-sans)}
+.caliza-project-capabilities a:hover{color:var(--accent-text)}
+.caliza-materials-opening{max-width:920px;margin:0 0 55px}
+.caliza-materials-gallery{margin:35px 0}
+.caliza-materials-gallery article{background:var(--surface-raised);min-width:0;border:1px solid var(--line)}
+.caliza-materials-gallery img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
+.caliza-materials-gallery article>div{padding:18px}
+.caliza-materials-gallery h3{margin:8px 0;font:400 25px/1.2 var(--font-serif)}
+.caliza-materials-gallery p{font:400 13px/1.65 var(--font-sans);color:var(--ink-muted)}
+.caliza-materials-next{padding:clamp(35px,5vw,80px) clamp(23px,5vw,70px);background:var(--surface-sand);margin-top:60px;max-width:920px}
+.caliza-materials-next .o8-button{margin-top:16px}
+@media(max-width:760px){.caliza-project-archive,.caliza-project-capabilities>div{grid-template-columns:1fr}}
+
+/* Ícono oficial de WhatsApp: excepción cromática de la marca externa, separada de tokens CALIZA. */
+.caliza-whatsapp-float .caliza-whatsapp-logo{display:inline-grid;place-items:center;flex:none;width:38px;height:38px;border-radius:50%;background:rgb(37 211 102);color:rgb(255 255 255)}
+.caliza-whatsapp-logo svg{display:block;width:24px;height:24px;fill:currentColor}
+@media(max-width:660px){.caliza-whatsapp-float .caliza-whatsapp-logo{width:36px;height:36px}.caliza-whatsapp-logo svg{width:22px;height:22px}}
+/* Módulo social siempre visible, con reproductor del perfil TikTok bajo solicitud. */
+.caliza-social-live{display:grid;grid-template-columns:minmax(250px,.85fr) minmax(0,1.15fr);gap:clamp(24px,4vw,62px);align-items:start;margin:26px 0 34px;padding:clamp(24px,3.5vw,52px);border:1px solid var(--line);background:var(--surface)}
+.caliza-social-live-copy h3{font:400 clamp(28px,3.4vw,46px)/1.14 var(--font-serif);margin:14px 0;letter-spacing:0}
+.caliza-social-live-copy>p{font:400 14px/1.75 var(--font-sans);color:var(--ink-muted)}
+.caliza-social-live-copy .exp-outline{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 18px;margin:14px 0;cursor:pointer}
+.caliza-social-live-copy .exp-outline:disabled{opacity:.68;cursor:default}
+.caliza-social-live-copy .exp-hint a{text-decoration:underline;text-underline-offset:3px}
+.caliza-tiktok-widget{min-width:0;max-width:100%;overflow:hidden}
+.caliza-tiktok-widget[hidden]{display:none}
+.caliza-tiktok-widget .tiktok-embed{margin:0;max-width:100%;min-width:0}
+.caliza-social-status{font:400 13px/1.7 var(--font-sans);color:var(--ink-muted)}
+@media(max-width:760px){.caliza-social-live{grid-template-columns:1fr;padding:24px}.caliza-tiktok-widget{width:100%}}
+
+/* Cuenta oficial de CALIZA: carga por consentimiento, sin claves ni datos personales en el navegador. */
+.caliza-instagram-live{margin:clamp(24px,4vw,55px) 0;padding:clamp(22px,3.6vw,47px);background:var(--surface-raised);border:1px solid var(--line)}
+.caliza-instagram-live-head{display:flex;align-items:flex-end;justify-content:space-between;gap:clamp(20px,3vw,42px)}
+.caliza-instagram-live-head h3{font:400 clamp(29px,3.1vw,44px)/1.16 var(--font-serif);margin:12px 0 15px;letter-spacing:0}
+.caliza-instagram-live-head p{font:400 14px/1.8 var(--font-sans);color:var(--ink-muted);max-width:670px}
+.caliza-instagram-live-actions{display:flex;flex-direction:column;gap:12px;align-items:flex-end;min-width:max-content}
+.caliza-instagram-live-actions button{cursor:pointer;min-height:44px;padding:12px 18px}
+.caliza-instagram-live-actions button:disabled{cursor:default;opacity:.65}
+.caliza-instagram-live-actions a{font:500 11px/1.5 var(--font-sans);text-decoration:underline;text-underline-offset:3px}
+.caliza-instagram-live>.exp-hint{font:400 12px/1.6 var(--font-sans);color:var(--ink-muted);margin:20px 0 0}
+.caliza-instagram-feed{margin-top:22px;font:400 14px/1.7 var(--font-sans)}
+.caliza-instagram-feed[hidden]{display:none}
+.caliza-instagram-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.caliza-instagram-grid a{min-width:0;position:relative;overflow:hidden;background:var(--surface-sand);aspect-ratio:4/5}
+.caliza-instagram-grid img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
+.caliza-instagram-grid a:hover img{transform:scale(1.025)}
+.caliza-instagram-grid a>span{position:absolute;bottom:0;left:0;right:0;padding:14px;color:var(--on-primary);background:var(--primary);display:flex;justify-content:space-between;font:500 11px/1.5 var(--font-sans)}
+@media(max-width:760px){.caliza-instagram-live-head{flex-direction:column;align-items:flex-start}.caliza-instagram-live-actions{align-items:flex-start}.caliza-instagram-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(prefers-reduced-motion:reduce){.caliza-instagram-grid img{transition:none}.caliza-instagram-grid a:hover img{transform:none}}
+
+/* El botón flotante es reconocible, pequeño y no ocupa todo el ancho en móviles. */
+body.o8-page .caliza-conversion-dock{position:fixed;left:auto;right:clamp(14px,2.6vw,36px);bottom:clamp(14px,2.6vw,30px);z-index:65;display:flex;width:auto;max-width:none;padding:0;border:0;background:transparent;box-shadow:none}
+body.o8-page .caliza-whatsapp-float{box-sizing:border-box;display:flex;align-items:center;justify-content:center;gap:9px;min-width:0;min-height:58px;height:58px;padding:0 19px 0 8px;background:rgb(37 211 102);color:rgb(255 255 255);border-radius:999px;box-shadow:var(--shadow-float);text-decoration:none}
+body.o8-page .caliza-whatsapp-float:hover{background:rgb(26 171 81);color:rgb(255 255 255)}
+body.o8-page .caliza-whatsapp-float .caliza-whatsapp-logo{display:grid;place-items:center;width:40px;height:40px;flex:none;background:transparent;color:rgb(255 255 255)}
+body.o8-page .caliza-whatsapp-float .caliza-whatsapp-logo svg{width:26px;height:26px;fill:currentColor}
+body.o8-page .caliza-conversion-dock small{display:none}
+@media(max-width:660px){
+  body.o8-page{padding-bottom:0}
+  body.o8-page .caliza-conversion-dock{left:auto;right:16px;bottom:max(16px,env(safe-area-inset-bottom));width:60px;max-width:60px;padding:0;border:0;background:transparent}
+  body.o8-page .caliza-whatsapp-float{width:60px;height:60px;min-height:60px;padding:0;gap:0;border-radius:50%;justify-content:center}
+  body.o8-page .caliza-whatsapp-float .caliza-whatsapp-logo{width:48px;height:48px}
+  body.o8-page .caliza-whatsapp-float .caliza-whatsapp-logo svg{width:30px;height:30px}
+  body.o8-page #floating-wa-label{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+  body.o8-page .caliza-conversion-dock.is-hidden{visibility:hidden;opacity:0;pointer-events:none}
+}
+
+/* WCAG AA: texto oscuro sobre el verde oficial; el símbolo de WhatsApp conserva blanco. */
+body.o8-page .caliza-whatsapp-float,body.o8-page .caliza-whatsapp-float:hover{color:var(--marine-ink)}
+body.o8-page .caliza-whatsapp-float .caliza-whatsapp-logo{color:rgb(255 255 255)}
+
+/* Inspiración editorial inequívoca hasta que existan fotos de producto aprobadas. */
+.caliza-family-media .caliza-editorial-family{position:relative;width:100%;height:100%;overflow:hidden}
+.caliza-editorial-family img{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
+.caliza-editorial-flag{position:absolute;inset:auto 10px 10px 10px;display:block;max-width:max-content;padding:9px 12px;background:var(--surface-raised);color:var(--marine-ink);font:500 11px/1.5 var(--font-sans);letter-spacing:0;text-transform:none;box-shadow:var(--shadow-float)}
+.caliza-detail-visual .caliza-editorial-family{position:relative;aspect-ratio:4/4.4;overflow:hidden;background:var(--surface-sand)}
+.caliza-detail-visual .caliza-editorial-family img{width:100%;height:100%;object-fit:cover}
+@media(max-width:660px){.caliza-editorial-flag{font-size:11px;inset:auto 9px 9px 9px;line-height:1.4}}
+
+/* Consistencia de contraste del CTA WhatsApp en hover, foco, activo y móvil. */
+body.o8-page .caliza-whatsapp-float,
+body.o8-page .caliza-whatsapp-float:hover,
+body.o8-page .caliza-whatsapp-float:focus-visible,
+body.o8-page .caliza-whatsapp-float:active{background:rgb(37 211 102);color:var(--marine-ink)}
+body.o8-page .caliza-whatsapp-float #floating-wa-label,
+body.o8-page .caliza-whatsapp-float:hover #floating-wa-label,
+body.o8-page .caliza-whatsapp-float:focus-visible #floating-wa-label,
+body.o8-page .caliza-whatsapp-float:active #floating-wa-label{color:var(--marine-ink)}
+body.o8-page .caliza-whatsapp-float .caliza-whatsapp-logo{color:rgb(255 255 255)}
+body.o8-page .caliza-whatsapp-float:focus-visible{outline:3px solid var(--focus);outline-offset:4px}
+
+/* El CTA flotante no se desvanece entre rutas: evite contraste transitorio bajo WCAG. */
+body.o8-page .caliza-conversion-dock{transition:none}
+
+/* END marketing.css */
+/* BEGIN boutique-v2.css */
+/*
+ * CALIZA / Boutique V2 — cierre de arquitectura visual.
+ * Capa final deliberadamente acotada; no publica medios, precios ni inventario.
+ * Mantener tokens de identidad y acceso accesible. No usar View Transitions root.
+ */
+:root{color-scheme:light}
+html{scroll-behavior:auto;scroll-padding-top:92px}
+body.o8-page{overflow-x:clip}
+body.o8-page *,body.o8-page *::before,body.o8-page *::after{box-sizing:border-box}
+body.o8-page #main{min-width:0;min-height:100svh;overflow:clip}
+body.o8-page h1,body.o8-page h2,body.o8-page h3{overflow-wrap:normal;text-wrap:balance}
+body.o8-page p{overflow-wrap:break-word}
+body.o8-page :focus-visible{outline:2px solid var(--focus);outline-offset:4px}
+body.o8-page a,body.o8-page button{touch-action:manipulation}
+body.o8-page .o8-header{
+  position:sticky;top:0;z-index:80;min-height:82px;
+  padding:12px clamp(20px,4vw,72px);
+  gap:clamp(14px,2vw,28px);
+  background:var(--surface);
+  border-bottom:1px solid var(--line);
+  box-shadow:none;
+}
+body.o8-page .caliza-brand-link{flex-shrink:0}
+body.o8-page .caliza-brand-logo{display:block;max-width:100%;height:auto;object-fit:contain}
+body.o8-page .o8-nav{gap:clamp(12px,1.35vw,22px)}
+body.o8-page .o8-nav a{font-size:11px;letter-spacing:.10em;line-height:1.5}
+body.o8-page .o8-header-cta{white-space:nowrap;font-size:11px;letter-spacing:.09em}
+body.o8-page .menu-toggle{min-width:44px;min-height:44px;align-items:center;justify-content:center}
+body.o8-page .exp-page-intro{
+  max-width:var(--o8-w);padding:clamp(48px,6vw,90px) var(--o8-gap) clamp(32px,4vw,56px);
+}
+body.o8-page .exp-page-intro h1{
+  max-width:980px;margin:16px 0 20px;
+  font:400 clamp(43px,5.5vw,81px)/1.08 var(--font-serif);
+  letter-spacing:0;
+}
+body.o8-page .exp-page-intro p{
+  font:400 clamp(15px,1.18vw,17px)/1.75 var(--font-sans);
+  max-width:710px;margin-bottom:23px;
+}
+body.o8-page .exp-hero{
+  position:relative;height:auto;min-height:clamp(520px,50vw,690px);
+  isolation:isolate;
+}
+body.o8-page .exp-hero>img{display:block;width:100%;height:100%;object-fit:cover}
+body.o8-page .exp-hero-content{max-width:min(610px,63%);width:100%}
+body.o8-page .exp-hero h1{font:400 clamp(55px,7vw,100px)/1.04 var(--font-serif);letter-spacing:0}
+body.o8-page .exp-hero p{font:400 clamp(16px,1.35vw,19px)/1.65 var(--font-sans);max-width:450px}
+body.o8-page .o8-pillars{gap:clamp(12px,1.5vw,22px);padding:clamp(12px,1.5vw,22px) var(--o8-gap) 0;max-width:var(--o8-w);margin:0 auto}
+body.o8-page .o8-pillar{height:auto;min-height:390px;display:flex;flex-direction:column}
+body.o8-page .o8-pillar>img{display:block;width:100%;height:clamp(225px,19vw,300px);flex:none;object-fit:cover}
+body.o8-page .o8-pillar-copy{position:relative;inset:auto;flex:1;min-height:145px;display:flex;align-items:flex-start;gap:16px;padding:22px 20px;background:var(--surface-sand)}
+body.o8-page .o8-pillar-copy .o8-line-mark{width:32px;height:32px;flex:none;margin:3px 0 0}
+body.o8-page .o8-pillar-copy h2{font:400 clamp(28px,2.6vw,39px)/1.12 var(--font-serif)}
+body.o8-page .o8-pillar-copy p{font:400 13px/1.6 var(--font-sans);max-width:260px}
+body.o8-page .caliza-journeys{padding-top:clamp(64px,6vw,110px);padding-bottom:clamp(52px,5vw,94px)}
+body.o8-page .caliza-journey-links a{min-height:225px;padding:25px 18px}
+body.o8-page .caliza-journey-links strong{line-height:1.35}
+body.o8-page .o8-section{max-width:var(--o8-w);margin-inline:auto}
+body.o8-page .o8-section-heading{gap:20px}
+body.o8-page .caliza-family-grid-featured{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:clamp(18px,2.5vw,34px);background:transparent;border:0;
+}
+body.o8-page .caliza-family-grid{align-items:stretch}
+body.o8-page .caliza-family-card{
+  min-width:0;min-height:unset;display:flex;flex-direction:column;
+  border:1px solid var(--line);background:var(--surface-raised);
+  transition:border-color .2s ease;
+}
+body.o8-page .caliza-family-card:hover{border-color:var(--line-strong)}
+body.o8-page .caliza-family-media{display:block;aspect-ratio:4/3;overflow:hidden;margin:0}
+body.o8-page .caliza-family-media .caliza-editorial-family{width:100%;height:100%}
+body.o8-page .caliza-family-media img{width:100%;height:100%;object-fit:cover}
+body.o8-page .caliza-family-content{flex:1;display:flex;flex-direction:column;gap:13px;padding:clamp(21px,2.25vw,32px)}
+body.o8-page .caliza-family-content h3{margin:0;font:400 clamp(28px,2.5vw,38px)/1.17 var(--font-serif)}
+body.o8-page .caliza-family-content p{margin:0;font:400 15px/1.7 var(--font-sans)}
+body.o8-page .caliza-family-action{margin-top:auto;padding-top:15px;gap:12px}
+body.o8-page .caliza-editorial-flag{
+  max-width:calc(100% - 28px);inset:auto 14px 14px;
+  padding:8px 12px;background:var(--surface-raised);color:var(--marine-ink);
+  font:500 11px/1.55 var(--font-sans);letter-spacing:0;text-transform:none;
+}
+body.o8-page .caliza-detail-layout{gap:clamp(28px,5vw,88px);align-items:start}
+body.o8-page .caliza-detail-visual .caliza-editorial-family{aspect-ratio:4/4.5;min-width:0}
+body.o8-page .caliza-detail-visual>p{font-size:12px;line-height:1.6}
+body.o8-page .caliza-detail-content h2{margin:12px 0 22px}
+body.o8-page .caliza-detail-inquiry{gap:clamp(26px,5vw,70px)}
+body.o8-page .exp-subnav a{min-height:44px;display:inline-flex;align-items:center}
+body.o8-page .caliza-materials-gallery{gap:clamp(12px,2vw,26px)}
+body.o8-page .caliza-materials-gallery img{aspect-ratio:4/3;object-fit:cover}
+body.o8-page .caliza-project-archive-card>img{aspect-ratio:3/2;object-fit:cover}
+body.o8-page .exp-banner{margin-block:clamp(44px,5vw,72px)}
+body.o8-page .caliza-social-showcase{max-width:none;margin-top:clamp(40px,5vw,80px);padding-block:clamp(54px,5vw,85px)}
+body.o8-page .caliza-social-showcase>.o8-section-heading,
+body.o8-page .caliza-social-showcase>.caliza-social-showcase-intro,
+body.o8-page .caliza-social-showcase>.caliza-social-profiles,
+body.o8-page .caliza-social-showcase>.caliza-instagram-live,
+body.o8-page .caliza-social-showcase>.caliza-social-live,
+body.o8-page .caliza-social-showcase>.caliza-social-status{
+  max-width:var(--o8-w);margin-left:auto;margin-right:auto;
+}
+body.o8-page .caliza-social-showcase-intro{align-items:start}
+body.o8-page .caliza-social-showcase-intro p{font:400 15px/1.75 var(--font-sans)}
+body.o8-page .caliza-social-live,body.o8-page .caliza-instagram-live{margin-block:28px;padding:clamp(24px,3vw,43px)}
+body.o8-page .caliza-social-live-copy h3{line-height:1.16}
+body.o8-page .caliza-instagram-live-head{align-items:flex-start}
+body.o8-page .site-footer-plus{gap:clamp(22px,4vw,66px);padding-top:clamp(58px,5vw,85px);padding-bottom:34px}
+body.o8-page .site-footer-plus>div{min-width:0}
+body.o8-page .site-footer-plus strong{font:500 11px/1.6 var(--font-sans);letter-spacing:.14em;text-transform:uppercase}
+body.o8-page .caliza-publication-note{
+  grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;
+  gap:12px 28px;justify-content:space-between;margin-top:25px;
+  padding-top:23px;border-top:1px solid var(--line-strong);
+  color:var(--on-primary);opacity:.9;
+}
+body.o8-page .caliza-publication-note p{margin:0;max-width:760px;font:400 12px/1.65 var(--font-sans)}
+body.o8-page .caliza-publication-note a{color:inherit;text-decoration:underline;text-underline-offset:4px;font:500 12px/1.6 var(--font-sans)}
+/* CTA discreto: siempre visible para contactar, nunca tapa controles del catálogo. */
+body.o8-page .caliza-conversion-dock{
+  position:fixed;right:clamp(16px,2.2vw,32px);bottom:clamp(17px,2.3vw,28px);
+  left:auto;z-index:65;width:auto;max-width:200px;padding:0;border:0;
+  background:transparent;box-shadow:none;transition:none;
+}
+body.o8-page .caliza-whatsapp-float{
+  width:auto;min-height:55px;height:55px;min-width:55px;
+  gap:9px;padding:0 17px 0 7px;border-radius:999px;
+  background:rgb(37 211 102);color:var(--marine-ink);
+  box-shadow:var(--shadow-float);
+}
+body.o8-page #floating-wa-label{color:var(--marine-ink);font-size:11px;font-weight:600;letter-spacing:.045em}
+body.o8-page .caliza-conversion-dock.is-hidden,
+body.o8-page.menu-open .caliza-conversion-dock{visibility:hidden;opacity:0;pointer-events:none}
+body.o8-page .caliza-whatsapp-logo{background:rgb(37 211 102);color:rgb(255 255 255)}
+@media(max-width:1320px){
+ body.o8-page .o8-header{min-height:73px;padding:10px clamp(18px,3vw,40px)}
+ body.o8-page .menu-toggle{display:flex}
+ body.o8-page .o8-nav,body.o8-page .o8-header-actions{display:none}
+ body.o8-page .mobile-nav:not([hidden]){z-index:90}
+}
+@media(max-width:900px){
+ body.o8-page .o8-pillars{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+ body.o8-page .o8-pillar{min-height:330px}
+ body.o8-page .o8-pillar>img{height:185px}
+ body.o8-page .o8-pillar-copy{padding:17px 12px;gap:8px}
+ body.o8-page .o8-pillar-copy .o8-line-mark{display:none}
+ body.o8-page .o8-pillar-copy h2{font-size:27px}
+ body.o8-page .caliza-journeys{grid-template-columns:1fr;gap:28px}
+ body.o8-page .caliza-detail-layout{grid-template-columns:1fr}
+ body.o8-page .caliza-detail-visual{max-width:720px;margin-inline:auto;width:100%}
+ body.o8-page .caliza-social-showcase>.o8-section-heading,
+ body.o8-page .caliza-social-showcase>.caliza-social-showcase-intro,
+ body.o8-page .caliza-social-showcase>.caliza-social-profiles,
+ body.o8-page .caliza-social-showcase>.caliza-instagram-live,
+ body.o8-page .caliza-social-showcase>.caliza-social-live{margin-inline:var(--o8-gap)}
+}
+@media(max-width:660px){
+ html{scroll-padding-top:72px}
+ body.o8-page{padding-bottom:0}
+ body.o8-page .o8-header{min-height:68px;padding:10px 18px}
+ body.o8-page .caliza-brand-logo{max-height:48px;width:auto}
+ body.o8-page .exp-hero{min-height:530px;height:auto}
+ body.o8-page .exp-hero-content{left:clamp(22px,6vw,34px);top:57%;width:calc(100% - 46px);max-width:none}
+ body.o8-page .exp-hero h1{font-size:clamp(44px,11vw,65px);line-height:1.07}
+ body.o8-page .exp-hero p{font-size:16px;line-height:1.65}
+ body.o8-page .exp-hero-corner{font-size:11px;right:18px;bottom:17px}
+ body.o8-page .exp-page-intro{padding:42px 22px 30px}
+ body.o8-page .exp-page-intro h1{font-size:clamp(42px,10vw,56px);line-height:1.11;overflow-wrap:anywhere}
+ body.o8-page .exp-page-intro p{font-size:15px;line-height:1.7}
+ body.o8-page .o8-pillars{grid-template-columns:1fr;gap:12px;padding:14px 18px 0}
+ body.o8-page .o8-pillar{min-height:0}
+ body.o8-page .o8-pillar>img{height:230px}
+ body.o8-page .o8-pillar-copy{padding:20px 22px;min-height:115px;gap:13px}
+ body.o8-page .o8-pillar-copy .o8-line-mark{display:block;width:30px;height:30px}
+ body.o8-page .o8-pillar-copy h2{font-size:32px}
+ body.o8-page .caliza-journeys{padding:56px 22px;gap:25px}
+ body.o8-page .caliza-journey-links{grid-template-columns:1fr}
+ body.o8-page .caliza-journey-links a{min-height:112px;padding:18px 22px}
+ body.o8-page .o8-section{padding-inline:18px}
+ body.o8-page .caliza-family-grid-featured{grid-template-columns:1fr;gap:18px}
+ body.o8-page .caliza-family-grid{grid-template-columns:1fr;gap:18px}
+ body.o8-page .caliza-family-card{min-height:0}
+ body.o8-page .caliza-family-media{aspect-ratio:4/3}
+ body.o8-page .caliza-family-content{padding:22px}
+ body.o8-page .caliza-family-content h3{font-size:31px}
+ body.o8-page .exp-subnav{grid-template-columns:repeat(2,minmax(0,1fr))}
+ body.o8-page .exp-subnav a{font-size:11px;white-space:normal}
+ body.o8-page .caliza-shop-tools{flex-direction:column;align-items:stretch}
+ body.o8-page .caliza-shop-tools>p{align-self:flex-start}
+ body.o8-page .caliza-social-showcase{padding:45px 18px}
+ body.o8-page .caliza-social-showcase>.o8-section-heading,
+ body.o8-page .caliza-social-showcase>.caliza-social-showcase-intro,
+ body.o8-page .caliza-social-showcase>.caliza-social-profiles,
+ body.o8-page .caliza-social-showcase>.caliza-instagram-live,
+ body.o8-page .caliza-social-showcase>.caliza-social-live{margin-left:0;margin-right:0}
+ body.o8-page .caliza-social-showcase-intro{flex-direction:column}
+ body.o8-page .caliza-instagram-live-head{flex-direction:column}
+ body.o8-page .caliza-instagram-live-actions{align-items:flex-start;min-width:0}
+ body.o8-page .caliza-social-live{display:block}
+ body.o8-page .caliza-social-live-copy{margin-bottom:25px}
+ body.o8-page .site-footer-plus{grid-template-columns:repeat(2,minmax(0,1fr));padding:52px 23px 26px;gap:26px 20px}
+ body.o8-page .site-footer-plus>div:first-child{grid-column:1/-1}
+ body.o8-page .caliza-publication-note{grid-column:1/-1;margin-top:7px;padding-top:18px}
+ body.o8-page .caliza-conversion-dock{right:16px;bottom:max(16px,env(safe-area-inset-bottom));width:60px;max-width:60px}
+ body.o8-page .caliza-whatsapp-float{width:60px;height:60px;min-height:60px;padding:0;gap:0;border-radius:50%}
+ body.o8-page #floating-wa-label{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+ body.o8-page .caliza-whatsapp-logo{width:48px;height:48px}
+ body.o8-page .caliza-whatsapp-logo svg{width:30px;height:30px}
+ body.o8-page .caliza-conversion-dock.is-hidden{opacity:0;visibility:hidden;pointer-events:none}
+ body.o8-page .mobile-nav:not([hidden]){max-height:calc(100dvh - 69px);overflow-y:auto}
+}
+@media(prefers-reduced-motion:reduce){
+ body.o8-page .caliza-family-media img,body.o8-page .o8-pillar img{transition:none}
+ body.o8-page .caliza-family-card{transition:none}
+}
+
+/* QA visual: título programáticamente enfocado no debe dibujar un rectángulo. */
+body.o8-page .exp-page-intro h1[tabindex="-1"]:focus,
+body.o8-page .exp-hero h1[tabindex="-1"]:focus{
+  outline:none;
+}
+/* WhatsApp flotante compacto: icono circular en todas las resoluciones. */
+body.o8-page .caliza-conversion-dock{
+  width:60px;max-width:60px;right:max(12px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));
+}
+body.o8-page .caliza-whatsapp-float,
+body.o8-page .caliza-whatsapp-float:hover,
+body.o8-page .caliza-whatsapp-float:focus-visible{
+  display:flex;align-items:center;justify-content:center;
+  width:60px;min-width:60px;height:60px;min-height:60px;padding:0;gap:0;
+  border-radius:50%;background:rgb(37 211 102);color:var(--marine-ink);
+}
+body.o8-page #floating-wa-label{
+  position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;
+}
+body.o8-page .caliza-whatsapp-logo{width:48px;height:48px;color:rgb(255 255 255)}
+body.o8-page .caliza-whatsapp-logo svg{width:30px;height:30px}
+
+/* Reserva una zona de seguridad lateral frente al CTA flotante en fichas de escritorio. */
+@media(min-width:901px){
+ body.o8-page .caliza-detail-content{padding-right:clamp(74px,7vw,106px)}
+}
+
+/* END boutique-v2.css */
