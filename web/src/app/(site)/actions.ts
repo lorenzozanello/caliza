@@ -44,7 +44,7 @@ export async function createOrder(input: CheckoutInput): Promise<CheckoutResult>
   let depositPercent = 0
   for (const it of input.items.slice(0, 20)) {
     const product = await payload.findByID({ collection: 'products', id: it.productId, depth: 0, overrideAccess: false }).catch(() => null)
-    if (!product || product.status !== 'publicado') return { ok: false, error: 'Una de las piezas ya no está disponible. Revisa tu carrito.' }
+    if (!product || !product.sourceProductId || product.status !== 'publicado' || !product.publicationApproved || !product.imageRightsConfirmed || product.isExample) return { ok: false, error: 'Una de las piezas no está aprobada para venta. Revise su selección.' }
     if (product.saleMode === 'cotizacion') return { ok: false, error: `${product.name} se cotiza directamente con el estudio.` }
     const selection = it.selection ?? {}
     if (!isValidSelection(product, selection)) return { ok: false, error: `La configuración de ${product.name} ya no está disponible.` }

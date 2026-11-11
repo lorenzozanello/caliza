@@ -7,13 +7,14 @@ import { PageHero } from '@/components/sections/PageHero'
 import { Contact } from '@/components/sections/Contact'
 import { LINE_NAME } from '@/components/sections/ProjectCard'
 import { Zoomable } from '@/components/Zoomable'
+import { PUBLIC_PROJECT } from '@/lib/publication'
 
 export const revalidate = 60
 type Params = Promise<{ slug: string }>
 
 async function getProject(slug: string) {
   const payload = await getPayloadClient()
-  const r = await payload.find({ collection: 'projects', where: { slug: { equals: slug } }, limit: 1, depth: 1 })
+  const r = await payload.find({ collection: 'projects', where: { ...PUBLIC_PROJECT, slug: { equals: slug } }, limit: 1, depth: 1 })
   return r.docs[0]
 }
 
@@ -26,7 +27,7 @@ export default async function ProjectPage({ params }: { params: Params }) {
   const p = await getProject((await params).slug)
   if (!p) notFound()
   const payload = await getPayloadClient()
-  const all = await payload.find({ collection: 'projects', sort: ['-featured', '-year', '-createdAt'], limit: 100, depth: 1 })
+  const all = await payload.find({ collection: 'projects', where: PUBLIC_PROJECT, sort: ['-featured', '-year', '-createdAt'], limit: 100, depth: 1 })
   const at = all.docs.findIndex((x) => x.id === p.id)
   const next = all.docs.length > 1 ? all.docs[(at + 1) % all.docs.length] : null
   const gallery = (p.gallery ?? []).map((g) => g.image)

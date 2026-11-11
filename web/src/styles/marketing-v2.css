@@ -1,0 +1,105 @@
+/* Marketing UX v2 — CALIZA GROUP. Importar después de los tokens de autoridad. */
+.o8-site .o8-hero-copy h1,
+.o8-site .o8-section-heading h2,
+.social-page__intro h1,
+.caliza-editorial-empty h2,
+.caliza-editorial-empty h3 { letter-spacing: .005em; }
+
+.caliza-editorial-empty {
+  width: 100%;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 18px;
+  padding: clamp(30px, 5vw, 72px);
+  background: var(--surface-raised);
+  border: 1px solid var(--line);
+}
+.caliza-editorial-empty h2, .caliza-editorial-empty h3 {
+  margin: 0;
+  font: 400 clamp(30px, 3vw, 46px)/1.16 var(--font-serif);
+  color: var(--ink);
+}
+.caliza-editorial-empty p { max-width: 680px; font: 400 15px/1.75 var(--font-sans); color: var(--ink-muted); margin: 0; }
+.caliza-editorial-empty .o8-button { margin-top: 6px; }
+
+.field, .social-viewer button, .social-viewer a { border-radius: 0; }
+.field { border: 1px solid var(--line-strong); background: var(--surface-raised); }
+.field:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+.wa-float { z-index: 70; }
+.wa-float__btn { border-radius: 0; }
+.wa-float__label { font: 500 12px/1.4 var(--font-sans); }
+
+.caliza-social-profile-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-bottom: 36px; }
+.caliza-social-profile {
+  padding: clamp(25px, 4vw, 50px);
+  min-height: 230px;
+  background: var(--marine-ink);
+  color: var(--limewash);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 25px;
+  border: 1px solid var(--marine-ink);
+  transition: background .2s ease, color .2s ease;
+}
+.caliza-social-profile:nth-child(2) { background: var(--surface-sand); color: var(--marine-ink); border-color: var(--line-strong); }
+.caliza-social-profile:hover { background: var(--terracotta); color: var(--limewash); }
+.caliza-social-profile strong { font: 400 clamp(27px, 3vw, 43px)/1.1 var(--font-serif); overflow-wrap: anywhere; }
+.caliza-social-profile span:last-child { font: 400 13px/1.65 var(--font-sans); }
+.caliza-social-profile .eyebrow { font-size: 12px; }
+.caliza-social-tabs { display: inline-flex; flex-wrap: wrap; gap: 8px; }
+.caliza-social-tabs button { border: 1px solid var(--line-strong); padding: 11px 18px; min-height: 44px; background: var(--surface-raised); color: var(--ink); cursor: pointer; font: 500 12px var(--font-sans); }
+.caliza-social-tabs button[aria-pressed="true"] { background: var(--marine-ink); color: var(--limewash); }
+.social-viewer__heading { border-bottom-color: var(--line); font: 500 12px var(--font-sans); }
+.social-viewer__post { background: var(--surface-raised); border: 1px solid var(--line); }
+.social-viewer__post-title span, .social-viewer__disclaimer { font-size: 12px; }
+.social-viewer__post-title h2 { letter-spacing: .005em; }
+.social-viewer__placeholder { background: var(--surface-sand); color: var(--ink); text-align: center; padding: 20px; }
+.social-viewer__placeholder small { font-size: 12px; max-width: 230px; line-height: 1.6; }
+.social-viewer__actions button { min-height: 44px; border-color: var(--line-strong); font: 500 12px var(--font-sans); }
+.social-viewer__actions a { font: 500 12px var(--font-sans); }
+.social-viewer__disclaimer { background: transparent; color: var(--ink-muted); padding: 18px 0; }
+.caliza-social-editorial-note { padding: clamp(28px, 5vw, 70px); background: var(--surface-raised); border: 1px solid var(--line); }
+.caliza-social-editorial-note h2 { font: 400 clamp(30px, 4vw, 50px)/1.2 var(--font-serif); margin: 0 0 17px; letter-spacing: .005em; }
+.caliza-social-editorial-note p { font: 400 15px/1.75 var(--font-sans); max-width: 670px; }
+.site-header nav a { font-size: 13px; }
+.lead-form label, .lead-form .eyebrow { font-size: 13px; }
+@media (max-width: 760px) {
+  .caliza-social-profile-grid { grid-template-columns: 1fr; }
+  .caliza-social-profile { min-height: 180px; }
+  .social-viewer__heading { flex-direction: column; align-items: flex-start; }
+  .social-viewer__grid { grid-template-columns: 1fr; }
+  .wa-float { right: 16px; bottom: calc(14px + env(safe-area-inset-bottom)); }
+  .caliza-editorial-empty { min-height: 230px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .caliza-social-profile { transition: none; }
+}
+
+/* Colección editorial consultiva: nunca presenta un render como ficha comercial. */
+.caliza-family-consultation{padding:18px 0 44px}
+.caliza-family-consultation__lead{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1fr);gap:16px 45px;align-items:end;margin-bottom:32px}
+.caliza-family-consultation__lead>.eyebrow{grid-column:1/-1;color:var(--accent-text)}
+.caliza-family-consultation__lead h2{font:400 clamp(36px,4vw,58px)/1.12 var(--font-serif);letter-spacing:.005em;margin:0;max-width:560px}
+.caliza-family-consultation__lead p{font:400 15px/1.75 var(--font-sans);color:var(--ink-muted);margin:0;max-width:600px}
+.caliza-family-consultation__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:clamp(14px,1.8vw,26px)}
+.caliza-family-consultation__card{display:flex;flex-direction:column;min-width:0;border:1px solid var(--line);background:var(--surface-raised);overflow:hidden}
+.caliza-family-consultation__media{aspect-ratio:1.34;position:relative;overflow:hidden;background:var(--surface-sand)}
+.caliza-family-consultation__media img{width:100%;height:100%;object-fit:cover;object-position:center 52%;transition:transform .5s ease}
+.caliza-family-consultation__card:hover .caliza-family-consultation__media img{transform:scale(1.035)}
+.caliza-family-consultation__media span{position:absolute;bottom:12px;right:12px;background:rgba(251,247,240,.94);padding:8px 10px;color:var(--marine-ink);font:500 10px/1.4 var(--font-sans);letter-spacing:.06em;text-transform:uppercase}
+.caliza-family-consultation__body{flex:1;display:flex;flex-direction:column;gap:12px;padding:clamp(22px,2.6vw,32px)}
+.caliza-family-consultation__body .eyebrow{color:var(--accent-text);font-size:10px;letter-spacing:.12em}
+.caliza-family-consultation__body h3{font:400 clamp(29px,2.6vw,37px)/1.15 var(--font-serif);margin:0}
+.caliza-family-consultation__body p{font:400 14px/1.7 var(--font-sans);color:var(--ink-muted);margin:0}
+.caliza-family-consultation__body a{margin-top:auto;padding:15px 14px;background:var(--marine-ink);color:var(--limewash);display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:48px;font:500 11px/1.4 var(--font-sans);letter-spacing:.055em;text-transform:uppercase}
+.caliza-family-consultation__body a:hover{background:var(--accent-text)}
+.caliza-family-consultation__body small{font:400 11px/1.55 var(--font-sans);color:var(--ink-muted)}
+.caliza-family-consultation>.o8-button{margin-top:30px}
+@media(max-width:760px){.caliza-family-consultation__lead{display:block}.caliza-family-consultation__lead h2{margin:14px 0}.caliza-family-consultation__grid{grid-template-columns:1fr}.caliza-family-consultation__media{aspect-ratio:1.25}}
+@media(prefers-reduced-motion:reduce){.caliza-family-consultation__media img{transition:none}}

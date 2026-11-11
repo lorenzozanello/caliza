@@ -7,6 +7,7 @@ import { Contact } from '@/components/sections/Contact'
 import { CareSymptoms } from '@/components/CareSymptoms'
 import { ProductCard } from '@/components/ProductCard'
 import { isProvisional, mediaAlt, mediaUrl } from '@/components/media'
+import { PUBLIC_PRODUCT } from '@/lib/publication'
 
 export const revalidate = 60
 
@@ -20,7 +21,7 @@ export default async function CarePage() {
   const [pages, home, products] = await Promise.all([
     payload.findGlobal({ slug: 'pages', depth: 1 }),
     payload.findGlobal({ slug: 'home', depth: 1 }),
-    payload.find({ collection: 'products', where: { status: { equals: 'publicado' }, line: { equals: 'care' } }, sort: 'order', limit: 6, depth: 1 }),
+    payload.find({ collection: 'products', where: { ...PUBLIC_PRODUCT, line: { equals: 'care' } }, sort: 'order', limit: 6, depth: 1 }),
   ])
   const c = pages.care ?? {}
   const side = home.careSectionImage || home.careImage
@@ -50,7 +51,7 @@ export default async function CarePage() {
           <div className="c-1-6" style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
             <span className="eyebrow" style={{ color: 'var(--claro-2)' }} data-reveal>Orientación sobre piedra natural</span>
             <h2 className="h2" data-reveal>¿Qué le pasa a tu superficie?</h2>
-            <p className="muted" style={{ margin: 0, maxWidth: 460 }} data-reveal>Identifica lo que ves en tu superficie. Cuando el canal comercial esté configurado, podrás compartir el diagnóstico y fotos con luz natural.</p>
+            <p className="muted" style={{ margin: 0, maxWidth: 460 }} data-reveal>Identifique los síntomas de su superficie. Puede compartir el resultado por nuestro WhatsApp oficial y solicitar una valoración con fotografías tomadas con luz natural.</p>
             <CareSymptoms symptoms={(c.symptoms ?? []).map((s) => s.title)} />
           </div>
           {mediaUrl(side, 'card') && (

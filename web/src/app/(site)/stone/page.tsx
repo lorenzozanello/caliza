@@ -6,6 +6,7 @@ import { PageHero } from '@/components/sections/PageHero'
 import { Method } from '@/components/sections/Method'
 import { Contact } from '@/components/sections/Contact'
 import { ProjectCard } from '@/components/sections/ProjectCard'
+import { PUBLIC_PROJECT } from '@/lib/publication'
 
 export const revalidate = 60
 
@@ -19,7 +20,7 @@ export default async function StonePage() {
   const [pages, home, projects] = await Promise.all([
     payload.findGlobal({ slug: 'pages', depth: 1 }),
     payload.findGlobal({ slug: 'home', depth: 1 }),
-    payload.find({ collection: 'projects', where: { line: { equals: 'stone' } }, sort: ['-featured', '-year'], limit: 4, depth: 1 }),
+    payload.find({ collection: 'projects', where: { ...PUBLIC_PROJECT, line: { equals: 'stone' } }, sort: ['-featured', '-year'], limit: 4, depth: 1 }),
   ])
   const s = pages.stone ?? {}
   const spaces = s.spaces ?? []

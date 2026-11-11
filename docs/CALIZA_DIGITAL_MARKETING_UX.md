@@ -1,5 +1,7 @@
 # CALIZA GROUP — experiencia y mercadeo digital
 
+> **Actualización del 11-11-2026:** este documento conserva el alcance inicial del prototipo. Las decisiones vigentes, los canales oficiales, la eliminación de las 16 fichas ficticias y los requisitos de publicación están en [`CALIZA_RELEASE_2026-11-11.md`](CALIZA_RELEASE_2026-11-11.md). En caso de conflicto prevalece ese cierre y el contrato de publicación de Drive. El número de WhatsApp y los perfiles oficiales ya fueron confirmados; el visor público ya no admite que visitantes agreguen enlaces.
+
 **Corte:** 11 de noviembre de 2026
 
 **Alcance:** prototipo estático de revisión en Vercel. No autoriza publicar el catálogo como oferta comercial ni activar procesamiento de datos personales.

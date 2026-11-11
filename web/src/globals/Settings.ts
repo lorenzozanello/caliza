@@ -8,9 +8,13 @@ export const Settings: GlobalConfig = {
   admin: { group: 'Configuración' },
   access: { read: () => true },
   fields: [
-    { name: 'whatsappNumber', label: 'Número de WhatsApp', type: 'text', required: true, defaultValue: '570000000000', admin: { description: 'Formato internacional sin "+". Ej.: 573001234567' } },
-    { name: 'instagramUrl', label: 'Instagram', type: 'text' },
-    { name: 'tiktokUrl', label: 'TikTok', type: 'text' },
+    { name: 'whatsappNumber', label: 'Número de WhatsApp', type: 'text', required: true, defaultValue: '573025983218', admin: { description: 'Contacto oficial confirmado: +57 302 598 3218. Formato internacional sin +.' } },
+    { name: 'instagramUrl', label: 'Instagram', type: 'text', defaultValue: 'https://www.instagram.com/calizastonedesign/' },
+    { name: 'tiktokUrl', label: 'TikTok', type: 'text', defaultValue: 'https://www.tiktok.com/@calizastone' },
+    { name: 'socialPostLinks', label: 'Publicaciones autorizadas para mostrar', type: 'array', admin: { description: 'Curaduría editorial. Solo enlaces públicos de publicaciones de cuentas oficiales, con autorización confirmada. No pegues enlaces a Drive ni tokens.' }, fields: [
+      { name: 'url', label: 'Enlace público de la publicación', type: 'text', required: true },
+      { name: 'approved', label: 'Aprobada para web', type: 'checkbox', defaultValue: false },
+    ] },
     {
       name: 'shippingCities', label: 'Ciudades con envío', type: 'array',
       fields: [

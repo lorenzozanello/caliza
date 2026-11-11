@@ -4,6 +4,7 @@ import { PageHero } from '@/components/sections/PageHero'
 import { Contact } from '@/components/sections/Contact'
 import { Zoomable } from '@/components/Zoomable'
 import { isProvisional } from '@/components/media'
+import { PUBLIC_MATERIAL } from '@/lib/publication'
 
 export const revalidate = 60
 
@@ -18,7 +19,7 @@ const ROLE = { piedra: 'La protagonista', madera: 'Aliada', metal: 'Aliado', tex
 export default async function MaterialsPage() {
   const payload = await getPayloadClient()
   const [materials, pages] = await Promise.all([
-    payload.find({ collection: 'materials', sort: 'order', limit: 50, depth: 1 }),
+    payload.find({ collection: 'materials', where: PUBLIC_MATERIAL, sort: 'order', limit: 50, depth: 1 }),
     payload.findGlobal({ slug: 'pages', depth: 1 }),
   ])
   // La piedra siempre va primero.
@@ -28,6 +29,7 @@ export default async function MaterialsPage() {
     <>
       <PageHero image={heroImage} eyebrow="Materiales" title="La piedra" titleItalic="y sus aliados." intro="La piedra natural es la protagonista. La madera, el metal y las texturas la acompañan cuando la pieza lo pide." />
 
+      {list.length === 0 && <section className="wrap caliza-editorial-empty"><h2>Asesoría en selección de materiales.</h2><p>Las fichas, acabados y muestras disponibles se publicarán cuando estén validados por CALIZA. Podemos orientarle desde la aplicación, el uso cotidiano y el mantenimiento.</p></section>}
       <nav className="wrap material-index" aria-label="Materiales">
         {list.map((m) => <a key={m.id} href={`#${m.slug}`} className="chip">{m.name}</a>)}
       </nav>
