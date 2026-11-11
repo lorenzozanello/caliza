@@ -171,3 +171,5 @@ body.o8-page{background:var(--surface)}
 .caliza-conversion-dock.is-hidden{opacity:0;pointer-events:none;visibility:hidden}
 @media(max-width:660px){.caliza-qa-banner{padding:var(--space-3) var(--space-4);align-items:flex-start;gap:var(--space-2)}.caliza-qa-banner button{min-width:64px}}
 @media(prefers-reduced-motion:no-preference){.caliza-conversion-dock{transition:opacity .2s ease}}
+
+@media(max-width:660px){.caliza-conversion-dock.is-hidden{opacity:1;pointer-events:auto;visibility:visible}}
