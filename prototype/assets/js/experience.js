@@ -347,6 +347,50 @@
       </div>
     </section>`;
   }
+  function instagramLiveModule() {
+  const url = profileLink('instagram');
+  if (!url) return '';
+  return `<section class="caliza-instagram-live" aria-labelledby="caliza-instagram-live-title">
+    <div class="caliza-instagram-live-head">
+      <div>${label('Instagram / @calizastonedesign')}
+        <h3 id="caliza-instagram-live-title">La materia en imágenes.</h3>
+        <p>Explore publicaciones recientes de la cuenta oficial. La galería se solicita a nuestro servidor únicamente cuando usted decide visualizarla.</p>
+      </div>
+      <div class="caliza-instagram-live-actions">
+        <button type="button" class="exp-outline" data-load-instagram aria-controls="caliza-instagram-feed" aria-expanded="false">Ver publicaciones recientes →</button>
+        <a href="${safeText(url)}" target="_blank" rel="noopener noreferrer">Abrir Instagram ↗</a>
+      </div>
+    </div>
+    <div id="caliza-instagram-feed" class="caliza-instagram-feed" role="status" aria-live="polite" hidden></div>
+    <p class="exp-hint">El acceso a medios recientes requiere una cuenta profesional conectada de forma segura. Si todavía no está vinculada, encontrará el enlace directo al perfil.</p>
+  </section>`;
+}
+  async function loadInstagramFeed(button) {
+  const region = document.getElementById('caliza-instagram-feed');
+  if (!region || !region.hidden) return;
+  region.hidden = false;
+  region.textContent = 'Consultando publicaciones de CALIZA…';
+  button.disabled = true;
+  button.setAttribute('aria-expanded', 'true');
+  try {
+    const response = await window.fetch('/api/instagram-feed', { method: 'GET', credentials: 'same-origin', headers: { Accept: 'application/json' } });
+    if (!response.ok) throw new Error('not_connected');
+    const payload = await response.json();
+    if (!Array.isArray(payload.posts)) throw new Error('invalid_feed');
+    const valid = payload.posts.slice(0, 9).filter((post) =>
+      post && typeof post === 'object' &&
+      /^https:\/\/www\.instagram\.com\/(p|reel)\/[a-zA-Z0-9_-]{5,30}\/?$/.test(post.url) &&
+      /^https:\/\/(?:[a-zA-Z0-9-]+\.)*(?:cdninstagram\.com|fbcdn\.net|fbsbx\.com)\//.test(post.image || '')
+    );
+    region.innerHTML = valid.length
+      ? `<div class="caliza-instagram-grid">${valid.map((post) => `<a href="${safeText(post.url)}" target="_blank" rel="noopener noreferrer" aria-label="Abrir publicación de CALIZA en Instagram"><img src="${safeText(post.image)}" alt="${safeText(post.caption || 'Publicación reciente de CALIZA')}" loading="lazy" decoding="async" referrerpolicy="no-referrer"><span>${post.type === 'VIDEO' ? 'Reel' : 'Publicación'} <span aria-hidden="true">↗</span></span></a>`).join('')}</div>`
+      : '<p>Por ahora no hay publicaciones disponibles para mostrar. Puede explorar el perfil oficial de CALIZA en Instagram.</p>';
+  } catch {
+    region.textContent = 'La galería automática todavía no está disponible. Visite @calizastonedesign en Instagram para ver las publicaciones actuales.';
+  } finally {
+    button.textContent = 'Publicaciones consultadas';
+  }
+}
   function socialPreview() {
     const items = savedSocialItems().slice(0, 3);
     return `<section class="o8-section caliza-social-showcase" aria-labelledby="social-preview-title">
@@ -356,6 +400,7 @@
         <p>Diseño, piedra y oficio desde los perfiles oficiales de CALIZA. Descubra el contenido compartido por nuestro equipo.</p>
       </div><a href="#/inspiracion" class="o8-text-link">Explorar el universo social <span aria-hidden="true">→</span></a></div>
       ${socialProfiles()}
+      ${instagramLiveModule()}
       ${tiktokCreatorModule()}
       ${items.length ? socialCards(items, true) : '<p class="caliza-social-status">La galería de publicaciones de Instagram se habilitará al conectar la cuenta profesional. Mientras tanto, consulte @calizastonedesign desde su enlace oficial.</p>'}
     </section>`;
@@ -366,6 +411,7 @@
     return `${pageIntro('CALIZA / Redes y movimiento', 'Inspiración viva.', 'Conozca la comunidad de CALIZA en Instagram y TikTok. El visor editorial solo muestra publicaciones individuales seleccionadas por el equipo.')}
       <section class="exp-page-pad"><div class="exp-social-intro"><div>${label('CALIZA en movimiento')}<h2>La materia también se comparte.</h2><p>Contenido sobre diseño, superficies y cuidado. Siga los perfiles oficiales para conocer proyectos, novedades y experiencias de CALIZA.</p></div><div class="exp-social-example">${picture('option08-care.webp', 'Imagen conceptual editorial de cuidado de superficies')}</div></div>
       ${socialProfiles()}
+      ${instagramLiveModule()}
       ${tiktokCreatorModule()}
       ${all.length ? `<div class="exp-toolbar caliza-social-toolbar"><p><strong>${all.length}</strong> publicaciones seleccionadas</p><div class="caliza-social-filters" role="group" aria-label="Filtrar publicaciones">${[['todos', 'Todos'], ['instagram', 'Instagram'], ['tiktok', 'TikTok']].map(([value, text]) => `<button type="button" class="${socialFilter === value ? 'selected' : ''}" data-social-filter="${value}" aria-pressed="${socialFilter === value}">${text}</button>`).join('')}</div></div>` : ''}
       ${visible.length ? socialCards(visible) : `<div class="exp-empty exp-social-empty"><h2>${all.length ? 'Sin publicaciones de esta red.' : 'Próximamente, selección editorial.'}</h2><p>Las publicaciones individuales aparecerán cuando sus enlaces y permisos hayan sido aprobados. Los perfiles de CALIZA ya están disponibles arriba.</p></div>`}
@@ -481,6 +527,7 @@
   document.addEventListener('click', (event) => {
     const target = event.target.closest('button');
     if (!target) return;
+    if (target.dataset.loadInstagram !== undefined) { loadInstagramFeed(target); return; }
     if (target.dataset.loadTiktok !== undefined) {
       const widget = document.getElementById('caliza-tiktok-widget');
       if (!widget || !widget.hidden) return;
@@ -588,6 +635,11 @@
   menu.addEventListener('click', (event) => { if (event.target.closest('a')) setMenu(false); });
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape' && !menu.hidden) { setMenu(false, true); }
+  });
+  // El enlace de salto conserva la URL del hash-router y mueve el foco al contenido.
+  document.querySelector('.skip-link')?.addEventListener('click', (event) => {
+    event.preventDefault();
+    main.focus({ preventScroll: false });
   });
   window.addEventListener('hashchange', () => { activeEmbed = null; render(); });
   render(false);
