@@ -21,11 +21,13 @@ import { getPayloadClient } from '@/lib/payload'
 import { getSettings } from '@/lib/payload'
 import { waLink } from '@/lib/whatsapp'
 import { siteUrl } from '@/lib/payments'
+import { publicSiteApproved, commerceApproved } from '@/lib/launch-gates'
 import { officialSocialProfile, officialWhatsApp } from '@/lib/official-channels'
 import { PUBLIC_PRODUCT } from '@/lib/publication'
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl()),
+  robots: publicSiteApproved() ? { index: true, follow: true } : { index: false, follow: false, noarchive: true },
   title: { default: 'CALIZA GROUP · La materia toma forma', template: '%s · CALIZA GROUP' },
   description: 'CALIZA GROUP: Stone Design, Living Design y Stone Care. Diseño, vida y cuidado en piedra natural para espacios que perduran.',
   openGraph: { siteName: 'CALIZA GROUP', locale: 'es_CO', type: 'website' },
@@ -39,7 +41,7 @@ export default async function SiteLayout({ children }: { children: React.ReactNo
     payload.find({ collection: 'legal', sort: 'title', limit: 10, depth: 0, select: { slug: true, title: true } }),
     payload.find({ collection: 'products', where: { ...PUBLIC_PRODUCT, line: { in: ['design', 'care'] } }, limit: 1, depth: 0 }),
   ])
-  const shoppingEnabled = published.totalDocs > 0
+  const shoppingEnabled = commerceApproved() && published.totalDocs > 0
   const number = officialWhatsApp(settings.whatsappNumber)
   const instagram = officialSocialProfile(settings.instagramUrl, 'instagram')
   const tiktok = officialSocialProfile(settings.tiktokUrl, 'tiktok')
