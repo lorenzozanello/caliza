@@ -7,6 +7,22 @@
   const feedback = document.getElementById('feedback');
   const CART_KEY = 'caliza-review-quote-v1';
   const SOCIAL_KEY = 'caliza-review-social-v1';
+  const officialWhatsApp = (document.querySelector('meta[name="caliza-whatsapp"]')?.content || '').replace(/\D/g, '');
+  const directWhatsApp = /^[1-9]\d{7,14}$/.test(officialWhatsApp) && !/0{7,}/.test(officialWhatsApp);
+  const campaignParams = new URLSearchParams(location.search || '');
+  const campaignValue = (name) => (campaignParams.get(name) || '').replace(/[^a-zA-Z0-9_-]/g, '').slice(0, 48);
+  const campaignRef = [campaignValue('utm_source'), campaignValue('utm_campaign')].filter(Boolean).join(' / ');
+  const featuredLinks = (Array.isArray(window.CALIZA_FEATURED_SOCIAL) ? window.CALIZA_FEATURED_SOCIAL : []).slice(0, 8).map(parseSocialUrl).filter(Boolean);
+  const profileLink = (name) => {
+    const raw = document.querySelector(`meta[name="caliza-${name}"]`)?.content || '';
+    try {
+      const url = new URL(raw);
+      if (url.protocol !== 'https:') return '';
+      if (name === 'instagram' && ['instagram.com', 'www.instagram.com'].includes(url.hostname) && /^\/[a-zA-Z0-9._]+\/?$/.test(url.pathname)) return `https://www.instagram.com${url.pathname}`;
+      if (name === 'tiktok' && ['tiktok.com', 'www.tiktok.com'].includes(url.hostname) && /^\/@[a-zA-Z0-9._-]+\/?$/.test(url.pathname)) return `https://www.tiktok.com${url.pathname}`;
+    } catch { /* Sin perfil verificado. */ }
+    return '';
+  };
   const safeText = (value) => String(value ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const load = (key, fallback) => { try { const value = JSON.parse(localStorage.getItem(key)); return Array.isArray(value) ? value : fallback; } catch { return fallback; } };
   const store = (key, value) => { try { localStorage.setItem(key, JSON.stringify(value)); } catch { announce('El navegador no permite guardar esta selección.'); } };
@@ -20,6 +36,7 @@
   let links = load(SOCIAL_KEY, []).filter((x) => x && (x.platform === 'instagram' || x.platform === 'tiktok') && typeof x.url === 'string' && parseSocialUrl(x.url)).slice(0, 8);
   let wizard = { briefStep: 0, diagnosisStep: 0, brief: {}, diagnosis: {} };
   let activeEmbed = null;
+  let socialFilter = 'todos';
   let toastTimer;
 
   // Nombres encontrados en el prototipo histórico; ningún precio, referencia o stock se publica como aprobado.
@@ -48,7 +65,39 @@
     clearTimeout(toastTimer);
     toastTimer = setTimeout(() => { feedback.hidden = true; }, 4500);
   }
-  function tally() { document.getElementById('cart-count').textContent = String(cart.reduce((n, item) => n + item.qty, 0)); }
+  function tally() {
+    const count = String(cart.reduce((n, item) => n + item.qty, 0));
+    document.getElementById('cart-count').textContent = count;
+    const floatingCount = document.getElementById('floating-selection-count');
+    if (floatingCount) floatingCount.textContent = count;
+  }
+  function waUrl(message) {
+    const body = `${message}${campaignRef ? `\nReferencia de campaña: ${campaignRef}` : ''}`;
+    return `https://wa.me/${directWhatsApp ? officialWhatsApp : ''}?text=${encodeURIComponent(body)}`;
+  }
+  function waAction(message, text = 'Preparar en WhatsApp') {
+    return `<a href="${safeText(waUrl(message))}" class="o8-button caliza-wa-action" target="_blank" rel="noopener noreferrer" data-marketing-cta="whatsapp">${safeText(text)} <span aria-hidden="true">↗</span></a>`;
+  }
+  function waHandoffNote() {
+    return `<p class="caliza-channel-note">${directWhatsApp ? 'WhatsApp abrirá una conversación con el contacto de Caliza configurado para esta experiencia. El envío requiere tu confirmación.' : 'El número oficial de Caliza aún no está vinculado. WhatsApp abrirá un mensaje preparado y tendrás que elegir manualmente el contacto correcto.'}</p>`;
+  }
+  function routeMessage(route = getRoute()) {
+    if (route.startsWith('/living-design/carrito') && cart.length) return copyContent('cart');
+    if (route.startsWith('/living-design')) return 'Hola, me interesa conocer las piezas de CALIZA LIVING DESIGN. Quisiera asesoría sobre materiales, medidas y cotización.';
+    if (route.startsWith('/stone-care')) return 'Hola, necesito orientación de CALIZA STONE CARE para el cuidado de una superficie de piedra natural.';
+    if (route.startsWith('/stone-design') || route === '/proyectos') return 'Hola, quiero conversar con CALIZA STONE DESIGN sobre un proyecto en piedra natural.';
+    return 'Hola, quiero conocer los servicios de CALIZA GROUP y recibir asesoría.';
+  }
+  function syncConversionDock() {
+    const link = document.getElementById('floating-whatsapp');
+    if (!link) return;
+    link.href = waUrl(routeMessage());
+    link.setAttribute('aria-label', directWhatsApp ? 'Escribir al WhatsApp oficial de Caliza' : 'Abrir WhatsApp con un mensaje listo y seleccionar manualmente el contacto de Caliza');
+    const text = document.getElementById('floating-wa-label');
+    if (text) text.textContent = directWhatsApp ? 'Hablar con Caliza' : 'Compartir por WhatsApp';
+    const note = document.getElementById('floating-wa-note');
+    if (note) note.textContent = directWhatsApp ? 'Consulta comercial · respuesta por confirmar' : 'Selecciona el contacto oficial de Caliza';
+  }
   function mediaCard(item) {
     return `<a href="#/living-design/pieza/${item.slug}" class="exp-card exp-product-card">${picture(item.image, `Imagen conceptual para explorar ${item.name}`)}<div class="exp-card-info"><div><h3>${item.name}</h3><p>${item.category} · Consultar disponibilidad</p></div><span aria-hidden="true">↗</span></div></a>`;
   }
@@ -78,11 +127,16 @@
           ['care', 'option08-care.webp', 'Preservar', 'Stone Care', 'Cuidado y restauración para que la belleza perdure.', '/stone-care'],
         ].map(([icon, image, name, brand, desc, href]) => `<a href="#${href}" class="o8-pillar">${picture(image, `Escena conceptual de ${brand}`)}<div class="o8-pillar-copy">${lineIcon(icon)}<div><h2>${name}</h2><span>${brand}</span><p>${desc}</p></div><b aria-hidden="true">→</b></div></a>`).join('')}
       </section>
+      <section class="caliza-journeys" aria-labelledby="journeys-title"><div class="caliza-journeys-lead">${label('Tu próximo paso')}<h2 id="journeys-title">¿Qué te gustaría hacer?</h2><p>Un recorrido claro desde la inspiración hasta una conversación con el equipo.</p></div><div class="caliza-journey-links">
+      <a href="#/stone-design/brief"><span>01 / Crear</span><strong>Planear un espacio en piedra</strong><small>Preparar un brief de proyecto <span aria-hidden="true">↗</span></small></a>
+      <a href="#/living-design/coleccion"><span>02 / Habitar</span><strong>Elegir una pieza</strong><small>Explorar y guardar referencias <span aria-hidden="true">↗</span></small></a>
+      <a href="#/stone-care/diagnostico"><span>03 / Preservar</span><strong>Evaluar el cuidado</strong><small>Recibir orientación preliminar <span aria-hidden="true">↗</span></small></a>
+      </div></section>
       <section class="o8-section">${sectionHead('Piezas para habitar', '/living-design/coleccion', 'Explorar colección')}<div class="exp-grid exp-grid-2">${mediaCard(catalogue[0])}${mediaCard(catalogue[15])}</div></section>
       <section class="o8-section">${sectionHead('La expresión de la materia', '/materiales', 'Explorar materiales')}${materialPreview()}</section>
       <section class="exp-banner">${picture('option08-hero.webp', 'Arquitectura mediterránea conceptual')}<div>${label('Caliza Stone Design')}<h2>Espacios que perduran.</h2><p>Proyectos concebidos desde la materia y el oficio.</p>${button('/stone-design/brief', 'Iniciar proyecto')}</div></section>
       <section class="exp-banner exp-banner-care">${picture('option08-care.webp', 'Cuidado artesanal de piedra natural')}<div>${label('Caliza Stone Care')}<h2>Cuidar también es diseñar.</h2><p>Conoce cómo preservar la belleza de la piedra.</p>${button('/stone-care/diagnostico', 'Consultar cuidado')}</div></section>
-      <section class="o8-section">${sectionHead('Inspiración y movimiento', '/inspiracion', 'Explorar Instagram y TikTok')}<div class="exp-grid exp-grid-3"><div class="exp-editorial">${picture('option08-hero.webp', 'Proyecto conceptual de piedra natural')}<h3>La materia</h3><p>Arquitectura y oficio.</p></div><div class="exp-editorial">${picture('option08-living.webp', 'Ambiente conceptual Living Design')}<h3>La pieza</h3><p>Objetos para habitar.</p></div><div class="exp-editorial">${picture('option08-care.webp', 'Superficie en cuidado')}<h3>El cuidado</h3><p>Preservar lo esencial.</p></div></div></section>
+      ${socialPreview()}
       ${contactRibbon()}${disclaimer}`;
   }
 
@@ -96,7 +150,7 @@
     return `<div class="exp-grid exp-grid-4 exp-material-preview">${materials.map(([name, image]) => `<a href="#/materiales">${picture(image, `Muestra fotográfica provisional: ${name}`)}<strong>${name}</strong></a>`).join('')}</div>`;
   }
   function contactRibbon() {
-    return `<section class="o8-contact"><div>${label('Caliza Group')}<h2>Hablemos de tu proyecto.</h2><p>Cuéntanos qué quieres crear, habitar o preservar. En esta revisión puedes preparar y copiar tu solicitud.</p>${button('/contacto', 'Preparar solicitud')}</div><span class="o8-contact-mark">Crear.<br>Habitar.<br>Preservar.</span></section>`;
+    return `<section class="o8-contact"><div>${label('Caliza Group')}<h2>Hablemos de tu proyecto.</h2><p>Cuéntanos qué quieres crear, habitar o preservar. Prepara tu solicitud y decide cuándo compartirla.</p><div class="caliza-cta-pair">${button('/contacto', 'Preparar solicitud')}${waAction(routeMessage(), 'Consultar por WhatsApp')}</div>${waHandoffNote()}</div><span class="o8-contact-mark">Crear.<br>Habitar.<br>Preservar.</span></section>`;
   }
 
   function stone() {
@@ -123,11 +177,13 @@
   }
   function collection() {
     const query = location.hash.split('?')[1] || '';
-    const category = new URLSearchParams(query).get('categoria') || 'Todas';
-    const selection = catalogue.filter((item) => category === 'Todas' || item.category === category);
-    return `${pageIntro('Living Design / Colección', 'Objetos para vivir.', 'Explora las referencias del prototipo, filtra por familia y prepara una selección sin compromiso ni pago.')}${subnav('/living-design/coleccion')}
-      <section class="exp-page-pad"><div class="exp-toolbar"><p><strong>${selection.length}</strong> referencias de diseño</p><div role="group" aria-label="Filtrar productos" class="exp-filters">${['Todas', 'Mesas', 'Sillas', 'Objetos', 'Lavamanos'].map((cat) => `<button type="button" data-filter="${cat}" class="${category === cat ? 'selected' : ''}" aria-pressed="${category === cat}">${cat}</button>`).join('')}</div></div>
-      <div class="exp-grid exp-grid-4">${selection.map(mediaCard).join('')}</div><p class="exp-catalogue-warning">Sin precios publicados ni inventario confirmado. Las imágenes pueden representar una familia, no la pieza específica.</p></section>`;
+    const params = new URLSearchParams(query);
+    const category = ['Todas', 'Mesas', 'Sillas', 'Objetos', 'Lavamanos'].includes(params.get('categoria')) ? params.get('categoria') : 'Todas';
+    const search = (params.get('q') || '').trim().slice(0, 80);
+    const selection = catalogue.filter((item) => (category === 'Todas' || item.category === category) && `${item.name} ${item.category}`.toLocaleLowerCase('es').includes(search.toLocaleLowerCase('es')));
+    return `${pageIntro('Living Design / Tienda', 'Objetos para vivir.', 'Una tienda de consulta: descubre referencias, filtra por familia y prepara una selección para cotizar. No hay compra ni pago en línea.')}${subnav('/living-design/coleccion')}
+      <section class="exp-page-pad"><div class="caliza-shop-tools"><form id="collection-search-form" class="caliza-collection-search" role="search"><label for="collection-search">Buscar en la colección</label><div><input id="collection-search" name="q" type="search" value="${safeText(search)}" placeholder="Ej. Rubi, mesa, lavamanos" maxlength="80"><button type="submit" class="exp-outline">Buscar →</button></div></form><p><strong>${selection.length}</strong> de ${catalogue.length} referencias para explorar</p></div><div class="exp-toolbar"><div role="group" aria-label="Filtrar productos" class="exp-filters">${['Todas', 'Mesas', 'Sillas', 'Objetos', 'Lavamanos'].map((cat) => `<button type="button" data-filter="${cat}" class="${category === cat ? 'selected' : ''}" aria-pressed="${category === cat}">${cat}</button>`).join('')}</div></div>
+      ${selection.length ? `<div class="exp-grid exp-grid-4">${selection.map(mediaCard).join('')}</div>` : `<div class="exp-empty"><h2>No encontramos coincidencias.</h2><p>Prueba otra búsqueda o vuelve a explorar todas las referencias.</p>${button('/tienda', 'Ver toda la tienda')}</div>`}<p class="exp-catalogue-warning">Sin precios publicados ni inventario confirmado. Las imágenes pueden representar una familia, no la pieza específica. El envío de cotización requiere tu confirmación.</p></section>`;
   }
   function product(slug) {
     const item = catalogue.find((x) => x.slug === slug);
@@ -150,7 +206,7 @@
     const entries = cart.map((entry, index) => ({ ...entry, index, item: catalogue.find((x) => x.slug === entry.slug) })).filter((x) => x.item);
     return `${pageIntro('Living Design / Selección', 'Tu selección de piezas.', 'Revisa los productos y copia un resumen para compartirlo con Caliza cuando el canal comercial esté habilitado.')}${subnav('/living-design/carrito')}
       <section class="exp-page-pad exp-cart">${entries.length ? `<div class="exp-cart-list">${entries.map(({ item, index, qty, material, size }) => `<div class="exp-cart-row">${picture(item.image, `Imagen de referencia ${item.name}`)}<div><h2>${item.name}</h2><p>${safeText(material)} · ${safeText(size)}</p><div class="exp-quantity"><button type="button" data-cart-minus="${index}" aria-label="Reducir cantidad de ${item.name}">−</button><span>${qty}</span><button type="button" data-cart-plus="${index}" aria-label="Aumentar cantidad de ${item.name}">+</button></div></div><button type="button" class="exp-remove" data-cart-remove="${index}">Quitar</button></div>`).join('')}</div>
-      <aside class="exp-cart-summary"><h2>Resumen para cotizar</h2><p>${entries.length} referencia(s) · sin precios ni pedido confirmado</p><button class="o8-button exp-action" type="button" data-copy="cart">Copiar solicitud <span aria-hidden="true">↗</span></button><p>Solo se guarda en este navegador. No se transmiten datos a Caliza.</p>${button('/living-design/coleccion', 'Seguir explorando', 'o8-text-link')}</aside>` : `<div class="exp-empty"><h2>Tu selección está vacía.</h2><p>Explora el catálogo y añade referencias que quieras cotizar.</p>${button('/living-design/coleccion', 'Explorar colección')}</div>`}</section>`;
+      <aside class="exp-cart-summary"><h2>Resumen para cotizar</h2><p>${entries.length} referencia(s) · sin precios ni pedido confirmado</p><div class="caliza-summary-actions">${waAction(copyContent('cart'), 'Compartir selección') }<button class="exp-outline" type="button" data-copy="cart">Copiar resumen</button></div>${waHandoffNote()}<p>La selección permanece en este navegador. No hay compra ni envío automático.</p>${button('/living-design/coleccion', 'Seguir explorando', 'o8-text-link')}</aside>` : `<div class="exp-empty"><h2>Tu selección está vacía.</h2><p>Explora el catálogo y añade referencias que quieras cotizar.</p>${button('/living-design/coleccion', 'Explorar colección')}</div>`}</section>`;
   }
 
   function care() {
@@ -186,7 +242,7 @@
     let body;
     if (step === 0) body = `<h2>¿Qué deseas crear?</h2><label for="brief-type">Tipo de proyecto</label><select id="brief-type" name="type"><option>Cocina o cubierta</option><option>Baño o lavamanos</option><option>Revestimientos</option><option>Objeto o mobiliario</option><option>Otro espacio</option></select><label for="brief-location">Ciudad o ubicación aproximada</label><input id="brief-location" name="location" placeholder="Ej. Barranquilla" maxlength="80" autocomplete="off"><p class="exp-hint">No ingreses direcciones ni datos personales en este prototipo.</p>`;
     else if (step === 1) body = `<h2>Cuéntanos de la materia.</h2><label for="brief-surface">Material de interés</label><select id="brief-surface" name="surface"><option>Piedra clara</option><option>Piedra veteada</option><option>Piedra oscura</option><option>Necesito asesoría</option></select><label for="brief-details">Idea y alcance</label><textarea id="brief-details" name="details" rows="5" maxlength="900" placeholder="Describe las medidas aproximadas, la pieza o el ambiente…"></textarea><p class="exp-hint">Evita incluir teléfonos, direcciones u otra información sensible.</p>`;
-    else body = `<h2>Tu brief está listo.</h2><div class="exp-summary"><p><strong>Proyecto:</strong> ${safeText(wizard.brief.type || 'Por definir')}</p><p><strong>Ciudad:</strong> ${safeText(wizard.brief.location || 'Sin definir')}</p><p><strong>Materia:</strong> ${safeText(wizard.brief.surface || 'Sin definir')}</p><p><strong>Idea:</strong> ${safeText(wizard.brief.details || 'Sin descripción')}</p></div><p>Podrás copiar este resumen para compartirlo por un canal comercial verificado. En esta versión no se envía a ningún servidor.</p><button type="button" class="o8-button exp-action" data-copy="brief">Copiar brief <span aria-hidden="true">↗</span></button>`;
+    else body = `<h2>Tu brief está listo.</h2><div class="exp-summary"><p><strong>Proyecto:</strong> ${safeText(wizard.brief.type || 'Por definir')}</p><p><strong>Ciudad:</strong> ${safeText(wizard.brief.location || 'Sin definir')}</p><p><strong>Materia:</strong> ${safeText(wizard.brief.surface || 'Sin definir')}</p><p><strong>Idea:</strong> ${safeText(wizard.brief.details || 'Sin descripción')}</p></div><p>Revisa el contenido antes de compartirlo. En esta versión no se envía a ningún servidor.</p><div class="caliza-summary-actions">${waAction(copyContent('brief'), 'Compartir brief')}<button type="button" class="exp-outline" data-copy="brief">Copiar brief</button></div>${waHandoffNote()}`;
     return `${pageIntro('Stone Design / Brief', 'Empecemos por tu idea.', 'Un recorrido guiado que puedes completar sin entregar datos personales ni realizar pagos.')}
       <section class="exp-wizard"><div class="exp-wizard-panel">${wizardProgress(step)}<form id="brief-form" data-wizard="brief">${body}<div class="exp-wizard-nav">${step > 0 ? '<button type="button" class="exp-outline" data-prev="brief">Anterior</button>' : '<span></span>'}${step < 2 ? '<button class="o8-button" type="submit">Continuar →</button>' : button('/stone-design', 'Volver a Stone Design', 'exp-outline')}</div></form></div><aside>${picture('option08-hero.webp', 'Referencia conceptual de arquitectura en piedra')}<p>La materia inspira. Cada proyecto real requiere revisión técnica, disponibilidad y propuesta específica.</p></aside></section>`;
   }
@@ -195,13 +251,13 @@
     let body;
     if (step === 0) body = `<h2>¿Qué superficie quieres cuidar?</h2><label for="diag-surface">Tipo de superficie</label><select id="diag-surface" name="surface"><option>Travertino</option><option>Mármol</option><option>Granito</option><option>Piedra sin identificar</option><option>Otra piedra natural</option></select><label for="diag-location">Dónde se encuentra</label><select id="diag-location" name="location"><option>Cocina</option><option>Baño</option><option>Piso</option><option>Mueble u objeto</option><option>Exterior</option></select>`;
     else if (step === 1) body = `<h2>¿Qué observas?</h2><label for="diag-symptom">Síntoma principal</label><select id="diag-symptom" name="symptom"><option>Mancha o cambio de color</option><option>Rayón o pérdida de brillo</option><option>Humedad o absorción</option><option>Rotura o fisura</option><option>Mantenimiento preventivo</option></select><label for="diag-urgency">Estado</label><select id="diag-urgency" name="urgency"><option>No parece avanzar</option><option>Está empeorando</option><option>Recién ocurrió</option></select>`;
-    else body = `<h2>Orientación preliminar.</h2><div class="exp-summary"><p><strong>Superficie:</strong> ${safeText(wizard.diagnosis.surface || '')}</p><p><strong>Ubicación:</strong> ${safeText(wizard.diagnosis.location || '')}</p><p><strong>Síntoma:</strong> ${safeText(wizard.diagnosis.symptom || '')}</p><p><strong>Estado:</strong> ${safeText(wizard.diagnosis.urgency || '')}</p></div><p><strong>Primer cuidado:</strong> evita ácidos, abrasivos y productos sin comprobar su compatibilidad. Si hay fisuras, humedad activa o pérdida de material, no experimentes: solicita inspección profesional.</p><p>El resultado no diagnostica causas ni prescribe procedimientos específicos.</p><button type="button" class="o8-button exp-action" data-copy="diagnosis">Copiar orientación <span aria-hidden="true">↗</span></button>`;
+    else body = `<h2>Orientación preliminar.</h2><div class="exp-summary"><p><strong>Superficie:</strong> ${safeText(wizard.diagnosis.surface || '')}</p><p><strong>Ubicación:</strong> ${safeText(wizard.diagnosis.location || '')}</p><p><strong>Síntoma:</strong> ${safeText(wizard.diagnosis.symptom || '')}</p><p><strong>Estado:</strong> ${safeText(wizard.diagnosis.urgency || '')}</p></div><p><strong>Primer cuidado:</strong> evita ácidos, abrasivos y productos sin comprobar su compatibilidad. Si hay fisuras, humedad activa o pérdida de material, no experimentes: solicita inspección profesional.</p><p>El resultado no diagnostica causas ni prescribe procedimientos específicos.</p><div class="caliza-summary-actions">${waAction(copyContent('diagnosis'), 'Compartir consulta')}<button type="button" class="exp-outline" data-copy="diagnosis">Copiar orientación</button></div>${waHandoffNote()}`;
     return `${pageIntro('Stone Care / Diagnóstico', 'Empecemos por observar.', 'Una guía de orientación, no un diagnóstico técnico definitivo.')}
       <section class="exp-wizard"><div class="exp-wizard-panel">${wizardProgress(step)}<form id="diagnosis-form" data-wizard="diagnosis">${body}<div class="exp-wizard-nav">${step > 0 ? '<button type="button" class="exp-outline" data-prev="diagnosis">Anterior</button>' : '<span></span>'}${step < 2 ? '<button class="o8-button" type="submit">Continuar →</button>' : button('/stone-care', 'Volver a Stone Care', 'exp-outline')}</div></form></div><aside>${picture('option08-care.webp', 'Cuidado manual conceptual de piedra natural')}<p>Si detectas daños estructurales o materiales sueltos, limita el uso de la superficie hasta contar con evaluación profesional.</p></aside></section>`;
   }
   function contact() {
     return `${pageIntro('Caliza Group / Contacto', 'Hablemos de tu proyecto.', 'Prepara una consulta para Stone Design, Living Design o Stone Care. Este prototipo no recoge ni envía información a Caliza.')}
-      <section class="exp-contact-layout"><div>${picture('option08-living.webp', 'Pieza de piedra natural en ambiente conceptual')}<p>Materia · Espacios · Personas</p></div><form id="contact-form" class="exp-contact-form"><h2>Cuéntanos tu idea.</h2><label for="contact-line">Línea de interés</label><select id="contact-line" name="line"><option>Stone Design · Crear</option><option>Living Design · Habitar</option><option>Stone Care · Preservar</option><option>Consulta general</option></select><label for="contact-city">Ciudad</label><input id="contact-city" name="city" maxlength="70" placeholder="Ciudad (opcional)" autocomplete="off"><label for="contact-message">Mensaje</label><textarea id="contact-message" name="message" rows="5" maxlength="900" placeholder="¿Qué necesitas? Sin información sensible."></textarea><button type="submit" class="o8-button exp-action">Preparar mensaje <span aria-hidden="true">→</span></button><p class="exp-hint">El botón copia un resumen local para que lo compartas por el canal que Caliza confirme. No actúa como formulario de envío.</p></form></section>`;
+      <section class="exp-contact-layout"><div>${picture('option08-living.webp', 'Pieza de piedra natural en ambiente conceptual')}<p>Materia · Espacios · Personas</p><div class="caliza-contact-promise"><strong>Asesoría por línea</strong><span>Stone Design — proyectos en piedra</span><span>Living Design — piezas y colección</span><span>Stone Care — mantenimiento y recuperación</span></div></div><form id="contact-form" class="exp-contact-form"><h2>Cuéntanos tu idea.</h2><label for="contact-line">Línea de interés</label><select id="contact-line" name="line"><option>Stone Design · Crear</option><option>Living Design · Habitar</option><option>Stone Care · Preservar</option><option>Consulta general</option></select><label for="contact-city">Ciudad</label><input id="contact-city" name="city" maxlength="70" placeholder="Ciudad (opcional)" autocomplete="off"><label for="contact-message">Mensaje</label><textarea id="contact-message" name="message" rows="5" maxlength="900" placeholder="¿Qué necesitas? Sin información sensible."></textarea><button type="submit" class="o8-button exp-action">Preparar mensaje <span aria-hidden="true">→</span></button><p class="exp-hint">No se transmite ninguna información automáticamente. Al preparar la consulta podrás revisar el resumen y compartirlo de forma voluntaria.</p><div id="contact-result" class="caliza-contact-result" tabindex="-1" aria-live="polite" hidden></div></form></section>`;
   }
 
   // Los iframes solo se cargan tras un gesto explícito del visitante. No existe feed oficial sin autorización OAuth.
@@ -220,14 +276,36 @@
     }
     return null;
   }
+  function savedSocialItems() {
+    const seen = new Set();
+    const all = [...featuredLinks.map((item) => ({ ...item, featured: true })), ...links.map((link, index) => ({ ...parseSocialUrl(link.url), localIndex: index, featured: false }))];
+    return all.filter((item) => {
+      if (!item.platform || seen.has(item.url)) return false;
+      seen.add(item.url);
+      return true;
+    }).map((item, index) => ({ ...item, index }));
+  }
+  function socialComposer(compact = false) {
+    return `<form id="social-form" class="exp-social-form ${compact ? 'caliza-social-composer' : ''}"><label for="social-url">Enlace público de Instagram o TikTok</label><div><input type="url" id="social-url" name="url" placeholder="https://www.instagram.com/reel/…" autocomplete="off" required><button type="submit" class="o8-button">Añadir al visor <span aria-hidden="true">→</span></button></div><p>La publicación se guarda únicamente en este navegador. Su contenido externo se carga solo al pulsar «Visualizar».</p></form>`;
+  }
+  function socialCards(items, compact = false) {
+    return `<div class="exp-social-grid ${compact ? 'caliza-social-grid-preview' : ''}">${items.map((item) => `<article class="exp-social-card"><div><span>${item.platform === 'instagram' ? 'Instagram' : 'TikTok'} · ${item.featured ? 'Selección editorial' : 'Enlace local'}</span><strong>${item.platform === 'instagram' ? 'Publicación' : 'Video'} ${item.index + 1}</strong><p>Contenido público · referencia ${safeText(item.id)}</p></div>${activeEmbed === item.url ? `<div class="exp-iframe-wrap"><iframe title="Publicación ${item.index + 1} de ${item.platform}" src="${item.embed}" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="encrypted-media; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-popups"></iframe></div>` : `<div class="exp-embed-placeholder"><span class="caliza-social-monogram" aria-hidden="true">${item.platform === 'instagram' ? 'IG' : 'TK'}</span><p>Contenido externo sin cargar.</p></div>`}<div class="exp-social-actions"><button type="button" data-view-social="${item.index}">${activeEmbed === item.url ? 'Ocultar' : 'Visualizar'}</button><a href="${item.url}" target="_blank" rel="noopener noreferrer">Abrir publicación ↗</a>${compact || item.featured ? '' : `<button type="button" data-remove-social="${item.localIndex}">Quitar</button>`}</div></article>`).join('')}</div>`;
+  }
+  function socialPreview() {
+    const items = savedSocialItems().slice(0, 3);
+    return `<section class="o8-section caliza-social-showcase" aria-labelledby="social-preview-title">${sectionHead('Instagram y TikTok', '/inspiracion', 'Abrir visor completo')}<div class="caliza-social-showcase-intro"><div>${label('Inspiración en movimiento')}<h3 id="social-preview-title">De la materia a la conversación.</h3><p>Una ventana a publicaciones de diseño, procesos y cuidado. Los perfiles oficiales y contenidos destacados están pendientes de vinculación por Caliza.</p></div><a href="#/inspiracion" class="o8-text-link">Ver todas las publicaciones <span aria-hidden="true">→</span></a></div>${items.length ? `${socialCards(items, true)}<div class="caliza-social-more">${button('/inspiracion', 'Gestionar publicaciones')}</div>` : `<div class="caliza-social-onboard"><div class="caliza-social-onboard-visual"><span>IG</span><span>TK</span><p>Publicaciones verificadas, cuando estén disponibles.</p></div><div>${label('Visor social interactivo')}<h4>El contenido que inspira también puede explorarse aquí.</h4><p>Prueba el visor con el enlace público de un reel, una publicación o un video. No mostramos contenido ficticio como si fuera una publicación oficial.</p>${socialComposer(true)}</div></div>`}</section>`;
+  }
   function social() {
-    const normalized = links.map((l) => parseSocialUrl(l.url)).filter(Boolean);
+    const all = savedSocialItems();
+    const visible = all.filter((item) => socialFilter === 'todos' || item.platform === socialFilter);
+    const profiles = [['instagram', 'Instagram'], ['tiktok', 'TikTok']].map(([name, title]) => ({ name, title, url: profileLink(name) })).filter((entry) => entry.url);
     return `${pageIntro('CALIZA / Redes y movimiento', 'Inspiración viva.', 'Explora publicaciones públicas de Instagram y TikTok en un visor activado por ti. No se consulta ni se copia contenido de redes automáticamente.')}
-      <section class="exp-page-pad"><div class="exp-social-intro"><div>${label('Social Studio')}<h2>La materia también se comparte.</h2><p>Introduce el enlace de una publicación pública o un video. En esta vista de revisión los enlaces se guardan únicamente en tu navegador.</p></div><div class="exp-social-example">${picture('option08-care.webp', 'Cuidado de superficies: contenido editorial de referencia')}</div></div>
-      <form id="social-form" class="exp-social-form"><label for="social-url">Enlace público de Instagram o TikTok</label><div><input type="url" id="social-url" name="url" placeholder="https://www.instagram.com/reel/… o https://www.tiktok.com/@cuenta/video/…" required><button type="submit" class="o8-button">Añadir al visor →</button></div><p>Los contenidos de terceros solo se cargan al pulsar «Visualizar»; pueden requerir consentimiento de cookies o inicio de sesión en la red social.</p></form>
-      <div class="exp-toolbar"><p><strong>${normalized.length}</strong> publicaciones guardadas en este dispositivo</p><button type="button" class="exp-outline" data-clear-social>Limpiar visor</button></div>
-      ${normalized.length ? `<div class="exp-social-grid">${normalized.map((l, index) => `<article class="exp-social-card"><div><span>${l.platform === 'instagram' ? 'Instagram' : 'TikTok'}</span><strong>Publicación ${index + 1}</strong><p>Enlace público · ${safeText(l.id)}</p></div>${activeEmbed === l.url ? `<div class="exp-iframe-wrap"><iframe title="Publicación ${index + 1} de ${l.platform}" src="${l.embed}" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="encrypted-media; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-popups"></iframe></div>` : `<div class="exp-embed-placeholder">${lineIcon('stone')}<p>Contenido externo sin cargar.</p></div>`}<div class="exp-social-actions"><button type="button" data-view-social="${index}">${activeEmbed === l.url ? 'Ocultar' : 'Visualizar'}</button><a href="${l.url}" target="_blank" rel="noopener noreferrer">Abrir en la red ↗</a><button type="button" data-remove-social="${index}">Quitar</button></div></article>`).join('')}</div>` : `<div class="exp-empty exp-social-empty"><h2>Aún no hay publicaciones.</h2><p>Pega un enlace válido de una publicación de Instagram o video de TikTok para probar el visor.</p></div>`}
-      <div class="exp-social-disclaimer"><strong>Para conectar el perfil oficial de Caliza:</strong> se requiere confirmar los usuarios autorizados, derechos de uso y la modalidad de integración permitida por cada plataforma. Esta herramienta demuestra el visualizador, no suplanta una integración a cuentas.</div></section>`;
+      <section class="exp-page-pad"><div class="exp-social-intro"><div>${label('Social Studio')}<h2>La materia también se comparte.</h2><p>Introduce un enlace a una publicación pública de Instagram o un video de TikTok para construir una galería. La visualización es voluntaria y puede requerir permisos de la plataforma.</p></div><div class="exp-social-example">${picture('option08-care.webp', 'Cuidado de superficies: contenido editorial de referencia')}</div></div>
+      ${profiles.length ? `<div class="caliza-social-profiles">${profiles.map(({ title, url }) => `<a href="${safeText(url)}" target="_blank" rel="noopener noreferrer">Seguir a Caliza en ${title} <span aria-hidden="true">↗</span></a>`).join('')}</div>` : ''}
+      ${socialComposer()}
+      <div class="exp-toolbar caliza-social-toolbar"><p><strong>${all.length}</strong> publicaciones · ${featuredLinks.length} destacadas · ${links.length} añadidas en este navegador</p><div class="caliza-social-filters" role="group" aria-label="Filtrar publicaciones">${[['todos', 'Todos'], ['instagram', 'Instagram'], ['tiktok', 'TikTok']].map(([value, text]) => `<button type="button" class="${socialFilter === value ? 'selected' : ''}" data-social-filter="${value}" aria-pressed="${socialFilter === value}">${text}</button>`).join('')}</div><button type="button" class="exp-outline" data-clear-social ${links.length ? '' : 'disabled'}>Limpiar mis enlaces</button></div>
+      ${visible.length ? socialCards(visible) : `<div class="exp-empty exp-social-empty"><h2>${all.length ? 'Sin publicaciones de esta red.' : 'Aún no hay publicaciones.'}</h2><p>${all.length ? 'Elige otra red o agrega un enlace público.' : 'Pega un enlace de Instagram o TikTok para empezar a probar el visor. También puedes volver al inicio y verlo allí.'}</p></div>`}
+      <div class="exp-social-disclaimer"><strong>Contenido oficial pendiente de integración.</strong> La conexión de perfiles de Caliza requiere confirmar sus cuentas, autorizaciones y derechos de uso. El visor guarda enlaces solo en tu navegador y no constituye un feed automático ni publica en las redes.</div></section>`;
   }
 
   function missing() {
@@ -240,7 +318,7 @@
     if (route === '/stone-design/proyectos' || route === '/proyectos') return projects();
     if (route === '/stone-design/brief') return brief();
     if (route === '/living-design') return living();
-    if (route === '/living-design/coleccion') return collection();
+    if (route === '/living-design/coleccion' || route === '/tienda') return collection();
     if (route.startsWith('/living-design/pieza/')) return product(route.split('/').pop());
     if (route === '/living-design/experiencia') return experience();
     if (route === '/living-design/carrito') return cartPage();
@@ -258,6 +336,7 @@
     document.title = `${main.querySelector('h1')?.textContent?.replace(/\s+/g, ' ').trim() || 'CALIZA GROUP'} · CALIZA GROUP`;
     document.querySelectorAll('.o8-nav a').forEach((link) => link.setAttribute('aria-current', route === link.getAttribute('href')?.substring(1) ? 'page' : 'false'));
     tally();
+    syncConversionDock();
     if (scroll) {
       window.scrollTo({ top: 0, behavior: 'instant' });
       main.focus({ preventScroll: true });
@@ -282,7 +361,11 @@
     if (!target) return;
     if (target.dataset.filter) {
       const cat = target.dataset.filter;
-      location.hash = `/living-design/coleccion${cat === 'Todas' ? '' : `?categoria=${encodeURIComponent(cat)}`}`;
+      const params = new URLSearchParams(location.hash.split('?')[1] || '');
+      if (cat === 'Todas') params.delete('categoria');
+      else params.set('categoria', cat);
+      const qs = params.toString();
+      location.hash = `/tienda${qs ? '?' + qs : ''}`;
       render(false);
     }
     if (target.dataset.addQuote) {
@@ -314,8 +397,13 @@
     if (target.hasAttribute('data-clear-social')) {
       links = []; activeEmbed = null; store(SOCIAL_KEY, links); render(false);
     }
+    if (target.dataset.socialFilter) {
+      socialFilter = target.dataset.socialFilter;
+      activeEmbed = null;
+      render(false);
+    }
     if (target.dataset.viewSocial !== undefined) {
-      const item = parseSocialUrl(links[Number(target.dataset.viewSocial)]?.url || '');
+      const item = savedSocialItems()[Number(target.dataset.viewSocial)];
       if (item) { activeEmbed = activeEmbed === item.url ? null : item.url; render(false); }
     }
     if (target.dataset.removeSocial !== undefined) {
@@ -326,10 +414,19 @@
     const form = event.target;
     if (!(form instanceof HTMLFormElement)) return;
     event.preventDefault();
+    if (form.id === 'collection-search-form') {
+      const search = String(new FormData(form).get('q') || '').trim().slice(0, 80);
+      const params = new URLSearchParams(location.hash.split('?')[1] || '');
+      if (search) params.set('q', search);
+      else params.delete('q');
+      const qs = params.toString();
+      location.hash = `/tienda${qs ? '?' + qs : ''}`;
+      render(false);
+    }
     if (form.id === 'social-form') {
       const item = parseSocialUrl(new FormData(form).get('url'));
       if (!item) return announce('Usa un enlace HTTPS a un post o reel de Instagram o un video público de TikTok.');
-      if (links.some((l) => parseSocialUrl(l.url)?.url === item.url)) return announce('Ese enlace ya está en el visor.');
+      if (savedSocialItems().some((l) => l.url === item.url)) return announce('Ese enlace ya está en el visor.');
       if (links.length >= 8) return announce('El visor de revisión admite máximo 8 enlaces. Elimina uno para continuar.');
       links.push({ url: item.url, platform: item.platform });
       store(SOCIAL_KEY, links); render(false); announce('Publicación añadida. Pulsa Visualizar para cargarla.');
@@ -338,7 +435,13 @@
       const data = new FormData(form);
       const message = String(data.get('message') || '').trim();
       if (!message) return announce('Describe tu idea antes de preparar el mensaje.');
-      copyText(`CALIZA GROUP — consulta\nLínea: ${data.get('line')}\nCiudad: ${data.get('city') || 'Por definir'}\nMensaje: ${message}\nConsulta preparada localmente; sin envío automático.`);
+      const summary = `CALIZA GROUP — consulta\nLínea: ${data.get('line')}\nCiudad: ${data.get('city') || 'Por definir'}\nMensaje: ${message}`;
+      const result = document.getElementById('contact-result');
+      result.hidden = false;
+      result.innerHTML = `<h3>Tu consulta está preparada.</h3><p>Revisa la solicitud antes de abrir WhatsApp. No existe un envío automático.</p><pre>${safeText(summary)}</pre><div class="caliza-summary-actions">${waAction(summary, 'Compartir consulta')}<button class="exp-outline" type="button" data-copy-contact>Copiar mensaje</button></div>${waHandoffNote()}`;
+      result.focus({ preventScroll: false });
+      result.querySelector('[data-copy-contact]').addEventListener('click', () => copyText(summary));
+      announce('Consulta preparada localmente. Elige si deseas compartirla.');
     }
     if (form.dataset.wizard) {
       const kind = form.dataset.wizard;
