@@ -32,5 +32,10 @@
 - Validación visual/axe-core/Lighthouse CI independiente antes de fusionar.
 - Rutas reales, canonical y SEO público cuando exista dominio comercial y contenido aprobado.
 - Relación producto/imagen/SKU, precios, inventario, fotos de proyectos, dirección, agenda y política de datos.
-- Animaciones de P2: añadir solo si no afectan accesibilidad ni Core Web Vitals. No forzar Lenis/GSAP/WebGL sin presupuestos y ensayos.
+- P2 iniciada: transiciones nativas de ruta y revelado CSS con soporte opcional; se desactivan ante prefers-reduced-motion. Lenis/GSAP/WebGL siguen pendientes de presupuestos y ensayos.
 - No publicar precios impresos en flyers históricos aunque aparezcan dentro de archivos originales.
+
+## Contacto consultivo de versión 1
+- Se añadieron campos opcionales de nombre, correo y teléfono, sin backend, persistencia ni transmisión automática.
+- El mensaje solo se comparte si el visitante decide abrir WhatsApp.
+- La captación institucional con envío al servidor queda bloqueada hasta contar con política de tratamiento de datos y recepción segura.

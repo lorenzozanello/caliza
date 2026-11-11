@@ -114,6 +114,10 @@ submit('diagnosis-form', { surface: 'Travertino', location: 'Cocina' }, 'diagnos
 submit('diagnosis-form', { symptom: 'Mancha o cambio de color', urgency: 'Recién ocurrió' }, 'diagnosis')
 assert.match(main.innerHTML, /evita ácidos/i)
 
+assert.match(visit('/contacto'), /id="contact-name"/)
+assert.match(visit('/contacto'), /id="contact-email"/)
+assert.match(visit('/contacto'), /id="contact-phone"/)
+assert.match(code, /startViewTransition/)
 visit('/contacto')
 submit('contact-form', { line: 'Stone Design · Crear', city: 'Cartagena', message: '<consulta de piedra>' })
 assert.equal(contactResult.hidden, false)
