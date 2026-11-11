@@ -10,4 +10,4 @@ export const SALE_MODE_LABEL: Record<string, string> = {
   cotizacion: 'Pieza por cotización',
 }
 
-export const LINE_LABEL: Record<string, string> = { stone: 'Caliza Stone', design: 'Caliza Design', care: 'Caliza Care' }
+export const LINE_LABEL: Record<string, string> = { stone: 'Caliza Stone Design', design: 'Caliza Living Design', care: 'Caliza Stone Care' }

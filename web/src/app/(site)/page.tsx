@@ -12,11 +12,11 @@ const lines = [
   { id: 'preservar', title: 'Preservar', brand: 'Stone Care', image: '/option08-care.webp', icon: '/brand/option08-care.svg', href: '/care', description: 'Cuidado y restauración para que la belleza perdure.', alt: 'Cuidado artesanal de una superficie de piedra natural' },
 ]
 
-const palette = [
-  { name: 'Marine Ink', color: '#18343C' },
-  { name: 'Terracotta', color: '#AE7256' },
-  { name: 'Sand', color: '#CEB99B' },
-  { name: 'Limewash', color: '#F2EADC' },
+const materialReferences = [
+  { name: 'Piedra clara', image: '/materials/piedra-clara.jpg' },
+  { name: 'Piedra veteada', image: '/materials/piedra-veteada.jpg' },
+  { name: 'Piedra oscura', image: '/materials/piedra-oscura.jpg' },
+  { name: 'Detalles de borde', image: '/materials/detalle-borde.jpg' },
 ]
 
 export default async function HomePage() {
@@ -77,8 +77,8 @@ export default async function HomePage() {
             </Link>
           ))}</div>
         ) : (
-          <div className="o8-swatches" aria-label="Paleta cromática de identidad">
-            {palette.map((item) => <div key={item.name}><span style={{ background: item.color }} /><strong>{item.name}</strong><small>{item.color}</small></div>)}
+          <div className="o8-material-grid" aria-label="Muestras visuales de piedra sin disponibilidad confirmada">
+            {materialReferences.map((item) => <Link href="/materiales" key={item.name}><img src={item.image} alt={`Referencia visual provisional: ${item.name}`} loading="lazy" /><strong>{item.name}</strong></Link>)}
           </div>
         )}
       </section>
@@ -91,6 +91,7 @@ export default async function HomePage() {
         <img src="/option08-care.webp" alt="Cuidado manual de una superficie de travertino" loading="lazy" />
         <div><span className="o8-overline">Stone Care</span><h2>Cuidar también es diseñar.</h2><p>El valor de la piedra perdura cuando se conoce, protege y restaura con criterio.</p><Link className="o8-text-link" href="/care">Conocer servicios →</Link></div>
       </section>
+      <section className="o8-section" id="inspiracion"><div className="o8-section-heading"><h2>Inspiración en movimiento</h2><Link href="/inspiracion">Visualizador Instagram y TikTok <span aria-hidden="true">→</span></Link></div><div className="o8-product-grid"><Link href="/inspiracion" className="o8-product"><img src="/option08-hero.webp" alt="Referencia conceptual de arquitectura en piedra" loading="lazy" /><div><strong>La materia</strong><span>Explorar publicaciones públicas</span><span aria-hidden="true">→</span></div></Link><Link href="/inspiracion" className="o8-product"><img src="/option08-care.webp" alt="Cuidado artesanal de piedra natural" loading="lazy" /><div><strong>El cuidado</strong><span>Instagram y TikTok en una sola experiencia</span><span aria-hidden="true">→</span></div></Link></div></section>
       <div className="o8-contact-wrap"><Contact title="Hablemos de tu proyecto." text="Diseñamos contigo desde la idea hasta su realización. Cuéntanos qué quieres crear, habitar o preservar." /></div>
     </div>
   )

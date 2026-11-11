@@ -32,7 +32,7 @@ export const Products: CollectionConfig = {
       fields: [
         {
           name: 'line', label: 'Línea', type: 'select', required: true, defaultValue: 'design',
-          options: [{ label: 'Caliza Stone', value: 'stone' }, { label: 'Caliza Design', value: 'design' }, { label: 'Caliza Care', value: 'care' }],
+          options: [{ label: 'Caliza Stone Design', value: 'stone' }, { label: 'Caliza Living Design', value: 'design' }, { label: 'Caliza Stone Care', value: 'care' }],
         },
         {
           name: 'category', label: 'Tipo', type: 'select', required: true, defaultValue: 'mesa-comedor',
