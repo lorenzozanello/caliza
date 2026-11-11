@@ -23,6 +23,8 @@
 | M12 | P1 | UI Next.js usa React 19; el bundle del kit fue preparado para React 18 UMD | Se conservan componentes originales como referencia pero no se inyecta el UMD incompatible; CSS y activos se adaptan | **Decisión de compatibilidad documentada** |
 | M13 | P2 | Imágenes del kit son referencias de dirección de arte de baja resolución | Se conservan; no se declaran fotografía comercial certificada | **Documentado** |
 | M14 | P2 | SVG monocromos de divisiones no venían como fuentes separadas | Se generan mediante reemplazo de color de principal sin modificar curvas; **requiere validación para impresión** | **Provisional explícito** |
+| M15 | P1 | En un viewport intermedio de 958 px, el header mantenía seis enlaces y CTA, con desbordamiento horizontal hasta 1201 px | El menú compacto se activa bajo 1320 px y el desplegable usa `surface`, `line` y la sombra flotante semántica | **Corregido en CSS; requiere revalidación tras despliegue** |
+| M16 | P1 | Hero heredado con velo claro y texto oscuro, contrario a `scrim` Marine Ink y tipografía Limewash del brief | Adaptador fija velo degradado Marine, texto Limewash y CTA transparente de contorno Limewash sobre fotografía; ajusta etiquetas pequeñas a `accent-text` | **Corregido en CSS; requiere revalidación tras despliegue** |
 
 ## Funcionalidad existente, separada de la identidad
 

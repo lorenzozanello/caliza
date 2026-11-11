@@ -18,6 +18,12 @@
 .o8-page .exp-hero h1,.o8-site .o8-hero h1 { font-family:var(--font-serif); font-weight:400; letter-spacing:0; }
 .o8-page .exp-social-card strong,.o8-page .exp-card-info h3 { font-family:var(--font-serif); }
 .o8-page .exp-social-actions a,.o8-page .o8-text-link { color:var(--accent-text); }
+.o8-page .o8-hero::after,.o8-page .exp-hero::after { background:linear-gradient(90deg,var(--scrim) 0%,rgba(24,52,60,.42) 43%,rgba(24,52,60,0) 85%); }
+.o8-page .o8-hero-copy,.o8-page .exp-hero-content { color:var(--limewash); }
+.o8-page .o8-hero .o8-button,.o8-page .exp-hero .o8-button { color:var(--limewash); border:1px solid var(--limewash); background:transparent; }
+.o8-page .o8-hero .o8-button:hover,.o8-page .exp-hero .o8-button:hover { background:var(--limewash); color:var(--marine-ink); }
+.o8-page .exp-social-card>div:first-child span,.o8-page .exp-brand-deck span,.o8-page .exp-subnav a[aria-current=page],.o8-page .exp-remove,.o8-page .o8-section-heading a { color:var(--accent-text); }
+.o8-page .o8-footer strong { color:var(--sand); }
 .o8-page .o8-demo-note { background:var(--marine-ink); color:var(--limewash); }
 .o8-page .o8-footer,.site-footer { background:var(--marine-ink); color:var(--limewash); }
 @media(max-width:660px) { .o8-header .caliza-brand-logo,.site-header .logo img.caliza-brand-logo { width:96px; } .site-footer .caliza-brand-logo { width:110px; } }
