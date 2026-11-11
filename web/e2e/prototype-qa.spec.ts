@@ -46,15 +46,18 @@ test('redes visibles, sin conexión externa sin consentimiento', async ({ page }
   expect(outside).toHaveLength(0)
 })
 
-test('auditoría de accesibilidad WCAG A/AA en portada y catálogo', async ({ page }) => {
+test('auditoría de accesibilidad WCAG A/AA en todas las rutas importantes', async ({ page }) => {
+  const findings: Array<{ route: string; id: string; impact: string | null; selectors: string[][] }> = []
   for (const route of ['/', '/stone-design', '/stone-design/brief', '/living-design', '/living-design/coleccion', '/living-design/familia/mesas-de-comedor', '/stone-care', '/stone-care/diagnostico', '/proyectos', '/materiales', '/grupo', '/inspiracion', '/contacto']) {
     await page.goto('/index.html#' + route)
     await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
     const results = await new AxeBuilder({ page })
       .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa'])
       .analyze()
-    expect(results.violations.map(v => ({
-      id: v.id, impact: v.impact, nodes: v.nodes.map(n => n.target)
-    }))).toEqual([])
+    findings.push(...results.violations.map(v => ({
+      route, id: v.id, impact: v.impact,
+      selectors: v.nodes.map(n => n.target),
+    })))
   }
+  expect(findings).toEqual([])
 })
