@@ -119,3 +119,7 @@ body.o8-page{background:var(--surface-raised);min-width:300px}
 @media(prefers-reduced-motion:reduce){.caliza-family-card,.exp-card{animation:none;transform:none}}
 
 /* A11y: el movimiento nunca reduce la opacidad del texto de las tarjetas. */
+
+/* Reserva el espacio de la aplicación antes del primer render de rutas hash. Evita CLS masivo al desplazar el footer. */
+#main{min-height:100vh;min-height:100svh}
+.loading-state{min-height:100vh;min-height:100svh}
