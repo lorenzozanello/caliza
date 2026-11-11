@@ -173,3 +173,26 @@ body.o8-page{background:var(--surface)}
 @media(prefers-reduced-motion:no-preference){.caliza-conversion-dock{transition:opacity .2s ease}}
 
 @media(max-width:660px){.caliza-conversion-dock.is-hidden{opacity:1;pointer-events:auto;visibility:visible}}
+
+/* Auditoría 3: rejilla editorial, aviso compacto y WhatsApp que no tape el catálogo. */
+.caliza-family-grid-featured{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(18px,2.4vw,36px)}
+.caliza-qa-banner{position:relative;display:flex;align-items:center;flex-wrap:wrap;padding:var(--space-2) var(--space-5);gap:var(--space-3)}
+.caliza-qa-banner>p{font:400 11px/16px var(--font-sans);white-space:normal}
+.caliza-qa-banner>p strong{font-weight:500}
+.caliza-qa-banner details{font-size:11px}
+.caliza-qa-banner summary{cursor:pointer;text-decoration:underline;text-underline-offset:3px;min-height:24px}
+.caliza-qa-banner details[open]{flex-basis:100%;order:3;padding:var(--space-2) 0;border-top:1px solid var(--line)}
+.caliza-qa-banner details p{margin:var(--space-2) 0;max-width:920px;line-height:1.6}
+.caliza-qa-banner button{margin-left:auto;min-height:36px;padding:var(--space-2) var(--space-3)}
+.caliza-conversion-dock{width:auto;max-width:190px}
+.caliza-whatsapp-float{min-height:44px;padding:var(--space-3) var(--space-4);box-shadow:var(--shadow-float)}
+.caliza-conversion-dock small{display:none}
+body.menu-open .caliza-conversion-dock{visibility:hidden;opacity:0;pointer-events:none}
+@media(max-width:760px){.caliza-family-grid-featured{grid-template-columns:1fr}}
+@media(max-width:660px){
+ .caliza-qa-banner{padding:var(--space-2) var(--space-3)}
+ .caliza-qa-banner>p{flex:1 1 175px}
+ .caliza-qa-banner button{margin-left:0}
+ .caliza-conversion-dock{width:100%;max-width:none}
+}
+@media(prefers-reduced-motion:reduce){.caliza-conversion-dock{transition:none}}

@@ -66,6 +66,7 @@ for (const route of routes) {
 }
 for (const route of linkedRoutes) visit(route)
 assert.match(visit('/'), /La materia/)
+assert.match(visit('/'), /caliza-family-grid-featured/)
 assert.doesNotMatch(visit('/'), /¿Qué te gustaría hacer?/)
 assert.equal(document.title, 'La materia toma forma. · CALIZA GROUP')
 assert.match(visit('/'), /caliza-journeys/)
@@ -139,6 +140,8 @@ for (const [, file] of html.matchAll(/(?:href|src)="(assets\/[^"#]+)"/g)) assert
 assert.match(html, /id="floating-whatsapp"/)
 assert.match(html, /id="qa-banner"/)
 assert.match(html, /data-dismiss-qa/)
+assert.match(html, /rel="preload".*PlayfairDisplay/)
+assert.match(html, /property="og:title"/)
 assert.doesNotMatch(fs.readFileSync(path.join(root, 'assets/js/experience.js'), 'utf8'), /Tu próximo paso|¿Qué te gustaría hacer\?/)
 assert.doesNotMatch(html, /Mi selección|id="cart-count"|caliza-selection-float|href="#\/living-design\/carrito"/)
 assert.match(fs.readFileSync(path.join(root, 'checkout.html'), 'utf8'), /index\.html#\/living-design\/coleccion/)
