@@ -51,6 +51,8 @@
 .caliza-collection-search>div{display:flex;gap:8px}
 .caliza-collection-search input{min-width:0;flex:1;min-height:46px;border:1px solid var(--line-strong);background:var(--surface-raised);color:var(--ink);border-radius:0;padding:12px 14px;font:400 12px var(--font-sans)}
 .caliza-collection-search button{min-height:46px;white-space:nowrap}
+.exp-subnav{scrollbar-width:none}
+.exp-subnav::-webkit-scrollbar{display:none}
 .caliza-cta-pair,.caliza-summary-actions{display:flex;align-items:center;flex-wrap:wrap;gap:11px}
 .caliza-cta-pair .o8-button,.caliza-summary-actions .o8-button{font:500 10px/1.5 var(--font-sans);white-space:normal;text-align:center}
 .caliza-wa-action{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:44px;background:var(--primary);color:var(--on-primary)!important;border-radius:44px 0 28px 0!important;text-decoration:none;letter-spacing:.1em;text-transform:uppercase}

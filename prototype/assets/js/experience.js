@@ -459,7 +459,11 @@
     menuToggle.setAttribute('aria-label', menu.hidden ? 'Abrir menú' : 'Cerrar menú');
   });
   menu.addEventListener('click', (event) => {
-    if (event.target.closest('a')) { menu.hidden = true; menuToggle.setAttribute('aria-expanded', 'false'); }
+    if (event.target.closest('a')) {
+      menu.hidden = true;
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.setAttribute('aria-label', 'Abrir menú');
+    }
   });
   window.addEventListener('hashchange', () => { activeEmbed = null; render(); });
   render(false);

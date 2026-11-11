@@ -140,6 +140,12 @@ assert.match(main.innerHTML, /tiktok.com\/embed\/v2\/1234567890123456789/)
 click({ clearSocial: '' })
 assert.match(main.innerHTML, /Aún no hay publicaciones/)
 
+events.toggle()
+assert.equal(menu.hidden, false)
+events.menu({ target: { closest(selector) { return selector === 'a' ? {} : null } } })
+assert.equal(menu.hidden, true)
+assert.equal(menuToggle.attrs['aria-label'], 'Abrir menú')
+
 const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8')
 for (const [, file] of html.matchAll(/(?:href|src)="(assets\/[^"#]+)"/g)) assert(fs.existsSync(path.join(root, file)), `Missing index asset ${file}`)
 assert.match(html, /id="floating-whatsapp"/)
