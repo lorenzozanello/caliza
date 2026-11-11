@@ -75,7 +75,7 @@
   }
   function familyCard(item) {
     const media = item.imagenes?.ambiente
-      ? picture(item.imagenes.ambiente, `Fotografía aprobada de ${item.name}`)
+      ? picture(item.imagenes.ambiente, item.imagenes.alt || `Fotografía aprobada de ${item.name}`)
       : `<div class="caliza-family-placeholder" role="img" data-pendiente="fotografía de ambiente y detalle: ${safeText(item.name)}" aria-label="Fotografía comercial de ${safeText(item.name)} pendiente de validación"><img src="${IMG}brand/symbol-living-design-primary.svg" width="80" height="80" alt="" aria-hidden="true"><span>Fotografía por confirmar</span></div>`;
     return `<article class="caliza-family-card"><div class="caliza-family-media">${media}</div><div class="caliza-family-content"><span class="o8-overline">CALIZA · ${safeText(item.category)}</span><h3>${safeText(item.name)}</h3><p>${safeText(item.description)}</p><div class="caliza-family-action">${waAction(item.whatsappTexto, 'Consultar esta familia')}</div><small>Familia bajo consulta · referencias y disponibilidad por confirmar</small></div></article>`;
   }
