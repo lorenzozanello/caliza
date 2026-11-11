@@ -91,12 +91,23 @@
     if (!widths.length) return picture(src, alt);
     const sizes = '(max-width: 660px) 100vw, (max-width: 1200px) 50vw, 33vw';
     const srcset = (ext) => widths.map((w) => `${IMG}approved/${slug}-${w}.${ext} ${w}w`).join(', ');
-    return `<picture><source type="image/avif" srcset="${srcset('avif')}" sizes="${sizes}"><source type="image/webp" srcset="${srcset('webp')}" sizes="${sizes}"><img src="${IMG}${src}" alt="${alt}" loading="lazy" decoding="async" width="${widths.at(-1)}" height="${Math.round(widths.at(-1) * .75)}"></picture>`;
+    return `<picture><source type="image/avif" srcset="${srcset('avif')}" sizes="${sizes}"><source type="image/webp" srcset="${srcset('webp')}" sizes="${sizes}"><img src="${IMG}${src}" alt="${alt}" loading="lazy" decoding="async" width="${widths.at(-1)}" height="${Math.round(widths.at(-1) * (Number.isFinite(imagenes.aspectRatio) && imagenes.aspectRatio > .25 && imagenes.aspectRatio < 4 ? 1 / imagenes.aspectRatio : .75))}"></picture>`;
+  }
+  const editorialFamilyImages = Object.freeze({
+    'mesas-de-comedor':'comedor.jpg',
+    'mesas-auxiliares':'editorial-mesas-auxiliares.webp',
+    'sillas-para-hogar':'editorial-sillas-hogar.webp',
+    'sillas-comerciales':'editorial-sillas-comerciales.webp',
+    'lavamanos':'editorial-lavamanos.webp'
+  });
+  function familyVisual(item, detail = false) {
+    if (item.imagenes?.ambiente) return approvedPicture(item.imagenes, item.name);
+    const source = editorialFamilyImages[item.slug];
+    if (!source) return `<div class="caliza-family-placeholder" role="img"><span>Imagen en revisión</span></div>`;
+    return `<div class="caliza-editorial-family ${detail ? 'caliza-editorial-family-detail' : ''}" data-pendiente="fotografía comercial de ${safeText(item.name)}"><img src="${IMG}${source}" alt="Inspiración conceptual para ${safeText(item.name)}; no representa un modelo disponible" loading="lazy" decoding="async"><span class="caliza-editorial-flag">Imagen conceptual · No es un producto publicado</span></div>`;
   }
   function familyCard(item) {
-  const media = item.imagenes?.ambiente
-    ? approvedPicture(item.imagenes, item.name)
-    : `<div class="caliza-family-placeholder" role="img" data-pendiente="fotografía de ${safeText(item.name)}" aria-label="Imagen de ${safeText(item.name)} pendiente de aprobación"><img src="${IMG}brand/symbol-living-design-primary.svg" width="80" height="80" alt="" aria-hidden="true"><span>Catálogo visual en revisión</span></div>`;
+  const media = familyVisual(item);
   const names = (item.subfamilias || []).map((x) => safeText(x.nombre)).join(' · ');
   return `<article class="caliza-family-card"><a class="caliza-family-media caliza-family-media-link" href="#/living-design/familia/${safeText(item.slug)}" aria-label="Explorar ${safeText(item.name)}">${media}</a><div class="caliza-family-content"><span class="o8-overline">Living Design / ${safeText(item.category)}</span><h3><a href="#/living-design/familia/${safeText(item.slug)}">${safeText(item.name)}</a></h3><p>${safeText(item.description)}</p><p class="caliza-family-sources">${names}</p><div class="caliza-family-action"><a class="caliza-family-details" href="#/living-design/familia/${safeText(item.slug)}">Explorar posibilidades <span aria-hidden="true">→</span></a>${waAction(item.whatsappTexto, 'Solicitar asesoría')}</div></div></article>`;
 }
@@ -104,18 +115,16 @@
   const slug = route.split('/').pop();
   const item = families.find((f) => f.slug === slug);
   if (!item) return missing();
-  const media = item.imagenes?.ambiente
-    ? approvedPicture(item.imagenes, item.name)
-    : `<div class="caliza-family-placeholder caliza-detail-placeholder" role="img" data-pendiente="fotografía de ${safeText(item.name)}" aria-label="Imagen de ${safeText(item.name)} pendiente de aprobación"><img src="${IMG}brand/symbol-living-design-primary.svg" width="90" height="90" alt="" aria-hidden="true"><span>Imagen comercial en revisión</span></div>`;
-  const subfamilias = (item.subfamilias || []).map((f) => `<li><span>${safeText(f.nombre)}</span><small>Grupo documentado · especificaciones por confirmar</small></li>`).join('');
+  const media = familyVisual(item, true);
+  const subfamilias = (item.subfamilias || []).map((f) => `<li><span>${safeText(f.nombre)}</span><small>Posibilidad de diseño · sujeta a consulta</small></li>`).join('');
   const questions = (item.preguntas || []).map((v) => `<li>${safeText(v)}</li>`).join('');
   const options = (item.subfamilias || []).map((f) => `<option value="${safeText(f.nombre)}">${safeText(f.nombre)}</option>`).join('');
   return `${pageIntro('Living Design / Archivo de familias', safeText(item.name), safeText(item.description))}${subnav('/living-design/coleccion')}
     <section class="caliza-detail-layout">
-      <div class="caliza-detail-visual">${media}<p>Archivo CALIZA · Imagen y ficha individual sujetas a verificación.</p></div>
+      <div class="caliza-detail-visual">${media}<p>Imagen conceptual de inspiración. La ficha individual se confirma con el equipo.</p></div>
       <div class="caliza-detail-content">${label('Diseño bajo consulta')}
         <h2>Una pieza, muchas posibilidades.</h2>
-        <p>El archivo original de CALIZA documenta esta familia. La identidad de cada modelo, sus materiales, medidas, acabados, precios y plazos se confirman directamente con el equipo.</p>
+        <p>Esta familia forma parte de las líneas documentadas de CALIZA. Converse con nuestro equipo para explorar posibilidades de diseño, materiales, medidas, acabados y condiciones de una propuesta a medida.</p>
         <h3>Agrupaciones documentadas</h3><ul class="caliza-source-list">${subfamilias}</ul>
         <h3>Para orientar su consulta</h3><ul class="caliza-question-list">${questions}</ul>
         <a href="#/living-design/coleccion" class="o8-text-link">Volver a las colecciones →</a>
@@ -240,7 +249,7 @@
   }
   function experience() {
     return `${pageIntro('Living Design / Experiencia', 'Habitar empieza con una idea.', 'Tres recorridos para explorar su próxima pieza con un equipo que escucha. Ningún recorrido implica compra o reserva en línea.')}${subnav('/living-design/experiencia')}
-      <section class="exp-page-pad"><div class="exp-grid exp-grid-3 exp-choice-cards"><article>${label('01 · Inspirar')}<h2>Explorar familias.</h2><p>Conozca las familias de CALIZA y encuentre una dirección para su espacio.</p>${button('/living-design/coleccion', 'Ver colección')}</article><article>${label('02 · Conversar')}<h2>Consultar posibilidades.</h2><p>Cuéntenos qué familia, material o aplicación le interesa. El equipo confirmará opciones reales.</p>${button('/contacto', 'Solicitar asesoría')}</article><article>${label('03 · Personalizar')}<h2>Crear a su medida.</h2><p>Prepara un brief con las condiciones de su espacio y el concepto deseado.</p>${button('/stone-design/brief', 'Crear brief')}</article></div></section>`;
+      <section class="exp-page-pad"><div class="exp-grid exp-grid-3 exp-choice-cards"><article>${label('01 · Inspirar')}<h2>Explorar familias.</h2><p>Conozca las familias de CALIZA y encuentre una dirección para su espacio.</p>${button('/living-design/coleccion', 'Ver colección')}</article><article>${label('02 · Conversar')}<h2>Consultar posibilidades.</h2><p>Cuéntenos qué familia, material o aplicación le interesa. El equipo confirmará opciones reales.</p>${button('/contacto', 'Solicitar asesoría')}</article><article>${label('03 · Personalizar')}<h2>Crear a su medida.</h2><p>Prepare un brief con las condiciones de su espacio y el concepto deseado.</p>${button('/stone-design/brief', 'Crear brief')}</article></div></section>`;
   }
 
   function care() {

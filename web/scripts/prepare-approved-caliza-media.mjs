@@ -69,12 +69,12 @@ for (const media of records) {
     crop.left + crop.width > meta.width || crop.top + crop.height > meta.height)) {
     throw new Error('Recorte inválido para ' + media.medio_id);
   }
-  checked.push({ media, full, width: crop?.width || meta.width, crop });
+  checked.push({ media, full, width: crop?.width || meta.width, height: crop?.height || meta.height, crop });
 }
 const staging = await mkdtemp(path.join(os.tmpdir(), 'caliza-approved-'));
 try {
   const manifest = {};
-  for (const { media, full, width, crop } of checked) {
+  for (const { media, full, width, height, crop } of checked) {
     const name = media.familia_slug;
     let primaryWidth = null;
     const generatedWidths = [];
@@ -93,7 +93,8 @@ try {
       src: 'approved/' + name + '-' + primaryWidth + '.webp',
       alt: media.texto_alt.trim(),
       medio_id: media.medio_id,
-      widths: generatedWidths
+      widths: generatedWidths,
+      aspectRatio: Math.round(width / height * 10000) / 10000
     };
   }
   const files = await import('node:fs/promises').then((fs) => fs.readdir(staging));
