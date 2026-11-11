@@ -63,6 +63,52 @@ test('TikTok: solo se pide el script externo tras clic explícito', async ({ pag
   expect(externalRequests).toBe(1)
 })
 
+
+test('navegación estable: sin transiciones root, sin colisiones ni scroll horizontal', async ({ page }, info) => {
+  await page.addInitScript(() => {
+    (document as Document & { startViewTransition?: (...args: unknown[]) => unknown }).startViewTransition = () => {
+      throw new Error('Root View Transition deshabilitada para evitar superposición')
+    }
+  })
+  const routeList = ['/', '/living-design/coleccion', '/living-design/familia/mesas-de-comedor',
+    '/stone-design', '/stone-design/brief', '/stone-care', '/stone-care/diagnostico',
+    '/proyectos', '/materiales', '/inspiracion', '/contacto', '/grupo']
+  for (const route of routeList) {
+    await page.goto('/index.html#' + route)
+    await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
+    await page.evaluate(() => document.fonts.ready)
+    const geometry = await page.evaluate(() => {
+      const main = document.getElementById('main')!
+      const footer = document.querySelector('.o8-footer')!
+      const header = document.querySelector('.o8-header')!
+      const a=main.getBoundingClientRect(), b=footer.getBoundingClientRect(), h=header.getBoundingClientRect()
+      return {headerBottom:h.bottom,mainTop:a.top, mainBottom:a.bottom,footerTop:b.top,
+        viewport:innerWidth,scrollWidth:document.documentElement.scrollWidth,
+        mainHeight:a.height,scrollHeight:document.documentElement.scrollHeight}
+    })
+    expect(geometry.scrollWidth, route + ' horizontal overflow').toBeLessThanOrEqual(geometry.viewport+2)
+    expect(geometry.mainTop, route + ' header overlap').toBeGreaterThanOrEqual(geometry.headerBottom-2)
+    expect(geometry.mainBottom, route + ' footer overlap').toBeLessThanOrEqual(geometry.footerTop+2)
+    expect(geometry.mainHeight, route + ' empty content').toBeGreaterThan(250)
+    if (route === '/') {
+      await page.screenshot({path:info.outputPath('caliza-home-settled.png'),fullPage:true,animations:'disabled'})
+    }
+  }
+})
+
+test('banner de revisión fuera del héroe y colección con dos tarjetas editoriales', async ({page}) => {
+  await page.goto('/index.html#/')
+  await expect(page.locator('.caliza-publication-note')).toHaveCount(1)
+  const order=await page.evaluate(()=> {
+    const main=document.getElementById('main')!, note=document.querySelector('.caliza-publication-note')!
+    return Boolean(main.compareDocumentPosition(note) & Node.DOCUMENT_POSITION_FOLLOWING)
+  })
+  expect(order).toBeTruthy()
+  await expect(page.locator('.caliza-family-grid-featured .caliza-family-card')).toHaveCount(2)
+  const widths = await page.locator('.caliza-family-grid-featured .caliza-family-card').evaluateAll(els=>els.map(el=>el.getBoundingClientRect().width))
+  expect(Math.min(...widths)).toBeGreaterThan(180)
+})
+
 test('auditoría de accesibilidad WCAG A/AA en todas las rutas importantes', async ({ page }) => {
   const findings: Array<{ route: string; id: string; impact: string | null; selectors: string[][] }> = []
   for (const route of ['/', '/stone-design', '/stone-design/brief', '/living-design', '/living-design/coleccion', '/living-design/familia/mesas-de-comedor', '/stone-care', '/stone-care/diagnostico', '/proyectos', '/materiales', '/grupo', '/inspiracion', '/contacto']) {

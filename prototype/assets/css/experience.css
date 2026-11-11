@@ -101,12 +101,12 @@ body.o8-page{background:var(--surface-raised);min-width:300px}
 .o8-button span,.caliza-wa-action span{color:var(--on-primary)}
 .exp-hero h1,.exp-page-intro h1,.exp-banner h2{letter-spacing:0}
 @media(prefers-reduced-motion:no-preference){
- ::view-transition-old(root),::view-transition-new(root){animation-duration:.3s;animation-timing-function:ease-out}
+ /* Las transiciones de página completas están desactivadas para preservar claridad. */
  .exp-card img,.caliza-family-card img{transition:transform .45s ease}
  .exp-card:hover img,.caliza-family-card:hover img{transform:scale(1.035)}
 }
 @media(prefers-reduced-motion:reduce){
- ::view-transition-old(root),::view-transition-new(root){animation-duration:0s!important}
+ /* Sin animaciones de navegación. */
 }
 
 /* Movimiento nativo ligero, sin dependencias ni animaciones cuando reduce-motion está activo. */
