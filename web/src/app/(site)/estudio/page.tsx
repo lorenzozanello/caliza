@@ -26,7 +26,7 @@ export default async function StudioPage() {
       <section className="sec-s2 wrap">
         <div className="grid">
           <div className="c-1-4 manifesto__side" data-reveal>
-            <img src="/brand/caliza-group-primary.svg" alt="" width="330" height="232" style={{ width: 90, height: 'auto' }} />
+            <img src="/brand/caliza-group-primary.svg" alt="" width="347" height="199" style={{ width: 96, height: 'auto' }} />
             <span className="eyebrow muted">Manifiesto</span>
           </div>
           <div className="c-4-9">

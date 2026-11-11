@@ -1,0 +1,80 @@
+/* CALIZA GROUP — variables CSS generadas desde tokens.json */
+
+@font-face { font-family: "Playfair Display"; src: url("../fonts/PlayfairDisplay-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Playfair Display"; src: url("../fonts/PlayfairDisplay-400-italic.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "Playfair Display"; src: url("../fonts/PlayfairDisplay-500-normal.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "Playfair Display"; src: url("../fonts/PlayfairDisplay-600-normal.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "Montserrat"; src: url("../fonts/Montserrat-300-normal.woff2") format("woff2"); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: "Montserrat"; src: url("../fonts/Montserrat-400-normal.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Montserrat"; src: url("../fonts/Montserrat-500-normal.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "Montserrat"; src: url("../fonts/Montserrat-600-normal.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: swap; }
+
+:root, [data-theme="light"] {
+  --marine-ink: #18343c;
+  --terracotta: #ae7256;
+  --sand: #ceb99b;
+  --limewash: #f2eadc;
+  --surface: var(--limewash);
+  --surface-raised: #f8f3ea;
+  --surface-sand: #e9dcc7;
+  --line: #d8c8b0;
+  --line-strong: #8c7f6c;
+  --ink: var(--marine-ink);
+  --ink-muted: #5f5a52;
+  --accent: var(--terracotta);
+  --accent-text: #85513b;
+  --primary: var(--marine-ink);
+  --on-primary: var(--limewash);
+  --focus: var(--marine-ink);
+  --rule: var(--terracotta);
+  --scrim: rgba(24, 52, 60, 0.65);
+  --shadow-float: 0 12px 32px rgba(24, 52, 60, 0.12);
+}
+[data-theme="dark"] {
+  --surface: var(--marine-ink);
+  --surface-raised: #1f414a;
+  --surface-sand: #122a31;
+  --line: #3a5961;
+  --line-strong: #7d9196;
+  --ink: var(--limewash);
+  --ink-muted: #c8b9a2;
+  --accent: var(--terracotta);
+  --accent-text: #d49a7e;
+  --primary: var(--limewash);
+  --on-primary: var(--marine-ink);
+  --focus: var(--limewash);
+  --rule: var(--terracotta);
+  --shadow-float: 0 12px 32px rgba(0, 0, 0, 0.35);
+}
+:root {
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --radius-none: 0;
+  --radius-xs: 2px;
+  --radius-arch: 999px;
+  --radius-round: 50%;
+  --hairline: 1px;
+  --rule-weight: 2px;
+  --font-serif: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-sans: Montserrat, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Estilos de texto: clase .<nombre>. Los marcados MAYÚSCULAS en el manual llevan text-transform. */
+.display { font-family: var(--font-serif); font-size: 72px; line-height: 0.95; font-weight: 400; letter-spacing: 0.01em; text-transform: uppercase; }
+.headline { font-family: var(--font-serif); font-size: 44px; line-height: 1.1; font-weight: 400; }
+.title { font-family: var(--font-serif); font-size: 30px; line-height: 1.2; font-weight: 400; }
+.subtitle { font-family: var(--font-serif); font-size: 21px; line-height: 1.35; font-weight: 400; }
+.section { font-family: var(--font-serif); font-size: 15px; line-height: 20px; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase; }
+.quote { font-family: var(--font-serif); font-size: 21px; line-height: 1.4; font-weight: 400; font-style: italic; }
+.lead { font-family: var(--font-sans); font-size: 17px; line-height: 28px; font-weight: 300; }
+.body { font-family: var(--font-sans); font-size: 15px; line-height: 24px; font-weight: 400; }
+.descriptor { font-family: var(--font-sans); font-size: 13px; line-height: 18px; font-weight: 400; letter-spacing: 0.22em; text-transform: uppercase; }
+.label { font-family: var(--font-sans); font-size: 11px; line-height: 16px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; }
+.caption { font-family: var(--font-sans); font-size: 12px; line-height: 18px; font-weight: 400; }

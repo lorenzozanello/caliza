@@ -2,7 +2,7 @@
 
 Sistema de marca y diseño de Caliza: espacios y piezas en piedra natural. Tres generaciones de marmoleros italianos; la tercera diseña en Colombia.
 
-La identidad visual de referencia aprobada se gobierna por [identity/DESIGN_SYSTEM.md](identity/DESIGN_SYSTEM.md) y su archivo parametrizado [identity/identity.config.json](identity/identity.config.json). Las reglas editoriales y de componentes de este archivo complementan la identidad; ante conflicto, **prevalece el manual actualizado**.
+**Fuente rectora vinculante:** [authority/caliza-group-design-system/](authority/caliza-group-design-system/) y el [ZIP original intacto](authority/caliza-group-design-system.zip) suministrados por CALIZA. Su `MANUAL.md`, `AI_BRIEF.md`, `tokens/`, `logos/`, `simbolos/`, `fonts/` y componentes prevalecen sobre cualquier implementación anterior. La [guía de integración](identity/DESIGN_SYSTEM.md) explica las copias exactas y el test de fidelidad. Las normas de contenido de este archivo son subsidiarias cuando no entren en conflicto.
 
 ## Esencia
 
@@ -29,15 +29,15 @@ El método de Caliza ordena todo el contenido: **Seleccionar → Interpretar →
 
 ## Logo
 
-Los maestros de la familia aprobada están en **`identity/dist/`**: cuatro lockups y tres símbolos, todos con variantes principal, inversa y monocroma. Los archivos antiguos `assets/Logos/lockup_*.svg` corresponden a una etapa anterior y no se deben usar en interfaces nuevas. No se estiran, rotan ni recolorean. El generador produce contornos tipográficos portátiles, sin depender de fuentes instaladas. Son una **reconstrucción** a partir de la imagen aprobada, hasta recibir vectores oficiales.
+Los maestros están en **`authority/caliza-group-design-system/logos/`** y **`simbolos/`**. El generador **copia** los SVG al directorio público y no vuelve a dibujar letras ni geometría. Los archivos antiguos `assets/Logos/lockup_*.svg` y los generados antes de este paquete se consideran históricos. Mantener las proporciones de cada `viewBox`, una zona de protección de **una altura de capital** y tamaños mínimos de **96 px para Group**, **72 px para divisiones**.
 
 ## Color
 
-Un solo tema, **Piedra**, con secciones oscuras en `carbon`. El color lo pone la materia en las fotos; la interfaz es contenida.
+Dos temas rectores: **Limewash** de base y **Marine Ink** invertido. El color lo pone la materia en las fotos; la interfaz es contenida.
 
 - Fondo: `piedra`. Superficies elevadas: `papel`. Bloques de acento: `arena`.
 - Texto: `carbon`; secundario: `veta`. Sobre oscuro: `claro` y `claro-2`.
-- `acento` Terracotta se utiliza en símbolos, filetes y llamadas a la acción; mantener legibilidad según el fondo.
+- `accent` Terracotta se utiliza en símbolos y filetes. El **botón primario es Marine Ink/Limewash** (invertido en tema oscuro); `accent-text` sustituye a Terracotta cuando un texto pequeño necesita contraste.
 - `wa` es exclusivo de WhatsApp. Si un botón no abre WhatsApp, no es verde.
 - `exito` y `error` solo comunican estado, siempre acompañados de texto.
 - Nunca dos secciones oscuras seguidas. Nunca blanco puro de fondo.
@@ -48,7 +48,7 @@ Dos familias, tres tamaños de titular.
 
 - **Playfair Display** (`serif`) para titulares: `display` (uno por página), `titulo` (secciones), `subtitulo` (piezas, proyectos). Itálica solo para una frase dentro de un titular.
 - **Montserrat** (`sans`) para todo lo demás: `cuerpo`, `pequeno`, `boton`, `etiqueta`.
-- Ambas se cargan desde Google Fonts. Si Caliza elige una tipografía de pago, se reemplaza aquí y se licencia para web.
+- Ambas se sirven localmente desde los WOFF2 del kit rector. El repositorio incluye las licencias OFL suministradas.
 - Titulares en tipo oración ("Piezas para habitar."), nunca en mayúsculas. Las mayúsculas solo en `etiqueta`, una por bloque.
 - Los números que se comparan (precios, medidas) van con `font-variant-numeric: tabular-nums`.
 
@@ -80,7 +80,7 @@ Regla de acciones: **un solo botón primario por pantalla visible**. Lo demás e
 ## Uso en código
 
 - Los tokens salen de `tokens.json`. En el repositorio, `node brand/scripts/build-tokens.mjs` genera `brand/tokens.css` con una variable CSS por token (`--piedra`, `--space-6`, `--font-serif`).
-- Los logotipos salen de `identity/identity.config.json`. `node brand/identity/scripts/build-identity.mjs` compila y sincroniza SVG/CSS tanto al storefront Next.js como al prototipo estático. Se prueban con `node brand/identity/tests/identity.test.mjs`.
+- Los logotipos y las fuentes salen **exclusivamente** del kit rector inalterado. `node brand/identity/scripts/build-identity.mjs` sincroniza SVG/CSS/WOFF2 tanto al storefront Next.js como al prototipo estático. `node brand/identity/tests/identity.test.mjs` verifica SHA-256, igualdad binaria y generación determinista.
 - Los estilos de componente están en `components/bundle.css` y solo usan esas variables.
 - **No se introducen colores, tamaños de letra, espaciados, radios, sombras ni curvas de movimiento nuevos.** Si hace falta uno, se agrega primero a este sistema.
 

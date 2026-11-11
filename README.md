@@ -7,7 +7,7 @@ Líneas: **CALIZA STONE DESIGN** (crear), **CALIZA LIVING DESIGN** (habitar) y *
 ## Contenido del repositorio
 
 - `web/` — el sitio en producción: Next.js 16 + Payload CMS 3 (tienda, pagos, seguimiento de pedidos y administración). Ver `web/README.md`.
-- `brand/` — sistema de marca: [guía parametrizada](brand/identity/DESIGN_SYSTEM.md), 21 SVG independientes, tokens, componentes, fotografía, movimiento, voz y tono.
+- `brand/authority/` — **fuente de verdad de identidad**: ZIP original suministrado por CALIZA, su brief, manual, SVG maestros, fuentes y tokens. [Reglas de sincronización](brand/identity/DESIGN_SYSTEM.md).
 - `prototype/` — prototipo navegable de la experiencia (home, producto y checkout) con el sistema visual y las microinteracciones. Ver `prototype/README.md`.
 
 ## Decisiones vigentes

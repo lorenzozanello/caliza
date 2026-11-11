@@ -4,6 +4,7 @@ import '@/styles/site.css'
 import '@/styles/option08.css'
 import '@/styles/social.css'
 import '@/styles/identity.css'
+import '@/styles/authority-tokens.css'
 import { CartProvider } from '@/components/cart/CartProvider'
 import { CartDrawer } from '@/components/cart/CartDrawer'
 import { SiteHeader } from '@/components/SiteHeader'
@@ -31,11 +32,6 @@ export default async function SiteLayout({ children }: { children: React.ReactNo
   const number = settings.whatsappNumber || '570000000000'
   return (
     <html lang="es-CO">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" />
-      </head>
       <body>
         <CartProvider whatsapp={number}>
           <SiteHeader />
