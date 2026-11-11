@@ -213,8 +213,8 @@
       <section class="exp-wizard"><div class="exp-wizard-panel">${wizardProgress(step)}<form id="diagnosis-form" data-wizard="diagnosis">${body}<div class="exp-wizard-nav">${step > 0 ? '<button type="button" class="exp-outline" data-prev="diagnosis">Anterior</button>' : '<span></span>'}${step < 2 ? '<button class="o8-button" type="submit">Continuar →</button>' : button('/stone-care', 'Volver a Stone Care', 'exp-outline')}</div></form></div><aside>${picture('option08-care.webp', 'Cuidado manual conceptual de piedra natural')}<p>Si detectas daños estructurales o materiales sueltos, limita el uso de la superficie hasta contar con evaluación profesional.</p></aside></section>`;
   }
   function contact() {
-    return `${pageIntro('Caliza Group / Contacto', 'Hablemos de su proyecto.', 'Prepare una consulta para Stone Design, Living Design o Stone Care. Este prototipo no recoge ni envía información a Caliza.')}
-      <section class="exp-contact-layout"><div>${picture('option08-living.webp', 'Pieza de piedra natural en ambiente conceptual')}<p>Materia · Espacios · Personas</p><div class="caliza-contact-promise"><strong>Asesoría por línea</strong><span>Stone Design — proyectos en piedra</span><span>Living Design — piezas y colección</span><span>Stone Care — mantenimiento y recuperación</span></div></div><form id="contact-form" class="exp-contact-form"><h2>Cuéntenos su idea.</h2><label for="contact-line">Línea de interés</label><select id="contact-line" name="line"><option>Stone Design · Crear</option><option>Living Design · Habitar</option><option>Stone Care · Preservar</option><option>Consulta general</option></select><label for="contact-city">Ciudad</label><input id="contact-city" name="city" maxlength="70" placeholder="Ciudad (opcional)" autocomplete="off"><label for="contact-message">Mensaje</label><textarea id="contact-message" name="message" rows="5" maxlength="900" placeholder="¿Qué necesita? Sin información sensible."></textarea><button type="submit" class="o8-button exp-action">Preparar mensaje <span aria-hidden="true">→</span></button><p class="exp-hint">No se transmite ninguna información automáticamente. Al preparar la consulta podrá revisar el resumen y compartirlo de forma voluntaria.</p><div id="contact-result" class="caliza-contact-result" tabindex="-1" aria-live="polite" hidden></div></form></section>`;
+    return `${pageIntro('Caliza Group / Contacto', 'Hablemos de su proyecto.', 'Prepare una consulta para Stone Design, Living Design o Stone Care. La consulta se prepara en su navegador y solo se comparte si usted decide abrir WhatsApp.')}
+      <section class="exp-contact-layout"><div>${picture('option08-living.webp', 'Pieza de piedra natural en ambiente conceptual')}<p>Materia · Espacios · Personas</p><div class="caliza-contact-promise"><strong>Asesoría por línea</strong><span>Stone Design — proyectos en piedra</span><span>Living Design — piezas y colección</span><span>Stone Care — mantenimiento y recuperación</span></div></div><form id="contact-form" class="exp-contact-form"><h2>Cuéntenos su idea.</h2><p>Complete una solicitud que podrá revisar antes de enviarla personalmente por WhatsApp.</p><label for="contact-name">Nombre (opcional)</label><input id="contact-name" name="name" maxlength="80" autocomplete="name" placeholder="Cómo desea que le llamemos"><label for="contact-email">Correo electrónico (opcional)</label><input id="contact-email" name="email" type="email" maxlength="120" autocomplete="email" placeholder="nombre@ejemplo.com"><label for="contact-phone">Teléfono (opcional)</label><input id="contact-phone" name="phone" type="tel" maxlength="24" autocomplete="tel" placeholder="+57 ..."><label for="contact-line">Línea de interés</label><select id="contact-line" name="line"><option>Stone Design · Crear</option><option>Living Design · Habitar</option><option>Stone Care · Preservar</option><option>Consulta general</option></select><label for="contact-city">Ciudad</label><input id="contact-city" name="city" maxlength="70" placeholder="Ciudad (opcional)" autocomplete="off"><label for="contact-message">Mensaje</label><textarea id="contact-message" name="message" rows="5" maxlength="900" placeholder="¿Qué necesita? Sin información sensible."></textarea><button type="submit" class="o8-button exp-action">Preparar mensaje <span aria-hidden="true">→</span></button><p class="exp-hint">No se transmite ninguna información automáticamente. Al preparar la consulta podrá revisar el resumen y compartirlo de forma voluntaria.</p><div id="contact-result" class="caliza-contact-result" tabindex="-1" aria-live="polite" hidden></div></form></section>`;
   }
 
   // Los iframes solo se cargan tras un gesto explícito del visitante. No existe feed oficial sin autorización OAuth.
@@ -316,6 +316,7 @@
   }
   const seoDescriptions = { '/': 'CALIZA GROUP: piedra natural, mobiliario y cuidado de superficies en Colombia.', '/stone-design': 'CALIZA Stone Design: soluciones en piedra natural y proyectos arquitectónicos bajo consulta.', '/living-design': 'CALIZA Living Design: familias de mobiliario contemporáneo bajo consulta.', '/living-design/coleccion': 'Explore las familias de mesas, sillas y lavamanos de CALIZA.', '/stone-care': 'CALIZA Stone Care: orientación para el mantenimiento y cuidado de piedra natural.', '/contacto': 'Comuníquese con CALIZA por WhatsApp y prepare una consulta personalizada.' };
   function render(scroll = true) {
+    const paint = () => {
     const route = getRoute();
     const legacy = (location.hash || '').startsWith('#/tienda') || (location.hash || '').startsWith('#/living-design/carrito') || (location.hash || '').startsWith('#/living-design/pieza/');
     if (legacy && window.history?.replaceState) {
@@ -345,7 +346,17 @@
     observeDock();
     if (scroll) {
       window.scrollTo({ top: 0, behavior: 'instant' });
-      main.focus({ preventScroll: true });
+      const accessibleHeading = main.querySelector('h1');
+      accessibleHeading?.setAttribute?.('tabindex', '-1');
+      if (accessibleHeading?.focus) accessibleHeading.focus({ preventScroll: true });
+      else main.focus({ preventScroll: true });
+    }
+    };
+    const reduce = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches === true;
+    if (scroll && !reduce && typeof document.startViewTransition === 'function') {
+      document.startViewTransition(paint);
+    } else {
+      paint();
     }
   }
 
@@ -403,7 +414,7 @@
       const data = new FormData(form);
       const message = String(data.get('message') || '').trim();
       if (!message) return announce('Describa su idea antes de preparar el mensaje.');
-      const summary = `CALIZA GROUP — consulta\nLínea: ${data.get('line')}\nCiudad: ${data.get('city') || 'Por definir'}\nMensaje: ${message}`;
+      const summary = `CALIZA GROUP — consulta\nNombre: ${String(data.get('name') || 'No indicado').slice(0, 80)}\nCorreo: ${String(data.get('email') || 'No indicado').slice(0, 120)}\nTeléfono: ${String(data.get('phone') || 'No indicado').slice(0, 24)}\nLínea: ${data.get('line')}\nCiudad: ${data.get('city') || 'Por definir'}\nMensaje: ${message}`;
       const result = document.getElementById('contact-result');
       result.hidden = false;
       result.innerHTML = `<h3>Su consulta está preparada.</h3><p>Revise la solicitud antes de abrir WhatsApp. No existe un envío automático.</p><pre>${safeText(summary)}</pre><div class="caliza-summary-actions">${waAction(summary, 'Compartir consulta')}<button class="exp-outline" type="button" data-copy-contact>Copiar mensaje</button></div>${waHandoffNote()}`;
