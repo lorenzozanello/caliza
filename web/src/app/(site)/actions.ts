@@ -3,6 +3,7 @@ import { redirect } from 'next/navigation'
 import { getPayloadClient, getSettings } from '@/lib/payload'
 import { describeSelection, isValidSelection, unitPrice, type Selection } from '@/lib/pricing'
 import { paymentProvider, paymentRedirect } from '@/lib/payments'
+import { commerceApproved, previewSimulationApproved } from '@/lib/launch-gates'
 import { applyPaymentResult } from '@/lib/payments/apply'
 
 export type CheckoutInput = {
@@ -24,6 +25,7 @@ export async function shippingQuote(city: string) {
 }
 
 export async function createOrder(input: CheckoutInput): Promise<CheckoutResult> {
+  if (!commerceApproved()) return { ok: false, error: 'Las compras en línea todavía no están habilitadas. Solicite una cotización con CALIZA.' }
   const fields: Record<string, string> = {}
   const name = clean(input.customer?.name, 120)
   const phone = clean(input.customer?.phone, 30)
@@ -89,7 +91,7 @@ export async function createOrder(input: CheckoutInput): Promise<CheckoutResult>
 }
 
 export async function simulatePayment(formData: FormData) {
-  if (paymentProvider() !== 'simulated') throw new Error('El pago simulado está desactivado.')
+  if (!previewSimulationApproved() || paymentProvider() !== 'simulated') throw new Error('El pago simulado está desactivado.')
   const reference = clean(formData.get('reference'), 60)
   const token = clean(formData.get('token'), 60)
   const outcome = formData.get('outcome') === 'approve' ? 'APPROVED' : 'DECLINED'

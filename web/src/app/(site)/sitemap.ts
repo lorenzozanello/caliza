@@ -4,11 +4,13 @@ import type { MetadataRoute } from 'next'
 export const dynamic = 'force-dynamic'
 import { getPayloadClient } from '@/lib/payload'
 import { siteUrl } from '@/lib/payments'
+import { publicSiteApproved } from '@/lib/launch-gates'
 import { PUBLIC_PRODUCT, PUBLIC_PROJECT } from '@/lib/publication'
 
 export const revalidate = 3600
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  if (!publicSiteApproved()) return []
   const payload = await getPayloadClient()
   const [products, projects, legal] = await Promise.all([
     payload.find({ collection: 'products', where: PUBLIC_PRODUCT, limit: 500, depth: 0 }),

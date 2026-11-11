@@ -27,3 +27,41 @@
 - [ ] Optimización AVIF/WebP responsive desde originales aprobados y verificación de derechos.
 - [ ] SEO indexable y rutas History API **solo cuando se apruebe el dominio estable**, con redirecciones controladas.
 - [ ] Funciones con datos personales, agenda, muestras, comercio, configurador, AR, integraciones y producción: aprobación de negocio, protección de datos y pruebas independientes.
+
+## Actualización — uso del catálogo real (2026-11-11)
+- [x] Conectar grupos documentados de 11_CATEGORIAS_FUENTE a cinco familias y subfamilias.
+- [x] Construir cinco páginas de familia y consultas locales con WhatsApp oficial.
+- [x] Reformular Proyectos y Materiales con descripciones fieles a las fuentes.
+- [x] Optimizar y entregar fotografías reales en paquete de revisión privada; NO publicadas.
+- [ ] Confirmar para cada medio_id derechos, `aprobado_web=Sí` y registro listo_publicar individual.
+- [ ] Incorporar cinco imágenes reales AVIF/WebP a Vercel después de aprobaciones.
+- [ ] QA visual independiente y Lighthouse antes de promoción pública.
+- [ ] Fichas de producto, precios, stock y proyectos individuales: no se inventan.
+
+## QA reforzado y dependencias externas — 11/11/2026
+
+- [x] TikTok Creator Embed con consentimiento explícito en portada e Inspiración (inserción pública condicionada por TikTok).
+- [x] Módulo Instagram con API read-only, control de cuenta, seguridad de tokens y fallback transparente.
+- [x] Branding de WhatsApp verde, barra móvil compacta y legibilidad del CTA.
+- [x] Pruebas Node deterministas y suite Playwright + axe para escritorio/móvil; criterios de Lighthouse definidos.
+- [x] Meta etiquetas, esquema Organization y bloqueo de indexación QA.
+- [x] Eventos locales `caliza:intent` sin transmisión ni PII.
+- [ ] Conexión OAuth Meta de `@calizastonedesign` y token secreto limitado a Preview.
+- [ ] Confirmación de que TikTok permite la tarjeta pública de `@calizastone`.
+- [ ] Aprobación editorial y derechos para las imágenes reales indexadas en Drive.
+- [ ] Consentimiento, política de tratamiento de datos, proveedor de analítica y configuración de medición.
+- [ ] Dominio y SEO indexable final; no modificar robots ni publicar sitemap mientras la vista sea QA.
+- [ ] Fichas comerciales, logística, cobertura, condiciones de compra, inventario y pagos, con pruebas independientes y autorización de Production.
+
+## Tramo técnico QA con las decisiones del propietario (2026-11-11)
+- [x] Documentar `calizagroup.shop` como destino **no conectado** y activar protección por defecto de SEO público en Next/Payload.
+- [x] Bloquear por defecto checkout y pagos simulados; exigir autorizaciones independientes antes del futuro comercio.
+- [x] Elaborar contrato puro de captación hacia Google Sheets con consentimiento/política aprobados; ninguna escritura de datos.
+- [x] Revisar visualmente siete derivados privados y sus registros individuales, preservando estatus del maestro.
+- [x] Añadir prueba TikTok bajo clic y revisión TypeScript al workflow.
+- [ ] Evidencias del derecho/licencia de cada una de las siete fotos y aprobación web registrada en fuente de verdad.
+- [ ] OAuth real de Meta desde cuenta administradora y secreto con alcance Preview aprobado; prueba de feed vivo.
+- [ ] Verificar embed de TikTok con @calizastone, no solo con stub.
+- [ ] Razón social, NIT, canal de derechos, política de privacidad definitiva, retención, responsable y autorización para conectar Sheets.
+- [ ] Validar titularidad/dominio, publicación, productos, inventario, condiciones comerciales y pasarela antes de Production.
+- [ ] Revisión independiente final y aprobación explícita de liberación.

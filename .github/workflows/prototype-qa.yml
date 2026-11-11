@@ -1,0 +1,114 @@
+name: caliza-prototype-qa
+on:
+  pull_request:
+    paths:
+      - "prototype/**"
+      - "web/src/lib/launch-gates.ts"
+      - "web/src/app/(site)/**"
+      - "web/tests/launch-gates.test.mjs"
+      - "web/tests/leads-contract.test.mjs"
+      - "web/src/lib/leads/contract.ts"
+      - ".github/workflows/prototype-qa.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: caliza-prototype-qa-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  consultative-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Script syntax
+        run: |
+          node --check prototype/assets/js/experience.js
+          node --check prototype/assets/data/catalogo.js
+          node --check prototype/assets/js/featured-social.js
+          node --check prototype/api/instagram-feed.js
+      - name: Route and interaction tests
+        run: node prototype/tests/smoke.cjs
+      - name: Future-domain and checkout safety gates
+        run: node --test web/tests/launch-gates.test.mjs web/tests/leads-contract.test.mjs
+      - name: Social API contract tests
+        run: node prototype/tests/instagram-api.cjs
+      - name: QA search engine exclusion
+        run: |
+          grep -q 'name="robots" content="noindex,nofollow"' prototype/index.html
+          grep -q 'Disallow: /' prototype/robots.txt
+
+  visual-qa:
+    needs: consultative-qa
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - name: Install locked test tooling
+        run: npm ci --ignore-scripts --no-audit --no-fund
+      - name: Install Chromium only
+        run: npx playwright install --with-deps chromium
+      - name: Validate Next/Payload TypeScript without deploying
+        run: npm run typecheck
+      - name: UI, mobile and axe accessibility checks
+        run: npx playwright test --config=playwright.prototype.config.ts
+        env:
+          CI: 'true'
+      - name: Lighthouse QA (indexabilidad desactivada a propósito)
+        run: |
+          export CHROME_PATH="$(find "$HOME/.cache/ms-playwright" -type f -path '*/chrome-linux*/chrome' -print -quit)"
+          test -x "$CHROME_PATH"
+          npx lhci autorun --config=./lighthouserc.prototype.cjs
+      - name: Summarize Lighthouse opportunities
+        if: always()
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const dir = '.lighthouseci-caliza';
+          if (!fs.existsSync(dir)) { console.log('No Lighthouse JSON reports'); process.exit(0); }
+          for (const file of fs.readdirSync(dir).filter(f => f.endsWith('.json'))) {
+            const report = JSON.parse(fs.readFileSync(dir + '/' + file, 'utf8'));
+            if (!report.categories) continue;
+            console.log('REPORT', report.finalUrl);
+            for (const key of ['performance','accessibility','best-practices']) console.log('SCORE', key, report.categories[key]?.score);
+            for (const id of ['first-contentful-paint','largest-contentful-paint','speed-index','total-blocking-time','cumulative-layout-shift','server-response-time']) {
+              const audit = report.audits?.[id];
+              if (audit) console.log('METRIC', id, audit.displayValue, audit.numericValue);
+            }
+            const opportunities = Object.entries(report.audits || {}).filter(([id,v]) =>
+              v.details?.type === 'opportunity' && Number.isFinite(v.details?.overallSavingsMs)
+            ).sort((x,y) => (y[1].details?.overallSavingsMs || 0) - (x[1].details?.overallSavingsMs || 0)).slice(0,8);
+            for (const [id,v] of opportunities) console.log('OPPORTUNITY', id, v.title, 'ms', Math.round(v.details.overallSavingsMs));
+          }
+          NODE
+      - name: Upload Lighthouse reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: caliza-lighthouse-qa
+          path: web/.lighthouseci-caliza
+          include-hidden-files: true
+          retention-days: 7
+      - name: Upload browser captures
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: caliza-visual-qa
+          path: |
+            web/test-results-prototype
+            web/playwright-report-prototype
+          retention-days: 7

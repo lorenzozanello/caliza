@@ -19,8 +19,9 @@ const floatingLabel = { textContent: '' }
 const floatingNote = { textContent: '' }
 let copiedContactHandler
 const contactResult = { hidden: true, innerHTML: '', focus() {}, querySelector() { return { addEventListener(_type, handler) { copiedContactHandler = handler } } } }
+const familyInquiryResult = { hidden: true, innerHTML: '', focus() {} }
 const document = {
-  getElementById(id) { return ({ main, feedback, 'floating-whatsapp': floatingLink, 'floating-wa-label': floatingLabel, 'floating-wa-note': floatingNote, 'contact-result': contactResult, 'menu-toggle': menuToggle, 'mobile-nav': menu })[id] },
+  getElementById(id) { return ({ main, feedback, 'floating-whatsapp': floatingLink, 'floating-wa-label': floatingLabel, 'floating-wa-note': floatingNote, 'contact-result': contactResult, 'family-inquiry-result': familyInquiryResult, 'menu-toggle': menuToggle, 'mobile-nav': menu })[id] },
   querySelector(selector) { return ({ 'meta[name="caliza-whatsapp"]': { content: '573025983218' }, 'meta[name="caliza-instagram"]': { content: 'https://www.instagram.com/calizastonedesign/' }, 'meta[name="caliza-tiktok"]': { content: 'https://www.tiktok.com/@calizastone' } })[selector] || null },
   querySelectorAll() { return [] },
   addEventListener(type, callback) { events[type] = callback },
@@ -56,6 +57,8 @@ function visit(route) {
 const routes = [
   '/', '/stone-design', '/stone-design/proyectos', '/stone-design/brief', '/living-design',
   '/living-design/coleccion', '/living-design/coleccion?categoria=Sillas', '/tienda',
+  '/living-design/familia/mesas-de-comedor', '/living-design/familia/mesas-auxiliares',
+  '/living-design/familia/sillas-para-hogar', '/living-design/familia/sillas-comerciales', '/living-design/familia/lavamanos',
   '/living-design/experiencia', '/living-design/carrito', '/living-design/pieza/mesa-rubi',
   '/stone-care', '/stone-care/diagnostico', '/materiales', '/grupo', '/proyectos', '/contacto', '/inspiracion',
 ]
@@ -66,10 +69,13 @@ for (const route of routes) {
 }
 for (const route of linkedRoutes) visit(route)
 assert.match(visit('/'), /La materia/)
+assert.match(visit('/'), /caliza-family-grid-featured/)
 assert.doesNotMatch(visit('/'), /¿Qué te gustaría hacer?/)
 assert.equal(document.title, 'La materia toma forma. · CALIZA GROUP')
 assert.match(visit('/'), /caliza-journeys/)
-assert.doesNotMatch(visit('/'), /caliza-social-showcase/)
+assert.match(visit('/'), /caliza-social-showcase/)
+assert.match(visit('/'), /data-load-tiktok/)
+assert.match(visit('/'), /data-load-instagram/)
 assert.match(visit('/'), /@calizastonedesign/)
 assert.match(floatingLink.href, /^https:\/\/wa\.me\/573025983218\?text=/)
 assert.match(floatingLink.attrs['aria-label'], /WhatsApp oficial/)
@@ -80,18 +86,26 @@ assert.doesNotMatch(visit('/materiales'), /Paleta de marca/)
 assert.doesNotMatch(visit('/materiales'), /Marine Ink.*Piedra clara/s)
 assert.match(visit('/inspiracion'), /Instagram y TikTok/)
 assert.equal((visit('/living-design/coleccion').match(/caliza-family-card/g) || []).length, 5)
-assert.match(visit('/tienda'), /Familias bajo consulta/)
+assert.match(visit('/tienda'), /Explore las familias reales/)
 assert.match(visit('/tienda?q=Mesas'), /Mesas de comedor/)
 assert.equal((visit('/tienda?q=Mesas').match(/caliza-family-card/g) || []).length, 2)
 assert.match(visit('/tienda?q=sin-resultado'), /No encontramos familias/)
 assert.doesNotMatch(visit('/tienda'), /Mesa Rubi|Silla Aria|data-add-quote/)
-assert.match(visit('/living-design/carrito'), /Fotografía por confirmar/)
-assert.match(visit('/living-design/pieza/mesa-rubi'), /Familias bajo consulta/)
-assert.match(visit('/tienda?categoria=Sillas'), /editorial-sillas-hogar\.webp/)
-assert.match(visit('/tienda?categoria=Sillas'), /editorial-sillas-comerciales\.webp/)
+assert.match(visit('/living-design/carrito'), /Imagen conceptual · No es un producto publicado/)
+assert.match(visit('/living-design/pieza/mesa-rubi'), /Explore las familias reales/)
+assert.match(visit('/tienda?categoria=Sillas'), /Sillas para hogar/)
+assert.match(visit('/tienda?categoria=Sillas'), /Sillas comerciales/)
 assert.doesNotMatch(visit('/tienda?categoria=Sillas'), /option08-living\.webp/)
 assert.equal((visit('/tienda').match(/data-pendiente=/g) || []).length, 5)
-assert.equal((visit('/tienda').match(/Consultar esta familia/g) || []).length, 5)
+assert.equal((visit('/tienda').match(/Imagen conceptual · No es un producto publicado/g) || []).length, 5)
+assert.match(visit('/living-design/familia/mesas-de-comedor'), /comedor\.jpg/)
+assert.match(visit('/living-design/familia/sillas-comerciales'), /editorial-sillas-comerciales\.webp/)
+assert.equal((visit('/tienda').match(/data-marketing-cta="whatsapp"/g) || []).length, 5)
+assert.equal((visit('/tienda?q=hierro').match(/caliza-family-card/g) || []).length, 1)
+assert.match(visit('/living-design/familia/mesas-de-comedor'), /Base de piedra/)
+assert.match(visit('/living-design/familia/mesas-de-comedor'), /Alternativas de diseño y materiales/)
+assert.match(visit('/living-design/familia/mesas-de-comedor'), /Base de hierro/)
+assert.match(visit('/living-design/familia/mesas-de-comedor'), /Base de madera/)
 
 function click(data) {
   events.click({ target: { closest(selector) { return selector === 'button' ? { dataset: data, hasAttribute(name) { return ({ 'data-cart-plus': 'cartPlus', 'data-cart-minus': 'cartMinus', 'data-cart-remove': 'cartRemove', 'data-clear-social': 'clearSocial' })[name] in data } } : null } } })
@@ -104,15 +118,19 @@ function submit(id, values, wizard) {
 visit('/stone-design/brief')
 submit('brief-form', { type: 'Baño o lavamanos', location: 'Barranquilla' }, 'brief')
 submit('brief-form', { surface: 'Piedra clara', details: 'Una cubierta de 120 cm.' }, 'brief')
-assert.match(main.innerHTML, /Tu brief está listo/)
+assert.match(main.innerHTML, /Su brief está listo/)
 click({ copy: 'brief' })
 assert.match(copied.at(-1), /Una cubierta de 120 cm/)
 
 visit('/stone-care/diagnostico')
 submit('diagnosis-form', { surface: 'Travertino', location: 'Cocina' }, 'diagnosis')
 submit('diagnosis-form', { symptom: 'Mancha o cambio de color', urgency: 'Recién ocurrió' }, 'diagnosis')
-assert.match(main.innerHTML, /evita ácidos/i)
+assert.match(main.innerHTML, /evite ácidos/i)
 
+assert.match(visit('/contacto'), /id="contact-name"/)
+assert.match(visit('/contacto'), /id="contact-email"/)
+assert.match(visit('/contacto'), /id="contact-phone"/)
+assert.match(code, /startViewTransition/)
 visit('/contacto')
 submit('contact-form', { line: 'Stone Design · Crear', city: 'Cartagena', message: '<consulta de piedra>' })
 assert.equal(contactResult.hidden, false)
@@ -122,6 +140,12 @@ assert.match(contactResult.innerHTML, /https:\/\/wa\.me\/573025983218\?text=/)
 copiedContactHandler()
 assert.match(copied.at(-1), /Cartagena/)
 
+visit('/living-design/familia/mesas-auxiliares')
+submit('family-inquiry-form', { family: 'Mesas auxiliares', subgroup: 'Mesas auxiliares', use: 'Hogar', city: 'Barranquilla', details: '<Necesito 60 cm>' })
+assert.equal(familyInquiryResult.hidden, false)
+assert.match(familyInquiryResult.innerHTML, /Mesas auxiliares/)
+assert.match(familyInquiryResult.innerHTML, /&lt;Necesito 60 cm&gt;/)
+assert.match(familyInquiryResult.innerHTML, /https:\/\/wa\.me\/573025983218\?text=/)
 visit('/inspiracion')
 assert.match(main.innerHTML, /@calizastonedesign/)
 assert.match(main.innerHTML, /@calizastone/)
@@ -137,8 +161,14 @@ assert.equal(menuToggle.attrs['aria-label'], 'Abrir menú')
 const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8')
 for (const [, file] of html.matchAll(/(?:href|src)="(assets\/[^"#]+)"/g)) assert(fs.existsSync(path.join(root, file)), `Missing index asset ${file}`)
 assert.match(html, /id="floating-whatsapp"/)
+assert.match(html, /class="caliza-whatsapp-logo"/)
+assert.match(html, /href="#\/stone-design\/brief" class="o8-button o8-header-cta"/)
 assert.match(html, /id="qa-banner"/)
 assert.match(html, /data-dismiss-qa/)
+assert.match(html, /rel="preload".*PlayfairDisplay/)
+assert.match(html, /property="og:title"/)
+assert.match(html, /application\/ld\+json/)
+assert.match(code, /skip-link.*addEventListener/)
 assert.doesNotMatch(fs.readFileSync(path.join(root, 'assets/js/experience.js'), 'utf8'), /Tu próximo paso|¿Qué te gustaría hacer\?/)
 assert.doesNotMatch(html, /Mi selección|id="cart-count"|caliza-selection-float|href="#\/living-design\/carrito"/)
 assert.match(fs.readFileSync(path.join(root, 'checkout.html'), 'utf8'), /index\.html#\/living-design\/coleccion/)
@@ -146,7 +176,7 @@ assert.doesNotMatch(code, /data-add-quote|function cartPage|function product\(/)
 assert.match(html, /meta name="caliza-whatsapp" content="573025983218"/)
 assert.match(fs.readFileSync(path.join(root, 'assets/js/featured-social.js'), 'utf8'), /CALIZA_FEATURED_SOCIAL/)
 assert.doesNotMatch(code, /8\.900\.000|4\.450\.000|data-pay|570000000000/)
-console.log(`PASS: ${routes.length} routes incl. legacy aliases, five verified family placeholders, no fake cart/SKUs, official WhatsApp and profiles, safe contact form and wizards.`)
+console.log(`PASS: ${routes.length} routes, five catalogued families and detailed consultation, no fabricated SKUs/prices, official WhatsApp and safe local forms.`)
 
 const tokenizedSheets = ['option08.css', 'experience.css', 'marketing.css']
 for (const sheet of tokenizedSheets) {
