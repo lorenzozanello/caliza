@@ -111,7 +111,9 @@ test('banner de revisión fuera del héroe y colección con dos tarjetas editori
 
 
 test('foco editorial legible y CTA WhatsApp no oculta textos en ficha desktop', async ({page},info) => {
-  await page.goto('/index.html#/living-design/familia/mesas-de-comedor')
+  await page.goto('/index.html#/living-design/coleccion')
+  await page.locator('.caliza-family-card h3 a').first().click()
+  await expect(page).toHaveURL(/#\/living-design\/familia\/mesas-de-comedor/)
   const heading=page.locator('.exp-page-intro h1')
   await expect(heading).toBeVisible()
   const style=await heading.evaluate(el=>({focused:el===document.activeElement,outline:getComputedStyle(el).outlineStyle}))
