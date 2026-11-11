@@ -181,9 +181,7 @@
   function materialsPage() {
     return `${pageIntro('Caliza Group / Materiales', 'Cada piedra, una historia.', 'Texturas, vetas y tonos naturales. Estas muestras son referencias visuales, no un inventario de placas disponibles.')}
       <section class="exp-page-pad"><div class="exp-grid exp-grid-2 exp-material-details">${materials.map(([name, image, desc]) => `<article>${picture(image, `Textura de referencia ${name}`)}<div>${label('Biblioteca de materia')}<h2>${name}</h2><p>${desc}</p><a href="#/stone-design/brief" class="o8-text-link">Consultar este acabado →</a></div></article>`).join('')}</div></section>
-      <section class="exp-process">${label('Identidad cromática')}<h2>Paleta de marca</h2><p>Los siguientes cuatro tonos corresponden a la identidad visual; no deben confundirse con piedras disponibles.</p><div class="exp-grid exp-grid-4 exp-brand-colors">${[
-        ['Marine Ink', '#18343C'], ['Terracotta', '#AE7256'], ['Sand', '#CEB99B'], ['Limewash', '#F2EADC'],
-      ].map(([name, color]) => `<div><span style="background:${color}"></span><strong>${name}</strong><small>${color}</small></div>`).join('')}</div></section>${contactRibbon()}`;
+      ${contactRibbon()}`;
   }
   function group() {
     return `${hero({ image: 'option08-hero.webp', eyebrow: 'Grupo · Arquitectura · Diseño', title: 'Crear.<br>Habitar.<br>Preservar.', desc: 'Un ecosistema de marcas que dialogan con la piedra natural, el diseño y el bienestar.', cta: 'Conocer nuestras líneas', href: '/stone-design' })}
@@ -199,7 +197,7 @@
   function brief() {
     const step = wizard.briefStep;
     let body;
-    if (step === 0) body = `<h2>¿Qué deseas crear?</h2><label for="brief-type">Tipo de proyecto</label><select id="brief-type" name="type"><option>Cocina o cubierta</option><option>Baño o lavamanos</option><option>Revestimientos</option><option>Objeto o mobiliario</option><option>Otro espacio</option></select><label for="brief-location">Ciudad o ubicación aproximada</label><input id="brief-location" name="location" placeholder="Ej. Barranquilla" maxlength="80" autocomplete="off"><p class="exp-hint">No ingreses direcciones ni datos personales en este prototipo.</p>`;
+    if (step === 0) body = `<h2>¿Qué desea crear?</h2><label for="brief-type">Tipo de proyecto</label><select id="brief-type" name="type"><option>Cocina o cubierta</option><option>Baño o lavamanos</option><option>Revestimientos</option><option>Objeto o mobiliario</option><option>Otro espacio</option></select><label for="brief-location">Ciudad o ubicación aproximada</label><input id="brief-location" name="location" placeholder="Ej. Barranquilla" maxlength="80" autocomplete="off"><p class="exp-hint">No ingrese direcciones ni datos personales en este prototipo.</p>`;
     else if (step === 1) body = `<h2>Cuéntenos sobre la materia.</h2><label for="brief-surface">Material de interés</label><select id="brief-surface" name="surface"><option>Piedra clara</option><option>Piedra veteada</option><option>Piedra oscura</option><option>Necesito asesoría</option></select><label for="brief-details">Idea y alcance</label><textarea id="brief-details" name="details" rows="5" maxlength="900" placeholder="Describa las medidas aproximadas, la pieza o el ambiente…"></textarea><p class="exp-hint">Evite incluir teléfonos, direcciones u otra información sensible.</p>`;
     else body = `<h2>Su brief está listo.</h2><div class="exp-summary"><p><strong>Proyecto:</strong> ${safeText(wizard.brief.type || 'Por definir')}</p><p><strong>Ciudad:</strong> ${safeText(wizard.brief.location || 'Sin definir')}</p><p><strong>Materia:</strong> ${safeText(wizard.brief.surface || 'Sin definir')}</p><p><strong>Idea:</strong> ${safeText(wizard.brief.details || 'Sin descripción')}</p></div><p>Revise el contenido antes de compartirlo. En esta versión no se envía a ningún servidor.</p><div class="caliza-summary-actions">${waAction(copyContent('brief'), 'Compartir brief')}<button type="button" class="exp-outline" data-copy="brief">Copiar brief</button></div>${waHandoffNote()}`;
     return `${pageIntro('Stone Design / Brief', 'Empecemos por su idea.', 'Un recorrido guiado que puede completar sin entregar datos personales ni realizar pagos.')}
@@ -329,7 +327,7 @@
       if (cat === 'Todas') params.delete('categoria');
       else params.set('categoria', cat);
       const qs = params.toString();
-      location.hash = `/tienda${qs ? '?' + qs : ''}`;
+      location.hash = `/living-design/coleccion${qs ? '?' + qs : ''}`;
       render(false);
     }
     if (target.dataset.copy) copyText(copyContent(target.dataset.copy));
@@ -357,7 +355,7 @@
       if (search) params.set('q', search);
       else params.delete('q');
       const qs = params.toString();
-      location.hash = `/tienda${qs ? '?' + qs : ''}`;
+      location.hash = `/living-design/coleccion${qs ? '?' + qs : ''}`;
       render(false);
     }
     if (form.id === 'contact-form') {
@@ -382,17 +380,17 @@
   });
   const menu = document.getElementById('mobile-nav');
   const menuToggle = document.getElementById('menu-toggle');
-  menuToggle.addEventListener('click', () => {
-    menu.hidden = !menu.hidden;
-    menuToggle.setAttribute('aria-expanded', String(!menu.hidden));
-    menuToggle.setAttribute('aria-label', menu.hidden ? 'Abrir menú' : 'Cerrar menú');
-  });
-  menu.addEventListener('click', (event) => {
-    if (event.target.closest('a')) {
-      menu.hidden = true;
-      menuToggle.setAttribute('aria-expanded', 'false');
-      menuToggle.setAttribute('aria-label', 'Abrir menú');
-    }
+  function setMenu(open, returnFocus = false) {
+    menu.hidden = !open;
+    menuToggle.setAttribute('aria-expanded', String(open));
+    menuToggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+    if (open) menu.querySelector?.('a')?.focus?.();
+    else if (returnFocus) menuToggle.focus?.();
+  }
+  menuToggle.addEventListener('click', () => setMenu(menu.hidden));
+  menu.addEventListener('click', (event) => { if (event.target.closest('a')) setMenu(false); });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && !menu.hidden) { setMenu(false, true); }
   });
   window.addEventListener('hashchange', () => { activeEmbed = null; render(); });
   render(false);
