@@ -3,6 +3,7 @@ import { getPayloadClient } from '@/lib/payload'
 import { ProductCard } from '@/components/ProductCard'
 import { Contact } from '@/components/sections/Contact'
 import { mediaUrl, mediaAlt } from '@/components/media'
+import { PUBLIC_PRODUCT, PUBLIC_MATERIAL } from '@/lib/publication'
 
 export const revalidate = 60
 
@@ -12,18 +13,11 @@ const lines = [
   { id: 'preservar', title: 'Preservar', brand: 'Stone Care', image: '/option08-care.webp', icon: '/brand/option08-care.svg', href: '/care', description: 'Cuidado y restauración para que la belleza perdure.', alt: 'Cuidado artesanal de una superficie de piedra natural' },
 ]
 
-const materialReferences = [
-  { name: 'Piedra clara', image: '/materials/piedra-clara.jpg' },
-  { name: 'Piedra veteada', image: '/materials/piedra-veteada.jpg' },
-  { name: 'Piedra oscura', image: '/materials/piedra-oscura.jpg' },
-  { name: 'Detalles de borde', image: '/materials/detalle-borde.jpg' },
-]
-
 export default async function HomePage() {
   const payload = await getPayloadClient()
   const [products, materials] = await Promise.all([
-    payload.find({ collection: 'products', where: { status: { equals: 'publicado' }, line: { in: ['design', 'care'] } }, sort: ['-featured', 'order'], limit: 4, depth: 1 }),
-    payload.find({ collection: 'materials', sort: 'order', limit: 4, depth: 1 }),
+    payload.find({ collection: 'products', where: { ...PUBLIC_PRODUCT, line: { in: ['design', 'care'] } }, sort: ['-featured', 'order'], limit: 4, depth: 1 }),
+    payload.find({ collection: 'materials', where: PUBLIC_MATERIAL, sort: 'order', limit: 4, depth: 1 }),
   ])
 
   return (
@@ -60,10 +54,7 @@ export default async function HomePage() {
         {products.docs.length ? (
           <div className="o8-cms-product-grid">{products.docs.map((product) => <ProductCard key={product.id} p={product} />)}</div>
         ) : (
-          <div className="o8-product-grid">
-            <Link href="/design" className="o8-product"><img src="/option08-living.webp" alt="Mesa de travertino en sala contemporánea" loading="lazy" /><div><strong>Mesas en piedra natural</strong><span>Diseño a medida · Solicitar cotización</span><span aria-hidden="true">→</span></div></Link>
-            <Link href="/stone" className="o8-product"><img src="/option08-hero.webp" alt="Cocina con gran isla de piedra" loading="lazy" /><div><strong>Espacios en piedra natural</strong><span>Proyecto a medida · Solicitar cotización</span><span aria-hidden="true">→</span></div></Link>
-          </div>
+          <div className="caliza-editorial-empty"><h3>Una pieza comienza con una conversación.</h3><p>Estamos preparando las fichas verificadas de nuestras colecciones. Podemos orientarle sobre mesas, mobiliario y lavamanos según su espacio.</p><Link href="/design" className="o8-button">Explorar las familias <span aria-hidden="true">→</span></Link></div>
         )}
       </section>
 
@@ -77,9 +68,7 @@ export default async function HomePage() {
             </Link>
           ))}</div>
         ) : (
-          <div className="o8-material-grid" aria-label="Muestras visuales de piedra sin disponibilidad confirmada">
-            {materialReferences.map((item) => <Link href="/materiales" key={item.name}><img src={item.image} alt={`Referencia visual provisional: ${item.name}`} loading="lazy" /><strong>{item.name}</strong></Link>)}
-          </div>
+          <div className="caliza-editorial-empty"><h3>La elección de piedra merece atención.</h3><p>La disponibilidad y las fichas de materiales se verifican antes de mostrarlas. Conozca nuestro proceso de selección.</p><Link href="/materiales" className="o8-button">Cómo elegimos materiales <span aria-hidden="true">→</span></Link></div>
         )}
       </section>
 
@@ -92,7 +81,7 @@ export default async function HomePage() {
         <div><span className="o8-overline">Stone Care</span><h2>Cuidar también es diseñar.</h2><p>El valor de la piedra perdura cuando se conoce, protege y restaura con criterio.</p><Link className="o8-text-link" href="/care">Conocer servicios →</Link></div>
       </section>
       <section className="o8-section" id="inspiracion"><div className="o8-section-heading"><h2>Inspiración en movimiento</h2><Link href="/inspiracion">Visualizador Instagram y TikTok <span aria-hidden="true">→</span></Link></div><div className="o8-product-grid"><Link href="/inspiracion" className="o8-product"><img src="/option08-hero.webp" alt="Referencia conceptual de arquitectura en piedra" loading="lazy" /><div><strong>La materia</strong><span>Explorar publicaciones públicas</span><span aria-hidden="true">→</span></div></Link><Link href="/inspiracion" className="o8-product"><img src="/option08-care.webp" alt="Cuidado artesanal de piedra natural" loading="lazy" /><div><strong>El cuidado</strong><span>Instagram y TikTok en una sola experiencia</span><span aria-hidden="true">→</span></div></Link></div></section>
-      <div className="o8-contact-wrap"><Contact title="Hablemos de tu proyecto." text="Diseñamos contigo desde la idea hasta su realización. Cuéntanos qué quieres crear, habitar o preservar." /></div>
+      <div className="o8-contact-wrap"><Contact title="Hablemos de su proyecto." text="Diseñamos con usted desde la idea hasta su realización. Cuéntenos qué desea crear, habitar o preservar." /></div>
     </div>
   )
 }

@@ -72,3 +72,35 @@
 @media(max-width:760px){.caliza-social-onboard{grid-template-columns:1fr}.caliza-social-onboard-visual{min-height:170px;max-width:410px}.caliza-social-showcase-intro{align-items:start;flex-direction:column;gap:10px}.caliza-social-showcase-intro>a{white-space:normal}.caliza-journey-links{grid-template-columns:1fr}.caliza-journey-links a{min-height:0;padding:20px;gap:9px;border-left:1px solid var(--line);border-bottom:1px solid var(--line)}.caliza-journey-links strong{font-size:26px}.caliza-journeys{padding-inline:22px}.caliza-shop-tools{flex-direction:column;align-items:stretch;gap:6px}.caliza-shop-tools>p{white-space:normal}}
 @media(max-width:660px){body.o8-page{padding-bottom:95px}.caliza-conversion-dock{left:0;right:0;bottom:0;width:100%;max-width:none;display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:8px;padding:8px 12px max(8px,env(safe-area-inset-bottom));border:0;border-top:1px solid var(--line);box-shadow:0 -8px 27px #18343c18}.caliza-whatsapp-float{min-height:49px;font-size:9px;padding:7px 9px;gap:7px}.caliza-whatsapp-float svg{width:19px;height:19px}.caliza-selection-float{border:1px solid var(--line);min-height:49px;font-size:9px;gap:3px}.caliza-conversion-dock small{display:none}.feedback{bottom:95px;right:10px}.caliza-social-showcase{padding:43px 20px 55px;margin-top:40px}.caliza-social-onboard{padding:20px}.caliza-social-onboard h4{font-size:31px}.caliza-social-onboard-visual{min-height:150px}.caliza-social-onboard-visual span{max-height:140px}.caliza-social-toolbar{align-items:start}.caliza-cta-pair,.caliza-summary-actions{align-items:stretch}.caliza-cta-pair>*{flex:1 1 100%}.caliza-summary-actions>*{flex:1 1 180px}.caliza-social-filters{order:2;width:100%}.caliza-social-toolbar .exp-outline{margin-left:auto}}
 @media(prefers-reduced-motion:reduce){.caliza-whatsapp-float,.caliza-journey-links a{transition:none}}
+
+/* Rectificación a la autoridad: arcos solo en fotografías, texto legible y controles accesibles. */
+body.o8-page{background:var(--surface)}
+.exp-hero h1,.exp-page-intro h1,.caliza-journeys-lead h2,.caliza-social-showcase h3{letter-spacing:.005em}
+.exp-quantity button{min-width:44px;min-height:44px;width:44px;height:44px;border:1px solid var(--line-strong)}
+.exp-product-config select,.exp-product-config input,.exp-wizard select,.exp-wizard input,.exp-wizard textarea,.exp-contact-form select,.exp-contact-form input,.exp-contact-form textarea,.exp-social-form input{border:1px solid var(--line-strong);font-size:15px;background:var(--surface-raised)}
+.caliza-whatsapp-float,.caliza-wa-action{border-radius:0!important}
+.caliza-whatsapp-float:hover,.caliza-wa-action:hover{background:var(--accent-text)}
+.caliza-conversion-dock small{font-size:12px}
+.caliza-social-onboard-visual span,.caliza-social-monogram{border-radius:0}
+.caliza-journeys-lead p,.caliza-social-showcase-intro p,.caliza-social-onboard>div:last-child>p,.caliza-contact-result p{font-size:15px;line-height:1.7}
+.caliza-journey-links span,.caliza-journey-links small,.caliza-social-profiles a,.caliza-social-filters button,.caliza-channel-note{font-size:12px}
+.caliza-shop-tools>p,.caliza-collection-search label,.caliza-collection-search input,.caliza-conversion-dock a{font-size:12px}
+.caliza-family-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.caliza-family-card{background:var(--surface-raised);padding:clamp(22px,3vw,44px);min-height:220px;display:flex;flex-direction:column;gap:16px}
+.caliza-family-card span{color:var(--accent-text);font:500 12px var(--font-sans);text-transform:uppercase;letter-spacing:.12em}
+.caliza-family-card h3{font:400 clamp(26px,2.5vw,36px)/1.2 var(--font-serif);letter-spacing:.005em}
+.caliza-family-card p{color:var(--ink-muted);font:400 15px/1.7 var(--font-sans)}
+.caliza-family-card>a{margin-top:auto;color:var(--ink);font:500 12px var(--font-sans);text-transform:uppercase;letter-spacing:.07em}
+.caliza-family-card>div{margin-top:auto}
+.caliza-family-card .caliza-wa-action{font-size:12px;line-height:1.5;padding:13px 17px}
+.caliza-family-card>small{font:400 12px/1.5 var(--font-sans);color:var(--ink-muted)}
+.caliza-family-card>a:hover{text-decoration:underline}
+.caliza-shop-intro{padding:28px 0 36px;max-width:780px}
+.caliza-shop-intro p{font:400 15px/1.8 var(--font-sans)}
+.caliza-profile-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.caliza-profile-links>a{min-height:180px;padding:30px;display:flex;flex-direction:column;justify-content:space-between;gap:12px;background:var(--marine-ink);color:var(--limewash);font:500 12px var(--font-sans);text-transform:uppercase;letter-spacing:.08em}
+.caliza-profile-links>a+a{background:var(--surface-sand);color:var(--marine-ink)}
+.caliza-profile-links strong{font:400 clamp(28px,3vw,43px)/1.2 var(--font-serif);letter-spacing:.005em;text-transform:none}
+.caliza-profile-links>a:hover{background:var(--terracotta);color:var(--limewash)}
+@media(max-width:760px){.caliza-family-grid,.caliza-profile-links{grid-template-columns:1fr}.caliza-family-card{min-height:185px}}
+@media(max-width:660px){.caliza-whatsapp-float,.caliza-selection-float{font-size:12px}.caliza-conversion-dock{box-shadow:0 -5px 20px rgba(24,52,60,.1)}}

@@ -3,6 +3,8 @@ import Link from 'next/link'
 import type { Where } from 'payload'
 import { getPayloadClient } from '@/lib/payload'
 import { ProductCard } from '@/components/ProductCard'
+import { PUBLIC_PRODUCT } from '@/lib/publication'
+import { Contact } from '@/components/sections/Contact'
 
 export const metadata: Metadata = { title: 'Living Design · Piezas para habitar', description: 'Mesas, consolas, lavamanos y objetos en piedra natural, hechos por encargo o listos para entrega.' }
 export const revalidate = 60
@@ -28,7 +30,7 @@ type SP = Promise<{ tipo?: string; disponibilidad?: string }>
 
 export default async function ShopPage({ searchParams }: { searchParams: SP }) {
   const { tipo = '', disponibilidad = '' } = await searchParams
-  const where: Where = { status: { equals: 'publicado' }, line: { in: ['design', 'care'] } }
+  const where: Where = { ...PUBLIC_PRODUCT, line: { in: ['design', 'care'] } }
   if (TYPES.some((t) => t.value === tipo && t.value)) where.category = { equals: tipo }
   if (MODES.some((m) => m.value === disponibilidad && m.value)) where.saleMode = { equals: disponibilidad }
   const payload = await getPayloadClient()
@@ -60,9 +62,10 @@ export default async function ShopPage({ searchParams }: { searchParams: SP }) {
         </aside>
         <div className="shop__grid">
           {products.docs.map((p) => <ProductCard key={p.id} p={p} />)}
-          {products.docs.length === 0 && <p className="empty">No hay piezas con estos filtros. <Link href="/design" className="link"><span className="u">Ver todas</span></Link></p>}
+          {products.docs.length === 0 && <div className="caliza-editorial-empty"><h2>Diseño pensado para su espacio.</h2><p>El catálogo con fotografías, dimensiones y condiciones aprobadas está en preparación. Ya puede consultar nuestras familias: mesas de comedor, mesas auxiliares, sillas, lavamanos y piezas a medida.</p><Link href="/#contacto" className="link"><span className="u">Solicitar asesoría personalizada</span></Link></div>}
         </div>
       </div>
+      <Contact title="Encontremos la pieza adecuada." text="Cuéntenos qué busca y qué espacio desea transformar. Le orientaremos sobre materiales, dimensiones y opciones de fabricación." intent="pieza" />
     </div>
   )
 }

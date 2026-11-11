@@ -4,6 +4,7 @@ import type { Where } from 'payload'
 import { getPayloadClient } from '@/lib/payload'
 import { ProjectCard, LINE_NAME } from '@/components/sections/ProjectCard'
 import { Contact } from '@/components/sections/Contact'
+import { PUBLIC_PROJECT } from '@/lib/publication'
 
 export const metadata: Metadata = {
   title: 'Proyectos',
@@ -16,7 +17,7 @@ export default async function ProjectsPage({ searchParams }: { searchParams: Pro
   const { linea = '' } = await searchParams
   const line = linea in LINE_NAME ? (linea as keyof typeof LINE_NAME) : ''
   const payload = await getPayloadClient()
-  const where: Where | undefined = line ? { line: { equals: line } } : undefined
+  const where: Where = line ? { ...PUBLIC_PROJECT, line: { equals: line } } : PUBLIC_PROJECT
   const projects = await payload.find({ collection: 'projects', where, sort: ['-featured', '-year', '-createdAt'], limit: 60, depth: 1 })
   const [first, ...rest] = projects.docs
   return (
@@ -32,7 +33,7 @@ export default async function ProjectsPage({ searchParams }: { searchParams: Pro
       </section>
 
       <section className="wrap" style={{ paddingBottom: 'var(--s2)' }} aria-label="Lista de proyectos">
-        {!first && <p className="empty">Aún no hay proyectos en esta línea.</p>}
+        {!first && <div className="caliza-editorial-empty"><h2>Proyectos reales, contados con detalle.</h2><p>Estamos documentando nuestras obras con imágenes autorizadas, materiales y resultados verificables. Mientras tanto, podemos conversar sobre su proyecto.</p><Link href="/#contacto" className="link">Contar mi proyecto →</Link></div>}
         {first && <div className="projects-lead"><ProjectCard p={first} size="hero" priority /></div>}
         {rest.length > 0 && <div className="projects-grid projects-grid--stagger">{rest.map((p) => <ProjectCard key={p.id} p={p} />)}</div>}
         {projects.docs.some((p) => p.isExample) && <p className="note" style={{ marginTop: 32 }}>Proyectos de ejemplo · fotografías provisionales.</p>}

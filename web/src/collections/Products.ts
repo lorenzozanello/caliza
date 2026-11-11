@@ -1,6 +1,7 @@
 import { revalidateHooks } from '@/lib/revalidate'
 import type { CollectionConfig } from 'payload'
 import { slugField } from '@/lib/fields'
+import { PUBLIC_PRODUCT } from '@/lib/publication'
 
 export const Products: CollectionConfig = {
   hooks: revalidateHooks,
@@ -13,7 +14,7 @@ export const Products: CollectionConfig = {
     listSearchableFields: ['name', 'slug'],
   },
   access: {
-    read: ({ req }) => (req.user ? true : { status: { equals: 'publicado' } }),
+    read: ({ req }) => (req.user ? true : PUBLIC_PRODUCT),
   },
   fields: [
     {
@@ -27,6 +28,9 @@ export const Products: CollectionConfig = {
       ],
     },
     slugField(),
+    { name: 'sourceProductId', label: 'ID del catálogo maestro de Drive', type: 'text', unique: true, admin: { description: 'Solo se asigna tras reconciliación y aprobación individual.' } },
+    { name: 'publicationApproved', label: 'Aprobación comercial y legal individual', type: 'checkbox', defaultValue: false, admin: { position: 'sidebar', description: 'Debe corresponder a 10_CONTROL: listo_publicar=Sí y estado_catalogo=Aprobado.' } },
+    { name: 'imageRightsConfirmed', label: 'Imágenes de esta ficha autorizadas para web', type: 'checkbox', defaultValue: false, admin: { position: 'sidebar' } },
     {
       type: 'row',
       fields: [

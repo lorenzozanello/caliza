@@ -23,7 +23,7 @@ let copiedContactHandler
 const contactResult = { hidden: true, innerHTML: '', focus() {}, querySelector() { return { addEventListener(_type, handler) { copiedContactHandler = handler } } } }
 const document = {
   getElementById(id) { return ({ main, feedback, 'cart-count': count, 'floating-selection-count': floatingCount, 'floating-whatsapp': floatingLink, 'floating-wa-label': floatingLabel, 'floating-wa-note': floatingNote, 'contact-result': contactResult, 'material-selection': { value: 'Piedra clara' }, 'size-selection': { value: 'A definir' }, 'quantity-selection': { value: '1' }, 'menu-toggle': menuToggle, 'mobile-nav': menu })[id] },
-  querySelector(selector) { return selector === 'meta[name="caliza-whatsapp"]' ? { content: '' } : null },
+  querySelector(selector) { return ({ 'meta[name="caliza-whatsapp"]': { content: '573025983218' }, 'meta[name="caliza-instagram"]': { content: 'https://www.instagram.com/calizastonedesign/' }, 'meta[name="caliza-tiktok"]': { content: 'https://www.tiktok.com/@calizastone' } })[selector] || null },
   querySelectorAll() { return [] },
   addEventListener(type, callback) { events[type] = callback },
   title: '',
@@ -57,7 +57,7 @@ function visit(route) {
 const routes = [
   '/', '/stone-design', '/stone-design/proyectos', '/stone-design/brief', '/living-design',
   '/living-design/coleccion', '/living-design/coleccion?categoria=Sillas', '/tienda',
-  '/living-design/pieza/mesa-rubi', '/living-design/experiencia', '/living-design/carrito',
+  '/living-design/experiencia', '/living-design/carrito',
   '/stone-care', '/stone-care/diagnostico', '/materiales', '/grupo', '/proyectos', '/contacto', '/inspiracion',
 ]
 const linkedRoutes = new Set()
@@ -69,17 +69,18 @@ for (const route of linkedRoutes) visit(route)
 assert.match(visit('/'), /La materia/)
 assert.match(visit('/'), /caliza-journeys/)
 assert.match(visit('/'), /caliza-social-showcase/)
-assert.match(visit('/'), /Añadir al visor/)
-assert.match(floatingLink.href, /^https:\/\/wa\.me\/\?text=/)
-assert.match(floatingLink.attrs['aria-label'], /seleccionar manualmente el contacto/)
+assert.match(visit('/'), /@calizastonedesign/)
+assert.match(floatingLink.href, /^https:\/\/wa\.me\/573025983218\?text=/)
+assert.match(floatingLink.attrs['aria-label'], /WhatsApp oficial/)
 assert.match(visit('/materiales'), /Piedra clara/)
 assert.doesNotMatch(visit('/materiales'), /Marine Ink.*Piedra clara/s)
 assert.match(visit('/inspiracion'), /Instagram y TikTok/)
-assert.equal((visit('/living-design/coleccion').match(/exp-product-card/g) || []).length, 16)
-assert.match(visit('/tienda'), /Tienda de consulta|tienda de consulta/)
-assert.match(visit('/tienda?q=Rubi'), /Mesa Rubi/)
-assert.equal((visit('/tienda?q=Rubi').match(/exp-product-card/g) || []).length, 1)
-assert.match(visit('/tienda?q=sin-resultado'), /No encontramos coincidencias/)
+assert.equal((visit('/living-design/coleccion').match(/caliza-family-card/g) || []).length, 5)
+assert.match(visit('/tienda'), /familias de producto documentadas/)
+assert.match(visit('/tienda?q=Mesas'), /Mesas de comedor/)
+assert.equal((visit('/tienda?q=Mesas').match(/caliza-family-card/g) || []).length, 2)
+assert.match(visit('/tienda?q=sin-resultado'), /No encontramos familias/)
+assert.doesNotMatch(visit('/tienda'), /Mesa Rubi|Silla Aria|data-add-quote/)
 
 function click(data) {
   events.click({ target: { closest(selector) { return selector === 'button' ? { dataset: data, hasAttribute(name) { return ({ 'data-cart-plus': 'cartPlus', 'data-cart-minus': 'cartMinus', 'data-cart-remove': 'cartRemove', 'data-clear-social': 'clearSocial' })[name] in data } } : null } } })
@@ -89,21 +90,10 @@ function submit(id, values, wizard) {
   form.id = id; form.values = values; form.dataset = wizard ? { wizard } : {}
   events.submit({ target: form, preventDefault() {} })
 }
-visit('/living-design/pieza/mesa-rubi')
+assert.match(visit('/living-design/carrito'), /Tu selección está vacía/)
 click({ addQuote: 'mesa-rubi' })
-assert.equal(count.textContent, '1')
-assert.equal(floatingCount.textContent, '1')
-assert.match(visit('/living-design/carrito'), /Mesa Rubi/)
-assert.match(main.innerHTML, /Compartir selección/)
-assert.match(floatingLink.href, /Mesa%20Rubi/)
-click({ cartPlus: '0' })
-assert.equal(count.textContent, '2')
-click({ cartMinus: '0' })
-assert.equal(count.textContent, '1')
-click({ copy: 'cart' })
-assert.match(copied.at(-1), /selección para cotización/)
-click({ cartRemove: '0' })
 assert.equal(count.textContent, '0')
+assert.equal(floatingCount.textContent, '0')
 
 visit('/stone-design/brief')
 submit('brief-form', { type: 'Baño o lavamanos', location: 'Barranquilla' }, 'brief')
@@ -122,23 +112,15 @@ submit('contact-form', { line: 'Stone Design · Crear', city: 'Cartagena', messa
 assert.equal(contactResult.hidden, false)
 assert.match(contactResult.innerHTML, /&lt;consulta de piedra&gt;/)
 assert.doesNotMatch(contactResult.innerHTML, /<consulta de piedra>/)
-assert.match(contactResult.innerHTML, /https:\/\/wa\.me\/\?text=/)
+assert.match(contactResult.innerHTML, /https:\/\/wa\.me\/573025983218\?text=/)
 copiedContactHandler()
 assert.match(copied.at(-1), /Cartagena/)
 
 visit('/inspiracion')
-submit('social-form', { url: 'https://www.instagram.com/reel/ABCdef12345/' })
-submit('social-form', { url: 'https://www.tiktok.com/@caliza/video/1234567890123456789' })
-assert.match(main.innerHTML, /2<\/strong>|2 publicaciones/)
-assert.match(visit('/'), /Publicación 1/)
-visit('/inspiracion')
-click({ socialFilter: 'tiktok' })
-assert.doesNotMatch(main.innerHTML, /Publicación 1/)
-assert.match(main.innerHTML, /Video 2/)
-click({ viewSocial: '1' })
-assert.match(main.innerHTML, /tiktok.com\/embed\/v2\/1234567890123456789/)
-click({ clearSocial: '' })
-assert.match(main.innerHTML, /Aún no hay publicaciones/)
+assert.match(main.innerHTML, /@calizastonedesign/)
+assert.match(main.innerHTML, /@calizastone/)
+assert.match(main.innerHTML, /Próximamente, selección editorial/)
+assert.doesNotMatch(main.innerHTML, /id="social-form"|data-clear-social/)
 
 events.toggle()
 assert.equal(menu.hidden, false)
@@ -149,7 +131,7 @@ assert.equal(menuToggle.attrs['aria-label'], 'Abrir menú')
 const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8')
 for (const [, file] of html.matchAll(/(?:href|src)="(assets\/[^"#]+)"/g)) assert(fs.existsSync(path.join(root, file)), `Missing index asset ${file}`)
 assert.match(html, /id="floating-whatsapp"/)
-assert.match(html, /meta name="caliza-whatsapp" content=""/)
+assert.match(html, /meta name="caliza-whatsapp" content="573025983218"/)
 assert.match(fs.readFileSync(path.join(root, 'assets/js/featured-social.js'), 'utf8'), /CALIZA_FEATURED_SOCIAL/)
 assert.doesNotMatch(code, /8\.900\.000|4\.450\.000|data-pay|570000000000/)
-console.log(`PASS: ${routes.length} routes, shop search, cart and WhatsApp handoff, safe contact form, wizards, social viewer and brand assets.`)
+console.log(`PASS: ${routes.length} routes, verified families, no fake SKUs, official WhatsApp and profiles, safe contact form, wizards and brand assets.`)

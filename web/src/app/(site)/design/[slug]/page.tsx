@@ -9,13 +9,14 @@ import { ProductCard } from '@/components/ProductCard'
 import { isProvisional, mediaAlt, mediaUrl } from '@/components/media'
 import { LINE_LABEL, SALE_MODE_LABEL } from '@/lib/format'
 import { minPrice } from '@/lib/pricing'
+import { PUBLIC_PRODUCT } from '@/lib/publication'
 
 export const revalidate = 60
 type Params = Promise<{ slug: string }>
 
 async function getProduct(slug: string) {
   const payload = await getPayloadClient()
-  const res = await payload.find({ collection: 'products', where: { slug: { equals: slug }, status: { equals: 'publicado' } }, limit: 1, depth: 1 })
+  const res = await payload.find({ collection: 'products', where: { ...PUBLIC_PRODUCT, slug: { equals: slug } }, limit: 1, depth: 1 })
   return res.docs[0]
 }
 
@@ -30,7 +31,7 @@ export default async function ProductPage({ params }: { params: Params }) {
   const p = await getProduct((await params).slug)
   if (!p) notFound()
   const payload = await getPayloadClient()
-  const related = await payload.find({ collection: 'products', where: { status: { equals: 'publicado' }, id: { not_equals: p.id }, line: { in: ['design', 'care'] } }, sort: ['-featured', 'order'], limit: 3, depth: 1 })
+  const related = await payload.find({ collection: 'products', where: { ...PUBLIC_PRODUCT, id: { not_equals: p.id }, line: { in: ['design', 'care'] } }, sort: ['-featured', 'order'], limit: 3, depth: 1 })
   const images = (p.images ?? []).map((i) => i.image)
   const jsonLd = {
     '@context': 'https://schema.org', '@type': 'Product', name: p.name, description: p.shortDescription,

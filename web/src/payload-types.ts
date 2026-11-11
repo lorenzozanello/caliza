@@ -149,6 +149,15 @@ export interface Product {
    * Se genera desde el nombre si lo dejas vacío.
    */
   slug?: string | null;
+  /**
+   * Solo se asigna tras reconciliación y aprobación individual.
+   */
+  sourceProductId?: string | null;
+  /**
+   * Debe corresponder a 10_CONTROL: listo_publicar=Sí y estado_catalogo=Aprobado.
+   */
+  publicationApproved?: boolean | null;
+  imageRightsConfirmed?: boolean | null;
   line: 'stone' | 'design' | 'care';
   category:
     'mesa-comedor' | 'mesa-centro' | 'mesa-auxiliar' | 'consola' | 'lavamanos' | 'objeto' | 'cuidado' | 'proyecto';
@@ -277,6 +286,9 @@ export interface Project {
    * Se genera desde el nombre si lo dejas vacío.
    */
   slug?: string | null;
+  sourceProjectId?: string | null;
+  publicationApproved?: boolean | null;
+  imageRightsConfirmed?: boolean | null;
   line: 'stone' | 'design' | 'care';
   city?: string | null;
   year?: number | null;
@@ -313,6 +325,8 @@ export interface Material {
    * Se genera desde el nombre si lo dejas vacío.
    */
   slug?: string | null;
+  sourceMaterialId?: string | null;
+  publicationApproved?: boolean | null;
   family: 'piedra' | 'madera' | 'metal' | 'textura';
   description?: string | null;
   recommendedUses?: string | null;
@@ -582,6 +596,9 @@ export interface ProductsSelect<T extends boolean = true> {
   name?: T;
   status?: T;
   slug?: T;
+  sourceProductId?: T;
+  publicationApproved?: T;
+  imageRightsConfirmed?: T;
   line?: T;
   category?: T;
   shortDescription?: T;
@@ -640,6 +657,9 @@ export interface ProductsSelect<T extends boolean = true> {
 export interface ProjectsSelect<T extends boolean = true> {
   title?: T;
   slug?: T;
+  sourceProjectId?: T;
+  publicationApproved?: T;
+  imageRightsConfirmed?: T;
   line?: T;
   city?: T;
   year?: T;
@@ -666,6 +686,8 @@ export interface ProjectsSelect<T extends boolean = true> {
 export interface MaterialsSelect<T extends boolean = true> {
   name?: T;
   slug?: T;
+  sourceMaterialId?: T;
+  publicationApproved?: T;
   family?: T;
   description?: T;
   recommendedUses?: T;
@@ -989,11 +1011,21 @@ export interface Page {
 export interface Setting {
   id: number;
   /**
-   * Formato internacional sin "+". Ej.: 573001234567
+   * Contacto oficial confirmado: +57 302 598 3218. Formato internacional sin +.
    */
   whatsappNumber: string;
   instagramUrl?: string | null;
   tiktokUrl?: string | null;
+  /**
+   * Curaduría editorial. Solo enlaces públicos de publicaciones de cuentas oficiales, con autorización confirmada. No pegues enlaces a Drive ni tokens.
+   */
+  socialPostLinks?:
+    | {
+        url: string;
+        approved?: boolean | null;
+        id?: string | null;
+      }[]
+    | null;
   shippingCities?:
     | {
         city: string;
@@ -1118,6 +1150,13 @@ export interface SettingsSelect<T extends boolean = true> {
   whatsappNumber?: T;
   instagramUrl?: T;
   tiktokUrl?: T;
+  socialPostLinks?:
+    | T
+    | {
+        url?: T;
+        approved?: T;
+        id?: T;
+      };
   shippingCities?:
     | T
     | {
