@@ -6,6 +6,8 @@ on:
       - "web/src/lib/launch-gates.ts"
       - "web/src/app/(site)/**"
       - "web/tests/launch-gates.test.mjs"
+      - "web/tests/leads-contract.test.mjs"
+      - "web/src/lib/leads/contract.ts"
       - ".github/workflows/prototype-qa.yml"
   workflow_dispatch:
 
@@ -34,7 +36,7 @@ jobs:
       - name: Route and interaction tests
         run: node prototype/tests/smoke.cjs
       - name: Future-domain and checkout safety gates
-        run: node --test web/tests/launch-gates.test.mjs
+        run: node --test web/tests/launch-gates.test.mjs web/tests/leads-contract.test.mjs
       - name: Social API contract tests
         run: node prototype/tests/instagram-api.cjs
       - name: QA search engine exclusion
