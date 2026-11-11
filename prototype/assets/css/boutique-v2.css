@@ -235,3 +235,8 @@ body.o8-page #floating-wa-label{
 }
 body.o8-page .caliza-whatsapp-logo{width:48px;height:48px;color:rgb(255 255 255)}
 body.o8-page .caliza-whatsapp-logo svg{width:30px;height:30px}
+
+/* Reserva una zona de seguridad lateral frente al CTA flotante en fichas de escritorio. */
+@media(min-width:901px){
+ body.o8-page .caliza-detail-content{padding-right:clamp(74px,7vw,106px)}
+}
