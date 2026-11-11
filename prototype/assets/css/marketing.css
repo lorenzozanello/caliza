@@ -127,6 +127,8 @@ body.o8-page{background:var(--surface)}
 @media(max-width:760px){.caliza-family-media{aspect-ratio:1.25}.caliza-family-content{padding:22px}.caliza-family-content h3{font-size:32px}}
 @media(max-width:660px){
   body.o8-page{padding-bottom:72px}
+  .exp-subnav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 18px;overflow:visible;padding:15px 18px}
+  .exp-subnav a{white-space:normal;font-size:11px;line-height:1.5}
   .caliza-conversion-dock{left:0;right:0;bottom:0;width:100%;display:block;max-width:none;padding:10px 14px max(10px,env(safe-area-inset-bottom));background:var(--surface-raised);border-top:1px solid var(--line);box-shadow:0 -5px 20px rgba(24,52,60,.1)}
   .caliza-whatsapp-float{width:100%;min-height:48px;font-size:12px;box-shadow:none}
   .caliza-conversion-dock small{display:none}

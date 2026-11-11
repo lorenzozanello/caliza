@@ -59,7 +59,7 @@
     return `<p class="caliza-channel-note">${directWhatsApp ? 'WhatsApp abrirá una conversación con el número oficial de CALIZA. Usted decide si envía el mensaje.' : 'No fue posible validar el número de WhatsApp. No comparta datos hasta confirmar el destinatario oficial.'}</p>`;
   }
   function routeMessage(route = getRoute()) {
-    if (route.startsWith('/living-design')) return 'Hola, me interesa conocer las piezas de CALIZA LIVING DESIGN. Quisiera asesoría sobre materiales, medidas y cotización.';
+    if (route.startsWith('/living-design') || route === '/tienda') return 'Hola, me interesa conocer las piezas de CALIZA LIVING DESIGN. Quisiera asesoría sobre materiales, medidas y cotización.';
     if (route.startsWith('/stone-care')) return 'Hola, necesito orientación de CALIZA STONE CARE para el cuidado de una superficie de piedra natural.';
     if (route.startsWith('/stone-design') || route === '/proyectos') return 'Hola, quiero conversar con CALIZA STONE DESIGN sobre un proyecto en piedra natural.';
     return 'Hola, quiero conocer los servicios de CALIZA GROUP y recibir asesoría.';
