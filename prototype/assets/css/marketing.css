@@ -135,3 +135,10 @@ body.o8-page{background:var(--surface)}
   .feedback{bottom:78px}
 }
 @media(prefers-reduced-motion:reduce){.caliza-family-media img{transition:none}}
+
+/* P0: familias reales sin fotografías individuales autorizadas. */
+.caliza-family-card .caliza-family-media{aspect-ratio:3/2;background:var(--surface-sand)}
+.caliza-family-placeholder{display:flex;width:100%;height:100%;min-height:190px;flex-direction:column;align-items:center;justify-content:center;gap:var(--space-3);color:var(--ink-muted);font:500 11px/1.45 var(--font-sans);letter-spacing:.16em;text-transform:uppercase;text-align:center;padding:var(--space-5)}
+.caliza-family-placeholder img{width:80px;height:80px;object-fit:contain;opacity:.4}
+.caliza-family-card .caliza-wa-action{max-width:100%;white-space:normal;min-height:48px}
+@media(max-width:660px){.caliza-family-card .caliza-family-media{aspect-ratio:4/5}}
