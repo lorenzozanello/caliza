@@ -64,12 +64,35 @@ jobs:
           export CHROME_PATH="$(find "$HOME/.cache/ms-playwright" -type f -path '*/chrome-linux*/chrome' -print -quit)"
           test -x "$CHROME_PATH"
           npx lhci autorun --config=./lighthouserc.prototype.cjs
+      - name: Summarize Lighthouse opportunities
+        if: always()
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const dir = '.lighthouseci-caliza';
+          if (!fs.existsSync(dir)) { console.log('No Lighthouse JSON reports'); process.exit(0); }
+          for (const file of fs.readdirSync(dir).filter(f => f.endsWith('.json'))) {
+            const report = JSON.parse(fs.readFileSync(dir + '/' + file, 'utf8'));
+            if (!report.categories) continue;
+            console.log('REPORT', report.finalUrl);
+            for (const key of ['performance','accessibility','best-practices']) console.log('SCORE', key, report.categories[key]?.score);
+            for (const id of ['first-contentful-paint','largest-contentful-paint','speed-index','total-blocking-time','cumulative-layout-shift','server-response-time']) {
+              const audit = report.audits?.[id];
+              if (audit) console.log('METRIC', id, audit.displayValue, audit.numericValue);
+            }
+            const opportunities = Object.entries(report.audits || {}).filter(([id,v]) =>
+              v.details?.type === 'opportunity' && Number.isFinite(v.details?.overallSavingsMs)
+            ).sort((x,y) => (y[1].details?.overallSavingsMs || 0) - (x[1].details?.overallSavingsMs || 0)).slice(0,8);
+            for (const [id,v] of opportunities) console.log('OPPORTUNITY', id, v.title, 'ms', Math.round(v.details.overallSavingsMs));
+          }
+          NODE
       - name: Upload Lighthouse reports
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: caliza-lighthouse-qa
           path: web/.lighthouseci-caliza
+          include-hidden-files: true
           retention-days: 7
       - name: Upload browser captures
         if: always()
