@@ -4,10 +4,10 @@ type BrandId = 'group' | 'stone-design' | 'living-design' | 'stone-care'
 type Variant = 'primary' | 'inverse' | 'monochrome'
 
 const dimensions = {
-  group: { width: 330, height: 232, name: 'CALIZA GROUP' },
-  'stone-design': { width: 260, height: 202, name: 'CALIZA STONE DESIGN' },
-  'living-design': { width: 260, height: 202, name: 'CALIZA LIVING DESIGN' },
-  'stone-care': { width: 260, height: 202, name: 'CALIZA STONE CARE' },
+  group: { width: 347, height: 199, name: 'CALIZA GROUP' },
+  'stone-design': { width: 347, height: 259, name: 'CALIZA STONE DESIGN' },
+  'living-design': { width: 347, height: 259, name: 'CALIZA LIVING DESIGN' },
+  'stone-care': { width: 347, height: 259, name: 'CALIZA STONE CARE' },
 } as const
 
 /** Single-source vector lockup. Never stretch, crop or reconstruct with CSS text. */

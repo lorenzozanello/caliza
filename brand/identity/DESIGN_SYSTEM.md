@@ -1,103 +1,37 @@
-# CALIZA GROUP — sistema de identidad digital v1.0
+# CALIZA GROUP — autoridad de diseño
 
-**Fuente visual:** lámina «Manual de marca» aprobada y proporcionada por Caliza (11-11-2026). **Estado:** reconstrucción vectorial fiel a la dirección de arte, **no** un archivo maestro recibido del estudio diseñador. La comparación geométrica punto a punto queda pendiente de recibir los originales AI/SVG/EPS del propietario. No comunicar que esta reconstrucción es el logo oficial definitivo.
+**La fuente de verdad es exclusivamente el paquete entregado por el propietario el 11-11-2026**, conservado sin cambios en `brand/authority/caliza-group-design-system.zip`. SHA-256: `11512e921f109d12be1a7ba7a2a6ce5e1534dc91b23ddef588409137afa100e7`.
 
-## 1. Arquitectura de marca
+Orden de precedencia en caso de discrepancia:
 
-| Identidad | Composición fija | Símbolo distintivo | Aplicación |
-|---|---|---|---|
-| CALIZA GROUP | CALIZA / GROUP centrados + filete Terracotta | No se inventa símbolo corporativo | Navegación, pie, comunicaciones corporativas |
-| CALIZA STONE DESIGN | «C» concéntrica + CALIZA + STONE DESIGN | Tres arcos y remate lleno | Arquitectura, proyectos, materiales |
-| CALIZA LIVING DESIGN | Arco + CALIZA + LIVING DESIGN | Arco mediterráneo abierto abajo | Muebles, objetos, tienda / colección |
-| CALIZA STONE CARE | Estrella de cuatro puntas + CALIZA + STONE CARE | Estrella cóncava simétrica | Limpieza, cuidado, restauración |
+1. [`brand/authority/caliza-group-design-system/AI_BRIEF.md`](../authority/caliza-group-design-system/AI_BRIEF.md) — reglas integrales de marca, diseño, componentes y accesibilidad.
+2. [`brand/authority/caliza-group-design-system/tokens/tokens.json`](../authority/caliza-group-design-system/tokens/tokens.json) — valores exactos, temas claro y oscuro.
+3. [`brand/authority/caliza-group-design-system/MANUAL.md`](../authority/caliza-group-design-system/MANUAL.md) — manual editorial.
+4. [`brand/authority/caliza-group-design-system/logos/`](../authority/caliza-group-design-system/logos/) y [`simbolos/`](../authority/caliza-group-design-system/simbolos/) — **vectores rectores**, sin redibujado en CSS.
+5. [`brand/authority/caliza-group-design-system/components/`](../authority/caliza-group-design-system/components/) — especificaciones UI originales. El bundle React 18 es una referencia, no se inyecta directamente en Next.js.
 
-Los iconos no sustituyen los logos completos cuando es necesaria la identificación de una línea. No convertir `CALIZA GROUP` en una marca horizontal ni modificar la geometría de ningún símbolo mediante CSS.
+El antiguo sistema de identidad generado a partir de la imagen quedó **supeditado** a este paquete. `glyphs.json` y `scripts/extract-glyphs.py` se conservan únicamente como evidencia histórica y no participan en la generación actual.
 
-## 2. Parámetros normativos
+## Distribución reproducible
 
-Los números exactos están en [`identity.config.json`](identity.config.json), única fuente de verdad; el script [`scripts/build-identity.mjs`](scripts/build-identity.mjs) produce automáticamente **21 SVG autocontenidos** y CSS para web y prototipo.
+Ejecutar desde la raíz del repositorio:
 
-| Variable | Valor | Regla |
-|---|---|---|
-| Marine Ink | `#18343C` | Texto y logo sobre superficies claras |
-| Terracotta | `#AE7256` | Símbolos, filetes, detalles, CTA |
-| Sand | `#CEB99B` | Superficies neutras complementarias |
-| Limewash | `#F2EADC` | Fondo cálido principal y texto inverso |
-| Paper | `#FBF7F0` | Superficie editorial auxiliar |
-| Serif | Playfair Display Regular (400) | Titulares y logotipos |
-| Sans | Montserrat Regular (400) | Descriptores, navegación y textos |
-| Área de respeto | ≥ **0,5× cap-height** alrededor de lockup | Ningún texto, icono o borde invade el perímetro |
-| Mínimo grupo | **90 px** de ancho | Por debajo, usar texto legible en vez de escalar de más |
-| Mínimo línea | **96 px** de ancho | Por debajo, usar solo símbolo + nombre accesible |
-| Mínimo símbolo | **24 px** | No disminuir el trazo manualmente |
-| Esquinas de UI | 0 px | Placas rectas; redondeos solo para controles excepcionales |
-
-Estos mínimos son pautas de interfaz digital derivadas de la lámina, no especificaciones oficiales de imprenta.
-
-## 3. Archivos maestros independientes
-
-En [`dist/`](dist/) hay un SVG autónomo por marca y variante (no depende de que el usuario tenga una fuente instalada):
-
-```
-caliza-group-primary.svg         caliza-group-inverse.svg         caliza-group-monochrome.svg
-caliza-stone-design-primary.svg  caliza-stone-design-inverse.svg  caliza-stone-design-monochrome.svg
-caliza-living-design-primary.svg caliza-living-design-inverse.svg caliza-living-design-monochrome.svg
-caliza-stone-care-primary.svg    caliza-stone-care-inverse.svg    caliza-stone-care-monochrome.svg
-symbol-stone-design-{primary,inverse,monochrome}.svg
-symbol-living-design-{primary,inverse,monochrome}.svg
-symbol-stone-care-{primary,inverse,monochrome}.svg
+```sh
+node brand/identity/scripts/build-identity.mjs
+node brand/identity/tests/identity.test.mjs
 ```
 
-`primary` = Marine Ink + Terracotta, para fondo claro. `inverse` = Limewash + Terracotta, para fondo Marine Ink. `monochrome` = Marine Ink uniforme. No aplicar filtros CSS de color al SVG; se selecciona su variante. No se crea símbolo inventado para Group.
+El distribuidor toma los SVG **sin alterar las curvas** del paquete original y genera sus nombres de compatibilidad para:
 
-Los mismos archivos se distribuyen en `web/public/brand/` y `prototype/assets/img/brand/`. Las antiguas rutas `option08-stone.svg`, `option08-living.svg` y `option08-care.svg` son **aliases regenerados** con la misma geometría para conservar la compatibilidad.
+- `brand/identity/dist/` — copia web normalizada de SVG.
+- `web/public/brand/` — storefront Next.js.
+- `prototype/assets/img/brand/` — experiencia estática.
+- `web/public/brand/fonts/` y `prototype/brand/fonts/` — fuentes WOFF2 licenciadas incluidas en el ZIP.
+- `web/src/styles/authority-tokens.css` y `prototype/assets/css/authority-tokens.css` — variables semánticas oficiales y `@font-face` con rutas locales.
+- `web/src/styles/identity.css` y `prototype/assets/css/identity.css` — adaptación del sistema a la interfaz existente.
 
-## 4. Construcción geométrica
+La familia de compatibilidad expone los lockups completos en variantes `primary`, `inverse` y `monochrome`; `monochrome` para submarcas es una versión a tinta Marine Ink derivada del principal y debe validarse antes de uso impreso. Los iconos separados incluyen `primary` Terracotta y `limewash`. La variante `inverse` mantiene Terracotta según el manual. No se inventa símbolo corporativo de Group.
 
-- Símbolos en retícula cuadrada de `64 × 64` unidades y `viewBox` permanente.
-- Lockup principal `330 × 232`; lockups divisionales `260 × 202`.
-- El símbolo, las dos líneas tipográficas y los márgenes comparten un eje central.
-- El generador transforma los glifos de Playfair Display y Montserrat en contornos vectoriales estáticos (`<path>`); no inserta `<text>` ni depende de Google Fonts durante el pintado de un logo.
-- Los `<img>` conservan su razón de aspecto (`width:auto` no se combina con un `height` ajeno a la proporción). Se prohíbe `object-fit:cover`, `transform:scaleX/Y`, estiramiento y fondos muy concurridos sin máscara de contraste.
+## Regla de integración
 
-## 5. Uso de interfaz
-
-**Header:** logo Group en variante `primary` sobre Limewash. En móvil puede bajar a 82 px de ancho. **Footer y menú oscuro:** variante `inverse` sobre Marine Ink. **Pilares de negocio:** marca divisional completa cuando identifica a la línea, símbolo solo cuando acompaña un título que contiene el nombre completo. **Favicon:** no reinterpretar un símbolo de línea como logo corporativo; hasta recibir un favicon maestro, usar la versión Group completa y verificar su legibilidad.
-
-Ejemplo React:
-
-```tsx
-import { BrandMark } from '@/components/BrandMark'
-
-<BrandMark brand="group" variant="primary" width={105} />
-<BrandMark brand="living-design" variant="inverse" width={160} />
-```
-
-Ejemplo HTML:
-
-```html
-<img src="assets/img/brand/caliza-group-primary.svg"
-  class="caliza-brand-logo" data-caliza-mark="group"
-  width="330" height="232" alt="CALIZA GROUP"
-  style="--caliza-mark-width:105px">
-```
-
-## 6. Reglas tipográficas, imagen y accesibilidad
-
-- Titulares editoriales en Playfair Display (400); texto y microetiquetas en Montserrat (400/500).
-- Evitar texto con tracking artificial y tamaños menores de 10 px en pantallas normales; las etiquetas deben ser legibles también en móvil.
-- Fotografía: piedra porosa, luz cálida, sombras de arquitectura, materia y artesanía; no sustituir productos reales con imágenes generadas sin identificarlas.
-- Fondos de marca y contraste: los SVG inversos se reservan para fondos oscuros; la variante `primary` sobre fondos claros. Validar contraste de textos, foco visible y lecturas del lector de pantalla.
-- La imagen del logo dentro de un enlace cuyo `aria-label` ya da el nombre debe usar `alt=""`; en otros contextos debe incluir el nombre de marca como `alt`.
-
-## 7. Control de versiones y prueba
-
-1. Editar exclusivamente `identity.config.json` para paleta, proporciones y rutas geométricas.
-2. `node brand/identity/scripts/build-identity.mjs` genera toda la familia de archivos; nunca ajustar copias a mano.
-3. `node brand/identity/tests/identity.test.mjs` verifica determinismo, color, variantes, ratios, rutas y consistencia con `brand/tokens.json`.
-4. Abrir `/marca.html` en el prototipo de Vercel y comprobar las cuatro marcas y tres variantes en escritorio/móvil.
-5. Confrontar los símbolos y los espacios con los **vectores oficiales** cuando Caliza los entregue; si difieren, actualizar la configuración y regenerar, sin editar 21 recursos por separado.
-
-## Licencias y trazabilidad
-
-Se partió de las versiones abiertas de [Playfair Display](https://github.com/google/fonts/tree/main/ofl/playfairdisplay) y [Montserrat](https://github.com/google/fonts/tree/main/ofl/montserrat), ambas bajo SIL Open Font License 1.1. Sus contornos se extraen exclusivamente para las letras de las marcas. Los archivos `licenses/` conservan las licencias de fuentes. La lámina adjunta aporta dirección de marca; el copyright de la identidad de Caliza permanece en sus titulares.
+`BrandMark` es un adaptador del SVG rector; nunca recompone el logotipo con texto. Las proporciones reales son 347.2/199 (Group) y 347.2/258.8 (submarcas). Los tokens se aplican después de los estilos antiguos para evitar que colores/contrastes heredados se impongan. Las páginas pendientes de migración completa se detallan en la auditoría.

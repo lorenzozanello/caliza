@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="es" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CALIZA GROUP — Demo del sistema de diseño</title>
+<link rel="stylesheet" href="tokens/tokens.css">
+<link rel="stylesheet" href="components/bundle.css">
+<style>
+  .wrap { max-width: 1040px; margin: 0 auto; padding: var(--space-7); }
+  section { padding: var(--space-8) 0; border-top: var(--hairline) solid var(--line); }
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-4); margin-top: var(--space-6); }
+  .sw { display: flex; flex-direction: column; align-items: center; gap: var(--space-2); text-align: center; }
+  .sw span:first-child { width: 96px; height: 96px; border-radius: var(--radius-round); }
+  .toggle { position: fixed; bottom: var(--space-4); right: var(--space-4); z-index: 2; background: var(--surface); }
+  .row { display: flex; flex-wrap: wrap; gap: var(--space-5); align-items: center; margin-top: var(--space-6); }
+  .center { display: flex; justify-content: center; padding: var(--space-9) 0 var(--space-8); }
+  p { margin: var(--space-4) 0 0; max-width: 560px; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script src="components/lib/react.production.min.js"></script>
+<script src="components/lib/react-dom.production.min.js"></script>
+<script src="components/bundle.js"></script>
+<script>
+  var C = window.Caliza, h = React.createElement;
+  var swatches = [['marine-ink','Marine Ink','#18343C'],['terracotta','Terracotta','#AE7256'],['sand','Sand','#CEB99B'],['limewash','Limewash','#F2EADC']];
+  function App() {
+    var s = React.useState('light'), theme = s[0], setTheme = s[1];
+    React.useEffect(function () { document.documentElement.setAttribute('data-theme', theme); }, [theme]);
+    return h(React.Fragment, null,
+      h('div', { className: 'toggle' }, h(C.Button, { variant: 'secondary', onClick: function () { setTheme(theme === 'light' ? 'dark' : 'light'); } }, theme === 'light' ? 'Versión inversa' : 'Versión clara')),
+      h(C.NavBar, { links: [{ label: 'Proyectos', active: true }, { label: 'Marcas' }, { label: 'Nosotros' }, { label: 'Contacto' }] }),
+      h(C.Hero, { src: 'imagen/universo-living-design.jpg', alt: 'Sala bajo arcos de piedra caliza', kicker: 'Caliza Group', title: 'Espacios que perduran.', text: 'Piedra natural, diseño y cuidado para una vida contemporánea.', cta: { label: 'Ver proyectos', href: '#' } }),
+      h('div', { className: 'wrap' },
+        h('div', { className: 'center' }, h(C.Wordmark, { size: 72 })),
+        h('section', null, h(C.SectionTitle, null, 'Arquitectura'),
+          h('p', { className: 'lead' }, 'CALIZA GROUP es un ecosistema de marcas especializado en piedra natural, diseño de vida y cuidado.'),
+          h('div', { className: 'row', style: { justifyContent: 'space-around' } },
+            h(C.SubBrandLockup, { brand: 'stone-design' }), h(C.SubBrandLockup, { brand: 'living-design' }), h(C.SubBrandLockup, { brand: 'stone-care' }))),
+        h('section', null, h(C.SectionTitle, null, 'Paleta'),
+          h('div', { className: 'row', style: { justifyContent: 'space-around' } }, swatches.map(function (w) {
+            return h('div', { key: w[0], className: 'sw' }, h('span', { style: { background: 'var(--' + w[0] + ')', outline: '1px solid var(--line)' } }), h('span', { className: 'label' }, w[1]), h('span', { className: 'caption' }, w[2]));
+          }))),
+        h('section', null, h(C.SectionTitle, null, 'Tipografía'),
+          h('div', { className: 'headline', style: { marginTop: 'var(--space-6)' } }, 'Espacios que perduran.'),
+          h('div', { className: 'subtitle' }, 'Materia, espacios, personas'),
+          h('p', { className: 'body' }, 'Fusionamos la materia, el diseño y el bienestar para crear espacios atemporales que honran la naturaleza y la arquitectura contemporánea colombiana.'),
+          h('div', { className: 'descriptor', style: { marginTop: 'var(--space-4)' } }, 'Stone Design')),
+        h('section', null, h(C.SectionTitle, null, 'Universo visual'),
+          h('div', { className: 'grid3' },
+            h(C.ImageCard, { src: 'imagen/universo-stone-design.jpg', alt: 'Lavamanos en piedra caliza', title: 'Stone Design', subtitle: 'Piedra que transforma espacios' }),
+            h(C.ImageCard, { src: 'imagen/universo-living-design.jpg', alt: 'Sala bajo arcos de piedra', title: 'Living Design', subtitle: 'Diseño que habita la vida' }),
+            h(C.ImageCard, { src: 'imagen/universo-stone-care.jpg', alt: 'Mano puliendo piedra', title: 'Stone Care', subtitle: 'Cuidado que prolonga la belleza' }))),
+        h('section', null, h(C.SectionTitle, null, 'Aplicaciones'),
+          h('div', { className: 'row', style: { alignItems: 'flex-end' } },
+            h(C.ArchFrame, { src: 'imagen/atmosfera-arco.jpg', alt: 'Arco de piedra caliza', width: 180 }),
+            h(C.SampleTag, { brand: 'stone-design', name: 'Caliza Coralina', details: [{ label: 'Acabado', value: 'Apomazado' }, { label: 'Formato', value: '60 × 120 cm' }], code: 'SD · 0142' }),
+            h('div', { style: { display: 'grid', gap: 'var(--space-4)' } },
+              h(C.Button, { variant: 'primary' }, 'Solicitar muestra'), h(C.Button, { variant: 'secondary' }, 'Ver catálogo'), h(C.Button, { variant: 'link', href: '#' }, 'Conocer más'))))));
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(h(App));
+</script>
+</body>
+</html>
