@@ -38,7 +38,7 @@
   let toastTimer;
 
   // Datos de familias de CALIZA; sus imágenes siguen pendientes de aprobación.
-  const families = (window.CALIZA_CATALOGO?.familias || []).map((f) => ({ ...f, name: f.nombre, category: f.categoria }));
+  const families = (window.CALIZA_CATALOGO?.familias || []).map((f) => ({ ...f, name: f.nombre, category: f.categoria, description: f.descripcion || '' }));
   const MODO_SELECCION_ACTIVO = window.CALIZA_CATALOGO?.MODO_SELECCION_ACTIVO === true;
 
   function announce(message) {
