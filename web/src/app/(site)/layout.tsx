@@ -3,6 +3,7 @@ import '@/styles/tokens.css'
 import '@/styles/site.css'
 import '@/styles/option08.css'
 import '@/styles/social.css'
+import '@/styles/identity.css'
 import { CartProvider } from '@/components/cart/CartProvider'
 import { CartDrawer } from '@/components/cart/CartDrawer'
 import { SiteHeader } from '@/components/SiteHeader'
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
   title: { default: 'CALIZA GROUP · La materia toma forma', template: '%s · CALIZA GROUP' },
   description: 'CALIZA GROUP: Stone Design, Living Design y Stone Care. Diseño, vida y cuidado en piedra natural para espacios que perduran.',
   openGraph: { siteName: 'CALIZA GROUP', locale: 'es_CO', type: 'website' },
-  icons: { icon: '/brand/option08-stone.svg' },
+  icons: { icon: '/brand/caliza-group-primary.svg' },
 }
 
 export default async function SiteLayout({ children }: { children: React.ReactNode }) {

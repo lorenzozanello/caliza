@@ -2,7 +2,7 @@
 
 Sistema de marca y diseño de Caliza: espacios y piezas en piedra natural. Tres generaciones de marmoleros italianos; la tercera diseña en Colombia.
 
-Este documento es la fuente de verdad para el sitio web, las campañas y cualquier pieza digital. Quien construya algo para Caliza, persona o agente, usa solo lo que está aquí: tokens, componentes y reglas. Si algo falta, se agrega aquí primero.
+La identidad visual de referencia aprobada se gobierna por [identity/DESIGN_SYSTEM.md](identity/DESIGN_SYSTEM.md) y su archivo parametrizado [identity/identity.config.json](identity/identity.config.json). Las reglas editoriales y de componentes de este archivo complementan la identidad; ante conflicto, **prevalece el manual actualizado**.
 
 ## Esencia
 
@@ -18,27 +18,18 @@ El método de Caliza ordena todo el contenido: **Seleccionar → Interpretar →
 
 | Nombre | Rol | Verbo |
 | --- | --- | --- |
-| **CALIZA** | Marca visible en todos los canales | — |
-| Caliza Stone | Proyectos en piedra: cocinas, baños, pisos, muros, piscinas, fachadas | Transformar el espacio |
-| Caliza Design | Mobiliario y objetos donde la piedra es protagonista | Habitar el espacio |
-| Caliza Care | Mantenimiento, protección y restauración de superficies de piedra | Preservar el espacio |
-| Caliza Group | Razón social. Solo en el pie de página y documentos legales | — |
+| **CALIZA GROUP** | Marca madre visible en cabecera, pie y comunicación institucional | Crear · Habitar · Preservar |
+| **CALIZA STONE DESIGN** | Proyectos en piedra: cocinas, baños, pisos, muros, piscinas, fachadas | Crear |
+| **CALIZA LIVING DESIGN** | Mobiliario y objetos donde la piedra es protagonista | Habitar |
+| **CALIZA STONE CARE** | Mantenimiento, protección y restauración de superficies de piedra | Preservar |
 
-- Stone, Design y Care comparten un solo sistema visual. No tienen colores propios; se distinguen por la fotografía y el contenido.
+- Las tres líneas comparten paleta y tipografía, pero **cada una tiene un símbolo geométrico distinto** documentado en el sistema de identidad.
 - Los nombres de las líneas quedan en inglés. Todo lo demás en la interfaz va en español.
 - **Leonardo Zanello** es la dirección creativa. Su firma aparece en piezas de autor numeradas y en la historia del estudio, no en el logo.
 
 ## Logo
 
-Grupo **Logos**. El logo no se modifica.
-
-- `lockup_dark.svg` sobre fondos claros (`piedra`, `papel`, `arena`); `lockup_light.svg` sobre `carbon` y sobre fotografía oscura.
-- El símbolo solo (`symbol_*.svg`) se usa como firma pequeña: favicon, sello del manifiesto, cierre de la página.
-- La firma "by Leonardo Zanello" es opcional y va bajo el nombre solo en piezas institucionales.
-- Altura mínima del logo horizontal en pantalla: 22px. Espacio libre alrededor: la altura de la "C" del símbolo.
-- No se estira, no se rota, no se recolorea fuera de `carbon` y `claro`, no se le agregan sombras ni contornos.
-
-Los archivos actuales se vectorizaron desde el manual en PDF. Hay que reemplazarlos por los vectores originales cuando estén disponibles.
+Los maestros de la familia aprobada están en **`identity/dist/`**: cuatro lockups y tres símbolos, todos con variantes principal, inversa y monocroma. Los archivos antiguos `assets/Logos/lockup_*.svg` corresponden a una etapa anterior y no se deben usar en interfaces nuevas. No se estiran, rotan ni recolorean. El generador produce contornos tipográficos portátiles, sin depender de fuentes instaladas. Son una **reconstrucción** a partir de la imagen aprobada, hasta recibir vectores oficiales.
 
 ## Color
 
@@ -46,7 +37,7 @@ Un solo tema, **Piedra**, con secciones oscuras en `carbon`. El color lo pone la
 
 - Fondo: `piedra`. Superficies elevadas: `papel`. Bloques de acento: `arena`.
 - Texto: `carbon`; secundario: `veta`. Sobre oscuro: `claro` y `claro-2`.
-- `acento` es el único acento y solo vive sobre `carbon`.
+- `acento` Terracotta se utiliza en símbolos, filetes y llamadas a la acción; mantener legibilidad según el fondo.
 - `wa` es exclusivo de WhatsApp. Si un botón no abre WhatsApp, no es verde.
 - `exito` y `error` solo comunican estado, siempre acompañados de texto.
 - Nunca dos secciones oscuras seguidas. Nunca blanco puro de fondo.
@@ -55,8 +46,8 @@ Un solo tema, **Piedra**, con secciones oscuras en `carbon`. El color lo pone la
 
 Dos familias, tres tamaños de titular.
 
-- **Instrument Serif** (`serif`) para titulares: `display` (uno por página), `titulo` (secciones), `subtitulo` (piezas, proyectos). Itálica solo para una frase dentro de un titular.
-- **Hanken Grotesk** (`sans`) para todo lo demás: `cuerpo`, `pequeno`, `boton`, `etiqueta`.
+- **Playfair Display** (`serif`) para titulares: `display` (uno por página), `titulo` (secciones), `subtitulo` (piezas, proyectos). Itálica solo para una frase dentro de un titular.
+- **Montserrat** (`sans`) para todo lo demás: `cuerpo`, `pequeno`, `boton`, `etiqueta`.
 - Ambas se cargan desde Google Fonts. Si Caliza elige una tipografía de pago, se reemplaza aquí y se licencia para web.
 - Titulares en tipo oración ("Piezas para habitar."), nunca en mayúsculas. Las mayúsculas solo en `etiqueta`, una por bloque.
 - Los números que se comparan (precios, medidas) van con `font-variant-numeric: tabular-nums`.
@@ -89,6 +80,7 @@ Regla de acciones: **un solo botón primario por pantalla visible**. Lo demás e
 ## Uso en código
 
 - Los tokens salen de `tokens.json`. En el repositorio, `node brand/scripts/build-tokens.mjs` genera `brand/tokens.css` con una variable CSS por token (`--piedra`, `--space-6`, `--font-serif`).
+- Los logotipos salen de `identity/identity.config.json`. `node brand/identity/scripts/build-identity.mjs` compila y sincroniza SVG/CSS tanto al storefront Next.js como al prototipo estático. Se prueban con `node brand/identity/tests/identity.test.mjs`.
 - Los estilos de componente están en `components/bundle.css` y solo usan esas variables.
 - **No se introducen colores, tamaños de letra, espaciados, radios, sombras ni curvas de movimiento nuevos.** Si hace falta uno, se agrega primero a este sistema.
 

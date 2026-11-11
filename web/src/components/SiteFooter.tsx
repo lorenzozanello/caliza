@@ -1,11 +1,12 @@
 import Link from 'next/link'
+import { BrandMark } from './BrandMark'
 
 export function SiteFooter({ instagram, tiktok, whatsappHref, legal = [] }: { instagram?: string | null; tiktok?: string | null; whatsappHref: string; legal?: { slug: string; title: string }[] }) {
   return (
     <footer className="site-footer">
       <div className="cols">
         <div className="c-1-4" style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-          <Link href="/" className="o8-wordmark" aria-label="CALIZA GROUP, inicio"><span>CALIZA</span><span>GROUP</span><i aria-hidden="true" /></Link>
+          <Link href="/" className="caliza-brand-link" aria-label="CALIZA GROUP, inicio"><BrandMark decorative variant="inverse" width={122} /></Link>
           <span className="small" style={{ color: 'var(--claro-2)' }}>Crear. Habitar. Preservar. · Colombia al mundo</span>
         </div>
         <div style={{ gridColumn: '6 / span 2' }}><h2 className="footer__title">Líneas</h2><ul><li><Link href="/stone">Stone Design</Link></li><li><Link href="/design">Living Design</Link></li><li><Link href="/care">Stone Care</Link></li></ul></div>

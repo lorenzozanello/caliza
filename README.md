@@ -2,17 +2,17 @@
 
 Sitio web de Caliza: espacios y piezas en piedra natural. Tres generaciones de marmoleros italianos, hecho en Colombia.
 
-Líneas: **Caliza Stone** (transformar el espacio), **Caliza Design** (habitarlo) y **Caliza Care** (preservarlo).
+Líneas: **CALIZA STONE DESIGN** (crear), **CALIZA LIVING DESIGN** (habitar) y **CALIZA STONE CARE** (preservar).
 
 ## Contenido del repositorio
 
 - `web/` — el sitio en producción: Next.js 16 + Payload CMS 3 (tienda, pagos, seguimiento de pedidos y administración). Ver `web/README.md`.
-- `brand/` — sistema de marca: tokens, componentes, fotografía, movimiento, voz y tono.
+- `brand/` — sistema de marca: [guía parametrizada](brand/identity/DESIGN_SYSTEM.md), 21 SVG independientes, tokens, componentes, fotografía, movimiento, voz y tono.
 - `prototype/` — prototipo navegable de la experiencia (home, producto y checkout) con el sistema visual y las microinteracciones. Ver `prototype/README.md`.
 
 ## Decisiones vigentes
 
-- CALIZA es la marca visible; Caliza Group queda como razón social.
+- CALIZA GROUP es la marca madre del sistema; las tres líneas tienen sus respectivos símbolos, según la referencia visual aprobada.
 - El logo no cambia y puede usarse sin la firma "by Leonardo Zanello".
 - La piedra es la protagonista; madera, metal y texturas la acompañan.
 - La web funciona como landing de las campañas de TikTok e Instagram, con WhatsApp como canal principal de conversación.

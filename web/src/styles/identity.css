@@ -1,0 +1,39 @@
+/* Auto-generado desde identity.config.json. Mantener sin ediciones manuales. */
+:root {
+  --caliza-marine-ink: #18343C;
+  --caliza-terracotta: #AE7256;
+  --caliza-sand: #CEB99B;
+  --caliza-limewash: #F2EADC;
+  --caliza-paper: #FBF7F0;
+  --caliza-font-display: "Playfair Display", Georgia, serif;
+  --caliza-font-body: "Montserrat", Arial, sans-serif;
+  --caliza-clearspace: 0.5em;
+  --caliza-mark-min-group: 90px;
+  --caliza-mark-min-division: 96px;
+  --caliza-mark-min-symbol: 24px;
+}
+.caliza-brand-logo {
+  display: block;
+  flex: none;
+  width: var(--caliza-mark-width, 120px);
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+  aspect-ratio: 330 / 232;
+}
+.caliza-brand-logo[data-caliza-mark="division"] { aspect-ratio: 260 / 202; }
+.caliza-brand-logo[data-caliza-mark="symbol"] { aspect-ratio: 1; }
+.caliza-brand-link { display: inline-flex; align-items: center; flex: none; min-width: 0; text-decoration: none; }
+.caliza-brand-link .caliza-brand-logo { width: var(--caliza-mark-width, 120px); height: auto; }
+.site-header .logo img.caliza-brand-logo {
+  position: static; inset: auto; width: var(--caliza-mark-width, 104px);
+  height: auto; opacity: 1; transform: none; max-height: none;
+}
+.mobile-menu img.caliza-brand-logo, .site-footer img.caliza-brand-logo {
+  width: var(--caliza-mark-width, 104px); height: auto; position: static;
+}
+@media (max-width: 660px) {
+  .o8-header .caliza-brand-logo, .site-header .logo img.caliza-brand-logo { width: 82px; }
+  .site-footer .caliza-brand-logo { width: 96px; }
+}
