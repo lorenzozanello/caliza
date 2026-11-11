@@ -1,0 +1,44 @@
+name: caliza-prototype-qa
+on:
+  pull_request:
+    paths:
+      - "prototype/**"
+      - ".github/workflows/prototype-qa.yml"
+  push:
+    branches:
+      - "feat/caliza-v1-real-media-audit3-20261111"
+    paths:
+      - "prototype/**"
+      - ".github/workflows/prototype-qa.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: caliza-prototype-qa
+  cancel-in-progress: true
+
+jobs:
+  consultative-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Script syntax
+        run: |
+          node --check prototype/assets/js/experience.js
+          node --check prototype/assets/data/catalogo.js
+          node --check prototype/assets/js/featured-social.js
+          node --check prototype/api/instagram-feed.js
+      - name: Route and interaction tests
+        run: node prototype/tests/smoke.cjs
+      - name: Social API contract tests
+        run: node prototype/tests/instagram-api.cjs
+      - name: QA search engine exclusion
+        run: |
+          grep -q 'name="robots" content="noindex,nofollow"' prototype/index.html
+          grep -q 'Disallow: /' prototype/robots.txt
