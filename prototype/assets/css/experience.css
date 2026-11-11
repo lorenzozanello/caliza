@@ -37,7 +37,7 @@ body.o8-page{background:var(--surface-raised);min-width:300px}
 .exp-copy-split{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;max-width:var(--o8-w);margin:auto;padding:90px var(--o8-gap)}
 .exp-copy-split h2{font:400 clamp(38px,4vw,64px)/1.08 var(--font-serif);letter-spacing:0;max-width:520px;margin:22px 0}.exp-copy-split p{font-size:15px;line-height:1.9;margin:0 0 17px;max-width:500px}
 .exp-process{padding:74px var(--o8-gap);margin-top:70px;background:var(--limewash)}.exp-process>h2,.exp-pathways>h2{font:400 clamp(38px,4vw,60px) var(--font-serif);letter-spacing:0;margin:17px 0 35px}
-.exp-process .exp-grid>div{border-top:1px solid var(--line);padding:21px 4px}.exp-process .exp-grid>div>span{color:var(--terracotta);font-size:11px}.exp-process h3{font:400 23px var(--font-serif);margin:18px 0}
+.exp-process .exp-grid>div{border-top:1px solid var(--line);padding:21px 4px}.exp-process .exp-grid>div>span{color:var(--accent-text);font-size:12px;font-weight:500}.exp-process h3{font:400 23px var(--font-serif);margin:18px 0}
 .exp-project>img{aspect-ratio:1.28;object-fit:cover}.exp-project h2{font:400 28px var(--font-serif);margin:15px 0 4px}.exp-project p{font-size:11px;color:var(--ink-muted);margin:0}
 .exp-cta-centered{display:flex;justify-content:center;padding:50px 0 10px}
 .exp-subnav{display:flex;gap:30px;padding:16px var(--o8-gap);border-block:1px solid var(--line);background:var(--surface-raised);font-size:11px;letter-spacing:.1em;text-transform:uppercase;overflow-x:auto}
