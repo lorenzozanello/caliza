@@ -12,7 +12,8 @@
  *       "archivo_original": "foto-01.jpg",
  *       "texto_alt": "Descripción específica revisada",
  *       "derechos_publicacion_confirmados": "Sí", "aprobado_web": "Sí",
- *       "producto_real": "Sí", "control_listo_publicar": "Sí"
+ *       "producto_real": "Sí", "control_listo_publicar": "Sí",
+ *       "revision_sin_precios": "Sí", "recorte": { "left": 0, "top": 0, "width": 800, "height": 800 }
  *     }
  *   ]
  * }
@@ -51,7 +52,7 @@ for (const media of records) {
   slugs.add(media.familia_slug);
   if (!/^CAL-MED-\d{4}$/.test(media.medio_id || '')) throw new Error('medio_id inválido');
   if (media.derechos_publicacion_confirmados !== 'Sí' || media.aprobado_web !== 'Sí' ||
-      media.producto_real !== 'Sí' || media.control_listo_publicar !== 'Sí') {
+      media.producto_real !== 'Sí' || media.control_listo_publicar !== 'Sí' || media.revision_sin_precios !== 'Sí') {
     throw new Error(media.medio_id + ': falta aprobación real por medio y entidad; no exportar.');
   }
   if (typeof media.texto_alt !== 'string' || media.texto_alt.trim().length < 15) throw new Error('Alt insuficiente para ' + media.medio_id);
@@ -62,24 +63,32 @@ for (const media of records) {
   if (!st.isFile() || st.size > 20 * 1024 * 1024) throw new Error('Original inválido o demasiado grande');
   const meta = await sharp(full).metadata();
   if (meta.width < 500 || meta.height < 500) throw new Error('Resolución insuficiente de ' + media.medio_id);
-  checked.push({ media, full, width: meta.width });
+  const crop = media.recorte || null;
+  if (crop && (!['left','top','width','height'].every((k) => Number.isInteger(crop[k])) ||
+    crop.left < 0 || crop.top < 0 || crop.width < 320 || crop.height < 320 ||
+    crop.left + crop.width > meta.width || crop.top + crop.height > meta.height)) {
+    throw new Error('Recorte inválido para ' + media.medio_id);
+  }
+  checked.push({ media, full, width: crop?.width || meta.width, crop });
 }
 const staging = await mkdtemp(path.join(os.tmpdir(), 'caliza-approved-'));
 try {
   const manifest = {};
-  for (const { media, full, width } of checked) {
+  for (const { media, full, width, crop } of checked) {
     const name = media.familia_slug;
-    for (const w of [640, 960, 1280, 1920]) {
+    let primaryWidth = null;
+    for (const w of [320, 480, 640, 960, 1280, 1920]) {
       if (w > width) continue;
-      const photo = sharp(full).rotate().resize({ width: w, withoutEnlargement: true })
+      const photo = (crop ? sharp(full).extract(crop) : sharp(full)).rotate().resize({ width: w, withoutEnlargement: true })
         .modulate({ saturation: 0.94, brightness: 1.015 });
       await photo.clone().webp({ quality: 79, effort: 5 }).toFile(path.join(staging, name + '-' + w + '.webp'));
       await photo.clone().avif({ quality: 55, effort: 5 }).toFile(path.join(staging, name + '-' + w + '.avif'));
+      primaryWidth = w;
     }
-    if (!(await stat(path.join(staging, name + '-640.webp')).catch(() => null))) throw new Error('No se generó el formato móvil.');
+    if (!primaryWidth || !(await stat(path.join(staging, name + '-' + primaryWidth + '.webp')).catch(() => null))) throw new Error('No se generó formato válido.');
     // Ruta WebP de fallback para navegadores compatibles; AVIF y srcset en un futuro renderer.
     manifest[name] = {
-      src: 'approved/' + name + '-640.webp',
+      src: 'approved/' + name + '-' + primaryWidth + '.webp',
       alt: media.texto_alt.trim(),
       medio_id: media.medio_id
     };

@@ -11,10 +11,10 @@
 - Muestras editoriales privadas preparadas con los IDs de referencia: CAL-MED-0129 (comedor), CAL-MED-0118 (auxiliares), CAL-MED-0147 (sillas hogar), CAL-MED-0137 (comercial), CAL-MED-0106 (lavamanos), CAL-MED-0001 y CAL-MED-0066 (piedra/cocinas). La fuente se mantiene en Drive.
 
 ## Integración cuando CALIZA apruebe imágenes
-1. Asociar `medio_id` y familia o `producto_id` verificado en 06_IMAGENES; registrar `texto_alt`, derechos confirmados Sí y aprobado_web Sí.
+1. Asociar `medio_id` y familia o `producto_id` verificado en 06_IMAGENES; registrar `texto_alt`, derechos confirmados Sí, aprobado_web Sí, producto real y revisión de recorte sin precios históricos confirmada.
 2. Para fichas individuales, completar entidad y campo `listo_publicar` en 10_CONTROL; no utilizar el campo global SRC-CAT como sustituto.
 3. Preparar un JSON **privado fuera del repositorio** con registros aprobados y rutas a originales autorizados. Ejecutar desde `web/`: `npm run media:prepare -- --manifest /ruta/manifest-privado.json --source /ruta/originales`.
-4. El script bloquea imágenes sin las cuatro validaciones, genera AVIF/WebP responsive, y actualiza `prototype/assets/data/approved-media.js` sin URLs privadas.
+4. El script bloquea imágenes sin las cinco validaciones y admite un recorte dentro del original, genera AVIF/WebP responsive, y actualiza `prototype/assets/data/approved-media.js` sin URLs privadas.
 5. Hacer inspección visual humana antes de subir medios al repositorio y desplegar. No copiar a GitHub ZIPs originales de Drive, capturas con precios o enlaces privados.
 
 ## Tercera auditoría
