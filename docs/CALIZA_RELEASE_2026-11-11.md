@@ -2,6 +2,18 @@
 
 **Fecha:** 11-11-2026. **Rama:** `feat/caliza-verified-channels-20261111`.
 
+## Revisión editorial complementaria (11-11-2026, segunda auditoría)
+
+La segunda auditoría identificó pérdida de impacto visual en las cinco familias sin imágenes, una ruta imposible de usar («Mi selección» sin referencias aprobadas), tarjetas y botones desbordados en móvil y enlaces antiguos hacia fichas inexistentes.
+
+- **Se recupera la dirección boutique sin inventar inventario:** cinco escenas editoriales separadas, una por familia (comedor, auxiliares, sillas de hogar, sillas comerciales y lavamanos). Cuatro escenas fueron generadas expresamente como inspiración conceptual; comedor reutiliza la escena conceptual existente. Cada imagen lleva la leyenda visible «Imagen conceptual» y texto alternativo que niega equivalencia con un modelo a la venta. Se entregan versiones WebP optimizadas.
+- **Una sola conversión real:** «Consultar esta familia» abre el WhatsApp oficial con la familia especificada. Se elimina el contador «Mi selección 0», los enlaces a carrito no funcional y la promesa de guardar/configurar referencias que el catálogo no puede publicar. El acceso flotante a WhatsApp permanece visible en escritorio y móvil.
+- **Enlaces legados:** `#/living-design/carrito`, `#/living-design/pieza/*` y `checkout.html` conducen de forma segura a la colección consultiva (sin cobrar ni simular stock). `producto.html` ya redirigía a colección.
+- **Composición:** rejilla fluida sin celda vacía, fotografía con foco por categoría, cuerpo y CTA de ancho contenido, tipografía y etiquetas legibles en móviles de 360/390 px. La advertencia general de QA se reubica al pie; las aclaraciones conceptuales siguen junto a cada imagen.
+- **Next/Payload:** cuando no hay productos aprobados, `/design` y la portada ofrecen la misma experiencia de familias ilustradas; los filtros de productos y el carrito solo se muestran si existen piezas publicadas que pasan los controles. Las ventas reales permanecen bloqueadas por sus propios gates.
+
+**Pruebas de código:** `node prototype/tests/smoke.cjs` (18 rutas, incluidos legados), `node brand/identity/tests/identity.test.mjs`, tests de publicación y `npm run typecheck && npm run build` en `web/` concluyeron PASS local. **Pendiente:** QA visual de la vista previa desplegada, confirmación del proyecto y decisión explícita de incorporar a rama QA estable. Esto no constituye aprobación editorial para comercio ni publicación de productos reales.
+
 ## Decisiones rectoras
 
 1. **Identidad inmutable:** `brand/authority/caliza-group-design-system/` continúa como fuente de verdad de logotipos, símbolos, colores y fuentes. No se redibujaron marcas a mano. El test de integridad verifica 24 SVG y tipografías locales.

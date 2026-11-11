@@ -14,15 +14,13 @@ const heading = () => {
 }
 const main = { innerHTML: '', querySelector: () => ({ textContent: heading() }), focus() {} }
 const feedback = { textContent: '', hidden: true }
-const count = { textContent: '0' }
-const floatingCount = { textContent: '0' }
 const floatingLink = { href: '', attrs: {}, setAttribute(name, value) { this.attrs[name] = value } }
 const floatingLabel = { textContent: '' }
 const floatingNote = { textContent: '' }
 let copiedContactHandler
 const contactResult = { hidden: true, innerHTML: '', focus() {}, querySelector() { return { addEventListener(_type, handler) { copiedContactHandler = handler } } } }
 const document = {
-  getElementById(id) { return ({ main, feedback, 'cart-count': count, 'floating-selection-count': floatingCount, 'floating-whatsapp': floatingLink, 'floating-wa-label': floatingLabel, 'floating-wa-note': floatingNote, 'contact-result': contactResult, 'material-selection': { value: 'Piedra clara' }, 'size-selection': { value: 'A definir' }, 'quantity-selection': { value: '1' }, 'menu-toggle': menuToggle, 'mobile-nav': menu })[id] },
+  getElementById(id) { return ({ main, feedback, 'floating-whatsapp': floatingLink, 'floating-wa-label': floatingLabel, 'floating-wa-note': floatingNote, 'contact-result': contactResult, 'menu-toggle': menuToggle, 'mobile-nav': menu })[id] },
   querySelector(selector) { return ({ 'meta[name="caliza-whatsapp"]': { content: '573025983218' }, 'meta[name="caliza-instagram"]': { content: 'https://www.instagram.com/calizastonedesign/' }, 'meta[name="caliza-tiktok"]': { content: 'https://www.tiktok.com/@calizastone' } })[selector] || null },
   querySelectorAll() { return [] },
   addEventListener(type, callback) { events[type] = callback },
@@ -57,7 +55,7 @@ function visit(route) {
 const routes = [
   '/', '/stone-design', '/stone-design/proyectos', '/stone-design/brief', '/living-design',
   '/living-design/coleccion', '/living-design/coleccion?categoria=Sillas', '/tienda',
-  '/living-design/experiencia', '/living-design/carrito',
+  '/living-design/experiencia', '/living-design/carrito', '/living-design/pieza/mesa-rubi',
   '/stone-care', '/stone-care/diagnostico', '/materiales', '/grupo', '/proyectos', '/contacto', '/inspiracion',
 ]
 const linkedRoutes = new Set()
@@ -76,11 +74,18 @@ assert.match(visit('/materiales'), /Piedra clara/)
 assert.doesNotMatch(visit('/materiales'), /Marine Ink.*Piedra clara/s)
 assert.match(visit('/inspiracion'), /Instagram y TikTok/)
 assert.equal((visit('/living-design/coleccion').match(/caliza-family-card/g) || []).length, 5)
-assert.match(visit('/tienda'), /familias de producto documentadas/)
+assert.match(visit('/tienda'), /familias para explorar/)
 assert.match(visit('/tienda?q=Mesas'), /Mesas de comedor/)
 assert.equal((visit('/tienda?q=Mesas').match(/caliza-family-card/g) || []).length, 2)
 assert.match(visit('/tienda?q=sin-resultado'), /No encontramos familias/)
 assert.doesNotMatch(visit('/tienda'), /Mesa Rubi|Silla Aria|data-add-quote/)
+assert.match(visit('/living-design/carrito'), /Imagen conceptual/)
+assert.match(visit('/living-design/pieza/mesa-rubi'), /familias para explorar/)
+assert.match(visit('/tienda?categoria=Sillas'), /editorial-sillas-hogar\.webp/)
+assert.match(visit('/tienda?categoria=Sillas'), /editorial-sillas-comerciales\.webp/)
+assert.doesNotMatch(visit('/tienda?categoria=Sillas'), /option08-living\.webp/)
+assert.equal((visit('/tienda').match(/caliza-image-note/g) || []).length, 5)
+assert.equal((visit('/tienda').match(/Consultar esta familia/g) || []).length, 5)
 
 function click(data) {
   events.click({ target: { closest(selector) { return selector === 'button' ? { dataset: data, hasAttribute(name) { return ({ 'data-cart-plus': 'cartPlus', 'data-cart-minus': 'cartMinus', 'data-cart-remove': 'cartRemove', 'data-clear-social': 'clearSocial' })[name] in data } } : null } } })
@@ -90,11 +95,6 @@ function submit(id, values, wizard) {
   form.id = id; form.values = values; form.dataset = wizard ? { wizard } : {}
   events.submit({ target: form, preventDefault() {} })
 }
-assert.match(visit('/living-design/carrito'), /Tu selección está vacía/)
-click({ addQuote: 'mesa-rubi' })
-assert.equal(count.textContent, '0')
-assert.equal(floatingCount.textContent, '0')
-
 visit('/stone-design/brief')
 submit('brief-form', { type: 'Baño o lavamanos', location: 'Barranquilla' }, 'brief')
 submit('brief-form', { surface: 'Piedra clara', details: 'Una cubierta de 120 cm.' }, 'brief')
@@ -131,7 +131,10 @@ assert.equal(menuToggle.attrs['aria-label'], 'Abrir menú')
 const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8')
 for (const [, file] of html.matchAll(/(?:href|src)="(assets\/[^"#]+)"/g)) assert(fs.existsSync(path.join(root, file)), `Missing index asset ${file}`)
 assert.match(html, /id="floating-whatsapp"/)
+assert.doesNotMatch(html, /Mi selección|id="cart-count"|caliza-selection-float|href="#\/living-design\/carrito"/)
+assert.match(fs.readFileSync(path.join(root, 'checkout.html'), 'utf8'), /index\.html#\/living-design\/coleccion/)
+assert.doesNotMatch(code, /data-add-quote|function cartPage|function product\(/)
 assert.match(html, /meta name="caliza-whatsapp" content="573025983218"/)
 assert.match(fs.readFileSync(path.join(root, 'assets/js/featured-social.js'), 'utf8'), /CALIZA_FEATURED_SOCIAL/)
 assert.doesNotMatch(code, /8\.900\.000|4\.450\.000|data-pay|570000000000/)
-console.log(`PASS: ${routes.length} routes, verified families, no fake SKUs, official WhatsApp and profiles, safe contact form, wizards and brand assets.`)
+console.log(`PASS: ${routes.length} routes incl. legacy aliases, five pictured conceptual families, no fake cart/SKUs, official WhatsApp and profiles, safe contact form and wizards.`)

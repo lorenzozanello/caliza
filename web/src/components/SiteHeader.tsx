@@ -18,7 +18,7 @@ const NAV = [
 /** La identidad aprobada utiliza un encabezado claro también sobre el hero. */
 const HERO_PAGES: string[] = []
 
-export function SiteHeader() {
+export function SiteHeader({ shoppingEnabled = false }: { shoppingEnabled?: boolean }) {
   const pathname = usePathname()
   const overlay = HERO_PAGES.includes(pathname)
   const { items, setOpen, whatsapp, source, bump } = useCart()
@@ -63,10 +63,10 @@ export function SiteHeader() {
           ))}
         </nav>
         <div className="actions">
-          <button className="icon-btn" aria-label={`Abrir carrito, ${items.length} productos`} onClick={() => setOpen(true)} data-testid="open-cart">
+          {shoppingEnabled && <button className="icon-btn" aria-label={`Abrir carrito, ${items.length} productos`} onClick={() => setOpen(true)} data-testid="open-cart">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="M5 8h14l-1 12H6L5 8z" /><path d="M9 8V6a3 3 0 0 1 6 0v2" /></svg>
             {items.length > 0 && <span className={`cart-count${bumping ? ' bump' : ''}`} data-testid="cart-count">{items.length}</span>}
-          </button>
+          </button>}
           <Link href="/#contacto" className="btn btn--ghost-light cta">Iniciar proyecto <span aria-hidden="true">→</span></Link>
           <button className="icon-btn menu-btn" aria-label="Abrir menú" aria-expanded={menu} aria-controls="menu" onClick={() => setMenu(true)}><span /><span /></button>
         </div>

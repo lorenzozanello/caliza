@@ -4,6 +4,7 @@ import { ProductCard } from '@/components/ProductCard'
 import { Contact } from '@/components/sections/Contact'
 import { mediaUrl, mediaAlt } from '@/components/media'
 import { PUBLIC_PRODUCT, PUBLIC_MATERIAL } from '@/lib/publication'
+import { FamilyConsultation } from '@/components/FamilyConsultation'
 
 export const revalidate = 60
 
@@ -54,7 +55,7 @@ export default async function HomePage() {
         {products.docs.length ? (
           <div className="o8-cms-product-grid">{products.docs.map((product) => <ProductCard key={product.id} p={product} />)}</div>
         ) : (
-          <div className="caliza-editorial-empty"><h3>Una pieza comienza con una conversación.</h3><p>Estamos preparando las fichas verificadas de nuestras colecciones. Podemos orientarle sobre mesas, mobiliario y lavamanos según su espacio.</p><Link href="/design" className="o8-button">Explorar las familias <span aria-hidden="true">→</span></Link></div>
+          <FamilyConsultation limit={2} />
         )}
       </section>
 

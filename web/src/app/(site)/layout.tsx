@@ -22,6 +22,7 @@ import { getSettings } from '@/lib/payload'
 import { waLink } from '@/lib/whatsapp'
 import { siteUrl } from '@/lib/payments'
 import { officialSocialProfile, officialWhatsApp } from '@/lib/official-channels'
+import { PUBLIC_PRODUCT } from '@/lib/publication'
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl()),
@@ -33,7 +34,12 @@ export const metadata: Metadata = {
 
 export default async function SiteLayout({ children }: { children: React.ReactNode }) {
   const settings = await getSettings()
-  const legal = await (await getPayloadClient()).find({ collection: 'legal', sort: 'title', limit: 10, depth: 0, select: { slug: true, title: true } })
+  const payload = await getPayloadClient()
+  const [legal, published] = await Promise.all([
+    payload.find({ collection: 'legal', sort: 'title', limit: 10, depth: 0, select: { slug: true, title: true } }),
+    payload.find({ collection: 'products', where: { ...PUBLIC_PRODUCT, line: { in: ['design', 'care'] } }, limit: 1, depth: 0 }),
+  ])
+  const shoppingEnabled = published.totalDocs > 0
   const number = officialWhatsApp(settings.whatsappNumber)
   const instagram = officialSocialProfile(settings.instagramUrl, 'instagram')
   const tiktok = officialSocialProfile(settings.tiktokUrl, 'tiktok')
@@ -41,11 +47,11 @@ export default async function SiteLayout({ children }: { children: React.ReactNo
     <html lang="es-CO">
       <body>
         <CartProvider whatsapp={number}>
-          <SiteHeader />
+          <SiteHeader shoppingEnabled={shoppingEnabled} />
           <ViewTransition default="page"><main>{children}</main></ViewTransition>
           <SiteFooter instagram={instagram} tiktok={tiktok} whatsappHref={waLink(number, 'Hola, quiero hablar con CALIZA GROUP.')} legal={legal.docs.map((d) => ({ slug: d.slug ?? '', title: d.title }))} />
           <WhatsAppFloat />
-          <CartDrawer />
+          {shoppingEnabled && <CartDrawer />}
           <Lightbox />
           <Motion />
         </CartProvider>

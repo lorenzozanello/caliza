@@ -5,8 +5,9 @@ import { getPayloadClient } from '@/lib/payload'
 import { ProductCard } from '@/components/ProductCard'
 import { PUBLIC_PRODUCT } from '@/lib/publication'
 import { Contact } from '@/components/sections/Contact'
+import { FamilyConsultation } from '@/components/FamilyConsultation'
 
-export const metadata: Metadata = { title: 'Living Design · Piezas para habitar', description: 'Mesas, consolas, lavamanos y objetos en piedra natural, hechos por encargo o listos para entrega.' }
+export const metadata: Metadata = { title: 'Living Design · Piezas para habitar', description: 'Conozca las familias de Living Design y consulte modelos, materiales y acabados. Solo se publican fichas comerciales verificadas.' }
 export const revalidate = 60
 
 const TYPES = [
@@ -49,9 +50,9 @@ export default async function ShopPage({ searchParams }: { searchParams: SP }) {
           <span className="small muted"><Link href="/">Inicio</Link> / Living Design</span>
           <h1 className="h2" style={{ fontSize: 'clamp(44px,5.4vw,80px)' }}>Piezas para habitar</h1>
         </div>
-        <span className="small muted" data-testid="product-count">{products.totalDocs} {products.totalDocs === 1 ? 'pieza' : 'piezas'}</span>
+        <span className="small muted" data-testid="product-count">{products.totalDocs ? `${products.totalDocs} ${products.totalDocs === 1 ? 'pieza verificada' : 'piezas verificadas'}` : 'Familias bajo consulta'}</span>
       </div>
-      <div className="shop">
+      {products.totalDocs || tipo || disponibilidad ? <div className="shop">
         <aside className="shop__filters" aria-label="Filtros">
           <div className="filter-group"><span className="eyebrow muted" style={{ marginBottom: 6 }}>Tipo</span>
             {TYPES.map((t) => <Link key={t.value || 'all'} href={href('tipo', t.value)} aria-current={tipo === t.value}>{t.label}</Link>)}
@@ -62,9 +63,9 @@ export default async function ShopPage({ searchParams }: { searchParams: SP }) {
         </aside>
         <div className="shop__grid">
           {products.docs.map((p) => <ProductCard key={p.id} p={p} />)}
-          {products.docs.length === 0 && <div className="caliza-editorial-empty"><h2>Diseño pensado para su espacio.</h2><p>El catálogo con fotografías, dimensiones y condiciones aprobadas está en preparación. Ya puede consultar nuestras familias: mesas de comedor, mesas auxiliares, sillas, lavamanos y piezas a medida.</p><Link href="/#contacto" className="link"><span className="u">Solicitar asesoría personalizada</span></Link></div>}
+          {products.docs.length === 0 && <div className="caliza-editorial-empty"><h2>Sin piezas para estos filtros.</h2><p>Aún no hay fichas comerciales verificadas que coincidan con la selección.</p><Link href="/design" className="link"><span className="u">Explorar familias disponibles para consulta</span></Link></div>}
         </div>
-      </div>
+      </div> : <div className="wrap"><FamilyConsultation /></div>}
       <Contact title="Encontremos la pieza adecuada." text="Cuéntenos qué busca y qué espacio desea transformar. Le orientaremos sobre materiales, dimensiones y opciones de fabricación." intent="pieza" />
     </div>
   )
