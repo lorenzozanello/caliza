@@ -1,3 +1,5 @@
+> **ATENCIÓN 2026-11-11 — aplicación experimental.** Esta aplicación Next.js/Payload conserva seed, checkout, precios y servicios de pagos de DEMOSTRACIÓN. **No es el sitio CALIZA actualmente desplegado en Vercel QA.** La experiencia de revisión oficial es `../prototype`. No conectar Production, pagos ni datos reales desde este directorio sin proyecto de migración autorizado y revisión independiente.
+
 # Caliza · web
 
 Sitio, tienda y administración de Caliza. Next.js 16 (App Router) + Payload CMS 3 en la misma aplicación.

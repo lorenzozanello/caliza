@@ -59,6 +59,18 @@ jobs:
         run: npx playwright test --config=playwright.prototype.config.ts
         env:
           CI: 'true'
+      - name: Lighthouse QA (indexabilidad desactivada a propósito)
+        run: |
+          export CHROME_PATH="$(find "$HOME/.cache/ms-playwright" -type f -path '*/chrome-linux*/chrome' -print -quit)"
+          test -x "$CHROME_PATH"
+          npx lhci autorun --config=./lighthouserc.prototype.cjs
+      - name: Upload Lighthouse reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: caliza-lighthouse-qa
+          path: web/.lighthouseci-caliza
+          retention-days: 7
       - name: Upload browser captures
         if: always()
         uses: actions/upload-artifact@v4

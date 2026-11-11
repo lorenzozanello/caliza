@@ -37,3 +37,18 @@
 - [ ] Incorporar cinco imágenes reales AVIF/WebP a Vercel después de aprobaciones.
 - [ ] QA visual independiente y Lighthouse antes de promoción pública.
 - [ ] Fichas de producto, precios, stock y proyectos individuales: no se inventan.
+
+## QA reforzado y dependencias externas — 11/11/2026
+
+- [x] TikTok Creator Embed con consentimiento explícito en portada e Inspiración (inserción pública condicionada por TikTok).
+- [x] Módulo Instagram con API read-only, control de cuenta, seguridad de tokens y fallback transparente.
+- [x] Branding de WhatsApp verde, barra móvil compacta y legibilidad del CTA.
+- [x] Pruebas Node deterministas y suite Playwright + axe para escritorio/móvil; criterios de Lighthouse definidos.
+- [x] Meta etiquetas, esquema Organization y bloqueo de indexación QA.
+- [x] Eventos locales `caliza:intent` sin transmisión ni PII.
+- [ ] Conexión OAuth Meta de `@calizastonedesign` y token secreto limitado a Preview.
+- [ ] Confirmación de que TikTok permite la tarjeta pública de `@calizastone`.
+- [ ] Aprobación editorial y derechos para las imágenes reales indexadas en Drive.
+- [ ] Consentimiento, política de tratamiento de datos, proveedor de analítica y configuración de medición.
+- [ ] Dominio y SEO indexable final; no modificar robots ni publicar sitemap mientras la vista sea QA.
+- [ ] Fichas comerciales, logística, cobertura, condiciones de compra, inventario y pagos, con pruebas independientes y autorización de Production.

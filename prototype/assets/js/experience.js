@@ -63,6 +63,12 @@
     if (route.startsWith('/stone-design') || route === '/proyectos') return 'Hola, quiero conversar con CALIZA STONE DESIGN sobre un proyecto en piedra natural.';
     return 'Hola, quiero conocer los servicios de CALIZA GROUP y recibir asesoría.';
   }
+  // Eventos locales sin PII ni red: un colector solo puede escucharlos después de consentimiento.
+  function emitIntent(type) {
+    const allowed = ['whatsapp_handoff','contact_ready','family_inquiry_ready','brief_ready','diagnosis_ready'];
+    if (!allowed.includes(type) || typeof window.dispatchEvent !== 'function' || typeof window.CustomEvent !== 'function') return;
+    window.dispatchEvent(new window.CustomEvent('caliza:intent', { detail: { type, route: getRoute() } }));
+  }
   function syncConversionDock() {
     const link = document.getElementById('floating-whatsapp');
     if (!link) return;
@@ -525,6 +531,7 @@
   }
 
   document.addEventListener('click', (event) => {
+    if (event.target.closest('a[data-marketing-cta="whatsapp"]')) emitIntent('whatsapp_handoff');
     const target = event.target.closest('button');
     if (!target) return;
     if (target.dataset.loadInstagram !== undefined) { loadInstagramFeed(target); return; }
@@ -585,6 +592,7 @@
   result.hidden = false;
   result.innerHTML = `<h3>Consulta lista para revisar.</h3><pre>${safeText(summary)}</pre><div class="caliza-summary-actions">${waAction(summary, 'Compartir con CALIZA')}</div>${waHandoffNote()}`;
   result.focus({ preventScroll: false });
+  emitIntent('family_inquiry_ready');
   announce('Consulta preparada. Usted decide si desea compartirla.');
 }
   document.addEventListener('submit', (event) => {
@@ -611,13 +619,14 @@
       result.innerHTML = `<h3>Su consulta está preparada.</h3><p>Revise la solicitud antes de abrir WhatsApp. No existe un envío automático.</p><pre>${safeText(summary)}</pre><div class="caliza-summary-actions">${waAction(summary, 'Compartir consulta')}<button class="exp-outline" type="button" data-copy-contact>Copiar mensaje</button></div>${waHandoffNote()}`;
       result.focus({ preventScroll: false });
       result.querySelector('[data-copy-contact]').addEventListener('click', () => copyText(summary));
+      emitIntent('contact_ready');
       announce('Consulta preparada localmente. Usted decide si desea compartirla.');
     }
     if (form.dataset.wizard) {
       const kind = form.dataset.wizard;
       const data = Object.fromEntries(new FormData(form));
-      if (kind === 'brief') { Object.assign(wizard.brief, data); wizard.briefStep = Math.min(2, wizard.briefStep + 1); }
-      else { Object.assign(wizard.diagnosis, data); wizard.diagnosisStep = Math.min(2, wizard.diagnosisStep + 1); }
+      if (kind === 'brief') { Object.assign(wizard.brief, data); wizard.briefStep = Math.min(2, wizard.briefStep + 1); if (wizard.briefStep === 2) emitIntent('brief_ready'); }
+      else { Object.assign(wizard.diagnosis, data); wizard.diagnosisStep = Math.min(2, wizard.diagnosisStep + 1); if (wizard.diagnosisStep === 2) emitIntent('diagnosis_ready'); }
       render(false);
     }
   });
