@@ -456,10 +456,31 @@
       if (item) { activeEmbed = activeEmbed === item.url ? null : item.url; render(false); }
     }
   });
+  function handleFamilyInquiry(form) {
+  const data = new FormData(form);
+  const family = String(data.get('family') || '').trim();
+  if (!families.some((f) => f.nombre === family)) return announce('Familia no reconocida. Regrese a las colecciones.');
+  const lines = [
+    'CALIZA LIVING DESIGN — solicitud de asesoría',
+    'Familia: ' + family,
+    'Tipo: ' + String(data.get('subgroup') || 'Solicito orientación').slice(0, 90),
+    'Uso: ' + String(data.get('use') || 'Por definir').slice(0, 60),
+    'Ciudad: ' + String(data.get('city') || 'Por definir').slice(0, 70),
+    'Preferencias: ' + String(data.get('details') || 'Por definir').slice(0, 700),
+  ];
+  const summary = lines.join('\n');
+  const result = document.getElementById('family-inquiry-result');
+  if (!result) return;
+  result.hidden = false;
+  result.innerHTML = `<h3>Consulta lista para revisar.</h3><pre>${safeText(summary)}</pre><div class="caliza-summary-actions">${waAction(summary, 'Compartir con CALIZA')}</div>${waHandoffNote()}`;
+  result.focus({ preventScroll: false });
+  announce('Consulta preparada. Usted decide si desea compartirla.');
+}
   document.addEventListener('submit', (event) => {
     const form = event.target;
     if (!(form instanceof HTMLFormElement)) return;
     event.preventDefault();
+    if (form.id === 'family-inquiry-form') return handleFamilyInquiry(form);
     if (form.id === 'collection-search-form') {
       const search = String(new FormData(form).get('q') || '').trim().slice(0, 80);
       const params = new URLSearchParams(location.hash.split('?')[1] || '');
