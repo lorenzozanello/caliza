@@ -163,3 +163,11 @@ body.o8-page{background:var(--surface)}
 @media(max-width:1320px){.menu-toggle{display:flex}}
 @media(max-width:660px){body.o8-page{padding-bottom:calc(74px + env(safe-area-inset-bottom))}.caliza-family-media{aspect-ratio:4/5}}
 @media(prefers-reduced-motion:reduce){.menu-icon path{transition:none}}
+
+/* Banner editorial único y conducta del acceso flotante en escritorio. */
+.caliza-qa-banner{display:flex;gap:var(--space-5);align-items:center;justify-content:space-between;background:var(--surface-sand);color:var(--ink);border-bottom:1px solid var(--line);padding:var(--space-3) var(--space-7)}
+.caliza-qa-banner p{font:400 12px/18px var(--font-sans);margin:0;max-width:950px}
+.caliza-qa-banner button{flex:none;border:1px solid var(--line-strong);background:var(--surface-raised);color:var(--ink);font:500 11px/16px var(--font-sans);padding:var(--space-3);cursor:pointer;min-height:44px}
+.caliza-conversion-dock.is-hidden{opacity:0;pointer-events:none;visibility:hidden}
+@media(max-width:660px){.caliza-qa-banner{padding:var(--space-3) var(--space-4);align-items:flex-start;gap:var(--space-2)}.caliza-qa-banner button{min-width:64px}}
+@media(prefers-reduced-motion:no-preference){.caliza-conversion-dock{transition:opacity .2s ease}}

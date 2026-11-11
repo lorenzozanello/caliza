@@ -19,3 +19,11 @@
 - [ ] Política de tratamiento de datos, condiciones comerciales, consentimiento y recepción segura antes de habilitar captura real.
 
 **Bloqueo:** no usar seed comercial ni publicar información sin derecho de uso. Las cinco familias están documentadas, pero sus fichas y fotografías comerciales siguen pendientes.
+
+## Comprobaciones y decisiones técnicas pendientes
+- [ ] Línea base y verificación posterior de Lighthouse CI (inicio, submarca, colecciones y contacto).
+- [ ] Auditoría axe-core y recorrido teclado/lector de pantalla real, en todos los anchos requeridos.
+- [ ] Capturas comparadas a 390, 768, 958, 1280 y 1440 px en navegador real.
+- [ ] Optimización AVIF/WebP responsive desde originales aprobados y verificación de derechos.
+- [ ] SEO indexable y rutas History API **solo cuando se apruebe el dominio estable**, con redirecciones controladas.
+- [ ] Funciones con datos personales, agenda, muestras, comercio, configurador, AR, integraciones y producción: aprobación de negocio, protección de datos y pruebas independientes.

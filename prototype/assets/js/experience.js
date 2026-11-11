@@ -26,7 +26,7 @@
   const button = (url, label, cls = 'o8-button') => `<a class="${cls}" href="#${url}">${label} <span aria-hidden="true">→</span></a>`;
   const label = (text) => `<span class="o8-overline">${text}</span>`;
   const lineIcon = (name) => `<img class="brand-line-icon" src="${IMG}brand/symbol-${{ stone: 'stone-design', living: 'living-design', care: 'stone-care' }[name]}-primary.svg" alt="" aria-hidden="true" width="64" height="64">`;
-  const disclaimer = `<p class="review-label">Imágenes de ambientación conceptuales. Fotografías, acabados y disponibilidad sujetos a validación comercial.</p>`;
+  const disclaimer = ''; // El aviso QA único está en index.html.
   const getRoute = () => {
     const raw = (location.hash.startsWith('#/') ? location.hash.substring(1) : '/').split('?')[0].replace(/\/+$/, '') || '/';
     if (raw === '/tienda' || raw === '/living-design/carrito' || raw.startsWith('/living-design/pieza/')) return '/living-design/coleccion';
@@ -288,6 +288,28 @@
     if (route === '/inspiracion') return social();
     return missing();
   }
+  let dockVisibilityObserver = null;
+  function observeDock() {
+    if (typeof IntersectionObserver === 'undefined' || !document.body) return;
+    dockVisibilityObserver?.disconnect();
+    const hero = main.querySelector('.exp-hero');
+    const footer = document.querySelector('.o8-footer');
+    const dock = document.querySelector('.caliza-conversion-dock');
+    if (!dock) return;
+    let heroVisible = false;
+    let footerVisible = false;
+    dock.classList.remove('is-hidden');
+    dockVisibilityObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.target === hero) heroVisible = entry.isIntersecting;
+        if (entry.target === footer) footerVisible = entry.isIntersecting;
+      });
+      const mobile = window.matchMedia?.('(max-width: 660px)').matches;
+      dock.classList.toggle('is-hidden', !mobile && (heroVisible || footerVisible));
+    }, { threshold: 0.15 });
+    if (hero) dockVisibilityObserver.observe(hero);
+    if (footer) dockVisibilityObserver.observe(footer);
+  }
   function render(scroll = true) {
     const route = getRoute();
     main.innerHTML = currentPage(route);
@@ -303,6 +325,7 @@
     document.title = `${titles[route] || pageTitle || 'CALIZA GROUP'} · CALIZA GROUP`;
     document.querySelectorAll('.o8-nav a').forEach((link) => link.setAttribute('aria-current', route === link.getAttribute('href')?.substring(1) ? 'page' : 'false'));
     syncConversionDock();
+    observeDock();
     if (scroll) {
       window.scrollTo({ top: 0, behavior: 'instant' });
       main.focus({ preventScroll: true });
@@ -321,6 +344,7 @@
   document.addEventListener('click', (event) => {
     const target = event.target.closest('button');
     if (!target) return;
+    if (target.dataset.dismissQa !== undefined) { document.getElementById('qa-banner')?.remove(); return; }
     if (target.dataset.filter) {
       const cat = target.dataset.filter;
       const params = new URLSearchParams(location.hash.split('?')[1] || '');

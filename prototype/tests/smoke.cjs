@@ -137,6 +137,9 @@ assert.equal(menuToggle.attrs['aria-label'], 'Abrir menú')
 const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8')
 for (const [, file] of html.matchAll(/(?:href|src)="(assets\/[^"#]+)"/g)) assert(fs.existsSync(path.join(root, file)), `Missing index asset ${file}`)
 assert.match(html, /id="floating-whatsapp"/)
+assert.match(html, /id="qa-banner"/)
+assert.match(html, /data-dismiss-qa/)
+assert.doesNotMatch(fs.readFileSync(path.join(root, 'assets/js/experience.js'), 'utf8'), /Tu próximo paso|¿Qué te gustaría hacer\?/)
 assert.doesNotMatch(html, /Mi selección|id="cart-count"|caliza-selection-float|href="#\/living-design\/carrito"/)
 assert.match(fs.readFileSync(path.join(root, 'checkout.html'), 'utf8'), /index\.html#\/living-design\/coleccion/)
 assert.doesNotMatch(code, /data-add-quote|function cartPage|function product\(/)
@@ -144,3 +147,11 @@ assert.match(html, /meta name="caliza-whatsapp" content="573025983218"/)
 assert.match(fs.readFileSync(path.join(root, 'assets/js/featured-social.js'), 'utf8'), /CALIZA_FEATURED_SOCIAL/)
 assert.doesNotMatch(code, /8\.900\.000|4\.450\.000|data-pay|570000000000/)
 console.log(`PASS: ${routes.length} routes incl. legacy aliases, five verified family placeholders, no fake cart/SKUs, official WhatsApp and profiles, safe contact form and wizards.`)
+
+const tokenizedSheets = ['option08.css', 'experience.css', 'marketing.css']
+for (const sheet of tokenizedSheets) {
+  const css = fs.readFileSync(path.join(root, 'assets/css', sheet), 'utf8')
+  assert.doesNotMatch(css, /#[0-9a-fA-F]{3,8}\b/, sheet + ' has color literals outside authority tokens')
+  assert.doesNotMatch(css, /letter-spacing:\s*-\.\d+em/, sheet + ' has negative headline tracking')
+  assert.doesNotMatch(css, /font-size:\s*(?:7|8|9|10)px/, sheet + ' has undersized text')
+}
