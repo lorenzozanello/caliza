@@ -27,6 +27,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Verify CSS bundle generated from authoritative styles
+        run: node web/scripts/check-prototype-css.mjs
       - name: Script syntax
         run: |
           node --check prototype/assets/js/experience.js

@@ -131,7 +131,7 @@ assert.match(visit('/contacto'), /id="contact-name"/)
 assert.match(visit('/contacto'), /id="contact-email"/)
 assert.match(visit('/contacto'), /id="contact-phone"/)
 assert.doesNotMatch(code, /document\.startViewTransition\(paint\)/)
-assert.match(fs.readFileSync(path.join(root, 'index.html'), 'utf8'), /assets\/css\/boutique-v2\.css/)
+assert.match(fs.readFileSync(path.join(root, 'index.html'), 'utf8'), /assets\/css\/site-bundle\.css/)
 assert.match(fs.readFileSync(path.join(root, 'index.html'), 'utf8'), /class="caliza-publication-note"/)
 assert.doesNotMatch(fs.readFileSync(path.join(root, 'index.html'), 'utf8'), /<aside id="qa-banner"/)
 visit('/contacto')
@@ -188,3 +188,5 @@ for (const sheet of tokenizedSheets) {
   assert.doesNotMatch(css, /letter-spacing:\s*-\.\d+em/, sheet + ' has negative headline tracking')
   assert.doesNotMatch(css, /font-size:\s*(?:7|8|9|10)px/, sheet + ' has undersized text')
 }
+
+assert.equal((fs.readFileSync(path.join(root,'index.html'),'utf8').match(/rel="stylesheet"/g)||[]).length,1)
