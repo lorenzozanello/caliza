@@ -247,3 +247,20 @@ body.menu-open .caliza-conversion-dock{visibility:hidden;opacity:0;pointer-event
 .caliza-materials-next{padding:clamp(35px,5vw,80px) clamp(23px,5vw,70px);background:var(--surface-sand);margin-top:60px;max-width:920px}
 .caliza-materials-next .o8-button{margin-top:16px}
 @media(max-width:760px){.caliza-project-archive,.caliza-project-capabilities>div{grid-template-columns:1fr}}
+
+/* Ícono oficial de WhatsApp: excepción cromática de la marca externa, separada de tokens CALIZA. */
+.caliza-whatsapp-float .caliza-whatsapp-logo{display:inline-grid;place-items:center;flex:none;width:38px;height:38px;border-radius:50%;background:rgb(37 211 102);color:rgb(255 255 255)}
+.caliza-whatsapp-logo svg{display:block;width:24px;height:24px;fill:currentColor}
+@media(max-width:660px){.caliza-whatsapp-float .caliza-whatsapp-logo{width:36px;height:36px}.caliza-whatsapp-logo svg{width:22px;height:22px}}
+/* Módulo social siempre visible, con reproductor del perfil TikTok bajo solicitud. */
+.caliza-social-live{display:grid;grid-template-columns:minmax(250px,.85fr) minmax(0,1.15fr);gap:clamp(24px,4vw,62px);align-items:start;margin:26px 0 34px;padding:clamp(24px,3.5vw,52px);border:1px solid var(--line);background:var(--surface)}
+.caliza-social-live-copy h3{font:400 clamp(28px,3.4vw,46px)/1.14 var(--font-serif);margin:14px 0;letter-spacing:0}
+.caliza-social-live-copy>p{font:400 14px/1.75 var(--font-sans);color:var(--ink-muted)}
+.caliza-social-live-copy .exp-outline{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 18px;margin:14px 0;cursor:pointer}
+.caliza-social-live-copy .exp-outline:disabled{opacity:.68;cursor:default}
+.caliza-social-live-copy .exp-hint a{text-decoration:underline;text-underline-offset:3px}
+.caliza-tiktok-widget{min-width:0;max-width:100%;overflow:hidden}
+.caliza-tiktok-widget[hidden]{display:none}
+.caliza-tiktok-widget .tiktok-embed{margin:0;max-width:100%;min-width:0}
+.caliza-social-status{font:400 13px/1.7 var(--font-sans);color:var(--ink-muted)}
+@media(max-width:760px){.caliza-social-live{grid-template-columns:1fr;padding:24px}.caliza-tiktok-widget{width:100%}}

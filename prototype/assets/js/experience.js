@@ -326,10 +326,39 @@
     const profiles = [['instagram', 'Instagram', '@calizastonedesign'], ['tiktok', 'TikTok', '@calizastone']].map(([name, title, handle]) => ({ title, handle, url: profileLink(name) })).filter((entry) => entry.url);
     return `<div class="caliza-profile-links">${profiles.map(({ title, handle, url }) => `<a href="${safeText(url)}" target="_blank" rel="noopener noreferrer"><span>${safeText(title)}</span><strong>${safeText(handle)}</strong><small>Visitar perfil oficial ↗</small></a>`).join('')}</div>`;
   }
+
+  // TikTok permite un embed oficial de perfil público sin OAuth. No se ejecuta ningún script
+  // externo hasta que el visitante pulsa el botón (privacidad y rendimiento).
+  function tiktokCreatorModule() {
+    const url = profileLink('tiktok');
+    if (!url) return '';
+    return `<section class="caliza-social-live" aria-labelledby="caliza-tiktok-live-title">
+      <div class="caliza-social-live-copy">${label('TikTok / @calizastone')}
+        <h3 id="caliza-tiktok-live-title">Movimiento y oficio.</h3>
+        <p>Consulte el perfil de CALIZA y, si TikTok permite su inserción, explore sus videos recientes aquí. La carga se activa solo cuando usted la solicita.</p>
+        <button type="button" class="exp-outline" data-load-tiktok aria-controls="caliza-tiktok-widget" aria-expanded="false">Mostrar videos de TikTok →</button>
+        <p class="exp-hint">Al visualizar, su navegador se conecta con TikTok. También puede <a href="${safeText(url)}" target="_blank" rel="noopener noreferrer">abrir el perfil oficial</a>.</p>
+      </div>
+      <div id="caliza-tiktok-widget" class="caliza-tiktok-widget" hidden>
+        <blockquote class="tiktok-embed" cite="${safeText(url)}" data-unique-id="calizastone" data-embed-type="creator" data-embed-from="oembed">
+          <section><a href="${safeText(url)}" target="_blank" rel="noopener noreferrer">@calizastone en TikTok</a></section>
+        </blockquote>
+        <p class="exp-hint">Si el reproductor no aparece, visite el perfil oficial de TikTok.</p>
+      </div>
+    </section>`;
+  }
   function socialPreview() {
     const items = savedSocialItems().slice(0, 3);
-    if (items.length < 3) return '';
-    return `<section class="o8-section caliza-social-showcase" aria-labelledby="social-preview-title">${sectionHead('Instagram y TikTok', '/inspiracion', 'Explorar redes')}<div class="caliza-social-showcase-intro"><div>${label('Inspiración en movimiento')}<h3 id="social-preview-title">De la materia a la conversación.</h3><p>Siga la actualidad de CALIZA en sus perfiles oficiales. Las publicaciones individuales aparecerán aquí cuando el equipo apruebe sus enlaces.</p></div><a href="#/inspiracion" class="o8-text-link">Ver universo social <span aria-hidden="true">→</span></a></div>${socialProfiles()}${items.length ? socialCards(items, true) : `<div class="exp-empty exp-social-empty"><h4>La selección editorial está en preparación.</h4><p>Mientras tanto, visite nuestros perfiles oficiales para conocer novedades y conversar con la comunidad.</p></div>`}</section>`;
+    return `<section class="o8-section caliza-social-showcase" aria-labelledby="social-preview-title">
+      ${sectionHead('Instagram y TikTok', '/inspiracion', 'Explorar redes')}
+      <div class="caliza-social-showcase-intro"><div>${label('Inspiración en movimiento')}
+        <h3 id="social-preview-title">De la materia a la conversación.</h3>
+        <p>Diseño, piedra y oficio desde los perfiles oficiales de CALIZA. Descubra el contenido compartido por nuestro equipo.</p>
+      </div><a href="#/inspiracion" class="o8-text-link">Explorar el universo social <span aria-hidden="true">→</span></a></div>
+      ${socialProfiles()}
+      ${tiktokCreatorModule()}
+      ${items.length ? socialCards(items, true) : '<p class="caliza-social-status">La galería de publicaciones de Instagram se habilitará al conectar la cuenta profesional. Mientras tanto, consulte @calizastonedesign desde su enlace oficial.</p>'}
+    </section>`;
   }
   function social() {
     const all = savedSocialItems();
@@ -337,6 +366,7 @@
     return `${pageIntro('CALIZA / Redes y movimiento', 'Inspiración viva.', 'Conozca la comunidad de CALIZA en Instagram y TikTok. El visor editorial solo muestra publicaciones individuales seleccionadas por el equipo.')}
       <section class="exp-page-pad"><div class="exp-social-intro"><div>${label('CALIZA en movimiento')}<h2>La materia también se comparte.</h2><p>Contenido sobre diseño, superficies y cuidado. Siga los perfiles oficiales para conocer proyectos, novedades y experiencias de CALIZA.</p></div><div class="exp-social-example">${picture('option08-care.webp', 'Imagen conceptual editorial de cuidado de superficies')}</div></div>
       ${socialProfiles()}
+      ${tiktokCreatorModule()}
       ${all.length ? `<div class="exp-toolbar caliza-social-toolbar"><p><strong>${all.length}</strong> publicaciones seleccionadas</p><div class="caliza-social-filters" role="group" aria-label="Filtrar publicaciones">${[['todos', 'Todos'], ['instagram', 'Instagram'], ['tiktok', 'TikTok']].map(([value, text]) => `<button type="button" class="${socialFilter === value ? 'selected' : ''}" data-social-filter="${value}" aria-pressed="${socialFilter === value}">${text}</button>`).join('')}</div></div>` : ''}
       ${visible.length ? socialCards(visible) : `<div class="exp-empty exp-social-empty"><h2>${all.length ? 'Sin publicaciones de esta red.' : 'Próximamente, selección editorial.'}</h2><p>Las publicaciones individuales aparecerán cuando sus enlaces y permisos hayan sido aprobados. Los perfiles de CALIZA ya están disponibles arriba.</p></div>`}
       <div class="exp-social-disclaimer">Los contenidos externos se cargan únicamente cuando el visitante lo solicita. No simulamos un feed automático ni mostramos publicaciones sin aprobación editorial.</div></section>`;
@@ -451,6 +481,20 @@
   document.addEventListener('click', (event) => {
     const target = event.target.closest('button');
     if (!target) return;
+    if (target.dataset.loadTiktok !== undefined) {
+      const widget = document.getElementById('caliza-tiktok-widget');
+      if (!widget || !widget.hidden) return;
+      widget.hidden = false;
+      target.setAttribute('aria-expanded', 'true');
+      target.disabled = true;
+      const external = document.createElement('script');
+      external.async = true;
+      external.src = 'https://www.tiktok.com/embed.js';
+      external.referrerPolicy = 'strict-origin-when-cross-origin';
+      external.onerror = () => announce('El reproductor de TikTok no pudo cargarse. Puede visitar el perfil oficial.');
+      widget.appendChild(external);
+      return;
+    }
     if (target.dataset.dismissQa !== undefined) { document.getElementById('qa-banner')?.remove(); return; }
     if (target.dataset.filter) {
       const cat = target.dataset.filter;
