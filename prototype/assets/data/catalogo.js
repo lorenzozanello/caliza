@@ -18,6 +18,7 @@
     family.imagenes.ambiente = medio.src;
     family.imagenes.alt = medio.alt;
     family.imagenes.medio_id = medio.medio_id;
+    family.imagenes.widths = Array.isArray(medio.widths) ? medio.widths : [];
   }
   const MODO_SELECCION_ACTIVO = familias.some((f) => f.piezas.length > 0);
   window.CALIZA_CATALOGO = Object.freeze({ familias: Object.freeze(familias), MODO_SELECCION_ACTIVO });

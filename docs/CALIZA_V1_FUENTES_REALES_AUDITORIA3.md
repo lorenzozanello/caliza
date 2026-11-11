@@ -39,3 +39,7 @@
 - Se añadieron campos opcionales de nombre, correo y teléfono, sin backend, persistencia ni transmisión automática.
 - El mensaje solo se comparte si el visitante decide abrir WhatsApp.
 - La captación institucional con envío al servidor queda bloqueada hasta contar con política de tratamiento de datos y recepción segura.
+
+## P1/P3 complementario — contenido y formatos
+- Cuatro etapas de proceso editorial documentado: Entender, Dar forma, Materializar y Cuidar; las descripciones no garantizan plazos, instalaciones ni servicios no validados.
+- Al aprobar fotografías individuales, el generador emite `widths` y la web elige AVIF/WebP vía `<picture>` y `srcset`; los originales de Drive no forman parte del repositorio.

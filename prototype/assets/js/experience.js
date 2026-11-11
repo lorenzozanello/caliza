@@ -73,9 +73,23 @@
     const note = document.getElementById('floating-wa-note');
     if (note) note.textContent = directWhatsApp ? 'Consulta comercial · respuesta por confirmar' : 'Seleccione el contacto oficial de Caliza';
   }
+  function approvedPicture(imagenes, name) {
+    const src = String(imagenes.ambiente || '');
+    const alt = safeText(imagenes.alt || `Fotografía aprobada de ${name}`);
+    const nameMatch = src.match(/^approved\/([a-z0-9-]+)-([0-9]+)\.webp$/);
+    if (!nameMatch) return picture(src, alt);
+    const slug = nameMatch[1];
+    const widths = (Array.isArray(imagenes.widths) ? imagenes.widths : [])
+      .filter((width) => Number.isInteger(width) && width >= 320 && width <= 2560)
+      .sort((a, b) => a - b);
+    if (!widths.length) return picture(src, alt);
+    const sizes = '(max-width: 660px) 100vw, (max-width: 1200px) 50vw, 33vw';
+    const srcset = (ext) => widths.map((w) => `${IMG}approved/${slug}-${w}.${ext} ${w}w`).join(', ');
+    return `<picture><source type="image/avif" srcset="${srcset('avif')}" sizes="${sizes}"><source type="image/webp" srcset="${srcset('webp')}" sizes="${sizes}"><img src="${IMG}${src}" alt="${alt}" loading="lazy" decoding="async" width="${widths.at(-1)}" height="${Math.round(widths.at(-1) * .75)}"></picture>`;
+  }
   function familyCard(item) {
     const media = item.imagenes?.ambiente
-      ? picture(item.imagenes.ambiente, item.imagenes.alt || `Fotografía aprobada de ${item.name}`)
+      ? approvedPicture(item.imagenes, item.name)
       : `<div class="caliza-family-placeholder" role="img" data-pendiente="fotografía de ambiente y detalle: ${safeText(item.name)}" aria-label="Fotografía comercial de ${safeText(item.name)} pendiente de validación"><img src="${IMG}brand/symbol-living-design-primary.svg" width="80" height="80" alt="" aria-hidden="true"><span>Fotografía por confirmar</span></div>`;
     return `<article class="caliza-family-card"><div class="caliza-family-media">${media}</div><div class="caliza-family-content"><span class="o8-overline">CALIZA · ${safeText(item.category)}</span><h3>${safeText(item.name)}</h3><p>${safeText(item.description)}</p><div class="caliza-family-action">${waAction(item.whatsappTexto, 'Consultar esta familia')}</div><small>Familia bajo consulta · referencias y disponibilidad por confirmar</small></div></article>`;
   }
@@ -137,7 +151,12 @@
       <section class="o8-section">${sectionHead('Universo de proyectos', '/stone-design/proyectos', 'Ver galería')}<div class="exp-grid exp-grid-3">${[
         ['option08-hero.webp', 'Cocinas', 'Superficies para encuentros cotidianos.'], ['lavamanos.jpg', 'Baños', 'Gestos de piedra y agua.'], ['proyecto.jpg', 'Espacios', 'Arquitectura y detalles a medida.']
       ].map(([image, title, desc]) => `<a class="exp-card" href="#/stone-design/proyectos">${picture(image, `Referencia conceptual para ${title}`)}<div class="exp-card-info"><div><h3>${title}</h3><p>${desc}</p></div><span aria-hidden="true">↗</span></div></a>`).join('')}</div></section>
-      <section class="exp-process">${label('Nuestro proceso')}<h2>Diseñamos contigo</h2><div class="exp-grid exp-grid-4">${['Escuchamos la idea', 'Exploramos la materia', 'Diseñamos la solución', 'Planeamos su realización'].map((v, i) => `<div><span>0${i + 1}</span><h3>${v}</h3></div>`).join('')}</div></section>${contactRibbon()}${disclaimer}`;
+      <section class="exp-process">${label('Nuestro proceso')}<h2>Diseñamos con usted.</h2><div class="exp-grid exp-grid-4">${[
+        ['Entender', 'Escuchamos lo que busca transformar, el uso del espacio y las referencias disponibles.'],
+        ['Dar forma', 'Exploramos alternativas de materiales, superficies y diseño junto con usted.'],
+        ['Materializar', 'Definimos el alcance técnico y los siguientes pasos antes de elaborar una propuesta.'],
+        ['Cuidar', 'Orientamos sobre el mantenimiento de la superficie según sus características.'],
+      ].map(([title, desc], i) => `<div><span>0${i + 1}</span><h3>${title}</h3><p>${desc}</p></div>`).join('')}</div></section>${contactRibbon()}${disclaimer}`;
   }
   function projects() {
     return `${pageIntro('Stone Design / Proyectos', 'Arquitectura y materia.', 'Una galería de direcciones creativas. Las imágenes mostradas no se presentan como obras ejecutadas por Caliza.')}
@@ -149,7 +168,7 @@
     return `${hero({ image: 'option08-living.webp', eyebrow: 'Caliza Living Design · Habitar', title: 'Piezas<br>para habitar.', desc: 'Mobiliario, mesas y objetos que dan forma a los espacios y a nuestra manera de vivir.', cta: 'Explorar colección', href: '/living-design/coleccion' })}${subnav('/living-design')}
       <section class="exp-copy-split"><div>${lineIcon('living')}<h2>La belleza de lo esencial.</h2></div><div><p>Cada pieza parte de una conversación entre geometría, material y oficio. Explore las familias documentadas en CALIZA y solicite una asesoría personalizada.</p><p>Las fichas individuales, fotografías comerciales, medidas, precios y disponibilidad se publicarán únicamente después de la aprobación de CALIZA.</p></div></section>
       <section class="o8-section">${sectionHead('Familias documentadas', '/living-design/coleccion', 'Ver familias')}<div class="caliza-family-grid">${families.slice(0, 3).map(familyCard).join('')}</div></section>
-      <section class="exp-pathways"><h2>Tres formas de hacerla tuya.</h2><div class="exp-grid exp-grid-3">${[
+      <section class="exp-pathways"><h2>Tres formas de hacerla suya.</h2><div class="exp-grid exp-grid-3">${[
         ['01', 'Explorar familias', 'Descubra posibilidades de diseño y materiales.'], ['02', 'Consultar una propuesta', 'Converse sobre modelos, medidas y acabados.'], ['03', 'Diseñar a medida', 'Empecemos por sus ideas.'],
       ].map(([n, title, desc]) => `<a href="#/living-design/experiencia"><span>${n}</span><h3>${title}</h3><p>${desc}</p><b aria-hidden="true">→</b></a>`).join('')}</div></section>${contactRibbon()}${disclaimer}`;
   }
@@ -176,7 +195,7 @@
         ['Protección', 'Evaluación de sellado y prevención.'],
         ['Restauración', 'Valoración técnica de manchas, desgaste y daño.'],
       ].map(([title, desc], i) => `<a href="#/stone-care/diagnostico"><span>0${i + 1}</span><h3>${title}</h3><p>${desc}</p><b aria-hidden="true">→</b></a>`).join('')}</div></section>
-      <section class="exp-banner exp-banner-care">${picture('option08-care.webp', 'Persona limpiando piedra natural con herramienta manual')}<div>${label('Conoce tu superficie')}<h2>El primer paso es observar.</h2><p>Cuéntenos qué tipo de piedra y síntoma desea evaluar.</p>${button('/stone-care/diagnostico', 'Empezar diagnóstico')}</div></section>${disclaimer}`;
+      <section class="exp-banner exp-banner-care">${picture('option08-care.webp', 'Persona limpiando piedra natural con herramienta manual')}<div>${label('Conozca su superficie')}<h2>El primer paso es observar.</h2><p>Cuéntenos qué tipo de piedra y síntoma desea evaluar.</p>${button('/stone-care/diagnostico', 'Empezar diagnóstico')}</div></section>${disclaimer}`;
   }
   function materialsPage() {
     return `${pageIntro('Caliza Group / Materiales', 'Cada piedra, una historia.', 'Texturas, vetas y tonos naturales. Estas muestras son referencias visuales, no un inventario de placas disponibles.')}

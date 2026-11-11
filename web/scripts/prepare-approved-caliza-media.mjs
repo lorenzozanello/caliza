@@ -77,6 +77,7 @@ try {
   for (const { media, full, width, crop } of checked) {
     const name = media.familia_slug;
     let primaryWidth = null;
+    const generatedWidths = [];
     for (const w of [320, 480, 640, 960, 1280, 1920]) {
       if (w > width) continue;
       const photo = (crop ? sharp(full).extract(crop) : sharp(full)).rotate().resize({ width: w, withoutEnlargement: true })
@@ -84,13 +85,15 @@ try {
       await photo.clone().webp({ quality: 79, effort: 5 }).toFile(path.join(staging, name + '-' + w + '.webp'));
       await photo.clone().avif({ quality: 55, effort: 5 }).toFile(path.join(staging, name + '-' + w + '.avif'));
       primaryWidth = w;
+      generatedWidths.push(w);
     }
     if (!primaryWidth || !(await stat(path.join(staging, name + '-' + primaryWidth + '.webp')).catch(() => null))) throw new Error('No se generó formato válido.');
     // Ruta WebP de fallback para navegadores compatibles; AVIF y srcset en un futuro renderer.
     manifest[name] = {
       src: 'approved/' + name + '-' + primaryWidth + '.webp',
       alt: media.texto_alt.trim(),
-      medio_id: media.medio_id
+      medio_id: media.medio_id,
+      widths: generatedWidths
     };
   }
   const files = await import('node:fs/promises').then((fs) => fs.readdir(staging));
