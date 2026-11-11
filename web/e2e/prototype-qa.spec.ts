@@ -109,6 +109,28 @@ test('banner de revisión fuera del héroe y colección con dos tarjetas editori
   expect(Math.min(...widths)).toBeGreaterThan(180)
 })
 
+
+test('foco editorial legible y CTA WhatsApp no oculta textos en ficha desktop', async ({page},info) => {
+  await page.goto('/index.html#/living-design/familia/mesas-de-comedor')
+  const heading=page.locator('.exp-page-intro h1')
+  await expect(heading).toBeVisible()
+  const style=await heading.evaluate(el=>({focused:el===document.activeElement,outline:getComputedStyle(el).outlineStyle}))
+  expect(style.focused).toBeTruthy()
+  expect(style.outline).toBe('none')
+  const wa=page.locator('#floating-whatsapp')
+  await expect(wa).toHaveAttribute('href',/wa\.me\/573025983218/)
+  const width=await wa.evaluate(el=>el.getBoundingClientRect().width)
+  expect(width).toBeLessThanOrEqual(64)
+  const collision=await page.evaluate(()=>{
+    const wa=document.querySelector('#floating-whatsapp')!.getBoundingClientRect()
+    const p=document.querySelector('.caliza-detail-content>p')!.getBoundingClientRect()
+    return Math.max(0,Math.min(wa.right,p.right)-Math.max(wa.left,p.left)) *
+           Math.max(0,Math.min(wa.bottom,p.bottom)-Math.max(wa.top,p.top))
+  })
+  expect(collision).toBe(0)
+  await page.screenshot({path:info.outputPath('familia-final-no-overlap.png'),fullPage:true,animations:'disabled'})
+})
+
 test('auditoría de accesibilidad WCAG A/AA en todas las rutas importantes', async ({ page }) => {
   const findings: Array<{ route: string; id: string; impact: string | null; selectors: string[][] }> = []
   for (const route of ['/', '/stone-design', '/stone-design/brief', '/living-design', '/living-design/coleccion', '/living-design/familia/mesas-de-comedor', '/stone-care', '/stone-care/diagnostico', '/proyectos', '/materiales', '/grupo', '/inspiracion', '/contacto']) {
