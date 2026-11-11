@@ -88,12 +88,50 @@
     return `<picture><source type="image/avif" srcset="${srcset('avif')}" sizes="${sizes}"><source type="image/webp" srcset="${srcset('webp')}" sizes="${sizes}"><img src="${IMG}${src}" alt="${alt}" loading="lazy" decoding="async" width="${widths.at(-1)}" height="${Math.round(widths.at(-1) * .75)}"></picture>`;
   }
   function familyCard(item) {
-    const media = item.imagenes?.ambiente
-      ? approvedPicture(item.imagenes, item.name)
-      : `<div class="caliza-family-placeholder" role="img" data-pendiente="fotografía de ambiente y detalle: ${safeText(item.name)}" aria-label="Fotografía comercial de ${safeText(item.name)} pendiente de validación"><img src="${IMG}brand/symbol-living-design-primary.svg" width="80" height="80" alt="" aria-hidden="true"><span>Fotografía por confirmar</span></div>`;
-    return `<article class="caliza-family-card"><div class="caliza-family-media">${media}</div><div class="caliza-family-content"><span class="o8-overline">CALIZA · ${safeText(item.category)}</span><h3>${safeText(item.name)}</h3><p>${safeText(item.description)}</p><div class="caliza-family-action">${waAction(item.whatsappTexto, 'Consultar esta familia')}</div><small>Familia bajo consulta · referencias y disponibilidad por confirmar</small></div></article>`;
-  }
-  function hero({ image, eyebrow, title, desc, cta, href, position = 'center' }) {
+  const media = item.imagenes?.ambiente
+    ? approvedPicture(item.imagenes, item.name)
+    : `<div class="caliza-family-placeholder" role="img" data-pendiente="fotografía de ${safeText(item.name)}" aria-label="Imagen de ${safeText(item.name)} pendiente de aprobación"><img src="${IMG}brand/symbol-living-design-primary.svg" width="80" height="80" alt="" aria-hidden="true"><span>Catálogo visual en revisión</span></div>`;
+  const names = (item.subfamilias || []).map((x) => safeText(x.nombre)).join(' · ');
+  return `<article class="caliza-family-card"><a class="caliza-family-media caliza-family-media-link" href="#/living-design/familia/${safeText(item.slug)}" aria-label="Explorar ${safeText(item.name)}">${media}</a><div class="caliza-family-content"><span class="o8-overline">Living Design / ${safeText(item.category)}</span><h3><a href="#/living-design/familia/${safeText(item.slug)}">${safeText(item.name)}</a></h3><p>${safeText(item.description)}</p><p class="caliza-family-sources">${names}</p><div class="caliza-family-action"><a class="caliza-family-details" href="#/living-design/familia/${safeText(item.slug)}">Explorar posibilidades <span aria-hidden="true">→</span></a>${waAction(item.whatsappTexto, 'Solicitar asesoría')}</div></div></article>`;
+}
+  function familyDetail(route) {
+  const slug = route.split('/').pop();
+  const item = families.find((f) => f.slug === slug);
+  if (!item) return missing();
+  const media = item.imagenes?.ambiente
+    ? approvedPicture(item.imagenes, item.name)
+    : `<div class="caliza-family-placeholder caliza-detail-placeholder" role="img" data-pendiente="fotografía de ${safeText(item.name)}" aria-label="Imagen de ${safeText(item.name)} pendiente de aprobación"><img src="${IMG}brand/symbol-living-design-primary.svg" width="90" height="90" alt="" aria-hidden="true"><span>Imagen comercial en revisión</span></div>`;
+  const subfamilias = (item.subfamilias || []).map((f) => `<li><span>${safeText(f.nombre)}</span><small>Grupo documentado · especificaciones por confirmar</small></li>`).join('');
+  const questions = (item.preguntas || []).map((v) => `<li>${safeText(v)}</li>`).join('');
+  const options = (item.subfamilias || []).map((f) => `<option value="${safeText(f.nombre)}">${safeText(f.nombre)}</option>`).join('');
+  return `${pageIntro('Living Design / Archivo de familias', safeText(item.name), safeText(item.description))}${subnav('/living-design/coleccion')}
+    <section class="caliza-detail-layout">
+      <div class="caliza-detail-visual">${media}<p>Archivo CALIZA · Imagen y ficha individual sujetas a verificación.</p></div>
+      <div class="caliza-detail-content">${label('Diseño bajo consulta')}
+        <h2>Una pieza, muchas posibilidades.</h2>
+        <p>El archivo original de CALIZA documenta esta familia. La identidad de cada modelo, sus materiales, medidas, acabados, precios y plazos se confirman directamente con el equipo.</p>
+        <h3>Agrupaciones documentadas</h3><ul class="caliza-source-list">${subfamilias}</ul>
+        <h3>Para orientar su consulta</h3><ul class="caliza-question-list">${questions}</ul>
+        <a href="#/living-design/coleccion" class="o8-text-link">Volver a las colecciones →</a>
+      </div>
+    </section>
+    <section class="caliza-detail-inquiry" aria-labelledby="family-inquiry-title">
+      <div>${label('Asesoría a medida')}<h2 id="family-inquiry-title">Cuéntenos qué tiene en mente.</h2><p>Prepare una consulta sin inventar un pedido ni aceptar precios no confirmados.</p></div>
+      <form id="family-inquiry-form" class="exp-contact-form">
+        <input type="hidden" name="family" value="${safeText(item.nombre)}">
+        <label for="family-subgroup">Tipo de pieza</label>
+        <select id="family-subgroup" name="subgroup"><option value="">Solicito orientación</option>${options}</select>
+        <label for="family-use">Uso previsto</label>
+        <select id="family-use" name="use"><option value="">Por definir</option><option>Hogar</option><option>Proyecto comercial</option><option>Hospitalidad</option><option>Otro</option></select>
+        <label for="family-city">Ciudad de destino</label><input id="family-city" name="city" maxlength="70" placeholder="Ciudad (opcional)" autocomplete="address-level2">
+        <label for="family-detail">Medidas o preferencias</label><textarea id="family-detail" name="details" maxlength="700" rows="4" placeholder="Indique el espacio, dimensiones aproximadas o referencias sin información sensible."></textarea>
+        <button class="o8-button" type="submit">Preparar consulta <span aria-hidden="true">→</span></button>
+        <div id="family-inquiry-result" class="caliza-contact-result" tabindex="-1" aria-live="polite" hidden></div>
+        <small>No se almacena ni envía esta información automáticamente. Usted decide si la comparte por WhatsApp.</small>
+      </form>
+    </section>`;
+}
+    function hero({ image, eyebrow, title, desc, cta, href, position = 'center' }) {
     return `<section class="exp-hero"><img src="${IMG}${image}" alt="Ambientación conceptual con piedra natural" style="object-position:${position}" fetchpriority="high" decoding="async" width="1600" height="900"><div class="exp-hero-content">${label(eyebrow)}<h1>${title}</h1><span class="o8-terracotta-rule"></span><p>${desc}</p>${cta ? button(href, cta) : ''}</div><small class="exp-hero-corner">CALIZA GROUP / COLOMBIA</small></section>`;
   }
   function sectionHead(title, href, action = 'Ver todos') {
@@ -167,9 +205,9 @@
   function living() {
     return `${hero({ image: 'option08-living.webp', eyebrow: 'Caliza Living Design · Habitar', title: 'Piezas<br>para habitar.', desc: 'Mobiliario, mesas y objetos que dan forma a los espacios y a nuestra manera de vivir.', cta: 'Explorar colección', href: '/living-design/coleccion' })}${subnav('/living-design')}
       <section class="exp-copy-split"><div>${lineIcon('living')}<h2>La belleza de lo esencial.</h2></div><div><p>Cada pieza parte de una conversación entre geometría, material y oficio. Explore las familias documentadas en CALIZA y solicite una asesoría personalizada.</p><p>Las fichas individuales, fotografías comerciales, medidas, precios y disponibilidad se publicarán únicamente después de la aprobación de CALIZA.</p></div></section>
-      <section class="o8-section">${sectionHead('Familias documentadas', '/living-design/coleccion', 'Ver familias')}<div class="caliza-family-grid">${families.slice(0, 3).map(familyCard).join('')}</div></section>
+      <section class="o8-section">${sectionHead('Familias documentadas', '/living-design/coleccion', 'Ver familias')}<div class="caliza-family-grid">${families.map(familyCard).join('')}</div></section>
       <section class="exp-pathways"><h2>Tres formas de hacerla suya.</h2><div class="exp-grid exp-grid-3">${[
-        ['01', 'Explorar familias', 'Descubra posibilidades de diseño y materiales.'], ['02', 'Consultar una propuesta', 'Converse sobre modelos, medidas y acabados.'], ['03', 'Diseñar a medida', 'Empecemos por sus ideas.'],
+        ['01', 'Explorar familias', 'Descubra posibilidades de diseño y materiales.'], ['02', 'Consultar una propuesta', 'Converse sobre modelos, medidas y acabados.'], ['03', 'Diseñar a medida', 'Comencemos por sus ideas.'],
       ].map(([n, title, desc]) => `<a href="#/living-design/experiencia"><span>${n}</span><h3>${title}</h3><p>${desc}</p><b aria-hidden="true">→</b></a>`).join('')}</div></section>${contactRibbon()}${disclaimer}`;
   }
   function collection() {
@@ -177,8 +215,8 @@
     const params = new URLSearchParams(query);
     const category = ['Todas', 'Mesas', 'Sillas', 'Lavamanos'].includes(params.get('categoria')) ? params.get('categoria') : 'Todas';
     const search = (params.get('q') || '').trim().slice(0, 80);
-    const selection = families.filter((item) => (category === 'Todas' || item.category === category) && `${item.name} ${item.category}`.toLocaleLowerCase('es').includes(search.toLocaleLowerCase('es')));
-    return `${pageIntro('Living Design / Colección', 'Objetos para vivir.', 'Familias bajo consulta. Las fotografías de referencia se incorporarán tras su aprobación; los modelos, acabados y disponibilidad se confirman con el equipo.')}${subnav('/living-design/coleccion')}
+    const selection = families.filter((item) => (category === 'Todas' || item.category === category) && `${item.name} ${item.category} ${(item.subfamilias || []).map((v) => v.nombre).join(' ')}`.toLocaleLowerCase('es').includes(search.toLocaleLowerCase('es')));
+    return `${pageIntro('Living Design / Colección', 'Objetos para vivir.', 'Explore las familias reales documentadas en el archivo de CALIZA. Las imágenes comerciales y especificaciones individuales se incorporarán tras su validación.')}${subnav('/living-design/coleccion')}
       <section class="exp-page-pad"><div class="caliza-shop-tools"><form id="collection-search-form" class="caliza-collection-search" role="search"><label for="collection-search">Buscar una familia</label><div><input id="collection-search" name="q" type="search" value="${safeText(search)}" placeholder="Ej. mesas, sillas, lavamanos" maxlength="80"><button type="submit" class="exp-outline">Buscar →</button></div></form><p><strong>${selection.length}</strong> familias de origen</p></div><div class="exp-toolbar"><div role="group" aria-label="Filtrar familias" class="exp-filters">${['Todas', 'Mesas', 'Sillas', 'Lavamanos'].map((cat) => `<button type="button" data-filter="${cat}" class="${category === cat ? 'selected' : ''}" aria-pressed="${category === cat}">${cat}</button>`).join('')}</div></div>
       ${selection.length ? `<div class="caliza-family-grid">${selection.map(familyCard).join('')}</div>` : `<div class="exp-empty"><h2>No encontramos familias con ese criterio.</h2><p>Pruebe otra búsqueda o explore todas las categorías.</p>${button('/living-design/coleccion', 'Ver todas las familias')}</div>`}<p class="exp-catalogue-warning">La existencia de archivos de origen no acredita stock, ficha técnica, precio ni derechos de publicación de una fotografía. Cada referencia se incorporará después de su validación individual en el catálogo maestro.</p></section>`;
   }
@@ -226,10 +264,10 @@
     const step = wizard.diagnosisStep;
     let body;
     if (step === 0) body = `<h2>¿Qué superficie desea cuidar?</h2><label for="diag-surface">Tipo de superficie</label><select id="diag-surface" name="surface"><option>Travertino</option><option>Mármol</option><option>Granito</option><option>Piedra sin identificar</option><option>Otra piedra natural</option></select><label for="diag-location">Dónde se encuentra</label><select id="diag-location" name="location"><option>Cocina</option><option>Baño</option><option>Piso</option><option>Mueble u objeto</option><option>Exterior</option></select>`;
-    else if (step === 1) body = `<h2>¿Qué observas?</h2><label for="diag-symptom">Síntoma principal</label><select id="diag-symptom" name="symptom"><option>Mancha o cambio de color</option><option>Rayón o pérdida de brillo</option><option>Humedad o absorción</option><option>Rotura o fisura</option><option>Mantenimiento preventivo</option></select><label for="diag-urgency">Estado</label><select id="diag-urgency" name="urgency"><option>No parece avanzar</option><option>Está empeorando</option><option>Recién ocurrió</option></select>`;
-    else body = `<h2>Orientación preliminar.</h2><div class="exp-summary"><p><strong>Superficie:</strong> ${safeText(wizard.diagnosis.surface || '')}</p><p><strong>Ubicación:</strong> ${safeText(wizard.diagnosis.location || '')}</p><p><strong>Síntoma:</strong> ${safeText(wizard.diagnosis.symptom || '')}</p><p><strong>Estado:</strong> ${safeText(wizard.diagnosis.urgency || '')}</p></div><p><strong>Primer cuidado:</strong> evita ácidos, abrasivos y productos sin comprobar su compatibilidad. Si hay fisuras, humedad activa o pérdida de material, no experimentes: solicita inspección profesional.</p><p>El resultado no diagnostica causas ni prescribe procedimientos específicos.</p><div class="caliza-summary-actions">${waAction(copyContent('diagnosis'), 'Compartir consulta')}<button type="button" class="exp-outline" data-copy="diagnosis">Copiar orientación</button></div>${waHandoffNote()}`;
+    else if (step === 1) body = `<h2>¿Qué observa?</h2><label for="diag-symptom">Síntoma principal</label><select id="diag-symptom" name="symptom"><option>Mancha o cambio de color</option><option>Rayón o pérdida de brillo</option><option>Humedad o absorción</option><option>Rotura o fisura</option><option>Mantenimiento preventivo</option></select><label for="diag-urgency">Estado</label><select id="diag-urgency" name="urgency"><option>No parece avanzar</option><option>Está empeorando</option><option>Recién ocurrió</option></select>`;
+    else body = `<h2>Orientación preliminar.</h2><div class="exp-summary"><p><strong>Superficie:</strong> ${safeText(wizard.diagnosis.surface || '')}</p><p><strong>Ubicación:</strong> ${safeText(wizard.diagnosis.location || '')}</p><p><strong>Síntoma:</strong> ${safeText(wizard.diagnosis.symptom || '')}</p><p><strong>Estado:</strong> ${safeText(wizard.diagnosis.urgency || '')}</p></div><p><strong>Primer cuidado:</strong> evite ácidos, abrasivos y productos sin comprobar su compatibilidad. Si hay fisuras, humedad activa o pérdida de material, no experimente: solicite una inspección profesional.</p><p>El resultado no diagnostica causas ni prescribe procedimientos específicos.</p><div class="caliza-summary-actions">${waAction(copyContent('diagnosis'), 'Compartir consulta')}<button type="button" class="exp-outline" data-copy="diagnosis">Copiar orientación</button></div>${waHandoffNote()}`;
     return `${pageIntro('Stone Care / Diagnóstico', 'Empecemos por observar.', 'Una guía de orientación, no un diagnóstico técnico definitivo.')}
-      <section class="exp-wizard"><div class="exp-wizard-panel">${wizardProgress(step)}<form id="diagnosis-form" data-wizard="diagnosis">${body}<div class="exp-wizard-nav">${step > 0 ? '<button type="button" class="exp-outline" data-prev="diagnosis">Anterior</button>' : '<span></span>'}${step < 2 ? '<button class="o8-button" type="submit">Continuar →</button>' : button('/stone-care', 'Volver a Stone Care', 'exp-outline')}</div></form></div><aside>${picture('option08-care.webp', 'Cuidado manual conceptual de piedra natural')}<p>Si detectas daños estructurales o materiales sueltos, limita el uso de la superficie hasta contar con evaluación profesional.</p></aside></section>`;
+      <section class="exp-wizard"><div class="exp-wizard-panel">${wizardProgress(step)}<form id="diagnosis-form" data-wizard="diagnosis">${body}<div class="exp-wizard-nav">${step > 0 ? '<button type="button" class="exp-outline" data-prev="diagnosis">Anterior</button>' : '<span></span>'}${step < 2 ? '<button class="o8-button" type="submit">Continuar →</button>' : button('/stone-care', 'Volver a Stone Care', 'exp-outline')}</div></form></div><aside>${picture('option08-care.webp', 'Cuidado manual conceptual de piedra natural')}<p>Si detecta daños estructurales o materiales sueltos, limite el uso de la superficie hasta contar con evaluación profesional.</p></aside></section>`;
   }
   function contact() {
     return `${pageIntro('Caliza Group / Contacto', 'Hablemos de su proyecto.', 'Prepare una consulta para Stone Design, Living Design o Stone Care. La consulta se prepara en su navegador y solo se comparte si usted decide abrir WhatsApp.')}
@@ -295,6 +333,7 @@
     if (route === '/stone-design/brief') return brief();
     if (route === '/living-design') return living();
     if (route === '/living-design/coleccion' || route === '/tienda') return collection();
+    if (route.startsWith('/living-design/familia/')) return familyDetail(route);
     // Enlaces guardados de fichas no autorizadas y carrito antiguo llegan a la colección consultiva.
     if (route.startsWith('/living-design/pieza/')) return collection();
     if (route === '/living-design/experiencia') return experience();
@@ -345,6 +384,7 @@
     main.innerHTML = currentPage(route);
     const heading = main.querySelector('h1');
     const pageTitle = heading?.innerHTML?.replace(/<br\s*\/?\s*>/gi, ' ').replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim() || heading?.textContent?.trim();
+    const familyRoute = route.startsWith('/living-design/familia/') ? families.find((f) => route.endsWith('/' + f.slug)) : null;
     const titles = {
       '/': 'La materia toma forma.', '/stone-design': 'Stone Design · Espacios que perduran.',
       '/living-design': 'Living Design · Piezas para habitar.',
@@ -352,8 +392,8 @@
       '/stone-care': 'Stone Care · Cuidar también es diseñar.',
       '/contacto': 'Contacto · Hablemos de su proyecto'
     };
-    document.title = `${titles[route] || pageTitle || 'CALIZA GROUP'} · CALIZA GROUP`;
-    const description = seoDescriptions[route] || 'CALIZA GROUP · Piedra, diseño y cuidado.';
+    document.title = `${familyRoute ? familyRoute.nombre + ' · Living Design' : titles[route] || pageTitle || 'CALIZA GROUP'} · CALIZA GROUP`;
+    const description = familyRoute ? 'Explore ' + familyRoute.nombre + ' de CALIZA Living Design y prepare una consulta personalizada.' : seoDescriptions[route] || 'CALIZA GROUP · Piedra, diseño y cuidado.';
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) metaDescription.content = description;
     const ogTitle = document.querySelector('meta[property="og:title"]');
