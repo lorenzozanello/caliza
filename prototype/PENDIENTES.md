@@ -52,3 +52,16 @@
 - [ ] Consentimiento, política de tratamiento de datos, proveedor de analítica y configuración de medición.
 - [ ] Dominio y SEO indexable final; no modificar robots ni publicar sitemap mientras la vista sea QA.
 - [ ] Fichas comerciales, logística, cobertura, condiciones de compra, inventario y pagos, con pruebas independientes y autorización de Production.
+
+## Tramo técnico QA con las decisiones del propietario (2026-11-11)
+- [x] Documentar `calizagroup.shop` como destino **no conectado** y activar protección por defecto de SEO público en Next/Payload.
+- [x] Bloquear por defecto checkout y pagos simulados; exigir autorizaciones independientes antes del futuro comercio.
+- [x] Elaborar contrato puro de captación hacia Google Sheets con consentimiento/política aprobados; ninguna escritura de datos.
+- [x] Revisar visualmente siete derivados privados y sus registros individuales, preservando estatus del maestro.
+- [x] Añadir prueba TikTok bajo clic y revisión TypeScript al workflow.
+- [ ] Evidencias del derecho/licencia de cada una de las siete fotos y aprobación web registrada en fuente de verdad.
+- [ ] OAuth real de Meta desde cuenta administradora y secreto con alcance Preview aprobado; prueba de feed vivo.
+- [ ] Verificar embed de TikTok con @calizastone, no solo con stub.
+- [ ] Razón social, NIT, canal de derechos, política de privacidad definitiva, retención, responsable y autorización para conectar Sheets.
+- [ ] Validar titularidad/dominio, publicación, productos, inventario, condiciones comerciales y pasarela antes de Production.
+- [ ] Revisión independiente final y aprobación explícita de liberación.

@@ -47,3 +47,15 @@ Se emite `caliza:intent` con **tipo y ruta solamente** para los siguientes event
 - No desplegar la aplicación `web/` (contiene datos de ejemplo, checkout y pagos simulados) como tienda pública.
 - No habilitar pagos, precios, inventario, carga de datos reales ni recopilar información personal hasta aprobación de negocio, seguridad, legales y QA.
 - No fusionar ni promover el PR por el resultado de una única prueba técnica: se necesita revisión independiente, editorial y aprobación de la persona propietaria.
+
+## Decisiones registradas en QA — 11 de noviembre de 2026
+
+- **Dominio futuro:** `calizagroup.shop`. No se ha verificado titularidad ni alterado DNS, Vercel Domains, SSL o indexación pública.
+- **Instagram:** confirmado como cuenta profesional por el propietario; falta autorización OAuth real de Meta y conexión segura en Vercel Preview. No hay token instalado.
+- **TikTok:** visor de creador disponible bajo clic. La disponibilidad efectiva del embed de @calizastone requiere verificación en navegador con el proveedor; no se simula un feed.
+- **Fotografía:** siete medios CAL-MED-0129, 0118, 0147, 0137, 0106, 0001 y 0066 en **revisión condicionada**; derechos, aprobación web, relación comercial y alt siguen pendientes en el catálogo. No se publican fotos privadas.
+- **Tienda futura:** `web/src/lib/launch-gates.ts` exige aprobación de dominio, legal, publicación, productos, checkout y pasarela; por defecto indexación y comercio están cerrados.
+- **Contactos:** WhatsApp voluntario activo. `web/src/lib/leads/contract.ts` prepara filas para un Google Sheet separado, pero no existe endpoint de envío ni almacenamiento real. La política de privacidad está en borrador y necesita validación.
+- **Evidencia:** pruebas de seguridad de gates y contratos en GitHub Actions; al corte previo, Lighthouse de QA 0.80 inicio y 0.89 catálogo, con CLS 0.019. El resultado de las últimas pruebas debe verificarse en el run asociado al commit actual.
+
+Más información de decisiones y fotos: `docs/CALIZA_QA_ACTIVACION_AUTORIZACIONES_2026-11-11.md`; borrador no publicable: `docs/CALIZA_BORRADOR_PRIVACIDAD_NO_PUBLICAR.md`.
