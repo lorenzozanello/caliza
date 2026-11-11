@@ -462,7 +462,7 @@
         if (entry.target === collections) collectionVisible = entry.isIntersecting;
       });
       const mobile = window.matchMedia?.('(max-width: 660px)').matches;
-      dock.classList.toggle('is-hidden', !mobile && (heroVisible || footerVisible || collectionVisible));
+      dock.classList.toggle('is-hidden', footerVisible || (!mobile && (heroVisible || collectionVisible)));
     }, { threshold: 0.15 });
     if (hero) dockVisibilityObserver.observe(hero);
     if (footer) dockVisibilityObserver.observe(footer);

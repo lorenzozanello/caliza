@@ -284,3 +284,20 @@ body.menu-open .caliza-conversion-dock{visibility:hidden;opacity:0;pointer-event
 .caliza-instagram-grid a>span{position:absolute;bottom:0;left:0;right:0;padding:14px;color:var(--on-primary);background:var(--primary);display:flex;justify-content:space-between;font:500 11px/1.5 var(--font-sans)}
 @media(max-width:760px){.caliza-instagram-live-head{flex-direction:column;align-items:flex-start}.caliza-instagram-live-actions{align-items:flex-start}.caliza-instagram-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(prefers-reduced-motion:reduce){.caliza-instagram-grid img{transition:none}.caliza-instagram-grid a:hover img{transform:none}}
+
+/* El botón flotante es reconocible, pequeño y no ocupa todo el ancho en móviles. */
+body.o8-page .caliza-conversion-dock{position:fixed;left:auto;right:clamp(14px,2.6vw,36px);bottom:clamp(14px,2.6vw,30px);z-index:65;display:flex;width:auto;max-width:none;padding:0;border:0;background:transparent;box-shadow:none}
+body.o8-page .caliza-whatsapp-float{box-sizing:border-box;display:flex;align-items:center;justify-content:center;gap:9px;min-width:0;min-height:58px;height:58px;padding:0 19px 0 8px;background:rgb(37 211 102);color:rgb(255 255 255);border-radius:999px;box-shadow:var(--shadow-float);text-decoration:none}
+body.o8-page .caliza-whatsapp-float:hover{background:rgb(26 171 81);color:rgb(255 255 255)}
+body.o8-page .caliza-whatsapp-float .caliza-whatsapp-logo{display:grid;place-items:center;width:40px;height:40px;flex:none;background:transparent;color:rgb(255 255 255)}
+body.o8-page .caliza-whatsapp-float .caliza-whatsapp-logo svg{width:26px;height:26px;fill:currentColor}
+body.o8-page .caliza-conversion-dock small{display:none}
+@media(max-width:660px){
+  body.o8-page{padding-bottom:0}
+  body.o8-page .caliza-conversion-dock{left:auto;right:16px;bottom:max(16px,env(safe-area-inset-bottom));width:60px;max-width:60px;padding:0;border:0;background:transparent}
+  body.o8-page .caliza-whatsapp-float{width:60px;height:60px;min-height:60px;padding:0;gap:0;border-radius:50%;justify-content:center}
+  body.o8-page .caliza-whatsapp-float .caliza-whatsapp-logo{width:48px;height:48px}
+  body.o8-page .caliza-whatsapp-float .caliza-whatsapp-logo svg{width:30px;height:30px}
+  body.o8-page #floating-wa-label{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+  body.o8-page .caliza-conversion-dock.is-hidden{visibility:hidden;opacity:0;pointer-events:none}
+}
