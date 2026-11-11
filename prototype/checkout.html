@@ -6,8 +6,10 @@
 <title>Pago · Caliza</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="assets/css/caliza.css">
+<link rel="stylesheet" href="assets/css/option08.css">
+<link rel="stylesheet" href="assets/css/option08-secondary.css">
 </head>
 <body data-page="checkout">
 
@@ -15,14 +17,14 @@
 
 <header class="site-header site-header--solid-start">
   <a href="index.html" class="logo" aria-label="Caliza, inicio">
-    <img class="light" src="assets/img/lockup_light.svg" alt="">
-    <img class="dark" src="assets/img/lockup_dark.svg" alt="">
+    <span class="o8-wordmark"><span>CALIZA</span><span>GROUP</span></span>
   </a>
-  <span class="small muted" style="display:flex;align-items:center;gap:8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="5" y="11" width="14" height="9"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Pago seguro</span>
-  <a class="link" data-wa="Hola, necesito ayuda con mi pago."><span class="u">¿Ayuda? WhatsApp</span></a>
+  <span class="small muted">Demostración · pagos deshabilitados</span>
+  <a class="link" href="index.html#contacto"><span class="u">Volver al inicio</span></a>
 </header>
 
 <main class="checkout wrap">
+  <div class="o8-notice" role="alert">No introduzcas datos reales. Este checkout es una maqueta sin pasarela, procesamiento ni generación de pedidos.</div>
   <div class="grid" style="row-gap:24px">
     <div class="c-1-7">
       <div class="checkout__form-area">
@@ -99,8 +101,8 @@
           <div style="display:flex;justify-content:space-between;font-weight:600;border-top:1px solid var(--linea);padding-top:12px"><span>Total</span><span class="tnum" data-total>$ 0</span></div>
         </div>
         <div class="summary__today"><span class="small">Hoy pagas</span><span class="v" data-today data-value="0">$ 0</span></div>
-        <button type="submit" form="checkout-form" class="btn pay-btn" data-pay><span class="spinner" aria-hidden="true"></span><span data-pay-label>Pagar con tarjeta</span></button>
-        <span class="small muted">Precios de ejemplo. Al pagar recibes confirmación y un enlace para seguir tu pedido.</span>
+        <button type="button" class="btn pay-btn" data-pay disabled aria-disabled="true"><span data-pay-label>Pago no habilitado · demostración</span></button>
+        <span class="small muted">Precios y envíos de ejemplo. No hay cobros ni pedidos reales.</span>
       </div>
     </aside>
   </div>

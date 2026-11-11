@@ -6,20 +6,19 @@ import { useCart } from './cart/CartProvider'
 import { waLink } from '@/lib/whatsapp'
 
 const NAV = [
-  { href: '/stone', label: 'Stone' },
-  { href: '/design', label: 'Design' },
-  { href: '/care', label: 'Care' },
+  { href: '/stone', label: 'Stone Design' },
+  { href: '/design', label: 'Living Design' },
+  { href: '/care', label: 'Stone Care' },
   { href: '/proyectos', label: 'Proyectos' },
   { href: '/materiales', label: 'Materiales' },
-  { href: '/estudio', label: 'Estudio' },
 ]
 
-/** Páginas que abren con foto a pantalla completa: el encabezado empieza transparente. */
-const HERO_PAGES = ['/', '/stone', '/care', '/materiales', '/estudio']
+/** La identidad aprobada utiliza un encabezado claro también sobre el hero. */
+const HERO_PAGES: string[] = []
 
 export function SiteHeader() {
   const pathname = usePathname()
-  const overlay = HERO_PAGES.includes(pathname) || pathname.startsWith('/proyectos/')
+  const overlay = HERO_PAGES.includes(pathname)
   const { items, setOpen, whatsapp, source, bump } = useCart()
   const [solid, setSolid] = useState(!overlay)
   const [hidden, setHidden] = useState(false)
@@ -54,8 +53,7 @@ export function SiteHeader() {
     <>
       <header className={cls}>
         <Link href="/" className="logo" aria-label="Caliza, inicio">
-          <img className="light" src="/brand/lockup_light.svg" alt="" />
-          <img className="dark" src="/brand/lockup_dark.svg" alt="" />
+          <span className="o8-wordmark"><span>CALIZA</span><span>GROUP</span></span>
         </Link>
         <nav aria-label="Principal">
           {NAV.map((n) => (
@@ -67,13 +65,13 @@ export function SiteHeader() {
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="M5 8h14l-1 12H6L5 8z" /><path d="M9 8V6a3 3 0 0 1 6 0v2" /></svg>
             {items.length > 0 && <span className={`cart-count${bumping ? ' bump' : ''}`} data-testid="cart-count">{items.length}</span>}
           </button>
-          <Link href="/#contacto" className="btn btn--ghost-light cta">Hablar con el estudio</Link>
+          <Link href="/#contacto" className="btn btn--ghost-light cta">Iniciar proyecto <span aria-hidden="true">→</span></Link>
           <button className="icon-btn menu-btn" aria-label="Abrir menú" aria-expanded={menu} aria-controls="menu" onClick={() => setMenu(true)}><span /><span /></button>
         </div>
       </header>
       <div className={`mobile-menu${menu ? ' is-open' : ''}`} id="menu" aria-hidden={!menu} inert={!menu}>
         <div className="top">
-          <img src="/brand/lockup_light.svg" alt="Caliza" style={{ height: 24, width: 'auto' }} />
+          <span className="o8-wordmark"><span>CALIZA</span><span>GROUP</span></span>
           <button className="icon-btn" aria-label="Cerrar menú" style={{ color: 'var(--claro)' }} onClick={() => setMenu(false)}>
             <svg width="20" height="20" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19" /></svg>
           </button>
@@ -82,7 +80,9 @@ export function SiteHeader() {
           {NAV.map((n) => <li key={n.href}><Link href={n.href} onClick={() => setMenu(false)} aria-current={pathname === n.href ? 'page' : undefined}>{n.label}</Link></li>)}
         </ul>
         <div className="bottom">
-          <a className="btn btn--wa" href={waLink(whatsapp, 'Hola, quiero hablar con el estudio.', source)} target="_blank" rel="noopener">Escribir por WhatsApp</a>
+          {whatsapp && whatsapp.replace(/\D/g, '') !== '570000000000'
+            ? <a className="btn btn--wa" href={waLink(whatsapp, 'Hola, quiero hablar con el estudio.', source)} target="_blank" rel="noopener">Escribir por WhatsApp</a>
+            : <Link className="btn btn--ghost" href="/#contacto" onClick={() => setMenu(false)}>Iniciar proyecto</Link>}
           <span className="small" style={{ color: 'var(--claro-2)' }}>Tradición italiana · Hecho en Colombia</span>
         </div>
       </div>

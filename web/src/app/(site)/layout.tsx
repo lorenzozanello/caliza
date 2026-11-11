@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import '@/styles/tokens.css'
 import '@/styles/site.css'
+import '@/styles/option08.css'
 import { CartProvider } from '@/components/cart/CartProvider'
 import { CartDrawer } from '@/components/cart/CartDrawer'
 import { SiteHeader } from '@/components/SiteHeader'
@@ -16,10 +17,10 @@ import { siteUrl } from '@/lib/payments'
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl()),
-  title: { default: 'Caliza · Piedra natural hecha para tu espacio', template: '%s · Caliza' },
-  description: 'Tres generaciones de marmoleros italianos. Espacios y piezas en piedra natural, diseñados y fabricados en Colombia.',
-  openGraph: { siteName: 'Caliza', locale: 'es_CO', type: 'website' },
-  icons: { icon: '/brand/symbol_dark.svg' },
+  title: { default: 'CALIZA GROUP · La materia toma forma', template: '%s · CALIZA GROUP' },
+  description: 'CALIZA GROUP: Stone Design, Living Design y Stone Care. Diseño, vida y cuidado en piedra natural para espacios que perduran.',
+  openGraph: { siteName: 'CALIZA GROUP', locale: 'es_CO', type: 'website' },
+  icons: { icon: '/brand/option08-stone.svg' },
 }
 
 export default async function SiteLayout({ children }: { children: React.ReactNode }) {
@@ -31,7 +32,7 @@ export default async function SiteLayout({ children }: { children: React.ReactNo
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" />
       </head>
       <body>
         <CartProvider whatsapp={number}>

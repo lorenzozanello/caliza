@@ -1,0 +1,13 @@
+/* Ajuste de identidad aprobada a las pantallas de demostración existentes. */
+:root { --piedra:#F2EADC; --papel:#FBF7F0; --arena:#CEB99B; --carbon:#18343C; --nogal:#123039; --acento:#AE7256; --claro:#F2EADC; --claro-2:#D8C8B4; --veta:#55514B; --serif:'Playfair Display',Georgia,serif; --sans:'Montserrat',Arial,sans-serif; }
+body { background:var(--papel); color:var(--carbon); font-family:var(--sans); }
+.site-header,.site-header--solid-start,.site-header.is-solid { background:var(--piedra); color:var(--carbon); min-height:84px; border-bottom:1px solid #18343c20; }
+.site-header .logo { display:flex; align-items:center; width:auto; height:auto; position:static; }
+.site-header .logo .o8-wordmark { font-size:26px; }
+.site-header nav { gap:clamp(14px,2vw,28px); font-size:10px; text-transform:uppercase; letter-spacing:.05em; }
+.site-header .cta,.btn:not(.btn--ghost):not(.btn--wa) { background:var(--acento); border-color:var(--acento); color:#fff; }
+.site-header .cta:hover { color:var(--piedra); }
+.o8-notice { background:var(--piedra); border-left:3px solid var(--acento); padding:14px 17px; font-size:12px; line-height:1.6; color:var(--carbon); margin-bottom:22px; }
+.pay-btn:disabled { opacity:.65; cursor:not-allowed; }
+.site-header .logo .o8-wordmark span:last-child { padding-top:4px; }
+@media(max-width:800px) {.site-header .logo .o8-wordmark { font-size:23px; } .site-header nav { display:none; } }

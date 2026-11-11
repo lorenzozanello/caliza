@@ -31,12 +31,19 @@
   }
 
   function waLink(message) {
+    if (CONFIG.whatsapp === '570000000000') return '#';
     var text = message + ' (Los vi en ' + campaignOrigin() + '.)';
     return 'https://wa.me/' + CONFIG.whatsapp + '?text=' + encodeURIComponent(text);
   }
 
   function bindWhatsApp(scope) {
     (scope || document).querySelectorAll('[data-wa]').forEach(function (el) {
+      if (CONFIG.whatsapp === '570000000000') {
+        el.removeAttribute('href');
+        el.setAttribute('aria-disabled', 'true');
+        el.setAttribute('title', 'Canal WhatsApp pendiente de configuración');
+        return;
+      }
       el.setAttribute('href', waLink(el.getAttribute('data-wa')));
       el.setAttribute('target', '_blank');
       el.setAttribute('rel', 'noopener');

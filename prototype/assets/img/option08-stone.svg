@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Caliza Stone Design">
+  <g fill="none" stroke="#AE7256" stroke-width="4.2" stroke-linecap="round">
+    <path d="M50 15A24 24 0 1 0 49 51"/><path d="M45 21A16 16 0 1 0 45 44"/><path d="M42 28a9 9 0 1 0 0 9"/>
+  </g><path d="M42 12h10v16H42a8 8 0 0 0 0 16h10v8H42a20 20 0 0 1 0-40Z" fill="#AE7256" opacity=".88"/>
+</svg>

@@ -1,188 +1,97 @@
 import Link from 'next/link'
-import type { Media, Project } from '@/payload-types'
 import { getPayloadClient } from '@/lib/payload'
 import { ProductCard } from '@/components/ProductCard'
-import { Method } from '@/components/sections/Method'
 import { Contact } from '@/components/sections/Contact'
-import { isProvisional, mediaAlt, mediaUrl } from '@/components/media'
+import { mediaUrl, mediaAlt } from '@/components/media'
 
 export const revalidate = 60
 
+const lines = [
+  { id: 'crear', title: 'Crear', brand: 'Stone Design', image: '/option08-hero.webp', icon: '/brand/option08-stone.svg', href: '/stone', description: 'Proyectos en piedra natural a medida.', alt: 'Cocina mediterránea con isla en piedra natural' },
+  { id: 'habitar', title: 'Habitar', brand: 'Living Design', image: '/option08-living.webp', icon: '/brand/option08-living.svg', href: '/design', description: 'Mobiliario, mesas y objetos que dan forma a la vida.', alt: 'Mesa escultórica de travertino en sala luminosa' },
+  { id: 'preservar', title: 'Preservar', brand: 'Stone Care', image: '/option08-care.webp', icon: '/brand/option08-care.svg', href: '/care', description: 'Cuidado y restauración para que la belleza perdure.', alt: 'Cuidado artesanal de una superficie de piedra natural' },
+]
+
+const palette = [
+  { name: 'Marine Ink', color: '#18343C' },
+  { name: 'Terracotta', color: '#AE7256' },
+  { name: 'Sand', color: '#CEB99B' },
+  { name: 'Limewash', color: '#F2EADC' },
+]
+
 export default async function HomePage() {
   const payload = await getPayloadClient()
-  const [home, projects, products, materials] = await Promise.all([
-    payload.findGlobal({ slug: 'home', depth: 1 }),
-    payload.find({ collection: 'projects', where: { featured: { equals: true } }, limit: 1, depth: 1 }),
-    payload.find({ collection: 'products', where: { status: { equals: 'publicado' }, line: { in: ['design', 'care'] } }, sort: ['-featured', 'order'], limit: 6, depth: 1 }),
-    payload.find({ collection: 'materials', sort: 'order', limit: 8, depth: 1 }),
+  const [products, materials] = await Promise.all([
+    payload.find({ collection: 'products', where: { status: { equals: 'publicado' }, line: { in: ['design', 'care'] } }, sort: ['-featured', 'order'], limit: 4, depth: 1 }),
+    payload.find({ collection: 'materials', sort: 'order', limit: 4, depth: 1 }),
   ])
-  const project = projects.docs[0] as Project | undefined
-  const img = (m: Media | number | null | undefined, size: 'thumb' | 'card' | 'hero' = 'hero') => mediaUrl(m, size) ?? ''
-  const generations = home.generations?.length ? home.generations : [{ name: 'Primera generación', note: 'Marmolero · Italia' }, { name: 'Segunda generación', note: 'El oficio continúa' }, { name: 'Leonardo Zanello', note: 'Dirección creativa · Colombia' }]
 
   return (
-    <>
-      <section className="hero" aria-label="Presentación">
-        <div className="hero__media" data-hero-media><img src={img(home.heroImage)} alt={mediaAlt(home.heroImage)} fetchPriority="high" /></div>
-        <div className="hero__scrim" />
-        {isProvisional(home.heroImage) && <span className="tag">Fotografía provisional</span>}
-        <div className="hero__content">
-          <div className="hero__title">
-            <span className="eyebrow" data-hero-fade>{home.heroEyebrow}</span>
-            <h1 className="display">
-              <span className="line"><span>{home.heroLine1}</span></span>
-              <span className="line"><span>{home.heroLine2}</span></span>
-              <span className="line"><span><em>{home.heroLine3}</em></span></span>
-            </h1>
-          </div>
-          <div className="hero__aside" data-hero-fade>
-            <p>{home.heroText}</p>
-            <div className="ctas">
-              <Link href="/proyectos" className="btn btn--light" data-magnetic>Ver proyectos <span className="arrow">→</span></Link>
-              <Link href="/design" className="link" style={{ color: 'var(--claro)' }}><span className="u">Explorar piezas</span></Link>
+    <div className="o8-site">
+      <p className="o8-visual-disclaimer">Imágenes ambientales conceptuales de referencia; catálogo y cotizaciones sujetos a confirmación.</p>
+      <section className="o8-hero" aria-labelledby="o8-hero-heading">
+        <img src="/option08-hero.webp" alt="Isla de piedra natural en una cocina mediterránea iluminada por el sol" fetchPriority="high" />
+        <div className="o8-hero-copy">
+          <span className="o8-overline">Piedra natural · Diseño de vida</span>
+          <h1 id="o8-hero-heading">La materia<br />toma forma.</h1>
+          <span className="o8-terracotta-rule" />
+          <p>Diseño, vida y cuidado en piedra natural para espacios que perduran.</p>
+          <Link href="/proyectos" className="o8-button">Explorar proyectos <span aria-hidden="true">→</span></Link>
+        </div>
+        <div className="o8-hero-caption">Arquitectura · Materia · Personas</div>
+        <div className="o8-pagination" aria-hidden="true">01 <span /> 02 <span /> 03</div>
+      </section>
+
+      <section className="o8-pillars" aria-label="Las tres líneas de CALIZA GROUP">
+        {lines.map((line) => (
+          <Link key={line.id} className="o8-pillar" href={line.href} id={line.id}>
+            <img src={line.image} alt={line.alt} loading="lazy" />
+            <div className="o8-pillar-copy">
+              <img className="o8-line-mark" src={line.icon} alt="" aria-hidden="true" />
+              <div><h2>{line.title}</h2><span>{line.brand}</span><p>{line.description}</p></div>
+              <b aria-hidden="true">→</b>
             </div>
-          </div>
-        </div>
-        <div className="scroll-cue" aria-hidden="true"><i />Desliza</div>
+          </Link>
+        ))}
       </section>
 
-      <section className="sec-s2 wrap" id="estudio">
-        <div className="grid">
-          <div className="c-1-4 manifesto__side" data-reveal>
-            <img src="/brand/symbol_dark.svg" alt="" style={{ width: 36, height: 'auto' }} />
-            <span className="eyebrow muted">El estudio</span>
+      <section className="o8-section" id="coleccion">
+        <div className="o8-section-heading"><h2>Productos destacados</h2><Link href="/design">Explorar colección <span aria-hidden="true">→</span></Link></div>
+        {products.docs.length ? (
+          <div className="o8-cms-product-grid">{products.docs.map((product) => <ProductCard key={product.id} p={product} />)}</div>
+        ) : (
+          <div className="o8-product-grid">
+            <Link href="/design" className="o8-product"><img src="/option08-living.webp" alt="Mesa de travertino en sala contemporánea" loading="lazy" /><div><strong>Mesas en piedra natural</strong><span>Diseño a medida · Solicitar cotización</span><span aria-hidden="true">→</span></div></Link>
+            <Link href="/stone" className="o8-product"><img src="/option08-hero.webp" alt="Cocina con gran isla de piedra" loading="lazy" /><div><strong>Espacios en piedra natural</strong><span>Proyecto a medida · Solicitar cotización</span><span aria-hidden="true">→</span></div></Link>
           </div>
-          <div className="c-4-9">
-            <p className="manifesto__text" data-words>{home.manifesto}</p>
-            <div className="signature" data-reveal><span style={{ width: 40, height: 1, background: 'currentColor' }} />Leonardo Zanello · Dirección creativa</div>
-          </div>
-        </div>
+        )}
       </section>
 
-      <section className="wrap" id="lineas" style={{ paddingBottom: 'var(--s2)' }}>
-        <div className="lines__head">
-          <h2 className="h2" data-reveal>Tres formas de trabajar la piedra.</h2>
-          <p className="muted" data-reveal>Transformar el espacio, habitarlo y preservarlo. Puedes empezar por cualquiera.</p>
-        </div>
-        <div className="lines__row">
-          {[
-            { href: '/stone', cursor: 'Explorar Stone', image: home.stoneImage, line: 'Caliza Stone', n: 'I', name: 'Transformar', desc: 'Cocinas, baños, pisos, muros, piscinas y fachadas en piedra natural, del diseño a la instalación.', cta: 'Iniciar un proyecto' },
-            { href: '/design', cursor: 'Ver piezas', image: home.designImage, line: 'Caliza Design', n: 'II', name: 'Habitar', desc: 'Mesas, consolas, lavamanos y objetos donde la piedra se encuentra con la madera y el metal.', cta: 'Ver la colección' },
-            { href: '/care', cursor: 'Cuidar', image: home.careImage, line: 'Caliza Care', n: 'III', name: 'Preservar', desc: 'Mantenimiento, protección y restauración de superficies de piedra, para que duren otra generación.', cta: 'Cuidar una superficie' },
-          ].map((p) => (
-            <Link className="panel" href={p.href} data-cursor={p.cursor} key={p.name}>
-              <img src={img(p.image, 'card')} alt={mediaAlt(p.image)} />
-              <div className="panel__top"><span>{p.line}</span><span>{p.n}</span></div>
-              <div className="panel__body">
-                <span className="panel__name">{p.name}</span>
-                <div className="panel__desc"><div><p>{p.desc}</p><span className="link"><span className="u">{p.cta}</span><span className="arrow">→</span></span></div></div>
-              </div>
+      <section className="o8-section o8-materials" id="materiales">
+        <div className="o8-section-heading"><h2>Materiales</h2><Link href="/materiales">Explorar materiales <span aria-hidden="true">→</span></Link></div>
+        {materials.docs.length ? (
+          <div className="o8-material-grid">{materials.docs.map((material) => (
+            <Link href={`/materiales#${material.slug}`} key={material.id}>
+              {mediaUrl(material.image, 'card') ? <img src={mediaUrl(material.image, 'card')!} alt={mediaAlt(material.image)} loading="lazy" /> : <span className="o8-material-placeholder" />}
+              <strong>{material.name}</strong>
             </Link>
-          ))}
-        </div>
+          ))}</div>
+        ) : (
+          <div className="o8-swatches" aria-label="Paleta cromática de identidad">
+            {palette.map((item) => <div key={item.name}><span style={{ background: item.color }} /><strong>{item.name}</strong><small>{item.color}</small></div>)}
+          </div>
+        )}
       </section>
 
-      {project && (
-        <section className="project" id="proyecto" aria-label="Proyecto destacado">
-          <div className="project__sticky">
-            <Link href={`/proyectos/${project.slug}`} className="project__frame" data-project-frame data-cursor="Ver proyecto" aria-label={`Ver el proyecto ${project.title}`}>
-              <img src={img(project.cover)} alt={mediaAlt(project.cover)} data-project-img />
-            </Link>
-            <span className="eyebrow project__label" data-project-fade>Proyecto destacado · {project.line === 'stone' ? 'Stone' : project.line === 'design' ? 'Design' : 'Care'}</span>
-            <div className="project__caption" data-project-fade>
-              <h2 className="h2">{project.title}</h2>
-              <dl className="project__meta">
-                {project.city && <><dt>Ciudad</dt><dd>{project.city}{project.isExample ? ' (ejemplo)' : ''}</dd></>}
-                {project.space && <><dt>Espacio</dt><dd>{project.space}</dd></>}
-                {project.materialsText && <><dt>Materiales</dt><dd>{project.materialsText}</dd></>}
-              </dl>
-              <Link href={`/proyectos/${project.slug}`} className="link"><span className="u">Ver proyecto</span><span className="arrow">→</span></Link>
-            </div>
-          </div>
-        </section>
-      )}
-
-      <section className="collection sec-s2" id="coleccion">
-        <div className="collection__head wrap">
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
-            <span className="eyebrow muted" data-reveal>Caliza Design</span>
-            <h2 className="h2" data-reveal>Piezas para habitar.</h2>
-          </div>
-          <p className="muted" style={{ maxWidth: 380, margin: 0 }} data-reveal>La piedra como protagonista, con madera y metal. Cada pieza se fabrica después de tu elección.</p>
-        </div>
-        <div data-collection>
-          <div className="collection__track" data-track>
-            {products.docs.map((p) => <ProductCard key={p.id} p={p} />)}
-            <Link className="product-card product-card--custom" href="#contacto">
-              <span className="eyebrow" style={{ color: 'var(--claro-2)' }}>A tu medida</span>
-              <span className="h3" style={{ fontSize: 'clamp(28px,2.6vw,40px)' }}>¿Buscas una pieza que todavía no existe? La diseñamos contigo.</span>
-              <span className="link"><span className="u">Contarnos tu idea</span><span className="arrow">→</span></span>
-            </Link>
-          </div>
-          <div className="collection__progress" aria-hidden="true"><i data-progress /></div>
-        </div>
-        <div className="wrap" style={{ marginTop: 28 }}><Link href="/design" className="btn btn--ghost">Ver toda la colección <span className="arrow">→</span></Link></div>
+      <section className="o8-feature" id="proyectos">
+        <img src="/option08-hero.webp" alt="Arquitectura de piedra natural y luz mediterránea" loading="lazy" />
+        <div><span className="o8-overline">Stone Design</span><h2>Espacios que perduran.</h2><p>Del material al detalle, concebimos proyectos que unen oficio, arquitectura y naturaleza.</p><Link className="o8-button" href="/stone">Iniciar proyecto <span aria-hidden="true">→</span></Link></div>
       </section>
-
-      <section className="on-dark sec-s2 wrap" aria-label="Nuestra historia">
-        <div className="grid" style={{ rowGap: 48 }}>
-          <div className="c-1-6" style={{ display: 'flex', flexDirection: 'column', gap: 28 }}>
-            <span className="eyebrow" style={{ color: 'var(--claro-2)' }} data-reveal>Nuestra historia</span>
-            <h2 className="h2" style={{ color: 'var(--claro)' }} data-reveal>Del taller de marmoleros en Italia al estudio en Colombia.</h2>
-            <p style={{ margin: 0, maxWidth: 500, color: '#DDD3C6' }} data-reveal>{home.historyText}</p>
-          </div>
-          <div className="c-7-6">
-            <ol className="heritage__list">
-              {generations.map((g, i) => (
-                <li key={i} data-reveal><span className="heritage__num">{['I', 'II', 'III'][i]}</span><span className="heritage__name">{g.name}</span><span className="heritage__note">{g.note}</span></li>
-              ))}
-            </ol>
-          </div>
-        </div>
+      <section className="o8-feature o8-feature-care" id="cuidado">
+        <img src="/option08-care.webp" alt="Cuidado manual de una superficie de travertino" loading="lazy" />
+        <div><span className="o8-overline">Stone Care</span><h2>Cuidar también es diseñar.</h2><p>El valor de la piedra perdura cuando se conoce, protege y restaura con criterio.</p><Link className="o8-text-link" href="/care">Conocer servicios →</Link></div>
       </section>
-
-      {materials.docs.length > 0 && (
-        <section className="sec-s2 wrap" id="materiales">
-          <div className="lines__head"><h2 className="h2" data-reveal>La piedra y sus aliados.</h2></div>
-          <ul className="materials__list" data-materials>
-            {materials.docs.map((m, i) => (
-              <li key={m.id}><a href={`/materiales#${m.slug}`} data-mat={i}>
-                {mediaUrl(m.image, 'thumb') && <img className="mat-thumb" src={mediaUrl(m.image, 'thumb')!} alt="" />}
-                <span className="mname">{m.name}</span><span className="mdesc">{m.description}</span>
-                <span className="mrole">{m.family === 'piedra' ? 'La protagonista' : m.family === 'textura' ? 'Acabados' : 'Aliada'}</span>
-              </a></li>
-            ))}
-          </ul>
-          <div className="mat-follow" aria-hidden="true" data-follow>
-            {materials.docs.map((m) => <img key={m.id} src={mediaUrl(m.image, 'card') ?? ''} alt="" />)}
-          </div>
-        </section>
-      )}
-
-      <Method />
-
-      <section className="sec-s2 wrap" id="care">
-        <div className="grid" style={{ alignItems: 'center', rowGap: 36 }}>
-          {home.careSectionImage && (
-            <figure className="c-1-6 care__media" style={{ margin: 0 }} data-img-reveal>
-              <img src={img(home.careSectionImage, 'card')} alt={mediaAlt(home.careSectionImage)} />
-              {isProvisional(home.careSectionImage) && <span className="tag" style={{ left: 16, top: 16 }}>Fotografía provisional</span>}
-            </figure>
-          )}
-          <div className="c-8-5">
-            <span className="eyebrow muted" data-reveal>Caliza Care</span>
-            <h2 className="h2" style={{ marginTop: 18 }} data-reveal>Lo que creamos también merece cuidado.</h2>
-            <ul className="care__list" data-reveal>
-              <li><span>Mantenimiento periódico</span><span className="muted">Superficies y pisos</span></li>
-              <li><span>Protección y sellado</span><span className="muted">Cocinas y baños</span></li>
-              <li><span>Restauración</span><span className="muted">Brillo, manchas, desgaste</span></li>
-            </ul>
-            <Link className="link" href="/care" data-reveal><span className="u">Cuéntanos qué le pasa a tu superficie</span><span className="arrow">→</span></Link>
-          </div>
-        </div>
-      </section>
-
-      <Contact />
-    </>
+      <div className="o8-contact-wrap"><Contact title="Hablemos de tu proyecto." text="Diseñamos contigo desde la idea hasta su realización. Cuéntanos qué quieres crear, habitar o preservar." /></div>
+    </div>
   )
 }
