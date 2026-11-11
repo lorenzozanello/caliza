@@ -43,3 +43,13 @@
 ## P1/P3 complementario — contenido y formatos
 - Cuatro etapas de proceso editorial documentado: Entender, Dar forma, Materializar y Cuidar; las descripciones no garantizan plazos, instalaciones ni servicios no validados.
 - Al aprobar fotografías individuales, el generador emite `widths` y la web elige AVIF/WebP vía `<picture>` y `srcset`; los originales de Drive no forman parte del repositorio.
+
+## Versión del 11 de noviembre — mejor uso actual del catálogo
+- La fuente 11_CATEGORIAS_FUENTE sustenta las cinco familias de Living Design y sus agrupaciones: comedor por base piedra/hierro/madera, auxiliares, sillas hogar, sillas comerciales y lavamanos. Los recuentos representan archivos, NO productos distintos ni disponibilidad.
+- Se añadieron cinco URLs consultivas `#/living-design/familia/<slug>`, con subfamilias trazadas, preguntas orientativas, navegación desde Colecciones y formulario local para generar mensaje a WhatsApp, sin guardar datos.
+- Se amplió la búsqueda para encontrar grupos de archivo por material de la base (por ejemplo «hierro») sin presentarlos como especificaciones confirmadas.
+- Proyectos deja de simular seis casos ejecutados y se organiza por dos ámbitos con archivo fotográfico real (cocinas y lavamanos), con imágenes conceptuales de apoyo mientras la autorización no permita publicar los originales.
+- Materiales se presenta como biblioteca de inspiración visual, evitando afirmar fichas técnicas o existencia de placas que aún no figuran aprobadas en 03_MATERIALES.
+- Se revisó la voz formal en el asistente Stone Care y se actualizaron las pruebas del prototipo para las cinco nuevas rutas, búsqueda y preparación de consultas.
+- Las fotos genuinas ya tienen un kit privado de AVIF/WebP y una demostración navegable fuera de GitHub, almacenada en el Drive del proyecto en 03 — FOTOGRAFÍAS Y VIDEOS, con identificación de las fuentes. No se han promovido a Vercel ni se les ha cambiado el estatus de aprobación.
+- EVIDENCIA: simulación funcional 23 rutas PASS y Vercel Success; falta QA visual independiente y Lighthouse, y el contenido no es una oferta comercial con precios o SKU.

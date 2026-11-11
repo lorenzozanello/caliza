@@ -27,3 +27,13 @@
 - [ ] Optimización AVIF/WebP responsive desde originales aprobados y verificación de derechos.
 - [ ] SEO indexable y rutas History API **solo cuando se apruebe el dominio estable**, con redirecciones controladas.
 - [ ] Funciones con datos personales, agenda, muestras, comercio, configurador, AR, integraciones y producción: aprobación de negocio, protección de datos y pruebas independientes.
+
+## Actualización — uso del catálogo real (2026-11-11)
+- [x] Conectar grupos documentados de 11_CATEGORIAS_FUENTE a cinco familias y subfamilias.
+- [x] Construir cinco páginas de familia y consultas locales con WhatsApp oficial.
+- [x] Reformular Proyectos y Materiales con descripciones fieles a las fuentes.
+- [x] Optimizar y entregar fotografías reales en paquete de revisión privada; NO publicadas.
+- [ ] Confirmar para cada medio_id derechos, `aprobado_web=Sí` y registro listo_publicar individual.
+- [ ] Incorporar cinco imágenes reales AVIF/WebP a Vercel después de aprobaciones.
+- [ ] QA visual independiente y Lighthouse antes de promoción pública.
+- [ ] Fichas de producto, precios, stock y proyectos individuales: no se inventan.
