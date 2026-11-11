@@ -11,6 +11,7 @@ const NAV = [
   { href: '/care', label: 'Stone Care' },
   { href: '/proyectos', label: 'Proyectos' },
   { href: '/materiales', label: 'Materiales' },
+  { href: '/inspiracion', label: 'Inspiración' },
 ]
 
 /** La identidad aprobada utiliza un encabezado claro también sobre el hero. */
@@ -53,7 +54,7 @@ export function SiteHeader() {
     <>
       <header className={cls}>
         <Link href="/" className="logo" aria-label="Caliza, inicio">
-          <span className="o8-wordmark"><span>CALIZA</span><span>GROUP</span></span>
+          <span className="o8-wordmark"><span>CALIZA</span><span>GROUP</span><i aria-hidden="true" /></span>
         </Link>
         <nav aria-label="Principal">
           {NAV.map((n) => (
@@ -71,7 +72,7 @@ export function SiteHeader() {
       </header>
       <div className={`mobile-menu${menu ? ' is-open' : ''}`} id="menu" aria-hidden={!menu} inert={!menu}>
         <div className="top">
-          <span className="o8-wordmark"><span>CALIZA</span><span>GROUP</span></span>
+          <span className="o8-wordmark"><span>CALIZA</span><span>GROUP</span><i aria-hidden="true" /></span>
           <button className="icon-btn" aria-label="Cerrar menú" style={{ color: 'var(--claro)' }} onClick={() => setMenu(false)}>
             <svg width="20" height="20" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19" /></svg>
           </button>
@@ -83,7 +84,7 @@ export function SiteHeader() {
           {whatsapp && whatsapp.replace(/\D/g, '') !== '570000000000'
             ? <a className="btn btn--wa" href={waLink(whatsapp, 'Hola, quiero hablar con el estudio.', source)} target="_blank" rel="noopener">Escribir por WhatsApp</a>
             : <Link className="btn btn--ghost" href="/#contacto" onClick={() => setMenu(false)}>Iniciar proyecto</Link>}
-          <span className="small" style={{ color: 'var(--claro-2)' }}>Tradición italiana · Hecho en Colombia</span>
+          <span className="small" style={{ color: 'var(--claro-2)' }}>Crear. Habitar. Preservar. · Colombia al mundo</span>
         </div>
       </div>
     </>

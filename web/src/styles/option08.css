@@ -9,6 +9,7 @@ img { display:block; width:100%; } a { color:inherit; text-decoration:none; }
 .o8-header { position:relative; display:flex; align-items:center; justify-content:space-between; gap:28px; min-height:90px; padding:14px clamp(22px,5vw,88px); background:var(--limewash); z-index:5; border-bottom:1px solid #18343c20; }
 .o8-wordmark { font-family:var(--serif); line-height:.83; font-size:clamp(23px,2.1vw,30px); font-weight:500; letter-spacing:-.075em; display:inline-flex; flex-direction:column; flex-shrink:0; width:max-content; }
 .o8-wordmark span:last-child { padding-top:3px; }
+.o8-wordmark i { display:block; width:42%; height:1px; background:var(--terracotta); align-self:center; margin-top:9px; }
 .o8-nav { display:flex; justify-content:center; gap:clamp(14px,2.3vw,35px); }
 .o8-nav a { white-space:nowrap; text-transform:uppercase; font-size:10px; letter-spacing:.065em; font-weight:500; transition:color .2s; }
 .o8-nav a:hover,.o8-section-heading a:hover { color:var(--terracotta); }
