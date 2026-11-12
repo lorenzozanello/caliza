@@ -43,6 +43,7 @@ const navigator = { clipboard: { writeText(text) { copied.push(text); return Pro
 const context = vm.createContext({ document, window, location, localStorage, navigator, URL, URLSearchParams, FormData: FakeFormData, HTMLFormElement: FakeForm, setTimeout: () => 1, clearTimeout: () => {}, console })
 vm.runInContext(fs.readFileSync(path.join(root, 'assets/data/approved-media.js'), 'utf8'), context)
 vm.runInContext(fs.readFileSync(path.join(root, 'assets/data/catalogo.js'), 'utf8'), context)
+vm.runInContext(fs.readFileSync(path.join(root, 'assets/data/r6-gallery.js'), 'utf8'), context)
 vm.runInContext(code, context)
 
 function visit(route) {
@@ -62,7 +63,7 @@ function visit(route) {
   return main.innerHTML
 }
 const routes = [
-  '/', '/stone-design', '/stone-design/proyectos', '/stone-design/brief', '/living-design',
+  '/', '/archivo', '/stone-design', '/stone-design/proyectos', '/stone-design/brief', '/living-design',
   '/living-design/coleccion', '/living-design/coleccion?categoria=Sillas', '/tienda',
   '/living-design/familia/mesas-de-comedor', '/living-design/familia/mesas-auxiliares',
   '/living-design/familia/sillas-para-hogar', '/living-design/familia/sillas-comerciales', '/living-design/familia/lavamanos',
@@ -77,6 +78,11 @@ for (const route of routes) {
 for (const route of linkedRoutes) visit(route)
 assert.match(visit('/'), /La materia/)
 assert.match(visit('/'), /caliza-family-grid-featured/)
+assert.match(visit('/'), /caliza-r6-home/)
+assert.match(visit('/archivo'), /caliza-r6-grid/)
+assert.match(visit('/archivo'), /editorial-r6\/caliza-r6-/)
+assert.match(visit('/living-design/familia/sillas-para-hogar'), /caliza-r6-reference/)
+assert.match(visit('/living-design/familia/lavamanos'), /Fotografía auténtica · CALIZA/)
 assert.doesNotMatch(visit('/'), /¿Qué te gustaría hacer?/)
 assert.equal(document.title, 'La materia toma forma. · CALIZA GROUP')
 assert.match(visit('/'), /caliza-journeys/)
