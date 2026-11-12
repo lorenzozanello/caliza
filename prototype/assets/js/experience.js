@@ -269,6 +269,7 @@
         <p>El alcance de cada propuesta se define mediante una consulta técnica.</p>
         <div>${['Revestimientos y muros', 'Pisos y superficies', 'Piezas especiales', 'Proyectos comerciales'].map((name) => `<a href="#/stone-design/brief">${name}<span aria-hidden="true">→</span></a>`).join('')}</div>
       </section>
+      <section class="caliza-r6-section"><div class="caliza-r6-lead">${label('Obras y detalles reales')}<h2>La piedra, sin artificios.</h2><p>Fotografías auténticas del archivo CALIZA. No atribuimos proyectos, fechas, ubicaciones ni materiales no confirmados.</p></div>${r6Cards(r6Favorites.map(id => r6Archive.find(r => r.id === id)).filter(Boolean).filter(r => r.group === 'cocinas' || r.group === 'lavamanos'))}<div class="caliza-r6-more"><a href="#/archivo">Explorar el archivo completo →</a></div></section>
       <div class="exp-cta-centered">${button('/stone-design/brief', 'Empezar un proyecto')}</div>
     </section>`;
 }
