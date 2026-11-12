@@ -41,6 +41,7 @@ class FakeFormData {
 const copied = []
 const navigator = { clipboard: { writeText(text) { copied.push(text); return Promise.resolve() } } }
 const context = vm.createContext({ document, window, location, localStorage, navigator, URL, URLSearchParams, FormData: FakeFormData, HTMLFormElement: FakeForm, setTimeout: () => 1, clearTimeout: () => {}, console })
+vm.runInContext(fs.readFileSync(path.join(root, 'assets/data/approved-media.js'), 'utf8'), context)
 vm.runInContext(fs.readFileSync(path.join(root, 'assets/data/catalogo.js'), 'utf8'), context)
 vm.runInContext(code, context)
 
@@ -51,6 +52,12 @@ function visit(route) {
   assert(!heading().includes('Esta ruta no existe'), `Route not found: ${route}`)
   for (const [, src] of main.innerHTML.matchAll(/<img\b[^>]*\bsrc="([^"]+)"/g)) {
     assert(fs.existsSync(path.join(root, src)), `Missing asset ${src} in ${route}`)
+  }
+  for (const [, sources] of main.innerHTML.matchAll(/\bsrcset="([^"]+)"/g)) {
+    for (const candidate of sources.split(',')) {
+      const imagePath = candidate.trim().split(/\s+/)[0]
+      assert(fs.existsSync(path.join(root, imagePath)), `Missing responsive image ${imagePath} in ${route}`)
+    }
   }
   return main.innerHTML
 }
@@ -91,15 +98,15 @@ assert.match(visit('/tienda?q=Mesas'), /Mesas de comedor/)
 assert.equal((visit('/tienda?q=Mesas').match(/caliza-family-card/g) || []).length, 2)
 assert.match(visit('/tienda?q=sin-resultado'), /No encontramos familias/)
 assert.doesNotMatch(visit('/tienda'), /Mesa Rubi|Silla Aria|data-add-quote/)
-assert.match(visit('/living-design/carrito'), /Imagen conceptual · No es un producto publicado/)
+assert.match(visit('/living-design/carrito'), /approved\/dining-wood-/)
 assert.match(visit('/living-design/pieza/mesa-rubi'), /Explore las familias reales/)
 assert.match(visit('/tienda?categoria=Sillas'), /Sillas para hogar/)
 assert.match(visit('/tienda?categoria=Sillas'), /Sillas comerciales/)
 assert.doesNotMatch(visit('/tienda?categoria=Sillas'), /option08-living\.webp/)
-assert.equal((visit('/tienda').match(/data-pendiente=/g) || []).length, 5)
-assert.equal((visit('/tienda').match(/Imagen conceptual · No es un producto publicado/g) || []).length, 5)
-assert.match(visit('/living-design/familia/mesas-de-comedor'), /comedor\.jpg/)
-assert.match(visit('/living-design/familia/sillas-comerciales'), /editorial-sillas-comerciales\.webp/)
+assert.equal((visit('/tienda').match(/approved\//g) || []).length > 0, true)
+assert.equal((visit('/tienda').match(/Imagen conceptual · No es un producto publicado/g) || []).length, 0)
+assert.match(visit('/living-design/familia/mesas-de-comedor'), /approved\/dining-wood-/)
+assert.match(visit('/living-design/familia/sillas-comerciales'), /approved\/chair-commercial-/)
 assert.equal((visit('/tienda').match(/data-marketing-cta="whatsapp"/g) || []).length, 5)
 assert.equal((visit('/tienda?q=hierro').match(/caliza-family-card/g) || []).length, 1)
 assert.match(visit('/living-design/familia/mesas-de-comedor'), /Base de piedra/)
