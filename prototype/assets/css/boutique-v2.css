@@ -347,7 +347,7 @@ body.o8-page .o8-section .caliza-r6-section,
 body.o8-page .exp-page-pad>.caliza-r6-section{padding-inline:0}
 body.o8-page .caliza-r6-group{margin-bottom:clamp(40px,6vw,88px)}
 body.o8-page .caliza-r6-lead{max-width:780px;margin:0 0 clamp(18px,2.7vw,35px)}
-body.o8-page .caliza-r6-lead .o8-overline{color:#806752;letter-spacing:.18em}
+body.o8-page .caliza-r6-lead .o8-overline{color:#57402f;letter-spacing:.18em}
 body.o8-page .caliza-r6-lead h2{font:400 clamp(32px,4vw,57px)/1.12 var(--font-serif);margin:12px 0 16px;color:var(--ink)}
 body.o8-page .caliza-r6-lead p{max-width:650px;font:400 15px/1.75 var(--font-sans);color:var(--ink-muted);margin:0}
 body.o8-page .caliza-r6-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(10px,1.5vw,22px)}
@@ -358,7 +358,7 @@ body.o8-page .caliza-r6-card:not(.caliza-r6-reference):hover>figure>img{transfor
 body.o8-page .caliza-r6-reference>figure{background:#e9e0d5}
 body.o8-page .caliza-r6-reference>figure>img{object-fit:cover;object-position:30% center;transform:scale(1.18);transform-origin:30% center}
 body.o8-page .caliza-r6-card>div{padding:clamp(14px,2vw,25px);flex:1}
-body.o8-page .caliza-r6-card span{display:block;font:500 10px/1.6 var(--font-sans);letter-spacing:.14em;text-transform:uppercase;color:#886b53}
+body.o8-page .caliza-r6-card span{display:block;font:600 11px/1.6 var(--font-sans);letter-spacing:.11em;text-transform:uppercase;color:#513c2d}
 body.o8-page .caliza-r6-card h3{font:400 clamp(21px,2.35vw,31px)/1.2 var(--font-serif);margin:8px 0 0}
 body.o8-page .caliza-r6-more{margin:24px 0 0;text-align:right}
 body.o8-page .caliza-r6-more a{display:inline-block;border-bottom:1px solid #998472;padding-bottom:7px;color:var(--ink);font-size:13px}
