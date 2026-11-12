@@ -100,9 +100,23 @@
       "publication": "HOLD",
       "editorial_review_date": "2026-11-11",
       "visual_method": "representative opening frame; full-motion/audio review not certified",
-      "curatorial_decision": "EXCLUDE_FROM_WEBSITE",
+      "curatorial_decision": "VIDEO_REFERENCE_ONLY",
       "reason": "Blank/dark or embedded promotional overlays/unclear message; unsuitable without source-level review",
-      "proposed_section": "Archive only"
+      "proposed_section": "Internal commercial archive",
+      "temporal_qa": {
+        "sampled_frames": 3,
+        "sample_positions_percent": [
+          12,
+          50,
+          86
+        ],
+        "duration_seconds": 23.3,
+        "audio_stream_present": true,
+        "audio_listened": false,
+        "continuous_playback_reviewed": false,
+        "method": "three source-file frames plus ffprobe metadata; NOT full audiovisual certification",
+        "editorial_risk": "commercial overlay, discount/prices and/or third-party soundtrack; use as reference, do not publish unchanged"
+      }
     },
     {
       "category": "Cocinas",
@@ -228,9 +242,23 @@
       "publication": "HOLD",
       "editorial_review_date": "2026-11-11",
       "visual_method": "representative opening frame; full-motion/audio review not certified",
-      "curatorial_decision": "VIDEO_SHORTLIST_CONDITIONAL",
+      "curatorial_decision": "VIDEO_EDITORIAL_CANDIDATE_HOLD",
       "reason": "Relevant stone, project, furniture or surface seen in frame; requires full-motion, audio, privacy and stabilization review",
-      "proposed_section": "Stone Design / projects"
+      "proposed_section": "Stone Design / projects",
+      "temporal_qa": {
+        "sampled_frames": 3,
+        "sample_positions_percent": [
+          12,
+          50,
+          86
+        ],
+        "duration_seconds": 10.8,
+        "audio_stream_present": true,
+        "audio_listened": false,
+        "continuous_playback_reviewed": false,
+        "method": "three source-file frames plus ffprobe metadata; NOT full audiovisual certification",
+        "editorial_risk": "verify soundtrack/speech rights and remove audio for silent editorial web version"
+      }
     },
     {
       "category": "Cocinas",
@@ -406,7 +434,21 @@
       "visual_method": "representative opening frame; full-motion/audio review not certified",
       "curatorial_decision": "VIDEO_ARCHIVE_CONDITIONAL",
       "reason": "Original video reviewed via frame sample; no clear site-ready edit established",
-      "proposed_section": "Archive, not autoplay"
+      "proposed_section": "Archive, not autoplay",
+      "temporal_qa": {
+        "sampled_frames": 3,
+        "sample_positions_percent": [
+          12,
+          50,
+          86
+        ],
+        "duration_seconds": 10.6,
+        "audio_stream_present": false,
+        "audio_listened": false,
+        "continuous_playback_reviewed": false,
+        "method": "three source-file frames plus ffprobe metadata; NOT full audiovisual certification",
+        "editorial_risk": "no detected audio stream; visual continuity and third-party elements still require full review"
+      }
     },
     {
       "category": "Cocinas",
@@ -742,7 +784,21 @@
       "visual_method": "representative opening frame; full-motion/audio review not certified",
       "curatorial_decision": "VIDEO_ARCHIVE_CONDITIONAL",
       "reason": "Original video reviewed via frame sample; no clear site-ready edit established",
-      "proposed_section": "Archive, not autoplay"
+      "proposed_section": "Archive, not autoplay",
+      "temporal_qa": {
+        "sampled_frames": 3,
+        "sample_positions_percent": [
+          12,
+          50,
+          86
+        ],
+        "duration_seconds": 7.5,
+        "audio_stream_present": false,
+        "audio_listened": false,
+        "continuous_playback_reviewed": false,
+        "method": "three source-file frames plus ffprobe metadata; NOT full audiovisual certification",
+        "editorial_risk": "no detected audio stream; visual continuity and third-party elements still require full review"
+      }
     },
     {
       "category": "Cocinas",
@@ -756,9 +812,23 @@
       "publication": "HOLD",
       "editorial_review_date": "2026-11-11",
       "visual_method": "representative opening frame; full-motion/audio review not certified",
-      "curatorial_decision": "VIDEO_SHORTLIST_CONDITIONAL",
+      "curatorial_decision": "VIDEO_REFERENCE_ONLY",
       "reason": "Relevant stone, project, furniture or surface seen in frame; requires full-motion, audio, privacy and stabilization review",
-      "proposed_section": "Stone Design / projects"
+      "proposed_section": "Internal commercial archive",
+      "temporal_qa": {
+        "sampled_frames": 3,
+        "sample_positions_percent": [
+          12,
+          50,
+          86
+        ],
+        "duration_seconds": 10.3,
+        "audio_stream_present": false,
+        "audio_listened": false,
+        "continuous_playback_reviewed": false,
+        "method": "three source-file frames plus ffprobe metadata; NOT full audiovisual certification",
+        "editorial_risk": "commercial overlay, discount/prices and/or third-party soundtrack; use as reference, do not publish unchanged"
+      }
     },
     {
       "category": "Cocinas",
@@ -886,7 +956,21 @@
       "visual_method": "representative opening frame; full-motion/audio review not certified",
       "curatorial_decision": "VIDEO_ARCHIVE_CONDITIONAL",
       "reason": "Original video reviewed via frame sample; no clear site-ready edit established",
-      "proposed_section": "Archive, not autoplay"
+      "proposed_section": "Archive, not autoplay",
+      "temporal_qa": {
+        "sampled_frames": 3,
+        "sample_positions_percent": [
+          12,
+          50,
+          86
+        ],
+        "duration_seconds": 24.6,
+        "audio_stream_present": true,
+        "audio_listened": false,
+        "continuous_playback_reviewed": false,
+        "method": "three source-file frames plus ffprobe metadata; NOT full audiovisual certification",
+        "editorial_risk": "verify soundtrack/speech rights and remove audio for silent editorial web version"
+      }
     },
     {
       "category": "Cocinas",
@@ -932,9 +1016,23 @@
       "publication": "HOLD",
       "editorial_review_date": "2026-11-11",
       "visual_method": "representative opening frame; full-motion/audio review not certified",
-      "curatorial_decision": "EXCLUDE_FROM_WEBSITE",
+      "curatorial_decision": "VIDEO_REFERENCE_ONLY",
       "reason": "Blank/dark or embedded promotional overlays/unclear message; unsuitable without source-level review",
-      "proposed_section": "Archive only"
+      "proposed_section": "Internal commercial archive",
+      "temporal_qa": {
+        "sampled_frames": 3,
+        "sample_positions_percent": [
+          12,
+          50,
+          86
+        ],
+        "duration_seconds": 38.9,
+        "audio_stream_present": true,
+        "audio_listened": false,
+        "continuous_playback_reviewed": false,
+        "method": "three source-file frames plus ffprobe metadata; NOT full audiovisual certification",
+        "editorial_risk": "commercial overlay, discount/prices and/or third-party soundtrack; use as reference, do not publish unchanged"
+      }
     },
     {
       "category": "Cocinas",
@@ -982,7 +1080,21 @@
       "visual_method": "representative opening frame; full-motion/audio review not certified",
       "curatorial_decision": "VIDEO_ARCHIVE_CONDITIONAL",
       "reason": "Original video reviewed via frame sample; no clear site-ready edit established",
-      "proposed_section": "Archive, not autoplay"
+      "proposed_section": "Archive, not autoplay",
+      "temporal_qa": {
+        "sampled_frames": 3,
+        "sample_positions_percent": [
+          12,
+          50,
+          86
+        ],
+        "duration_seconds": 12.2,
+        "audio_stream_present": true,
+        "audio_listened": false,
+        "continuous_playback_reviewed": false,
+        "method": "three source-file frames plus ffprobe metadata; NOT full audiovisual certification",
+        "editorial_risk": "verify soundtrack/speech rights and remove audio for silent editorial web version"
+      }
     },
     {
       "category": "Cocinas",
@@ -1012,9 +1124,23 @@
       "publication": "HOLD",
       "editorial_review_date": "2026-11-11",
       "visual_method": "representative opening frame; full-motion/audio review not certified",
-      "curatorial_decision": "VIDEO_SHORTLIST_CONDITIONAL",
+      "curatorial_decision": "VIDEO_EDITORIAL_CANDIDATE_HOLD",
       "reason": "Relevant stone, project, furniture or surface seen in frame; requires full-motion, audio, privacy and stabilization review",
-      "proposed_section": "Stone Design / projects"
+      "proposed_section": "Stone Design / projects",
+      "temporal_qa": {
+        "sampled_frames": 3,
+        "sample_positions_percent": [
+          12,
+          50,
+          86
+        ],
+        "duration_seconds": 8.8,
+        "audio_stream_present": false,
+        "audio_listened": false,
+        "continuous_playback_reviewed": false,
+        "method": "three source-file frames plus ffprobe metadata; NOT full audiovisual certification",
+        "editorial_risk": "no detected audio stream; visual continuity and third-party elements still require full review"
+      }
     },
     {
       "category": "Cocinas",
@@ -1140,9 +1266,23 @@
       "publication": "HOLD",
       "editorial_review_date": "2026-11-11",
       "visual_method": "representative opening frame; full-motion/audio review not certified",
-      "curatorial_decision": "VIDEO_SHORTLIST_CONDITIONAL",
+      "curatorial_decision": "VIDEO_EDITORIAL_CANDIDATE_HOLD",
       "reason": "Relevant stone, project, furniture or surface seen in frame; requires full-motion, audio, privacy and stabilization review",
-      "proposed_section": "Stone Design / lavamanos"
+      "proposed_section": "Stone Design / lavamanos",
+      "temporal_qa": {
+        "sampled_frames": 3,
+        "sample_positions_percent": [
+          12,
+          50,
+          86
+        ],
+        "duration_seconds": 20.4,
+        "audio_stream_present": true,
+        "audio_listened": false,
+        "continuous_playback_reviewed": false,
+        "method": "three source-file frames plus ffprobe metadata; NOT full audiovisual certification",
+        "editorial_risk": "verify soundtrack/speech rights and remove audio for silent editorial web version"
+      }
     },
     {
       "category": "Lavamanos",
@@ -1270,7 +1410,21 @@
       "visual_method": "representative opening frame; full-motion/audio review not certified",
       "curatorial_decision": "VIDEO_ARCHIVE_CONDITIONAL",
       "reason": "Original video reviewed via frame sample; no clear site-ready edit established",
-      "proposed_section": "Archive, not autoplay"
+      "proposed_section": "Archive, not autoplay",
+      "temporal_qa": {
+        "sampled_frames": 3,
+        "sample_positions_percent": [
+          12,
+          50,
+          86
+        ],
+        "duration_seconds": 133.4,
+        "audio_stream_present": true,
+        "audio_listened": false,
+        "continuous_playback_reviewed": false,
+        "method": "three source-file frames plus ffprobe metadata; NOT full audiovisual certification",
+        "editorial_risk": "verify soundtrack/speech rights and remove audio for silent editorial web version"
+      }
     },
     {
       "category": "Lavamanos",
@@ -1508,9 +1662,23 @@
       "publication": "HOLD",
       "editorial_review_date": "2026-11-11",
       "visual_method": "representative opening frame; full-motion/audio review not certified",
-      "curatorial_decision": "VIDEO_SHORTLIST_CONDITIONAL",
+      "curatorial_decision": "VIDEO_EDITORIAL_CANDIDATE_HOLD",
       "reason": "Relevant stone, project, furniture or surface seen in frame; requires full-motion, audio, privacy and stabilization review",
-      "proposed_section": "Stone Design / lavamanos"
+      "proposed_section": "Stone Design / lavamanos",
+      "temporal_qa": {
+        "sampled_frames": 3,
+        "sample_positions_percent": [
+          12,
+          50,
+          86
+        ],
+        "duration_seconds": 29.6,
+        "audio_stream_present": true,
+        "audio_listened": false,
+        "continuous_playback_reviewed": false,
+        "method": "three source-file frames plus ffprobe metadata; NOT full audiovisual certification",
+        "editorial_risk": "verify soundtrack/speech rights and remove audio for silent editorial web version"
+      }
     },
     {
       "category": "Lavamanos",
@@ -1540,9 +1708,23 @@
       "publication": "HOLD",
       "editorial_review_date": "2026-11-11",
       "visual_method": "representative opening frame; full-motion/audio review not certified",
-      "curatorial_decision": "VIDEO_SHORTLIST_CONDITIONAL",
+      "curatorial_decision": "VIDEO_EDITORIAL_CANDIDATE_HOLD",
       "reason": "Relevant stone, project, furniture or surface seen in frame; requires full-motion, audio, privacy and stabilization review",
-      "proposed_section": "Stone Design / lavamanos"
+      "proposed_section": "Stone Design / lavamanos",
+      "temporal_qa": {
+        "sampled_frames": 3,
+        "sample_positions_percent": [
+          12,
+          50,
+          86
+        ],
+        "duration_seconds": 32.2,
+        "audio_stream_present": true,
+        "audio_listened": false,
+        "continuous_playback_reviewed": false,
+        "method": "three source-file frames plus ffprobe metadata; NOT full audiovisual certification",
+        "editorial_risk": "verify soundtrack/speech rights and remove audio for silent editorial web version"
+      }
     },
     {
       "category": "Lavamanos",
@@ -1572,9 +1754,23 @@
       "publication": "HOLD",
       "editorial_review_date": "2026-11-11",
       "visual_method": "representative opening frame; full-motion/audio review not certified",
-      "curatorial_decision": "VIDEO_SHORTLIST_CONDITIONAL",
+      "curatorial_decision": "VIDEO_EDITORIAL_CANDIDATE_HOLD",
       "reason": "Relevant stone, project, furniture or surface seen in frame; requires full-motion, audio, privacy and stabilization review",
-      "proposed_section": "Stone Design / lavamanos"
+      "proposed_section": "Stone Design / lavamanos",
+      "temporal_qa": {
+        "sampled_frames": 3,
+        "sample_positions_percent": [
+          12,
+          50,
+          86
+        ],
+        "duration_seconds": 5.8,
+        "audio_stream_present": true,
+        "audio_listened": false,
+        "continuous_playback_reviewed": false,
+        "method": "three source-file frames plus ffprobe metadata; NOT full audiovisual certification",
+        "editorial_risk": "verify soundtrack/speech rights and remove audio for silent editorial web version"
+      }
     },
     {
       "category": "Lavamanos",
@@ -1638,7 +1834,21 @@
       "visual_method": "representative opening frame; full-motion/audio review not certified",
       "curatorial_decision": "VIDEO_ARCHIVE_CONDITIONAL",
       "reason": "Original video reviewed via frame sample; no clear site-ready edit established",
-      "proposed_section": "Archive, not autoplay"
+      "proposed_section": "Archive, not autoplay",
+      "temporal_qa": {
+        "sampled_frames": 3,
+        "sample_positions_percent": [
+          12,
+          50,
+          86
+        ],
+        "duration_seconds": 14.9,
+        "audio_stream_present": false,
+        "audio_listened": false,
+        "continuous_playback_reviewed": false,
+        "method": "three source-file frames plus ffprobe metadata; NOT full audiovisual certification",
+        "editorial_risk": "no detected audio stream; visual continuity and third-party elements still require full review"
+      }
     },
     {
       "category": "Lavamanos",
@@ -2500,9 +2710,23 @@
       "publication": "HOLD",
       "editorial_review_date": "2026-11-11",
       "visual_method": "representative opening frame; full-motion/audio review not certified",
-      "curatorial_decision": "EXCLUDE_FROM_WEBSITE",
+      "curatorial_decision": "VIDEO_REFERENCE_ONLY",
       "reason": "Blank/dark or embedded promotional overlays/unclear message; unsuitable without source-level review",
-      "proposed_section": "Archive only"
+      "proposed_section": "Internal commercial archive",
+      "temporal_qa": {
+        "sampled_frames": 3,
+        "sample_positions_percent": [
+          12,
+          50,
+          86
+        ],
+        "duration_seconds": 16.8,
+        "audio_stream_present": true,
+        "audio_listened": false,
+        "continuous_playback_reviewed": false,
+        "method": "three source-file frames plus ffprobe metadata; NOT full audiovisual certification",
+        "editorial_risk": "commercial overlay, discount/prices and/or third-party soundtrack; use as reference, do not publish unchanged"
+      }
     },
     {
       "category": "Videos generales",
@@ -2516,9 +2740,23 @@
       "publication": "HOLD",
       "editorial_review_date": "2026-11-11",
       "visual_method": "representative opening frame; full-motion/audio review not certified",
-      "curatorial_decision": "VIDEO_SHORTLIST_CONDITIONAL",
+      "curatorial_decision": "VIDEO_EDITORIAL_CANDIDATE_HOLD",
       "reason": "Relevant stone, project, furniture or surface seen in frame; requires full-motion, audio, privacy and stabilization review",
-      "proposed_section": "Stone Design / projects"
+      "proposed_section": "Stone Design / projects",
+      "temporal_qa": {
+        "sampled_frames": 3,
+        "sample_positions_percent": [
+          12,
+          50,
+          86
+        ],
+        "duration_seconds": 14.3,
+        "audio_stream_present": true,
+        "audio_listened": false,
+        "continuous_playback_reviewed": false,
+        "method": "three source-file frames plus ffprobe metadata; NOT full audiovisual certification",
+        "editorial_risk": "verify soundtrack/speech rights and remove audio for silent editorial web version"
+      }
     },
     {
       "category": "Videos generales",
@@ -2532,9 +2770,23 @@
       "publication": "HOLD",
       "editorial_review_date": "2026-11-11",
       "visual_method": "representative opening frame; full-motion/audio review not certified",
-      "curatorial_decision": "VIDEO_SHORTLIST_CONDITIONAL",
+      "curatorial_decision": "VIDEO_EDITORIAL_CANDIDATE_HOLD",
       "reason": "Relevant stone, project, furniture or surface seen in frame; requires full-motion, audio, privacy and stabilization review",
-      "proposed_section": "Stone Design / projects"
+      "proposed_section": "Stone Design / projects",
+      "temporal_qa": {
+        "sampled_frames": 3,
+        "sample_positions_percent": [
+          12,
+          50,
+          86
+        ],
+        "duration_seconds": 14.1,
+        "audio_stream_present": true,
+        "audio_listened": false,
+        "continuous_playback_reviewed": false,
+        "method": "three source-file frames plus ffprobe metadata; NOT full audiovisual certification",
+        "editorial_risk": "verify soundtrack/speech rights and remove audio for silent editorial web version"
+      }
     },
     {
       "category": "Videos generales",
@@ -2548,9 +2800,23 @@
       "publication": "HOLD",
       "editorial_review_date": "2026-11-11",
       "visual_method": "representative opening frame; full-motion/audio review not certified",
-      "curatorial_decision": "VIDEO_SHORTLIST_CONDITIONAL",
+      "curatorial_decision": "VIDEO_EDITORIAL_CANDIDATE_HOLD",
       "reason": "Relevant stone, project, furniture or surface seen in frame; requires full-motion, audio, privacy and stabilization review",
-      "proposed_section": "Living Design / social"
+      "proposed_section": "Living Design / social",
+      "temporal_qa": {
+        "sampled_frames": 3,
+        "sample_positions_percent": [
+          12,
+          50,
+          86
+        ],
+        "duration_seconds": 7,
+        "audio_stream_present": true,
+        "audio_listened": false,
+        "continuous_playback_reviewed": false,
+        "method": "three source-file frames plus ffprobe metadata; NOT full audiovisual certification",
+        "editorial_risk": "verify soundtrack/speech rights and remove audio for silent editorial web version"
+      }
     },
     {
       "category": "Videos generales",
@@ -2564,9 +2830,23 @@
       "publication": "HOLD",
       "editorial_review_date": "2026-11-11",
       "visual_method": "representative opening frame; full-motion/audio review not certified",
-      "curatorial_decision": "EXCLUDE_FROM_WEBSITE",
+      "curatorial_decision": "VIDEO_REFERENCE_ONLY",
       "reason": "Blank/dark or embedded promotional overlays/unclear message; unsuitable without source-level review",
-      "proposed_section": "Archive only"
+      "proposed_section": "Internal commercial archive",
+      "temporal_qa": {
+        "sampled_frames": 3,
+        "sample_positions_percent": [
+          12,
+          50,
+          86
+        ],
+        "duration_seconds": 17.1,
+        "audio_stream_present": true,
+        "audio_listened": false,
+        "continuous_playback_reviewed": false,
+        "method": "three source-file frames plus ffprobe metadata; NOT full audiovisual certification",
+        "editorial_risk": "commercial overlay, discount/prices and/or third-party soundtrack; use as reference, do not publish unchanged"
+      }
     },
     {
       "category": "Videos generales",
@@ -2582,7 +2862,21 @@
       "visual_method": "representative opening frame; full-motion/audio review not certified",
       "curatorial_decision": "VIDEO_ARCHIVE_CONDITIONAL",
       "reason": "Original video reviewed via frame sample; no clear site-ready edit established",
-      "proposed_section": "Archive, not autoplay"
+      "proposed_section": "Archive, not autoplay",
+      "temporal_qa": {
+        "sampled_frames": 3,
+        "sample_positions_percent": [
+          12,
+          50,
+          86
+        ],
+        "duration_seconds": 11.9,
+        "audio_stream_present": true,
+        "audio_listened": false,
+        "continuous_playback_reviewed": false,
+        "method": "three source-file frames plus ffprobe metadata; NOT full audiovisual certification",
+        "editorial_risk": "verify soundtrack/speech rights and remove audio for silent editorial web version"
+      }
     },
     {
       "category": "Videos generales",
@@ -2596,9 +2890,23 @@
       "publication": "HOLD",
       "editorial_review_date": "2026-11-11",
       "visual_method": "representative opening frame; full-motion/audio review not certified",
-      "curatorial_decision": "VIDEO_ARCHIVE_CONDITIONAL",
+      "curatorial_decision": "VIDEO_REFERENCE_ONLY",
       "reason": "Original video reviewed via frame sample; no clear site-ready edit established",
-      "proposed_section": "Archive, not autoplay"
+      "proposed_section": "Internal commercial archive",
+      "temporal_qa": {
+        "sampled_frames": 3,
+        "sample_positions_percent": [
+          12,
+          50,
+          86
+        ],
+        "duration_seconds": 24.5,
+        "audio_stream_present": true,
+        "audio_listened": false,
+        "continuous_playback_reviewed": false,
+        "method": "three source-file frames plus ffprobe metadata; NOT full audiovisual certification",
+        "editorial_risk": "commercial overlay, discount/prices and/or third-party soundtrack; use as reference, do not publish unchanged"
+      }
     },
     {
       "category": "Videos generales",
@@ -2612,9 +2920,23 @@
       "publication": "HOLD",
       "editorial_review_date": "2026-11-11",
       "visual_method": "representative opening frame; full-motion/audio review not certified",
-      "curatorial_decision": "VIDEO_SHORTLIST_CONDITIONAL",
+      "curatorial_decision": "VIDEO_EDITORIAL_CANDIDATE_HOLD",
       "reason": "Relevant stone, project, furniture or surface seen in frame; requires full-motion, audio, privacy and stabilization review",
-      "proposed_section": "Stone Design / projects"
+      "proposed_section": "Stone Design / projects",
+      "temporal_qa": {
+        "sampled_frames": 3,
+        "sample_positions_percent": [
+          12,
+          50,
+          86
+        ],
+        "duration_seconds": 10.1,
+        "audio_stream_present": true,
+        "audio_listened": false,
+        "continuous_playback_reviewed": false,
+        "method": "three source-file frames plus ffprobe metadata; NOT full audiovisual certification",
+        "editorial_risk": "verify soundtrack/speech rights and remove audio for silent editorial web version"
+      }
     },
     {
       "category": "Videos generales",
@@ -2628,9 +2950,23 @@
       "publication": "HOLD",
       "editorial_review_date": "2026-11-11",
       "visual_method": "representative opening frame; full-motion/audio review not certified",
-      "curatorial_decision": "VIDEO_SHORTLIST_CONDITIONAL",
+      "curatorial_decision": "VIDEO_EDITORIAL_CANDIDATE_HOLD",
       "reason": "Relevant stone, project, furniture or surface seen in frame; requires full-motion, audio, privacy and stabilization review",
-      "proposed_section": "Living Design / social"
+      "proposed_section": "Living Design / social",
+      "temporal_qa": {
+        "sampled_frames": 3,
+        "sample_positions_percent": [
+          12,
+          50,
+          86
+        ],
+        "duration_seconds": 16,
+        "audio_stream_present": true,
+        "audio_listened": false,
+        "continuous_playback_reviewed": false,
+        "method": "three source-file frames plus ffprobe metadata; NOT full audiovisual certification",
+        "editorial_risk": "verify soundtrack/speech rights and remove audio for silent editorial web version"
+      }
     },
     {
       "category": "Videos generales",
@@ -2644,9 +2980,23 @@
       "publication": "HOLD",
       "editorial_review_date": "2026-11-11",
       "visual_method": "representative opening frame; full-motion/audio review not certified",
-      "curatorial_decision": "VIDEO_SHORTLIST_CONDITIONAL",
+      "curatorial_decision": "VIDEO_EDITORIAL_CANDIDATE_HOLD",
       "reason": "Relevant stone, project, furniture or surface seen in frame; requires full-motion, audio, privacy and stabilization review",
-      "proposed_section": "Living Design / social"
+      "proposed_section": "Living Design / social",
+      "temporal_qa": {
+        "sampled_frames": 3,
+        "sample_positions_percent": [
+          12,
+          50,
+          86
+        ],
+        "duration_seconds": 11,
+        "audio_stream_present": true,
+        "audio_listened": false,
+        "continuous_playback_reviewed": false,
+        "method": "three source-file frames plus ffprobe metadata; NOT full audiovisual certification",
+        "editorial_risk": "verify soundtrack/speech rights and remove audio for silent editorial web version"
+      }
     },
     {
       "category": "Videos generales",
@@ -2662,7 +3012,21 @@
       "visual_method": "representative opening frame; full-motion/audio review not certified",
       "curatorial_decision": "VIDEO_ARCHIVE_CONDITIONAL",
       "reason": "Original video reviewed via frame sample; no clear site-ready edit established",
-      "proposed_section": "Archive, not autoplay"
+      "proposed_section": "Archive, not autoplay",
+      "temporal_qa": {
+        "sampled_frames": 3,
+        "sample_positions_percent": [
+          12,
+          50,
+          86
+        ],
+        "duration_seconds": 38.8,
+        "audio_stream_present": true,
+        "audio_listened": false,
+        "continuous_playback_reviewed": false,
+        "method": "three source-file frames plus ffprobe metadata; NOT full audiovisual certification",
+        "editorial_risk": "verify soundtrack/speech rights and remove audio for silent editorial web version"
+      }
     },
     {
       "category": "Videos generales",
@@ -2676,9 +3040,23 @@
       "publication": "HOLD",
       "editorial_review_date": "2026-11-11",
       "visual_method": "representative opening frame; full-motion/audio review not certified",
-      "curatorial_decision": "VIDEO_SHORTLIST_CONDITIONAL",
+      "curatorial_decision": "VIDEO_EDITORIAL_CANDIDATE_HOLD",
       "reason": "Relevant stone, project, furniture or surface seen in frame; requires full-motion, audio, privacy and stabilization review",
-      "proposed_section": "Stone Design / projects"
+      "proposed_section": "Stone Design / projects",
+      "temporal_qa": {
+        "sampled_frames": 3,
+        "sample_positions_percent": [
+          12,
+          50,
+          86
+        ],
+        "duration_seconds": 17.6,
+        "audio_stream_present": true,
+        "audio_listened": false,
+        "continuous_playback_reviewed": false,
+        "method": "three source-file frames plus ffprobe metadata; NOT full audiovisual certification",
+        "editorial_risk": "verify soundtrack/speech rights and remove audio for silent editorial web version"
+      }
     },
     {
       "category": "Videos generales",
@@ -2692,9 +3070,23 @@
       "publication": "HOLD",
       "editorial_review_date": "2026-11-11",
       "visual_method": "representative opening frame; full-motion/audio review not certified",
-      "curatorial_decision": "VIDEO_SHORTLIST_CONDITIONAL",
+      "curatorial_decision": "VIDEO_EDITORIAL_CANDIDATE_HOLD",
       "reason": "Relevant stone, project, furniture or surface seen in frame; requires full-motion, audio, privacy and stabilization review",
-      "proposed_section": "Stone Design / projects"
+      "proposed_section": "Stone Design / projects",
+      "temporal_qa": {
+        "sampled_frames": 3,
+        "sample_positions_percent": [
+          12,
+          50,
+          86
+        ],
+        "duration_seconds": 20.4,
+        "audio_stream_present": true,
+        "audio_listened": false,
+        "continuous_playback_reviewed": false,
+        "method": "three source-file frames plus ffprobe metadata; NOT full audiovisual certification",
+        "editorial_risk": "verify soundtrack/speech rights and remove audio for silent editorial web version"
+      }
     },
     {
       "category": "Videos generales",
@@ -2710,7 +3102,21 @@
       "visual_method": "representative opening frame; full-motion/audio review not certified",
       "curatorial_decision": "VIDEO_ARCHIVE_CONDITIONAL",
       "reason": "Original video reviewed via frame sample; no clear site-ready edit established",
-      "proposed_section": "Archive, not autoplay"
+      "proposed_section": "Archive, not autoplay",
+      "temporal_qa": {
+        "sampled_frames": 3,
+        "sample_positions_percent": [
+          12,
+          50,
+          86
+        ],
+        "duration_seconds": 13.8,
+        "audio_stream_present": true,
+        "audio_listened": false,
+        "continuous_playback_reviewed": false,
+        "method": "three source-file frames plus ffprobe metadata; NOT full audiovisual certification",
+        "editorial_risk": "verify soundtrack/speech rights and remove audio for silent editorial web version"
+      }
     },
     {
       "category": "Videos generales",
@@ -2724,9 +3130,23 @@
       "publication": "HOLD",
       "editorial_review_date": "2026-11-11",
       "visual_method": "representative opening frame; full-motion/audio review not certified",
-      "curatorial_decision": "VIDEO_SHORTLIST_CONDITIONAL",
+      "curatorial_decision": "VIDEO_EDITORIAL_CANDIDATE_HOLD",
       "reason": "Relevant stone, project, furniture or surface seen in frame; requires full-motion, audio, privacy and stabilization review",
-      "proposed_section": "Living Design / social"
+      "proposed_section": "Living Design / social",
+      "temporal_qa": {
+        "sampled_frames": 3,
+        "sample_positions_percent": [
+          12,
+          50,
+          86
+        ],
+        "duration_seconds": 11.3,
+        "audio_stream_present": true,
+        "audio_listened": false,
+        "continuous_playback_reviewed": false,
+        "method": "three source-file frames plus ffprobe metadata; NOT full audiovisual certification",
+        "editorial_risk": "verify soundtrack/speech rights and remove audio for silent editorial web version"
+      }
     },
     {
       "category": "Videos generales",
@@ -2740,9 +3160,23 @@
       "publication": "HOLD",
       "editorial_review_date": "2026-11-11",
       "visual_method": "representative opening frame; full-motion/audio review not certified",
-      "curatorial_decision": "VIDEO_SHORTLIST_CONDITIONAL",
+      "curatorial_decision": "VIDEO_EXCLUDE_TOO_SHORT",
       "reason": "Relevant stone, project, furniture or surface seen in frame; requires full-motion, audio, privacy and stabilization review",
-      "proposed_section": "Living Design / social"
+      "proposed_section": "Living Design / social",
+      "temporal_qa": {
+        "sampled_frames": 3,
+        "sample_positions_percent": [
+          12,
+          50,
+          86
+        ],
+        "duration_seconds": 0.3,
+        "audio_stream_present": true,
+        "audio_listened": false,
+        "continuous_playback_reviewed": false,
+        "method": "three source-file frames plus ffprobe metadata; NOT full audiovisual certification",
+        "editorial_risk": "0.3-second clip; unsuitable for video"
+      }
     },
     {
       "category": "Videos generales",
@@ -2756,9 +3190,23 @@
       "publication": "HOLD",
       "editorial_review_date": "2026-11-11",
       "visual_method": "representative opening frame; full-motion/audio review not certified",
-      "curatorial_decision": "VIDEO_SHORTLIST_CONDITIONAL",
+      "curatorial_decision": "VIDEO_EDITORIAL_CANDIDATE_HOLD",
       "reason": "Relevant stone, project, furniture or surface seen in frame; requires full-motion, audio, privacy and stabilization review",
-      "proposed_section": "Stone Design / projects"
+      "proposed_section": "Stone Design / projects",
+      "temporal_qa": {
+        "sampled_frames": 3,
+        "sample_positions_percent": [
+          12,
+          50,
+          86
+        ],
+        "duration_seconds": 16.1,
+        "audio_stream_present": true,
+        "audio_listened": false,
+        "continuous_playback_reviewed": false,
+        "method": "three source-file frames plus ffprobe metadata; NOT full audiovisual certification",
+        "editorial_risk": "verify soundtrack/speech rights and remove audio for silent editorial web version"
+      }
     },
     {
       "category": "Videos generales",
@@ -2772,9 +3220,23 @@
       "publication": "HOLD",
       "editorial_review_date": "2026-11-11",
       "visual_method": "representative opening frame; full-motion/audio review not certified",
-      "curatorial_decision": "VIDEO_SHORTLIST_CONDITIONAL",
+      "curatorial_decision": "VIDEO_REVIEW_PRIVACY",
       "reason": "Relevant stone, project, furniture or surface seen in frame; requires full-motion, audio, privacy and stabilization review",
-      "proposed_section": "Living Design / social"
+      "proposed_section": "Living Design / social",
+      "temporal_qa": {
+        "sampled_frames": 3,
+        "sample_positions_percent": [
+          12,
+          50,
+          86
+        ],
+        "duration_seconds": 3.1,
+        "audio_stream_present": true,
+        "audio_listened": false,
+        "continuous_playback_reviewed": false,
+        "method": "three source-file frames plus ffprobe metadata; NOT full audiovisual certification",
+        "editorial_risk": "possible people/third-party setting; verify privacy, release and sound"
+      }
     },
     {
       "category": "Videos generales",
@@ -2788,9 +3250,23 @@
       "publication": "HOLD",
       "editorial_review_date": "2026-11-11",
       "visual_method": "representative opening frame; full-motion/audio review not certified",
-      "curatorial_decision": "VIDEO_SHORTLIST_CONDITIONAL",
+      "curatorial_decision": "VIDEO_REVIEW_PRIVACY",
       "reason": "Relevant stone, project, furniture or surface seen in frame; requires full-motion, audio, privacy and stabilization review",
-      "proposed_section": "Living Design / social"
+      "proposed_section": "Living Design / social",
+      "temporal_qa": {
+        "sampled_frames": 3,
+        "sample_positions_percent": [
+          12,
+          50,
+          86
+        ],
+        "duration_seconds": 9.4,
+        "audio_stream_present": true,
+        "audio_listened": false,
+        "continuous_playback_reviewed": false,
+        "method": "three source-file frames plus ffprobe metadata; NOT full audiovisual certification",
+        "editorial_risk": "possible people/third-party setting; verify privacy, release and sound"
+      }
     },
     {
       "category": "Videos generales",
@@ -2804,9 +3280,23 @@
       "publication": "HOLD",
       "editorial_review_date": "2026-11-11",
       "visual_method": "representative opening frame; full-motion/audio review not certified",
-      "curatorial_decision": "EXCLUDE_FROM_WEBSITE",
+      "curatorial_decision": "VIDEO_REFERENCE_ONLY",
       "reason": "Blank/dark or embedded promotional overlays/unclear message; unsuitable without source-level review",
-      "proposed_section": "Archive only"
+      "proposed_section": "Internal commercial archive",
+      "temporal_qa": {
+        "sampled_frames": 3,
+        "sample_positions_percent": [
+          12,
+          50,
+          86
+        ],
+        "duration_seconds": 17.7,
+        "audio_stream_present": true,
+        "audio_listened": false,
+        "continuous_playback_reviewed": false,
+        "method": "three source-file frames plus ffprobe metadata; NOT full audiovisual certification",
+        "editorial_risk": "commercial overlay, discount/prices and/or third-party soundtrack; use as reference, do not publish unchanged"
+      }
     },
     {
       "category": "Videos generales",
@@ -2822,7 +3312,21 @@
       "visual_method": "representative opening frame; full-motion/audio review not certified",
       "curatorial_decision": "VIDEO_ARCHIVE_CONDITIONAL",
       "reason": "Original video reviewed via frame sample; no clear site-ready edit established",
-      "proposed_section": "Archive, not autoplay"
+      "proposed_section": "Archive, not autoplay",
+      "temporal_qa": {
+        "sampled_frames": 3,
+        "sample_positions_percent": [
+          12,
+          50,
+          86
+        ],
+        "duration_seconds": 16.9,
+        "audio_stream_present": true,
+        "audio_listened": false,
+        "continuous_playback_reviewed": false,
+        "method": "three source-file frames plus ffprobe metadata; NOT full audiovisual certification",
+        "editorial_risk": "verify soundtrack/speech rights and remove audio for silent editorial web version"
+      }
     },
     {
       "category": "Videos generales",
@@ -2836,9 +3340,23 @@
       "publication": "HOLD",
       "editorial_review_date": "2026-11-11",
       "visual_method": "representative opening frame; full-motion/audio review not certified",
-      "curatorial_decision": "EXCLUDE_FROM_WEBSITE",
+      "curatorial_decision": "VIDEO_REFERENCE_ONLY",
       "reason": "Blank/dark or embedded promotional overlays/unclear message; unsuitable without source-level review",
-      "proposed_section": "Archive only"
+      "proposed_section": "Internal commercial archive",
+      "temporal_qa": {
+        "sampled_frames": 3,
+        "sample_positions_percent": [
+          12,
+          50,
+          86
+        ],
+        "duration_seconds": 7.8,
+        "audio_stream_present": true,
+        "audio_listened": false,
+        "continuous_playback_reviewed": false,
+        "method": "three source-file frames plus ffprobe metadata; NOT full audiovisual certification",
+        "editorial_risk": "commercial overlay, discount/prices and/or third-party soundtrack; use as reference, do not publish unchanged"
+      }
     },
     {
       "category": "Videos generales",
@@ -2852,9 +3370,23 @@
       "publication": "HOLD",
       "editorial_review_date": "2026-11-11",
       "visual_method": "representative opening frame; full-motion/audio review not certified",
-      "curatorial_decision": "VIDEO_SHORTLIST_CONDITIONAL",
+      "curatorial_decision": "VIDEO_EDITORIAL_CANDIDATE_HOLD",
       "reason": "Relevant stone, project, furniture or surface seen in frame; requires full-motion, audio, privacy and stabilization review",
-      "proposed_section": "Stone Design / projects"
+      "proposed_section": "Stone Design / projects",
+      "temporal_qa": {
+        "sampled_frames": 3,
+        "sample_positions_percent": [
+          12,
+          50,
+          86
+        ],
+        "duration_seconds": 8.8,
+        "audio_stream_present": false,
+        "audio_listened": false,
+        "continuous_playback_reviewed": false,
+        "method": "three source-file frames plus ffprobe metadata; NOT full audiovisual certification",
+        "editorial_risk": "no detected audio stream; visual continuity and third-party elements still require full review"
+      }
     }
   ],
   "review": {
@@ -2865,16 +3397,27 @@
     "source_photo_exact_duplicate_pairs_minimum": 8,
     "rights": "Owner expressly authorized all folder material for CALIZA website; editorial clearance does not imply SKU, price or project claims",
     "publication_gate": "All on hold until corrected derivatives, visual acceptance, CI and Vercel Preview independent review",
-    "warning": "Marketing sell sheets with price overlays must not be published as unedited photos; all videos require full-motion/audio review before activation."
+    "warning": "Marketing sell sheets with price overlays must not be published as unedited photos; all videos require full-motion/audio review before activation.",
+    "video_temporal_sampling": "36 unique local videos; three frames (12%, 50%, 86%) each; 31 with audio stream; 5 without; total 11.3 minutes. Source folder contains 38 video records including 2 duplicate filenames/variants. No audio listening or full playback; no videos publication-cleared.",
+    "video_review_date": "2026-11-11",
+    "video_frames_checked": 108,
+    "video_audio_tracks_detected": 31,
+    "video_unique_files_verified": 36,
+    "photo_contact_sheets_reviewed": 138,
+    "photo_contact_sheet_limit": "138 distinct local image files; 140 Drive photo records incl duplicate-named copies; record-level decisions do not imply 140 unique pixel inspections.",
+    "editorial_quality_standard": "Warm stone-neutral chroma, moderate contrast, preserve real stone/wood color, architectural lines, no inventing installations, no unedited price/sale overlays, no faces/third-party claims without clearance.",
+    "temporal_unmatched": []
   },
   "summary": {
-    "P3_ARCHIVE_CONDITIONAL": 46,
-    "P2_GALLERY_CANDIDATE": 30,
-    "P1_EDIT_CANDIDATE": 10,
-    "EXCLUDE_FROM_WEBSITE": 6,
-    "VIDEO_SHORTLIST_CONDITIONAL": 21,
-    "VIDEO_ARCHIVE_CONDITIONAL": 11,
     "EXCLUDE_DUPLICATE": 9,
-    "REFERENCE_SALE_SHEET_ONLY": 45
+    "P1_EDIT_CANDIDATE": 10,
+    "P2_GALLERY_CANDIDATE": 30,
+    "P3_ARCHIVE_CONDITIONAL": 46,
+    "REFERENCE_SALE_SHEET_ONLY": 45,
+    "VIDEO_ARCHIVE_CONDITIONAL": 10,
+    "VIDEO_EDITORIAL_CANDIDATE_HOLD": 17,
+    "VIDEO_EXCLUDE_TOO_SHORT": 1,
+    "VIDEO_REFERENCE_ONLY": 8,
+    "VIDEO_REVIEW_PRIVACY": 2
   }
 }
