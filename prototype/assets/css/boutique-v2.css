@@ -776,3 +776,85 @@ body.o8-page .o8-contact .o8-button{
  body.o8-page .caliza-r8-image-card *,
  body.o8-page .caliza-r8-editorial-archive *{transition:none!important}
 }
+
+
+/* R8 curated project narrative — one space, two details. */
+body.o8-page .caliza-r8-project-story{
+  max-width:var(--o8-w);margin:clamp(70px,8vw,132px) auto;
+  padding:0 var(--o8-gap);
+  color:var(--ink);
+}
+body.o8-page .caliza-r8-project-heading{display:flex;align-items:center;gap:clamp(12px,3vw,42px);justify-content:center}
+body.o8-page .caliza-r8-project-heading h2{
+  margin:0;white-space:nowrap;
+  font:400 clamp(16px,2.2vw,26px)/1.2 var(--font-serif);
+  letter-spacing:.2em;
+}
+body.o8-page .caliza-r8-project-line{height:1px;flex:1;background:var(--line-strong)}
+body.o8-page .caliza-r8-project-subtitle{
+  text-align:center;margin:11px 0 32px;
+  color:var(--ink-muted);
+  font:500 11px/1.6 var(--font-sans);letter-spacing:.19em;
+}
+body.o8-page .caliza-r8-project-mosaic{
+  display:grid;
+  grid-template-columns:1.6fr 1fr;
+  grid-template-rows:repeat(2,minmax(160px,19vw));
+  gap:clamp(10px,1vw,16px);
+}
+body.o8-page .caliza-r8-project-mosaic>a{
+  position:relative;overflow:hidden;min-height:0;
+  color:var(--limewash);background:var(--surface-sand);
+}
+body.o8-page .caliza-r8-project-mosaic>a:first-child{grid-row:span 2}
+body.o8-page .caliza-r8-project-mosaic img{
+  display:block;width:100%;height:100%;object-fit:cover;object-position:center;
+  transition:transform .35s ease;
+}
+body.o8-page .caliza-r8-project-mosaic>a:hover img{transform:scale(1.02)}
+body.o8-page .caliza-r8-project-mosaic>a>span{
+  position:absolute;left:0;right:0;bottom:0;
+  padding:30px 20px 14px;
+  background:linear-gradient(0deg,rgba(24,52,60,.92),transparent);
+  color:var(--limewash);
+  font:500 11px/1.4 var(--font-sans);letter-spacing:.12em;
+  text-transform:uppercase;
+  display:flex;align-items:center;justify-content:space-between;
+}
+body.o8-page .caliza-r8-underlink{display:inline-block;margin-top:25px;color:var(--ink);border-bottom:1px solid var(--line-strong);padding-bottom:7px;font:500 12px/1.5 var(--font-sans);letter-spacing:.08em}
+body.o8-page .caliza-r8-project-story+.caliza-r8-journeys{
+ margin-top:clamp(70px,8vw,110px);
+}
+body.o8-page .caliza-r8-journeys .caliza-journey-links a{
+ border:0;border-top:1px solid var(--line);box-shadow:none;background:transparent;
+}
+body.o8-page .exp-page-intro{
+ border-bottom:1px solid var(--line);
+}
+body.o8-page .exp-page-intro h1{color:var(--ink);font-weight:400}
+body.o8-page .caliza-project-archive-card{
+ border:0;border-bottom:1px solid var(--line);background:var(--surface-raised);
+}
+body.o8-page .caliza-project-archive-card>img{object-fit:contain}
+body.o8-page .caliza-materials-gallery article{border:0;background:var(--surface-raised)}
+body.o8-page .caliza-materials-gallery img{object-fit:cover}
+body.o8-page .caliza-detail-layout{border-top:1px solid var(--line)}
+body.o8-page .caliza-r6-grid .caliza-r6-card{
+ border:0;border-bottom:1px solid var(--line);
+ background:var(--surface-sand);
+}
+body.o8-page .caliza-r6-grid .caliza-r6-card>figure{background:var(--surface-raised)}
+body.o8-page .caliza-r6-reference>figure{background:var(--surface-raised)}
+body.o8-page .caliza-r6-reference>figure>img{object-fit:contain;object-position:center;transform:none}
+body.o8-page .caliza-shop-tools,
+body.o8-page .exp-toolbar{border-color:var(--line)}
+body.o8-page .caliza-social-showcase-intro{max-width:100%}
+@media(max-width:760px){
+  body.o8-page .caliza-r8-project-story{padding:0 18px;margin-block:55px}
+  body.o8-page .caliza-r8-project-mosaic{grid-template-columns:1fr 1fr;grid-template-rows:260px 155px;gap:8px}
+  body.o8-page .caliza-r8-project-mosaic>a:first-child{grid-column:span 2;grid-row:span 1}
+  body.o8-page .caliza-r8-project-heading h2{letter-spacing:.13em}
+  body.o8-page .caliza-r8-project-subtitle{font-size:10px;letter-spacing:.14em;margin-bottom:18px}
+  body.o8-page .caliza-r8-project-mosaic>a>span{padding:15px 10px 10px;font-size:9px;letter-spacing:.05em}
+}
+@media(prefers-reduced-motion:reduce){body.o8-page .caliza-r8-project-mosaic img{transition:none}body.o8-page .caliza-r8-project-mosaic>a:hover img{transform:none}}
