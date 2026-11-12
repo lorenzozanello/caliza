@@ -80,5 +80,5 @@ DATA.write_text("/* Original CALIZA source imagery, QA; sale-sheet excerpts are 
                 "window.CALIZA_R6_ARCHIVE = Object.freeze("+json.dumps(entries,ensure_ascii=False,separators=(",",":"))+");\n",encoding="utf-8")
 DOC.write_text(json.dumps({"archive_sha256":EXPECTED_ZIP_SHA256,"source_count":140,
                            "photo_records":99,"sale_reference_records":41,
-                           "source_duplicates":sum(not e["duplicate"] for e in entries),
+                           "source_duplicates":sum(e["duplicate"] for e in entries),
                            "derivative_count":280,"records":entries},ensure_ascii=False,indent=2),encoding="utf-8")
