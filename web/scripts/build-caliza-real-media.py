@@ -10,11 +10,9 @@ MANIFEST = SRC / "source-manifest.json"
 OUTPUT_META = ROOT / "docs" / "CALIZA_REAL_MEDIA_PROVENANCE.json"
 APPROVED_JS = ROOT / "prototype" / "assets" / "data" / "approved-media.js"
 WIDTHS = [320, 480, 640, 960, 1280, 1600]
+# Editorial gate: do not expose source sell-sheets containing printed prices as clean catalog photography.
+# Other product families stay conceptual until verified price-free editorial crops are generated.
 family_key = {
-    "mesas-de-comedor": "dining-wood",
-    "mesas-auxiliares": "side-table-kai",
-    "sillas-para-hogar": "chair-home",
-    "sillas-comerciales": "chair-commercial",
     "lavamanos": "basin-main"
 }
 def sha(file):
