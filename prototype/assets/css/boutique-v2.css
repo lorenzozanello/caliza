@@ -395,3 +395,384 @@ body.o8-page .exp-hero.caliza-editorial-real-hero .o8-button:focus-visible{
   border-color:#2b5660;
   color:#fffdf8;
 }
+
+
+/* R8: Art direction recovered from the owner's authoritative design system.
+   Exact tokens; unretouched geometry; no invented photographs or product claims. */
+body.o8-page{
+  --r8-surface:var(--surface);
+  --r8-ink:var(--ink);
+  --r8-line:var(--line);
+}
+body.o8-page .exp-hero.caliza-editorial-real-hero{
+  display:block;
+  position:relative;
+  height:clamp(515px,53vw,700px);
+  min-height:515px;
+  overflow:hidden;
+  background:var(--marine-ink);
+  color:var(--limewash);
+}
+body.o8-page .exp-hero.caliza-editorial-real-hero::before{display:none}
+body.o8-page .exp-hero.caliza-editorial-real-hero>img.caliza-real-hero{
+  display:block;
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  min-height:0;
+  max-width:none;
+  object-fit:cover;
+  object-position:center 46%;
+  background:var(--marine-ink);
+  filter:none;
+}
+body.o8-page .exp-hero.caliza-editorial-real-hero::after{
+  display:block;
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  z-index:0;
+  background:linear-gradient(90deg,rgba(24,52,60,.93) 0%,rgba(24,52,60,.72) 29%,rgba(24,52,60,.28) 54%,rgba(24,52,60,0) 80%);
+}
+body.o8-page .exp-hero.caliza-editorial-real-hero .exp-hero-content{
+  position:absolute;
+  z-index:1;
+  left:clamp(28px,6vw,108px);
+  top:50%;
+  transform:translateY(-50%);
+  width:min(590px,51%);
+  max-width:590px;
+  padding:0;
+  background:transparent;
+  color:var(--limewash);
+}
+body.o8-page .exp-hero.caliza-editorial-real-hero h1{
+  margin-block:17px 21px;
+  color:var(--limewash);
+  font:400 clamp(49px,6.3vw,94px)/1.04 var(--font-serif);
+  letter-spacing:0;
+}
+body.o8-page .exp-hero.caliza-editorial-real-hero p{
+  max-width:430px;
+  color:var(--limewash);
+  font:300 clamp(15px,1.3vw,18px)/1.7 var(--font-sans);
+}
+body.o8-page .exp-hero.caliza-editorial-real-hero .exp-hero-content .o8-overline{
+  color:var(--limewash);
+  letter-spacing:.18em;
+}
+body.o8-page .exp-hero.caliza-editorial-real-hero .o8-terracotta-rule{
+  background:var(--rule);
+  width:48px;height:2px;
+}
+body.o8-page .exp-hero.caliza-editorial-real-hero .o8-button{
+  min-height:44px;
+  color:var(--limewash);
+  border:1px solid var(--limewash);
+  background:rgba(24,52,60,.66);
+}
+body.o8-page .exp-hero.caliza-editorial-real-hero .o8-button:hover,
+body.o8-page .exp-hero.caliza-editorial-real-hero .o8-button:focus-visible{
+  color:var(--marine-ink);
+  background:var(--limewash);
+  border-color:var(--limewash);
+}
+body.o8-page .exp-hero.caliza-editorial-real-hero .exp-hero-corner{
+  color:var(--limewash);text-shadow:none;
+}
+body.o8-page .o8-pillars.caliza-r8-brand-cards{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:clamp(12px,1.5vw,24px);
+  padding:clamp(22px,2.7vw,42px) var(--o8-gap) 0;
+  max-width:var(--o8-w);
+  margin-inline:auto;
+}
+body.o8-page .caliza-r8-image-card{
+  display:flex;flex-direction:column;
+  height:auto;min-height:0;
+  border:0;
+  background:var(--surface-sand);
+  box-shadow:none;
+  text-decoration:none;
+}
+body.o8-page .caliza-r8-image-card>img{
+  display:block;position:relative;inset:auto;
+  width:100%;height:auto;
+  aspect-ratio:4/3;
+  min-height:0;
+  object-fit:cover;
+  object-position:center;
+  background:var(--surface-raised);
+}
+body.o8-page .caliza-r8-image-card .o8-pillar-copy{
+  display:flex;
+  align-items:flex-start;
+  flex:1;
+  min-height:150px;
+  gap:14px;
+  padding:clamp(18px,2vw,27px);
+  background:var(--surface-sand);
+  color:var(--ink);
+}
+body.o8-page .caliza-r8-image-card .o8-pillar-copy .brand-line-icon{
+  display:block;flex:none;width:34px;height:34px;object-fit:contain;
+}
+body.o8-page .caliza-r8-image-card .o8-pillar-copy .o8-line-mark{display:none}
+body.o8-page .caliza-r8-image-card .o8-pillar-copy b{display:none}
+body.o8-page .caliza-r8-image-card .caliza-r8-card-kicker{
+  display:block;
+  color:var(--ink-muted);
+  font:500 10px/1.4 var(--font-sans);
+  letter-spacing:.2em;
+}
+body.o8-page .caliza-r8-image-card .o8-pillar-copy h2{
+  margin:5px 0 9px;
+  color:var(--ink);
+  font:400 clamp(28px,2.6vw,40px)/1.15 var(--font-serif);
+}
+body.o8-page .caliza-r8-image-card .o8-pillar-copy p{
+  color:var(--ink-muted);
+  max-width:none;
+  margin:0;
+  font:400 13px/1.65 var(--font-sans);
+}
+body.o8-page .caliza-r8-image-card .caliza-r8-card-link{
+  display:inline-block;
+  margin-top:17px;
+  color:var(--ink);
+  font:500 11px/1.6 var(--font-sans);
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+body.o8-page .caliza-r8-image-card:hover .caliza-r8-card-link{
+  text-decoration:underline;text-underline-offset:5px;
+}
+/* Restore cadence between image-rich pieces, prose, and whitespace. */
+body.o8-page .o8-section,
+body.o8-page .caliza-journeys,
+body.o8-page .caliza-r6-home,
+body.o8-page .exp-process,
+body.o8-page .exp-pathways{
+  margin-block:clamp(65px,7.5vw,116px);
+}
+body.o8-page .o8-section-heading{
+  border-bottom:1px solid var(--line);
+  padding-bottom:18px;
+  margin-bottom:clamp(24px,3vw,43px);
+}
+body.o8-page .o8-section-heading h2{
+  color:var(--ink);
+  font:400 clamp(30px,3.8vw,50px)/1.15 var(--font-serif);
+}
+body.o8-page .exp-copy-split{
+  padding-block:clamp(65px,8vw,120px);
+  border-bottom:1px solid var(--line);
+}
+body.o8-page .exp-copy-split h2{
+  color:var(--ink);
+  font:400 clamp(38px,4.8vw,70px)/1.15 var(--font-serif);
+}
+body.o8-page .caliza-r8-featured-families .caliza-family-card,
+body.o8-page .caliza-family-grid .caliza-family-card{
+  border:0;
+  border-bottom:1px solid var(--line);
+  background:var(--surface-raised);
+  box-shadow:none;
+}
+body.o8-page .caliza-family-content{padding:clamp(18px,2vw,30px)}
+body.o8-page .caliza-family-content h3{font-family:var(--font-serif);font-weight:400}
+body.o8-page .caliza-family-media img{max-width:100%;object-fit:contain;background:var(--surface-raised)}
+body.o8-page .exp-banner.caliza-r8-stone-banner,
+body.o8-page .exp-banner.caliza-r8-care-banner{
+  position:relative;
+  min-height:clamp(440px,46vw,610px);
+  margin:clamp(65px,7vw,110px) var(--o8-gap) 0;
+  border:0;
+  background:var(--marine-ink);
+}
+body.o8-page .exp-banner.caliza-r8-stone-banner>img,
+body.o8-page .exp-banner.caliza-r8-care-banner>img{
+  position:absolute;
+  inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center;
+  background:var(--surface-raised);
+}
+body.o8-page .exp-banner.caliza-r8-stone-banner::after,
+body.o8-page .exp-banner.caliza-r8-care-banner::after{
+  display:block;
+  background:linear-gradient(90deg,rgba(24,52,60,.9) 0%,rgba(24,52,60,.62) 33%,rgba(24,52,60,.06) 77%);
+}
+body.o8-page .exp-banner.caliza-r8-stone-banner>div,
+body.o8-page .exp-banner.caliza-r8-care-banner>div{
+  position:relative;
+  z-index:1;
+  margin-left:clamp(26px,6vw,90px);
+  width:min(480px,54%);
+  color:var(--limewash);
+}
+body.o8-page .exp-banner.caliza-r8-stone-banner h2,
+body.o8-page .exp-banner.caliza-r8-care-banner h2{
+  font:400 clamp(43px,4.5vw,69px)/1.12 var(--font-serif);
+  color:var(--limewash);
+}
+body.o8-page .exp-banner.caliza-r8-stone-banner .o8-overline,
+body.o8-page .exp-banner.caliza-r8-care-banner .o8-overline,
+body.o8-page .exp-banner.caliza-r8-stone-banner p,
+body.o8-page .exp-banner.caliza-r8-care-banner p{color:var(--limewash)}
+body.o8-page .exp-banner.caliza-r8-stone-banner .o8-button,
+body.o8-page .exp-banner.caliza-r8-care-banner .o8-button{
+  min-height:44px;
+  color:var(--limewash);
+  background:rgba(24,52,60,.55);
+  border:1px solid var(--limewash);
+}
+body.o8-page .caliza-r8-editorial-archive{
+  padding-block:0;
+  border-top:1px solid var(--line);
+}
+body.o8-page .caliza-r8-editorial-archive .caliza-r6-card{
+  border:0;
+  background:var(--surface-sand);
+}
+body.o8-page .caliza-r8-editorial-archive .caliza-r6-card>figure>img{
+  object-fit:contain;
+}
+body.o8-page .caliza-r6-reference>figure>img{
+  transform:none;
+  object-fit:contain;
+  object-position:center;
+}
+/* Retain historical references in full so that artifact text is not silently cropped
+   into a purportedly verified commercial product. */
+body.o8-page .caliza-r8-materials .exp-material-preview img{
+  object-fit:cover;
+  aspect-ratio:4/3;
+}
+body.o8-page .caliza-social-showcase{
+  border-top:1px solid var(--line);
+  padding-top:clamp(40px,5vw,70px);
+}
+body.o8-page .caliza-social-showcase .caliza-social-showcase-intro h3{
+  font:400 clamp(30px,3.5vw,50px)/1.2 var(--font-serif);
+}
+body.o8-page .o8-contact{
+  margin-top:clamp(75px,8vw,130px);
+  background:var(--marine-ink);
+  color:var(--limewash);
+  border-top:2px solid var(--rule);
+}
+body.o8-page .o8-contact h2{
+  color:var(--limewash);
+  font:400 clamp(40px,4.4vw,64px)/1.1 var(--font-serif);
+}
+body.o8-page .o8-contact .o8-overline,
+body.o8-page .o8-contact p{color:var(--limewash)}
+body.o8-page .o8-contact .o8-button{
+  background:var(--limewash);
+  color:var(--marine-ink);
+  border:1px solid var(--limewash);
+}
+@media(max-width:900px){
+ body.o8-page .o8-pillars.caliza-r8-brand-cards{gap:12px}
+ body.o8-page .caliza-r8-image-card .o8-pillar-copy{padding:18px 14px}
+ body.o8-page .caliza-r8-image-card .o8-pillar-copy h2{font-size:28px}
+}
+@media(max-width:760px){
+ body.o8-page .exp-hero.caliza-editorial-real-hero{
+   position:relative;
+   display:block;
+   height:clamp(540px,136vw,710px);
+   min-height:540px;
+   background:var(--marine-ink);
+ }
+ body.o8-page .exp-hero.caliza-editorial-real-hero>img.caliza-real-hero{
+   position:absolute;
+   inset:0;
+   order:initial;
+   height:100%;
+   min-height:0;
+   width:100%;
+   object-fit:cover;
+   object-position:57% center;
+ }
+ body.o8-page .exp-hero.caliza-editorial-real-hero::after{
+   display:block;
+   background:linear-gradient(0deg,rgba(24,52,60,.97) 0%,rgba(24,52,60,.80) 36%,rgba(24,52,60,.18) 77%,rgba(24,52,60,.04) 100%);
+ }
+ body.o8-page .exp-hero.caliza-editorial-real-hero .exp-hero-content{
+   position:absolute;
+   left:22px;right:22px;bottom:36px;top:auto;
+   transform:none;order:initial;
+   width:auto;max-width:540px;
+   padding:0;
+   background:transparent;
+   color:var(--limewash);
+ }
+ body.o8-page .exp-hero.caliza-editorial-real-hero h1{
+   font-size:clamp(43px,10.7vw,63px);line-height:1.07;
+   color:var(--limewash);
+ }
+ body.o8-page .exp-hero.caliza-editorial-real-hero p{
+   color:var(--limewash);
+   font:300 15px/1.65 var(--font-sans);
+ }
+ body.o8-page .exp-hero.caliza-editorial-real-hero .exp-hero-corner{display:none}
+ body.o8-page .o8-pillars.caliza-r8-brand-cards{
+   grid-template-columns:1fr;
+   padding:18px 18px 0;
+   gap:12px;
+ }
+ body.o8-page .caliza-r8-image-card{
+   flex-direction:row;
+   align-items:stretch;
+   min-height:155px;
+ }
+ body.o8-page .caliza-r8-image-card>img{
+   width:46%;height:auto;min-height:155px;
+   aspect-ratio:auto;object-fit:cover;
+ }
+ body.o8-page .caliza-r8-image-card .o8-pillar-copy{
+   flex:1;min-width:0;min-height:155px;
+   padding:17px 15px;
+   gap:7px;
+ }
+ body.o8-page .caliza-r8-image-card .o8-pillar-copy .brand-line-icon{display:none}
+ body.o8-page .caliza-r8-image-card .o8-pillar-copy h2{
+   font-size:clamp(25px,7vw,37px);margin:5px 0 8px;
+ }
+ body.o8-page .caliza-r8-image-card .o8-pillar-copy p{
+   font-size:12px;line-height:1.55;
+ }
+ body.o8-page .caliza-r8-image-card .caliza-r8-card-link{
+   font-size:10px;margin-top:10px;
+ }
+ body.o8-page .o8-section,
+ body.o8-page .caliza-journeys,
+ body.o8-page .caliza-r6-home,
+ body.o8-page .exp-process,
+ body.o8-page .exp-pathways{margin-block:clamp(47px,9vw,75px)}
+ body.o8-page .exp-banner.caliza-r8-stone-banner,
+ body.o8-page .exp-banner.caliza-r8-care-banner{
+   margin:50px 12px 0;
+   min-height:420px;
+ }
+ body.o8-page .exp-banner.caliza-r8-stone-banner::after,
+ body.o8-page .exp-banner.caliza-r8-care-banner::after{
+   background:linear-gradient(0deg,rgba(24,52,60,.94),rgba(24,52,60,.72) 51%,rgba(24,52,60,.04) 100%);
+ }
+ body.o8-page .exp-banner.caliza-r8-stone-banner>div,
+ body.o8-page .exp-banner.caliza-r8-care-banner>div{
+   width:calc(100% - 44px);
+   margin:110px 22px 10px;
+ }
+ body.o8-page .exp-banner.caliza-r8-stone-banner h2,
+ body.o8-page .exp-banner.caliza-r8-care-banner h2{font-size:clamp(40px,9vw,54px)}
+ body.o8-page .o8-contact h2{font-size:clamp(35px,8vw,52px)}
+}
+@media(prefers-reduced-motion:reduce){
+ body.o8-page .caliza-r8-image-card *,
+ body.o8-page .caliza-r8-editorial-archive *{transition:none!important}
+}
