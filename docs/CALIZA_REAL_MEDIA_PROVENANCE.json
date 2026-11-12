@@ -1,0 +1,1077 @@
+{
+  "source_folder_id": "1EqynOIwyh21PGnzsNIPxZNv_PqUVRGtF",
+  "authorization": "User authorized usage of all original CALIZA PRODUCTOS folder photos for the website (2026-11-11)",
+  "total_sources": 11,
+  "total_derivatives": 118,
+  "entries": {
+    "kitchen-island-a": {
+      "alt": "Cocina con isla revestida en piedra natural",
+      "medio_id": "CAL-MED-0001",
+      "drive_id": "1Nf31RTJ0Mm7IG0lnudTZypwYGM-iE6Wp",
+      "group": "cocinas",
+      "source_sha256": "afdf618c61e5d8d5a0e4edee731a907064eb631e55e7c34033f4682a7de57457",
+      "crop": null,
+      "src": "approved/kitchen-island-a-1600.webp",
+      "widths": [
+        320,
+        480,
+        640,
+        960,
+        1280,
+        1600
+      ],
+      "aspectRatio": 1.77778,
+      "derivatives": [
+        {
+          "path": "prototype/assets/img/approved/kitchen-island-a-320.webp",
+          "bytes": 5498,
+          "sha256": "fc221d8470155011463ef963dbb23033681df84e2d4358e62e51dc4b76f7f8e5",
+          "width": 320,
+          "height": 180
+        },
+        {
+          "path": "prototype/assets/img/approved/kitchen-island-a-320.avif",
+          "bytes": 4339,
+          "sha256": "65055ef3442bf1123c2afdbf291a67143f42ac68bd3e0cfb3742bede435661a0",
+          "width": 320,
+          "height": 180
+        },
+        {
+          "path": "prototype/assets/img/approved/kitchen-island-a-480.webp",
+          "bytes": 11086,
+          "sha256": "d03f86edcf8ef3b830c2613b10f9fae70760912ea6ecd714ec4f7769108e70c3",
+          "width": 480,
+          "height": 270
+        },
+        {
+          "path": "prototype/assets/img/approved/kitchen-island-a-480.avif",
+          "bytes": 8433,
+          "sha256": "0074632c5f538c8e935a154d353d95617cb2921505975a9867400c57f9df744b",
+          "width": 480,
+          "height": 270
+        },
+        {
+          "path": "prototype/assets/img/approved/kitchen-island-a-640.webp",
+          "bytes": 19362,
+          "sha256": "224805eef9eaa56f9b75e77820148b20c53b71e724d1381a5749ac617213e72e",
+          "width": 640,
+          "height": 360
+        },
+        {
+          "path": "prototype/assets/img/approved/kitchen-island-a-640.avif",
+          "bytes": 14546,
+          "sha256": "6d509ccae2230a990cffdfbb63e6fe2e100675e6a560cb7e838cef95e32ca2a1",
+          "width": 640,
+          "height": 360
+        },
+        {
+          "path": "prototype/assets/img/approved/kitchen-island-a-960.webp",
+          "bytes": 40964,
+          "sha256": "52bc00ee0ff42d7be5a8e2e016c459b1f776d8c2096f26cc26c4722a95fdd13d",
+          "width": 960,
+          "height": 540
+        },
+        {
+          "path": "prototype/assets/img/approved/kitchen-island-a-960.avif",
+          "bytes": 32650,
+          "sha256": "920675ca9d9e7535dbbc00143aed7dcb473d81cea0ea424bb5625e11e3c615a6",
+          "width": 960,
+          "height": 540
+        },
+        {
+          "path": "prototype/assets/img/approved/kitchen-island-a-1280.webp",
+          "bytes": 66620,
+          "sha256": "b1a639c4848416c649826162b4dc218d14f23dd5ba385dbb44fc62c932d1838a",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "prototype/assets/img/approved/kitchen-island-a-1280.avif",
+          "bytes": 55037,
+          "sha256": "5260c1ba529468002e895ebfea1843a37691abcab5bd9e5f2bbbe1dd50a0b14e",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "prototype/assets/img/approved/kitchen-island-a-1600.webp",
+          "bytes": 96118,
+          "sha256": "19e14052bd262d40ac0b3bee5e6a354d5f3d43d07f83d04bd4327a1218dbf54e",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "path": "prototype/assets/img/approved/kitchen-island-a-1600.avif",
+          "bytes": 82612,
+          "sha256": "4f6c276723067b977ba0eb8f0954436a1840a5d679fca9108ce8a50b790e1681",
+          "width": 1600,
+          "height": 900
+        }
+      ]
+    },
+    "kitchen-island-b": {
+      "alt": "Isla de cocina en piedra clara en un ambiente residencial",
+      "medio_id": "CAL-MED-0065",
+      "drive_id": "1IQVqybgCfBdAxrsc4QM4bAlAqKtebkjM",
+      "group": "cocinas",
+      "source_sha256": "6b3b620daa0bd8ee7fb41ddc7229d1b71ae24ccb7d02ce20b0f41cd147cede20",
+      "crop": null,
+      "src": "approved/kitchen-island-b-1600.webp",
+      "widths": [
+        320,
+        480,
+        640,
+        960,
+        1280,
+        1600
+      ],
+      "aspectRatio": 1.77778,
+      "derivatives": [
+        {
+          "path": "prototype/assets/img/approved/kitchen-island-b-320.webp",
+          "bytes": 8074,
+          "sha256": "a01e8a4cd4126b4b09bb3046579bc259e39cf05fcc59b53df983b9890621855f",
+          "width": 320,
+          "height": 180
+        },
+        {
+          "path": "prototype/assets/img/approved/kitchen-island-b-320.avif",
+          "bytes": 5354,
+          "sha256": "853b2fbb174aa7de49aad4af2d82a8a3b31cf8d814c69281193b34abd3d34da1",
+          "width": 320,
+          "height": 180
+        },
+        {
+          "path": "prototype/assets/img/approved/kitchen-island-b-480.webp",
+          "bytes": 15604,
+          "sha256": "fdacb6cb5133ee4957a1e4f180e4c7a726f3206eb8fc14b5ccc4d2b33bd59de8",
+          "width": 480,
+          "height": 270
+        },
+        {
+          "path": "prototype/assets/img/approved/kitchen-island-b-480.avif",
+          "bytes": 9996,
+          "sha256": "47e5e4d609d35a051fce7e7ea9a95a28317840f3afa973e71ee2e7a46e5d2866",
+          "width": 480,
+          "height": 270
+        },
+        {
+          "path": "prototype/assets/img/approved/kitchen-island-b-640.webp",
+          "bytes": 24944,
+          "sha256": "75062e924b7a3e1e98a3dafb190a18a687080819e0f5882f9d1a46951bb24230",
+          "width": 640,
+          "height": 360
+        },
+        {
+          "path": "prototype/assets/img/approved/kitchen-island-b-640.avif",
+          "bytes": 16270,
+          "sha256": "c8f3d25316b58b36ef4b341001da34cb21f71d9b70ca15293b281a53662e8999",
+          "width": 640,
+          "height": 360
+        },
+        {
+          "path": "prototype/assets/img/approved/kitchen-island-b-960.webp",
+          "bytes": 49000,
+          "sha256": "bc066d80ff679c99468f41e21382aa72cc1c3fe32c5f4eb3c804b08def80a28d",
+          "width": 960,
+          "height": 540
+        },
+        {
+          "path": "prototype/assets/img/approved/kitchen-island-b-960.avif",
+          "bytes": 33467,
+          "sha256": "09e4e4987e8fe39d2371b805f8a188e8af48d2558fd2982b216833f4d2eae793",
+          "width": 960,
+          "height": 540
+        },
+        {
+          "path": "prototype/assets/img/approved/kitchen-island-b-1280.webp",
+          "bytes": 75106,
+          "sha256": "d0a598f6a1f0db23de60d6c1f59b353db5a01093a4b69d301086cc2914a821d3",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "prototype/assets/img/approved/kitchen-island-b-1280.avif",
+          "bytes": 54137,
+          "sha256": "d1445be000204bb54c01c030d8df4df9c8b31a989205b82d87b291355d6ae3ea",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "prototype/assets/img/approved/kitchen-island-b-1600.webp",
+          "bytes": 106616,
+          "sha256": "7a22ab6b5ffef52ca0088e6007c779cfebb65c18eaff1fd2041a30b7a329609d",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "path": "prototype/assets/img/approved/kitchen-island-b-1600.avif",
+          "bytes": 82573,
+          "sha256": "778b967d9731422b451f04f349524e74c0965a637e243e7762cf26eaa4f8c9d1",
+          "width": 1600,
+          "height": 900
+        }
+      ]
+    },
+    "kitchen-portrait-a": {
+      "alt": "Cocina con isla gris y superficie de piedra junto a ventanal",
+      "medio_id": "CAL-MED-0066",
+      "drive_id": "14i-BYcKxosu5Pnu0lCDHyqmsRpQGWaZv",
+      "group": "cocinas",
+      "source_sha256": "8e7653a864d705fda0a97e91fb0591c443466ba5c9084fd9cac024b12a038f60",
+      "crop": null,
+      "src": "approved/kitchen-portrait-a-2268.webp",
+      "widths": [
+        320,
+        480,
+        640,
+        960,
+        1280,
+        1600,
+        2268
+      ],
+      "aspectRatio": 0.5625,
+      "derivatives": [
+        {
+          "path": "prototype/assets/img/approved/kitchen-portrait-a-320.webp",
+          "bytes": 21086,
+          "sha256": "2d1781e1c1dd6fe04843e056a48904a6a6188a3fed723231a2020cdf9e58e919",
+          "width": 320,
+          "height": 569
+        },
+        {
+          "path": "prototype/assets/img/approved/kitchen-portrait-a-320.avif",
+          "bytes": 14576,
+          "sha256": "d920f5a597555d94901f1193d6d6908059b4aefb467fa51e11acea6d6c92e53f",
+          "width": 320,
+          "height": 569
+        },
+        {
+          "path": "prototype/assets/img/approved/kitchen-portrait-a-480.webp",
+          "bytes": 43574,
+          "sha256": "4afeb37a908e2bd9f0b50c4a785df4dd6872254d7c276a4cb1b5ca885b2e2457",
+          "width": 480,
+          "height": 853
+        },
+        {
+          "path": "prototype/assets/img/approved/kitchen-portrait-a-480.avif",
+          "bytes": 30256,
+          "sha256": "9977d4e4dd4e2b4c198719a02b67d93e4ea11aff283bb3cb084bbba38b1fd2e6",
+          "width": 480,
+          "height": 853
+        },
+        {
+          "path": "prototype/assets/img/approved/kitchen-portrait-a-640.webp",
+          "bytes": 76110,
+          "sha256": "938b6009b436a70ba44c4336da29a303b9bce75fb447b15273386e8ae7616cee",
+          "width": 640,
+          "height": 1138
+        },
+        {
+          "path": "prototype/assets/img/approved/kitchen-portrait-a-640.avif",
+          "bytes": 52119,
+          "sha256": "6d5ba1d70bd37da0a9142e2909d04b4ec1cd6bcca6ce4d8cf83d0be9be5d9020",
+          "width": 640,
+          "height": 1138
+        },
+        {
+          "path": "prototype/assets/img/approved/kitchen-portrait-a-960.webp",
+          "bytes": 179572,
+          "sha256": "60dd7341e6c83d8bebfec77c1e8107668f74d26ece40098e0ef35024ca303974",
+          "width": 960,
+          "height": 1707
+        },
+        {
+          "path": "prototype/assets/img/approved/kitchen-portrait-a-960.avif",
+          "bytes": 121103,
+          "sha256": "9bbc246c6cd8c6727352eae6d6144d1175ff71784c4338a7d9a439bfcc80c2b0",
+          "width": 960,
+          "height": 1707
+        },
+        {
+          "path": "prototype/assets/img/approved/kitchen-portrait-a-1280.webp",
+          "bytes": 322614,
+          "sha256": "059ea7dae4f5a5f2d5efeea66f4f21c4e9ee64e9593ad771e268c6f3b3903012",
+          "width": 1280,
+          "height": 2276
+        },
+        {
+          "path": "prototype/assets/img/approved/kitchen-portrait-a-1280.avif",
+          "bytes": 226134,
+          "sha256": "e78a1974e2c81ee357f121908499da8175f3952f65b70a58909d53cda22dcefc",
+          "width": 1280,
+          "height": 2276
+        },
+        {
+          "path": "prototype/assets/img/approved/kitchen-portrait-a-1600.webp",
+          "bytes": 477586,
+          "sha256": "85db099859e552655fc03a23b352adafa1950f487b7d407782216c9dffc0a52e",
+          "width": 1600,
+          "height": 2844
+        },
+        {
+          "path": "prototype/assets/img/approved/kitchen-portrait-a-1600.avif",
+          "bytes": 355030,
+          "sha256": "df85424cc91cf117196707604ab732c5b67c36eb4ba846dcf34fdecf994c0027",
+          "width": 1600,
+          "height": 2844
+        },
+        {
+          "path": "prototype/assets/img/approved/kitchen-portrait-a-2268.webp",
+          "bytes": 834618,
+          "sha256": "126c6c2e28be3b53fb8d923cd1ae63cb080d5eaf6a437e5e20f6333f21cd4486",
+          "width": 2268,
+          "height": 4032
+        },
+        {
+          "path": "prototype/assets/img/approved/kitchen-portrait-a-2268.avif",
+          "bytes": 679110,
+          "sha256": "a76d8083075cd232cda2849631ee350e4b4fed28cff1ee9ed87eba7fc0bf39d4",
+          "width": 2268,
+          "height": 4032
+        }
+      ]
+    },
+    "basin-main": {
+      "alt": "Lavamanos rectangular integrado en superficie clara",
+      "medio_id": "CAL-MED-0106",
+      "drive_id": "1thlU2Rmqro0r6qWnr17m-AszNd9mO1N4",
+      "group": "lavamanos",
+      "source_sha256": "c3839fb78619b6feb25f0e63de256c69171d2267e05e079adee5ea5932b1db29",
+      "crop": null,
+      "src": "approved/basin-main-5712.webp",
+      "widths": [
+        320,
+        480,
+        640,
+        960,
+        1280,
+        1600,
+        5712
+      ],
+      "aspectRatio": 1.77778,
+      "derivatives": [
+        {
+          "path": "prototype/assets/img/approved/basin-main-320.webp",
+          "bytes": 4070,
+          "sha256": "f2846a58d6167d777b69ba7b0087a6ba3bb1c472090fd77f6a661003ab72d73d",
+          "width": 320,
+          "height": 180
+        },
+        {
+          "path": "prototype/assets/img/approved/basin-main-320.avif",
+          "bytes": 3132,
+          "sha256": "bd070e15cfba636a857014c0895ca828dd6c37661a548efa8a9586daccdd1d59",
+          "width": 320,
+          "height": 180
+        },
+        {
+          "path": "prototype/assets/img/approved/basin-main-480.webp",
+          "bytes": 6852,
+          "sha256": "c3caa050d462f4d5df905be9931304d67458ea709549815a8745ec5c713fde6f",
+          "width": 480,
+          "height": 270
+        },
+        {
+          "path": "prototype/assets/img/approved/basin-main-480.avif",
+          "bytes": 5608,
+          "sha256": "caf5eb2e1f65c353e486fdf8f2aecced5bae15b4dafca603efb86f10b3c58436",
+          "width": 480,
+          "height": 270
+        },
+        {
+          "path": "prototype/assets/img/approved/basin-main-640.webp",
+          "bytes": 10578,
+          "sha256": "3020e2ca21a79f6283018c8019ac304c5d293499d67fa95853fe0c6c41370add",
+          "width": 640,
+          "height": 360
+        },
+        {
+          "path": "prototype/assets/img/approved/basin-main-640.avif",
+          "bytes": 8612,
+          "sha256": "349cfc3e11ac6168db61def2f0c61b40fffe3f612f95f992575fc4a427889234",
+          "width": 640,
+          "height": 360
+        },
+        {
+          "path": "prototype/assets/img/approved/basin-main-960.webp",
+          "bytes": 19350,
+          "sha256": "b0c58ae1082fb68d596627028ea7f9b6f6b768adedc2ff64889930aa8c2050f0",
+          "width": 960,
+          "height": 540
+        },
+        {
+          "path": "prototype/assets/img/approved/basin-main-960.avif",
+          "bytes": 16884,
+          "sha256": "64811a83329bd3122c5c3b7ebc3ecce5d10344b0e762eb2c13b1f2647efbe5d3",
+          "width": 960,
+          "height": 540
+        },
+        {
+          "path": "prototype/assets/img/approved/basin-main-1280.webp",
+          "bytes": 30194,
+          "sha256": "df767c45205feb52900d2b2efc42f61dc726ab07683abf0bb7a7cde543d97fc2",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "prototype/assets/img/approved/basin-main-1280.avif",
+          "bytes": 27578,
+          "sha256": "54b5bdb5372c65cfcf2b65d3446b29c2834fd0fe6428bfe0105e8f053ac55a66",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "path": "prototype/assets/img/approved/basin-main-1600.webp",
+          "bytes": 44046,
+          "sha256": "f1a285f3298b59ca2c42e98e2900343165d847fea4aa9709582a59a7873c2ccd",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "path": "prototype/assets/img/approved/basin-main-1600.avif",
+          "bytes": 41387,
+          "sha256": "b978d516d15f7ede9a285cd145578bded1d5377c8cc442a35fd9048aadc0a471",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "path": "prototype/assets/img/approved/basin-main-5712.webp",
+          "bytes": 333718,
+          "sha256": "707ee70c18a1aaff360d833e439547149afe2099411c6ea80058cf953fe39a82",
+          "width": 5712,
+          "height": 3213
+        },
+        {
+          "path": "prototype/assets/img/approved/basin-main-5712.avif",
+          "bytes": 361875,
+          "sha256": "c24ceb68f673db419cbab0da8544e0aeb052ec6395c85a597fabdcceb63300f9",
+          "width": 5712,
+          "height": 3213
+        }
+      ]
+    },
+    "basin-portrait": {
+      "alt": "Lavamanos tallado en superficie de piedra clara",
+      "medio_id": "CAL-MED-0105",
+      "drive_id": "1w2tfQ92YSUI9TOZTTd1tJ56mfmHbdXDw",
+      "group": "lavamanos",
+      "source_sha256": "017961111eeaef04429ab0c4d6929281413c431e51d3add35e508b34250d78f5",
+      "crop": null,
+      "src": "approved/basin-portrait-3213.webp",
+      "widths": [
+        320,
+        480,
+        640,
+        960,
+        1280,
+        1600,
+        3213
+      ],
+      "aspectRatio": 0.5625,
+      "derivatives": [
+        {
+          "path": "prototype/assets/img/approved/basin-portrait-320.webp",
+          "bytes": 12120,
+          "sha256": "b4e8ad1bd0f56b93b58e4b30e95107feea1070152da80c95bf1de08c4c03b0d2",
+          "width": 320,
+          "height": 569
+        },
+        {
+          "path": "prototype/assets/img/approved/basin-portrait-320.avif",
+          "bytes": 9545,
+          "sha256": "8b5034ad7a1df8256f52a14ef6d211c54b3f2a33596931b14ed6baf3973e4422",
+          "width": 320,
+          "height": 569
+        },
+        {
+          "path": "prototype/assets/img/approved/basin-portrait-480.webp",
+          "bytes": 22890,
+          "sha256": "f8204a3b35e451c13899bc17aac6d614868b49b4016026c0ab1ebe9732c5b8e2",
+          "width": 480,
+          "height": 853
+        },
+        {
+          "path": "prototype/assets/img/approved/basin-portrait-480.avif",
+          "bytes": 18954,
+          "sha256": "6cfb886b669e0cd10c5e95cacd04084850e4fc744ed35f292d1feae68948127f",
+          "width": 480,
+          "height": 853
+        },
+        {
+          "path": "prototype/assets/img/approved/basin-portrait-640.webp",
+          "bytes": 36192,
+          "sha256": "e13729b2d1a0639ffa716d66357f7cf80e9f076c60e62656868febede0f63dca",
+          "width": 640,
+          "height": 1138
+        },
+        {
+          "path": "prototype/assets/img/approved/basin-portrait-640.avif",
+          "bytes": 30621,
+          "sha256": "86368d872ad64bc5aa8a5b51143decafb55246017ed12e0ae4e14b48ee21dc79",
+          "width": 640,
+          "height": 1138
+        },
+        {
+          "path": "prototype/assets/img/approved/basin-portrait-960.webp",
+          "bytes": 72078,
+          "sha256": "345c6594dc84c08590b3412582c717fd7a8b1823787d64d89663d35a123ae0b2",
+          "width": 960,
+          "height": 1707
+        },
+        {
+          "path": "prototype/assets/img/approved/basin-portrait-960.avif",
+          "bytes": 63023,
+          "sha256": "539d99e1517768b57858643c9d7dc70a4b6220ad9693a196871d2363261af6af",
+          "width": 960,
+          "height": 1707
+        },
+        {
+          "path": "prototype/assets/img/approved/basin-portrait-1280.webp",
+          "bytes": 117498,
+          "sha256": "6a4092e0d42cfd04ed14a7a7d504477e9f77d17fb61df882c6a6da2adf6fa715",
+          "width": 1280,
+          "height": 2276
+        },
+        {
+          "path": "prototype/assets/img/approved/basin-portrait-1280.avif",
+          "bytes": 104454,
+          "sha256": "9b643b7ceccc3d8ab2a3cf8173956fc8a239c78ec786612b6668b7945402e908",
+          "width": 1280,
+          "height": 2276
+        },
+        {
+          "path": "prototype/assets/img/approved/basin-portrait-1600.webp",
+          "bytes": 164740,
+          "sha256": "2a2e7e6c6af6a005b5f3315dd7094d66b576acaf8769786946c257853aa02bbd",
+          "width": 1600,
+          "height": 2844
+        },
+        {
+          "path": "prototype/assets/img/approved/basin-portrait-1600.avif",
+          "bytes": 152897,
+          "sha256": "2f85f6da8374bd19f5aaa832244e450819b901661c0195cfa14460592723b92e",
+          "width": 1600,
+          "height": 2844
+        },
+        {
+          "path": "prototype/assets/img/approved/basin-portrait-3213.webp",
+          "bytes": 474508,
+          "sha256": "54050acf84520efc76444e4ffca403e549aa7e8912e13251a0aa8c1945dc968b",
+          "width": 3213,
+          "height": 5712
+        },
+        {
+          "path": "prototype/assets/img/approved/basin-portrait-3213.avif",
+          "bytes": 483504,
+          "sha256": "42f0a8a6bbb542208391c054fa6b36553c92fbeee973e09b55d28c2963a83eff",
+          "width": 3213,
+          "height": 5712
+        }
+      ]
+    },
+    "side-table-kai": {
+      "alt": "Mesa auxiliar de piedra oscura con decoración sobre su cubierta",
+      "medio_id": "CAL-MED-0110",
+      "drive_id": "1CGGuFZTD_q7Wsu2CbIS1bo5xUt3gdTQf",
+      "group": "mesas auxiliares",
+      "source_sha256": "df5e166f8f9db42820f9a39a3e26cd4540ab2571761282d49834d6c6d8a82638",
+      "crop": [
+        505,
+        270,
+        1235,
+        1050
+      ],
+      "src": "approved/side-table-kai-730.webp",
+      "widths": [
+        320,
+        480,
+        640,
+        730
+      ],
+      "aspectRatio": 0.9359,
+      "derivatives": [
+        {
+          "path": "prototype/assets/img/approved/side-table-kai-320.webp",
+          "bytes": 16584,
+          "sha256": "136b1cf6fea4cdf606ca01b05bede73c682b2826835935f41772bc2938f387c0",
+          "width": 320,
+          "height": 342
+        },
+        {
+          "path": "prototype/assets/img/approved/side-table-kai-320.avif",
+          "bytes": 11201,
+          "sha256": "e137e74faaa5ad2c28c3ed76d31b8b0d761012c0235310fec29cd84f3419060b",
+          "width": 320,
+          "height": 342
+        },
+        {
+          "path": "prototype/assets/img/approved/side-table-kai-480.webp",
+          "bytes": 36454,
+          "sha256": "16b3a588ac8427ded1cf4f099240dd4610e86070820680170416baa85e9b9a67",
+          "width": 480,
+          "height": 513
+        },
+        {
+          "path": "prototype/assets/img/approved/side-table-kai-480.avif",
+          "bytes": 25772,
+          "sha256": "466a0a80c3b30b71d1cecda25dc48d231a309dc0b36336a2fbb3a69d48527edf",
+          "width": 480,
+          "height": 513
+        },
+        {
+          "path": "prototype/assets/img/approved/side-table-kai-640.webp",
+          "bytes": 58620,
+          "sha256": "d00e65bfe015e8ecb5a93455ca6baaeb6ce01cd74dd3ebbfcc7768e9776f6d8b",
+          "width": 640,
+          "height": 684
+        },
+        {
+          "path": "prototype/assets/img/approved/side-table-kai-640.avif",
+          "bytes": 41966,
+          "sha256": "d525bfb108f98b3c38de3a3b781f8b94185da8fc5a2b61a8dab74738ba3296e5",
+          "width": 640,
+          "height": 684
+        },
+        {
+          "path": "prototype/assets/img/approved/side-table-kai-730.webp",
+          "bytes": 71904,
+          "sha256": "96ef8813f970151f24f479c1e8c0b748490e75070d06d4cce9317df45585449a",
+          "width": 730,
+          "height": 780
+        },
+        {
+          "path": "prototype/assets/img/approved/side-table-kai-730.avif",
+          "bytes": 51432,
+          "sha256": "280b470aabe3e8cc8e9cae4a90ce402921f05a96179b3c2751bde492b854a6b0",
+          "width": 730,
+          "height": 780
+        }
+      ]
+    },
+    "dining-wood": {
+      "alt": "Mesa de comedor de superficie clara y dos bases de madera",
+      "medio_id": "CAL-MED-0129",
+      "drive_id": "1x7wLFpWCACSzht-fA4uUmQh7c0DVKQ5A",
+      "group": "mesas comedor",
+      "source_sha256": "bc9a0ce570b5328bc0c6674c82b304f8cf471c742beaaab03f97c30d28a2d399",
+      "crop": [
+        40,
+        370,
+        1215,
+        925
+      ],
+      "src": "approved/dining-wood-1175.webp",
+      "widths": [
+        320,
+        480,
+        640,
+        960,
+        1175
+      ],
+      "aspectRatio": 2.11712,
+      "derivatives": [
+        {
+          "path": "prototype/assets/img/approved/dining-wood-320.webp",
+          "bytes": 6102,
+          "sha256": "6e0a556a8f112deca181e14295344494a6a03fbf1de9ca4593189d0218351147",
+          "width": 320,
+          "height": 151
+        },
+        {
+          "path": "prototype/assets/img/approved/dining-wood-320.avif",
+          "bytes": 3922,
+          "sha256": "0353a7411dc363a9b6cbc92f0ae33bda4cf289d782535083844241249fb6a294",
+          "width": 320,
+          "height": 151
+        },
+        {
+          "path": "prototype/assets/img/approved/dining-wood-480.webp",
+          "bytes": 12510,
+          "sha256": "e1a0d5510bd33b2e7b43218d108bf32ae3f19983907d70a4a58a564081674f3a",
+          "width": 480,
+          "height": 227
+        },
+        {
+          "path": "prototype/assets/img/approved/dining-wood-480.avif",
+          "bytes": 8449,
+          "sha256": "df59d83bdcb5c592aea6971008651adf632d5b815ffa020c4685cf3b860456aa",
+          "width": 480,
+          "height": 227
+        },
+        {
+          "path": "prototype/assets/img/approved/dining-wood-640.webp",
+          "bytes": 21058,
+          "sha256": "9b3c7256f822181832d99c2a5d9431c8f006c5142638a753796dae833958dcff",
+          "width": 640,
+          "height": 302
+        },
+        {
+          "path": "prototype/assets/img/approved/dining-wood-640.avif",
+          "bytes": 14259,
+          "sha256": "ae4a7a93457d43feac9975f0e339aaef14bdad5af4d01a6b9680ef281cc44cce",
+          "width": 640,
+          "height": 302
+        },
+        {
+          "path": "prototype/assets/img/approved/dining-wood-960.webp",
+          "bytes": 43910,
+          "sha256": "a6b193bb2dd05f9a14cc80a88a919192ddd3db128c228866393460e4039eacd9",
+          "width": 960,
+          "height": 453
+        },
+        {
+          "path": "prototype/assets/img/approved/dining-wood-960.avif",
+          "bytes": 30594,
+          "sha256": "62e5eca128413611d369288e973b7f05a61dd575a7ad350ffd144b8db5f2cad2",
+          "width": 960,
+          "height": 453
+        },
+        {
+          "path": "prototype/assets/img/approved/dining-wood-1175.webp",
+          "bytes": 60960,
+          "sha256": "147a5c20f7774bb6b83fd321b36f0b9a6c3ac468b195b9c7210ede302e423326",
+          "width": 1175,
+          "height": 555
+        },
+        {
+          "path": "prototype/assets/img/approved/dining-wood-1175.avif",
+          "bytes": 43607,
+          "sha256": "b9c7c4f60f5c6b768b435c3733ee262017dd3930632ff06548ebd6977b50be25",
+          "width": 1175,
+          "height": 555
+        }
+      ]
+    },
+    "dining-stone": {
+      "alt": "Mesa de comedor clara con bases monolíticas de piedra",
+      "medio_id": "CAL-MED-0127",
+      "drive_id": "1MqlvM2vvhdGTEZmkYFl_UeiRkF7yXavX",
+      "group": "mesas comedor",
+      "source_sha256": "ad06bde9f3a1c34d10dcb348b0a6b734ed1b4f8ae46b92e28d18531d7f5f75cd",
+      "crop": [
+        20,
+        700,
+        1010,
+        1200
+      ],
+      "src": "approved/dining-stone-990.webp",
+      "widths": [
+        320,
+        480,
+        640,
+        960,
+        990
+      ],
+      "aspectRatio": 1.98,
+      "derivatives": [
+        {
+          "path": "prototype/assets/img/approved/dining-stone-320.webp",
+          "bytes": 3638,
+          "sha256": "2b4680da702780338a255b5d582d65d3351364638c738d83a3a1f084f3add7f8",
+          "width": 320,
+          "height": 162
+        },
+        {
+          "path": "prototype/assets/img/approved/dining-stone-320.avif",
+          "bytes": 3138,
+          "sha256": "5648e4558e8032aa5380b8a7eae3d0745294ae9d36090b3c4e44cfa6f9e4c674",
+          "width": 320,
+          "height": 162
+        },
+        {
+          "path": "prototype/assets/img/approved/dining-stone-480.webp",
+          "bytes": 7048,
+          "sha256": "5f16eea9227d4360228aabe66dfff995c6fb632390a77b00b11b6b9e332472e2",
+          "width": 480,
+          "height": 242
+        },
+        {
+          "path": "prototype/assets/img/approved/dining-stone-480.avif",
+          "bytes": 6082,
+          "sha256": "d3477554d2e67d4f2665fd3959cdd87636f2ba4994307a111cfb9a5b050e49d9",
+          "width": 480,
+          "height": 242
+        },
+        {
+          "path": "prototype/assets/img/approved/dining-stone-640.webp",
+          "bytes": 12100,
+          "sha256": "30ea48cc1185fe648b808cdf8f37eeb97f190d7dc6ebbbc5c05007feb74b2228",
+          "width": 640,
+          "height": 323
+        },
+        {
+          "path": "prototype/assets/img/approved/dining-stone-640.avif",
+          "bytes": 10042,
+          "sha256": "0853a10043ca7df588158f4189c6f69619fd71ea8b0f331d74dcfc3f3835aa15",
+          "width": 640,
+          "height": 323
+        },
+        {
+          "path": "prototype/assets/img/approved/dining-stone-960.webp",
+          "bytes": 26216,
+          "sha256": "656b366883e62f4df3435b034127ed5e060dbc32a9865b4e0ad2934a2bca8026",
+          "width": 960,
+          "height": 485
+        },
+        {
+          "path": "prototype/assets/img/approved/dining-stone-960.avif",
+          "bytes": 23030,
+          "sha256": "c61dd92ab14940c3d122b7f8e934f3d59791f7a4b496815ac3a38ca032d6bc20",
+          "width": 960,
+          "height": 485
+        },
+        {
+          "path": "prototype/assets/img/approved/dining-stone-990.webp",
+          "bytes": 28976,
+          "sha256": "805195adf4e84a4bf6986460acbfdd7d2d0e03646b6d71f32c30862801d46d4e",
+          "width": 990,
+          "height": 500
+        },
+        {
+          "path": "prototype/assets/img/approved/dining-stone-990.avif",
+          "bytes": 24801,
+          "sha256": "04b9ece13ba3b66ac5fab36d8e35ddb1833e64a4df6316bf6a94c97fbfb729ca",
+          "width": 990,
+          "height": 500
+        }
+      ]
+    },
+    "dining-iron": {
+      "alt": "Mesa de comedor con sobre de piedra y base metálica dorada",
+      "medio_id": "CAL-MED-0123",
+      "drive_id": "1PjEIROQRkntnnqBb0LEKfJTOCTe8UarG",
+      "group": "mesas comedor",
+      "source_sha256": "407f793976ea6efe47f7cb6b1a171a160c7ca712cc24f55fba8b06c7d420e599",
+      "crop": [
+        25,
+        800,
+        1010,
+        1220
+      ],
+      "src": "approved/dining-iron-985.webp",
+      "widths": [
+        320,
+        480,
+        640,
+        960,
+        985
+      ],
+      "aspectRatio": 2.34524,
+      "derivatives": [
+        {
+          "path": "prototype/assets/img/approved/dining-iron-320.webp",
+          "bytes": 5704,
+          "sha256": "8e27da9b945197b8e2a56b7ac484926e190542bcbe29e20b39f37d207a0fa65d",
+          "width": 320,
+          "height": 136
+        },
+        {
+          "path": "prototype/assets/img/approved/dining-iron-320.avif",
+          "bytes": 3685,
+          "sha256": "1c941cd686653d8d4d335da53c05ee5890eacd6808897ffad7af58328a8f63ca",
+          "width": 320,
+          "height": 136
+        },
+        {
+          "path": "prototype/assets/img/approved/dining-iron-480.webp",
+          "bytes": 11324,
+          "sha256": "1a70bc644c9bb9a568ac409eb5794ef67d6c576f0f0ae56abe7ebc6b8e31c5e0",
+          "width": 480,
+          "height": 205
+        },
+        {
+          "path": "prototype/assets/img/approved/dining-iron-480.avif",
+          "bytes": 7297,
+          "sha256": "9dc1d8b10f01d2221c67173494ee0282a169432de85fd98193afac63a80a3e1e",
+          "width": 480,
+          "height": 205
+        },
+        {
+          "path": "prototype/assets/img/approved/dining-iron-640.webp",
+          "bytes": 18918,
+          "sha256": "add02af63954dbcff8c5cd5df43fd4b769f0ba35afe284d2d395d732fbf64f6b",
+          "width": 640,
+          "height": 273
+        },
+        {
+          "path": "prototype/assets/img/approved/dining-iron-640.avif",
+          "bytes": 12040,
+          "sha256": "48e3070cde07867503d492167c3cd34e54cdf9fd661e857c74c52c4906e3d72c",
+          "width": 640,
+          "height": 273
+        },
+        {
+          "path": "prototype/assets/img/approved/dining-iron-960.webp",
+          "bytes": 36982,
+          "sha256": "286ba1022996247ca0e55a15ca1555d48a8ed3e6cdddb3ee3ac2243d18ebde84",
+          "width": 960,
+          "height": 409
+        },
+        {
+          "path": "prototype/assets/img/approved/dining-iron-960.avif",
+          "bytes": 24823,
+          "sha256": "b48cbca2d569bcf84fd0de63e98d47ccc4936a1ef21a0bb4d0b064da0b999a0a",
+          "width": 960,
+          "height": 409
+        },
+        {
+          "path": "prototype/assets/img/approved/dining-iron-985.webp",
+          "bytes": 39398,
+          "sha256": "61bf135f462491d5192e21935accef60eba5479d88becc32ab354191742bc083",
+          "width": 985,
+          "height": 420
+        },
+        {
+          "path": "prototype/assets/img/approved/dining-iron-985.avif",
+          "bytes": 26762,
+          "sha256": "2ca9acac4495d893ecdb39694cbe5848a556d113d5bba87e53062d53941d9701",
+          "width": 985,
+          "height": 420
+        }
+      ]
+    },
+    "chair-home": {
+      "alt": "Dos sillas tapizadas de comedor con estructura de madera clara",
+      "medio_id": "CAL-MED-0147",
+      "drive_id": "1XzKCS0Sj_bCCXAHrgtvT6Kl2l7O1RgeM",
+      "group": "sillas hogar",
+      "source_sha256": "32789e4d6c07a9715983a11b686ce00e6a816220a0df5bc383373d73f50c8be5",
+      "crop": [
+        0,
+        550,
+        655,
+        1140
+      ],
+      "src": "approved/chair-home-655.webp",
+      "widths": [
+        320,
+        480,
+        640,
+        655
+      ],
+      "aspectRatio": 1.11017,
+      "derivatives": [
+        {
+          "path": "prototype/assets/img/approved/chair-home-320.webp",
+          "bytes": 12472,
+          "sha256": "4d5825d4be9bf4cce2f882041f5f6520b87171fec24a3dfb1afbfad618c0e97b",
+          "width": 320,
+          "height": 288
+        },
+        {
+          "path": "prototype/assets/img/approved/chair-home-320.avif",
+          "bytes": 7360,
+          "sha256": "356451b8d7cf4790e5bee816b88583802f03b9d534874e12385a45f6be204cc3",
+          "width": 320,
+          "height": 288
+        },
+        {
+          "path": "prototype/assets/img/approved/chair-home-480.webp",
+          "bytes": 27158,
+          "sha256": "1a22dfe4681e8b3f15bb15fc28f1a9d069fa6f3bb948407f2647226dd2ab9170",
+          "width": 480,
+          "height": 432
+        },
+        {
+          "path": "prototype/assets/img/approved/chair-home-480.avif",
+          "bytes": 17029,
+          "sha256": "07d0d64800af7301c49566fd3aa9c24524189dcb2ef91a2e61e86231297a40ee",
+          "width": 480,
+          "height": 432
+        },
+        {
+          "path": "prototype/assets/img/approved/chair-home-640.webp",
+          "bytes": 44890,
+          "sha256": "a3b368b82893c1fb057d4c50bace56b94994bc14e151195088321bb05a4f8050",
+          "width": 640,
+          "height": 576
+        },
+        {
+          "path": "prototype/assets/img/approved/chair-home-640.avif",
+          "bytes": 28771,
+          "sha256": "da2fc0abbfcf453f8c31f600f45721408b4c4c890655d8a0748cd965e79d296c",
+          "width": 640,
+          "height": 576
+        },
+        {
+          "path": "prototype/assets/img/approved/chair-home-655.webp",
+          "bytes": 48458,
+          "sha256": "76aa63e26bb56e888505c7799939c13def82d991d69dea20f51529206efaaa0b",
+          "width": 655,
+          "height": 590
+        },
+        {
+          "path": "prototype/assets/img/approved/chair-home-655.avif",
+          "bytes": 30551,
+          "sha256": "2ce9b34a376d76aa767748e4503222be5bee46dab7c45cf139a30ade1e279a2d",
+          "width": 655,
+          "height": 590
+        }
+      ]
+    },
+    "chair-commercial": {
+      "alt": "Silla de uso comercial con madera y tapizado claro",
+      "medio_id": "CAL-MED-0137",
+      "drive_id": "1Ne_EIR7lxTYQuYZOwgM22uS-voC3PA8I",
+      "group": "sillas comerciales",
+      "source_sha256": "3d5980cf7e2fb2829a383259ac5877649385b0bc0a7743ed634ff41612b9def5",
+      "crop": [
+        390,
+        525,
+        995,
+        1140
+      ],
+      "src": "approved/chair-commercial-605.webp",
+      "widths": [
+        320,
+        480,
+        605
+      ],
+      "aspectRatio": 0.98374,
+      "derivatives": [
+        {
+          "path": "prototype/assets/img/approved/chair-commercial-320.webp",
+          "bytes": 14204,
+          "sha256": "c6950e2d3a074a8bf0d4194b37109ddc6be5693c3c8814204e1d5eea819e3398",
+          "width": 320,
+          "height": 325
+        },
+        {
+          "path": "prototype/assets/img/approved/chair-commercial-320.avif",
+          "bytes": 8559,
+          "sha256": "10686b8e0dfff8874059a806d8b931220598850617880d72e0fceab212bd453c",
+          "width": 320,
+          "height": 325
+        },
+        {
+          "path": "prototype/assets/img/approved/chair-commercial-480.webp",
+          "bytes": 33240,
+          "sha256": "fb6abf1283d9bd844bcdd9eee19f770f8e4e57805e18e00c5c48b522e613c571",
+          "width": 480,
+          "height": 488
+        },
+        {
+          "path": "prototype/assets/img/approved/chair-commercial-480.avif",
+          "bytes": 20933,
+          "sha256": "1f643d32c969c8ecacb78892c47aec565b7ce15896c0a07e2902309440d83d0e",
+          "width": 480,
+          "height": 488
+        },
+        {
+          "path": "prototype/assets/img/approved/chair-commercial-605.webp",
+          "bytes": 53272,
+          "sha256": "78f469afc3fb1e25efc9014ca01fcaeda12aecaa6bb1a692c51f313a7ece2029",
+          "width": 605,
+          "height": 615
+        },
+        {
+          "path": "prototype/assets/img/approved/chair-commercial-605.avif",
+          "bytes": 33261,
+          "sha256": "a3f6b9fc6a7a8be2d9c0e8ae44c21cebc1fe7336950ad03ab704eaa29ef9c2a2",
+          "width": 605,
+          "height": 615
+        }
+      ]
+    }
+  }
+}

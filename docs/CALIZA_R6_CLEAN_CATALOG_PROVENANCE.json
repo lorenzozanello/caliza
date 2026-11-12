@@ -1,0 +1,377 @@
+{
+  "archive_sha256": "ed8fb6fc1b79334c91826e8de45b3348c8dc194d4d354ef1fcc2abe8f76237e1",
+  "count": 41,
+  "responsive_derivatives": 82,
+  "publication_review": "QA_REFERENCE_ONLY",
+  "records": [
+    {
+      "id": "caliza-r6-006",
+      "group": "mesas-comedor-piedra",
+      "source": "121682C3-6A21-42F1-88AB-31D2830F149E.png",
+      "kind": "sale_sheet_crop_reference",
+      "src": "catalog-r6/caliza-r6-006-clean-1280.webp",
+      "src640": "catalog-r6/caliza-r6-006-clean-640.webp",
+      "review": "QA_REFERENCE_ONLY_NO_VERIFIED_SKU_OR_PRICE"
+    },
+    {
+      "id": "caliza-r6-007",
+      "group": "mesas-comedor-piedra",
+      "source": "12775B2D-1CAA-408E-B1B7-A4BDA3A4212A.png",
+      "kind": "sale_sheet_crop_reference",
+      "src": "catalog-r6/caliza-r6-007-clean-1280.webp",
+      "src640": "catalog-r6/caliza-r6-007-clean-640.webp",
+      "review": "QA_REFERENCE_ONLY_NO_VERIFIED_SKU_OR_PRICE"
+    },
+    {
+      "id": "caliza-r6-008",
+      "group": "mesas-comedor-piedra",
+      "source": "1603899B-02BA-4D0F-A36A-71CE5CE8D26A.png",
+      "kind": "sale_sheet_crop_reference",
+      "src": "catalog-r6/caliza-r6-008-clean-1280.webp",
+      "src640": "catalog-r6/caliza-r6-008-clean-640.webp",
+      "review": "QA_REFERENCE_ONLY_NO_VERIFIED_SKU_OR_PRICE"
+    },
+    {
+      "id": "caliza-r6-009",
+      "group": "sillas-hogar",
+      "source": "16E65E6B-E7DE-4A00-BF46-D08012E3294A.png",
+      "kind": "sale_sheet_crop_reference",
+      "src": "catalog-r6/caliza-r6-009-clean-1280.webp",
+      "src640": "catalog-r6/caliza-r6-009-clean-640.webp",
+      "review": "QA_REFERENCE_ONLY_NO_VERIFIED_SKU_OR_PRICE"
+    },
+    {
+      "id": "caliza-r6-012",
+      "group": "mesas-auxiliares",
+      "source": "1A9F3D36-F599-48B4-B8E6-4C32BBB9B9D7.png",
+      "kind": "sale_sheet_crop_reference",
+      "src": "catalog-r6/caliza-r6-012-clean-1280.webp",
+      "src640": "catalog-r6/caliza-r6-012-clean-640.webp",
+      "review": "QA_REFERENCE_ONLY_NO_VERIFIED_SKU_OR_PRICE"
+    },
+    {
+      "id": "caliza-r6-014",
+      "group": "sillas-comerciales",
+      "source": "23939B9E-756D-4F66-BC0C-168D557A9945.png",
+      "kind": "sale_sheet_crop_reference",
+      "src": "catalog-r6/caliza-r6-014-clean-1280.webp",
+      "src640": "catalog-r6/caliza-r6-014-clean-640.webp",
+      "review": "QA_REFERENCE_ONLY_NO_VERIFIED_SKU_OR_PRICE"
+    },
+    {
+      "id": "caliza-r6-015",
+      "group": "mesas-comedor-madera",
+      "source": "25194019-29B7-48EC-B0C0-40C2E5E411A0.png",
+      "kind": "sale_sheet_crop_reference",
+      "src": "catalog-r6/caliza-r6-015-clean-1280.webp",
+      "src640": "catalog-r6/caliza-r6-015-clean-640.webp",
+      "review": "QA_REFERENCE_ONLY_NO_VERIFIED_SKU_OR_PRICE"
+    },
+    {
+      "id": "caliza-r6-021",
+      "group": "mesas-comedor-hierro",
+      "source": "34B92F7F-1F7A-4681-9AA6-19F7413D6F78.png",
+      "kind": "sale_sheet_crop_reference",
+      "src": "catalog-r6/caliza-r6-021-clean-1280.webp",
+      "src640": "catalog-r6/caliza-r6-021-clean-640.webp",
+      "review": "QA_REFERENCE_ONLY_NO_VERIFIED_SKU_OR_PRICE"
+    },
+    {
+      "id": "caliza-r6-031",
+      "group": "sillas-hogar",
+      "source": "47C636F9-F65D-4A42-8E69-1C715965DA02.png",
+      "kind": "sale_sheet_crop_reference",
+      "src": "catalog-r6/caliza-r6-031-clean-1280.webp",
+      "src640": "catalog-r6/caliza-r6-031-clean-640.webp",
+      "review": "QA_REFERENCE_ONLY_NO_VERIFIED_SKU_OR_PRICE"
+    },
+    {
+      "id": "caliza-r6-033",
+      "group": "mesas-comedor-hierro",
+      "source": "54A685BF-B35B-4467-90D2-1DFAFA5EF7B9.png",
+      "kind": "sale_sheet_crop_reference",
+      "src": "catalog-r6/caliza-r6-033-clean-1280.webp",
+      "src640": "catalog-r6/caliza-r6-033-clean-640.webp",
+      "review": "QA_REFERENCE_ONLY_NO_VERIFIED_SKU_OR_PRICE"
+    },
+    {
+      "id": "caliza-r6-035",
+      "group": "mesas-comedor-madera",
+      "source": "5547ABEE-452D-487F-9C5A-189A413B23DC.png",
+      "kind": "sale_sheet_crop_reference",
+      "src": "catalog-r6/caliza-r6-035-clean-1280.webp",
+      "src640": "catalog-r6/caliza-r6-035-clean-640.webp",
+      "review": "QA_REFERENCE_ONLY_NO_VERIFIED_SKU_OR_PRICE"
+    },
+    {
+      "id": "caliza-r6-037",
+      "group": "sillas-hogar",
+      "source": "5F433DAA-B391-4614-A36B-20A22B05CFE3.png",
+      "kind": "sale_sheet_crop_reference",
+      "src": "catalog-r6/caliza-r6-037-clean-1280.webp",
+      "src640": "catalog-r6/caliza-r6-037-clean-640.webp",
+      "review": "QA_REFERENCE_ONLY_NO_VERIFIED_SKU_OR_PRICE"
+    },
+    {
+      "id": "caliza-r6-038",
+      "group": "sillas-hogar",
+      "source": "62C037F9-C62C-4743-9DC3-CD4D264FEF19.png",
+      "kind": "sale_sheet_crop_reference",
+      "src": "catalog-r6/caliza-r6-038-clean-1280.webp",
+      "src640": "catalog-r6/caliza-r6-038-clean-640.webp",
+      "review": "QA_REFERENCE_ONLY_NO_VERIFIED_SKU_OR_PRICE"
+    },
+    {
+      "id": "caliza-r6-040",
+      "group": "sillas-comerciales",
+      "source": "6E5EC3E6-D10B-44DD-AD11-BC751550026F.png",
+      "kind": "sale_sheet_crop_reference",
+      "src": "catalog-r6/caliza-r6-040-clean-1280.webp",
+      "src640": "catalog-r6/caliza-r6-040-clean-640.webp",
+      "review": "QA_REFERENCE_ONLY_NO_VERIFIED_SKU_OR_PRICE"
+    },
+    {
+      "id": "caliza-r6-041",
+      "group": "mesas-comedor-piedra",
+      "source": "6E9EE6F5-BFEC-4F9C-9FCF-7DDE6E81226A.png",
+      "kind": "sale_sheet_crop_reference",
+      "src": "catalog-r6/caliza-r6-041-clean-1280.webp",
+      "src640": "catalog-r6/caliza-r6-041-clean-640.webp",
+      "review": "QA_REFERENCE_ONLY_NO_VERIFIED_SKU_OR_PRICE"
+    },
+    {
+      "id": "caliza-r6-043",
+      "group": "sillas-hogar",
+      "source": "72D83FC1-2B43-4F3C-8F82-D82315022E6A.png",
+      "kind": "sale_sheet_crop_reference",
+      "src": "catalog-r6/caliza-r6-043-clean-1280.webp",
+      "src640": "catalog-r6/caliza-r6-043-clean-640.webp",
+      "review": "QA_REFERENCE_ONLY_NO_VERIFIED_SKU_OR_PRICE"
+    },
+    {
+      "id": "caliza-r6-044",
+      "group": "sillas-hogar",
+      "source": "74AEAD82-4787-4999-BFB4-05742CC2BE95.png",
+      "kind": "sale_sheet_crop_reference",
+      "src": "catalog-r6/caliza-r6-044-clean-1280.webp",
+      "src640": "catalog-r6/caliza-r6-044-clean-640.webp",
+      "review": "QA_REFERENCE_ONLY_NO_VERIFIED_SKU_OR_PRICE"
+    },
+    {
+      "id": "caliza-r6-045",
+      "group": "mesas-comedor-madera",
+      "source": "74B07D1C-10B4-46DB-801A-747AB40DC69F.png",
+      "kind": "sale_sheet_crop_reference",
+      "src": "catalog-r6/caliza-r6-045-clean-1280.webp",
+      "src640": "catalog-r6/caliza-r6-045-clean-640.webp",
+      "review": "QA_REFERENCE_ONLY_NO_VERIFIED_SKU_OR_PRICE"
+    },
+    {
+      "id": "caliza-r6-048",
+      "group": "mesas-auxiliares",
+      "source": "7D957721-EC85-47F5-8047-2238E3DACE1D.png",
+      "kind": "sale_sheet_crop_reference",
+      "src": "catalog-r6/caliza-r6-048-clean-1280.webp",
+      "src640": "catalog-r6/caliza-r6-048-clean-640.webp",
+      "review": "QA_REFERENCE_ONLY_NO_VERIFIED_SKU_OR_PRICE"
+    },
+    {
+      "id": "caliza-r6-049",
+      "group": "sillas-hogar",
+      "source": "7E3C4970-75E9-4309-8A74-8AC0D2616E78.png",
+      "kind": "sale_sheet_crop_reference",
+      "src": "catalog-r6/caliza-r6-049-clean-1280.webp",
+      "src640": "catalog-r6/caliza-r6-049-clean-640.webp",
+      "review": "QA_REFERENCE_ONLY_NO_VERIFIED_SKU_OR_PRICE"
+    },
+    {
+      "id": "caliza-r6-051",
+      "group": "mesas-comedor-madera",
+      "source": "82AECE97-1E92-4D62-A895-FBC22DB01586.png",
+      "kind": "sale_sheet_crop_reference",
+      "src": "catalog-r6/caliza-r6-051-clean-1280.webp",
+      "src640": "catalog-r6/caliza-r6-051-clean-640.webp",
+      "review": "QA_REFERENCE_ONLY_NO_VERIFIED_SKU_OR_PRICE"
+    },
+    {
+      "id": "caliza-r6-054",
+      "group": "mesas-auxiliares",
+      "source": "84BEE6B6-33FA-4D36-823F-842D19E453E2.png",
+      "kind": "sale_sheet_crop_reference",
+      "src": "catalog-r6/caliza-r6-054-clean-1280.webp",
+      "src640": "catalog-r6/caliza-r6-054-clean-640.webp",
+      "review": "QA_REFERENCE_ONLY_NO_VERIFIED_SKU_OR_PRICE"
+    },
+    {
+      "id": "caliza-r6-056",
+      "group": "mesas-auxiliares",
+      "source": "8FD0DD89-7C51-4A4A-8981-E94B5A092FE7.png",
+      "kind": "sale_sheet_crop_reference",
+      "src": "catalog-r6/caliza-r6-056-clean-1280.webp",
+      "src640": "catalog-r6/caliza-r6-056-clean-640.webp",
+      "review": "QA_REFERENCE_ONLY_NO_VERIFIED_SKU_OR_PRICE"
+    },
+    {
+      "id": "caliza-r6-057",
+      "group": "sillas-hogar",
+      "source": "92E66B81-4556-4891-99BD-476841C1FD0F.png",
+      "kind": "sale_sheet_crop_reference",
+      "src": "catalog-r6/caliza-r6-057-clean-1280.webp",
+      "src640": "catalog-r6/caliza-r6-057-clean-640.webp",
+      "review": "QA_REFERENCE_ONLY_NO_VERIFIED_SKU_OR_PRICE"
+    },
+    {
+      "id": "caliza-r6-058",
+      "group": "mesas-comedor-madera",
+      "source": "94DACD0E-7B6D-48AB-8CE9-FC91CCB0AA79.png",
+      "kind": "sale_sheet_crop_reference",
+      "src": "catalog-r6/caliza-r6-058-clean-1280.webp",
+      "src640": "catalog-r6/caliza-r6-058-clean-640.webp",
+      "review": "QA_REFERENCE_ONLY_NO_VERIFIED_SKU_OR_PRICE"
+    },
+    {
+      "id": "caliza-r6-060",
+      "group": "mesas-comedor-madera",
+      "source": "9ECD8CA0-45A0-4F65-932D-5FB8DA6C4D48.png",
+      "kind": "sale_sheet_crop_reference",
+      "src": "catalog-r6/caliza-r6-060-clean-1280.webp",
+      "src640": "catalog-r6/caliza-r6-060-clean-640.webp",
+      "review": "QA_REFERENCE_ONLY_NO_VERIFIED_SKU_OR_PRICE"
+    },
+    {
+      "id": "caliza-r6-061",
+      "group": "sillas-hogar",
+      "source": "9FE78944-F804-4E4A-9B89-A7D5501257F3.png",
+      "kind": "sale_sheet_crop_reference",
+      "src": "catalog-r6/caliza-r6-061-clean-1280.webp",
+      "src640": "catalog-r6/caliza-r6-061-clean-640.webp",
+      "review": "QA_REFERENCE_ONLY_NO_VERIFIED_SKU_OR_PRICE"
+    },
+    {
+      "id": "caliza-r6-062",
+      "group": "sillas-comerciales",
+      "source": "A1AF22E6-E910-47D9-B5E1-47888E2D449C.png",
+      "kind": "sale_sheet_crop_reference",
+      "src": "catalog-r6/caliza-r6-062-clean-1280.webp",
+      "src640": "catalog-r6/caliza-r6-062-clean-640.webp",
+      "review": "QA_REFERENCE_ONLY_NO_VERIFIED_SKU_OR_PRICE"
+    },
+    {
+      "id": "caliza-r6-063",
+      "group": "mesas-comedor-hierro",
+      "source": "A266A87A-C885-42EE-B20F-C10C5A637444.png",
+      "kind": "sale_sheet_crop_reference",
+      "src": "catalog-r6/caliza-r6-063-clean-1280.webp",
+      "src640": "catalog-r6/caliza-r6-063-clean-640.webp",
+      "review": "QA_REFERENCE_ONLY_NO_VERIFIED_SKU_OR_PRICE"
+    },
+    {
+      "id": "caliza-r6-065",
+      "group": "mesas-comedor-hierro",
+      "source": "A32EC94F-8835-458C-A980-459A69D5B881.png",
+      "kind": "sale_sheet_crop_reference",
+      "src": "catalog-r6/caliza-r6-065-clean-1280.webp",
+      "src640": "catalog-r6/caliza-r6-065-clean-640.webp",
+      "review": "QA_REFERENCE_ONLY_NO_VERIFIED_SKU_OR_PRICE"
+    },
+    {
+      "id": "caliza-r6-067",
+      "group": "sillas-hogar",
+      "source": "AF1F2488-50A6-4A8D-B9F6-CBA566640294.png",
+      "kind": "sale_sheet_crop_reference",
+      "src": "catalog-r6/caliza-r6-067-clean-1280.webp",
+      "src640": "catalog-r6/caliza-r6-067-clean-640.webp",
+      "review": "QA_REFERENCE_ONLY_NO_VERIFIED_SKU_OR_PRICE"
+    },
+    {
+      "id": "caliza-r6-075",
+      "group": "mesas-comedor-madera",
+      "source": "B6BA708E-4FFC-4276-8518-0AABA7E80978.png",
+      "kind": "sale_sheet_crop_reference",
+      "src": "catalog-r6/caliza-r6-075-clean-1280.webp",
+      "src640": "catalog-r6/caliza-r6-075-clean-640.webp",
+      "review": "QA_REFERENCE_ONLY_NO_VERIFIED_SKU_OR_PRICE"
+    },
+    {
+      "id": "caliza-r6-078",
+      "group": "sillas-hogar",
+      "source": "BF22A1ED-DDD2-4380-883A-ABF0AAB8C888.png",
+      "kind": "sale_sheet_crop_reference",
+      "src": "catalog-r6/caliza-r6-078-clean-1280.webp",
+      "src640": "catalog-r6/caliza-r6-078-clean-640.webp",
+      "review": "QA_REFERENCE_ONLY_NO_VERIFIED_SKU_OR_PRICE"
+    },
+    {
+      "id": "caliza-r6-080",
+      "group": "sillas-hogar",
+      "source": "C882D9AF-9686-414B-BC99-7BA0A28752A7.png",
+      "kind": "sale_sheet_crop_reference",
+      "src": "catalog-r6/caliza-r6-080-clean-1280.webp",
+      "src640": "catalog-r6/caliza-r6-080-clean-640.webp",
+      "review": "QA_REFERENCE_ONLY_NO_VERIFIED_SKU_OR_PRICE"
+    },
+    {
+      "id": "caliza-r6-083",
+      "group": "mesas-comedor-hierro",
+      "source": "CDE62F66-DD63-412B-A2B8-8015BB3DBFC2.png",
+      "kind": "sale_sheet_crop_reference",
+      "src": "catalog-r6/caliza-r6-083-clean-1280.webp",
+      "src640": "catalog-r6/caliza-r6-083-clean-640.webp",
+      "review": "QA_REFERENCE_ONLY_NO_VERIFIED_SKU_OR_PRICE"
+    },
+    {
+      "id": "caliza-r6-085",
+      "group": "sillas-comerciales",
+      "source": "D3CFC9F7-54F1-4840-A244-90B415D9F38D.png",
+      "kind": "sale_sheet_crop_reference",
+      "src": "catalog-r6/caliza-r6-085-clean-1280.webp",
+      "src640": "catalog-r6/caliza-r6-085-clean-640.webp",
+      "review": "QA_REFERENCE_ONLY_NO_VERIFIED_SKU_OR_PRICE"
+    },
+    {
+      "id": "caliza-r6-086",
+      "group": "mesas-comedor-madera",
+      "source": "D4C0734F-5975-40E0-9A47-69B501CD9BB2.png",
+      "kind": "sale_sheet_crop_reference",
+      "src": "catalog-r6/caliza-r6-086-clean-1280.webp",
+      "src640": "catalog-r6/caliza-r6-086-clean-640.webp",
+      "review": "QA_REFERENCE_ONLY_NO_VERIFIED_SKU_OR_PRICE"
+    },
+    {
+      "id": "caliza-r6-087",
+      "group": "sillas-hogar",
+      "source": "D6DDC41C-C69B-4574-8C1F-E741B2517F3E.png",
+      "kind": "sale_sheet_crop_reference",
+      "src": "catalog-r6/caliza-r6-087-clean-1280.webp",
+      "src640": "catalog-r6/caliza-r6-087-clean-640.webp",
+      "review": "QA_REFERENCE_ONLY_NO_VERIFIED_SKU_OR_PRICE"
+    },
+    {
+      "id": "caliza-r6-090",
+      "group": "sillas-hogar",
+      "source": "E8C1B9D7-76FC-4A39-87FA-99B1701F6646.png",
+      "kind": "sale_sheet_crop_reference",
+      "src": "catalog-r6/caliza-r6-090-clean-1280.webp",
+      "src640": "catalog-r6/caliza-r6-090-clean-640.webp",
+      "review": "QA_REFERENCE_ONLY_NO_VERIFIED_SKU_OR_PRICE"
+    },
+    {
+      "id": "caliza-r6-092",
+      "group": "mesas-comedor-piedra",
+      "source": "F67F2B92-2545-4982-849C-32742B0741B5.png",
+      "kind": "sale_sheet_crop_reference",
+      "src": "catalog-r6/caliza-r6-092-clean-1280.webp",
+      "src640": "catalog-r6/caliza-r6-092-clean-640.webp",
+      "review": "QA_REFERENCE_ONLY_NO_VERIFIED_SKU_OR_PRICE"
+    },
+    {
+      "id": "caliza-r6-094",
+      "group": "sillas-comerciales",
+      "source": "F89B9C0E-C770-4D84-9BA5-C6C6C1891553.png",
+      "kind": "sale_sheet_crop_reference",
+      "src": "catalog-r6/caliza-r6-094-clean-1280.webp",
+      "src640": "catalog-r6/caliza-r6-094-clean-640.webp",
+      "review": "QA_REFERENCE_ONLY_NO_VERIFIED_SKU_OR_PRICE"
+    }
+  ]
+}

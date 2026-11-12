@@ -931,4 +931,144 @@ body.o8-page .caliza-whatsapp-logo svg{width:30px;height:30px}
  body.o8-page .caliza-detail-content{padding-right:clamp(74px,7vw,106px)}
 }
 
+
+/* CALIZA / Editorial real photography R3.
+   Photographic honesty: contain/controlled crop, no magnification, no product alteration.
+   The original simulated hero remains available only on routes without real media. */
+body.o8-page .exp-hero.caliza-editorial-real-hero{
+  display:grid;
+  grid-template-columns:minmax(0,44%) minmax(0,56%);
+  min-height:clamp(510px,44vw,675px);
+  height:auto;
+  background:#e9e4dc;
+  color:#302c28;
+  isolation:isolate;
+}
+body.o8-page .exp-hero.caliza-editorial-real-hero::after{display:none}
+body.o8-page .exp-hero.caliza-editorial-real-hero::before{
+  content:"";position:absolute;z-index:0;pointer-events:none;
+  left:0;top:0;bottom:0;width:44%;
+  background:linear-gradient(130deg,#f5f1ea 0%,#ebe5da 100%);
+}
+body.o8-page .exp-hero.caliza-editorial-real-hero>img.caliza-real-hero{
+  grid-column:2;grid-row:1;
+  position:relative;inset:auto;z-index:0;
+  width:100%;height:100%;min-height:clamp(510px,44vw,675px);
+  object-fit:contain;object-position:center;
+  background:#d8d2c8;
+  filter:none;
+  max-width:100%;
+}
+body.o8-page .exp-hero.caliza-editorial-real-hero .exp-hero-content{
+  grid-column:1;grid-row:1;align-self:center;
+  position:relative;z-index:1;
+  left:auto;top:auto;transform:none;
+  width:100%;max-width:620px;
+  padding:clamp(32px,5.1vw,92px) clamp(25px,4.3vw,78px);
+  color:#302c28;
+}
+body.o8-page .exp-hero.caliza-editorial-real-hero .exp-hero-content .o8-overline{
+  color:#725d4a;
+  letter-spacing:.14em;
+}
+body.o8-page .exp-hero.caliza-editorial-real-hero h1{
+  color:#302c28;
+  font-size:clamp(47px,5.4vw,85px);
+  line-height:1.05;
+  text-wrap:balance;
+}
+body.o8-page .exp-hero.caliza-editorial-real-hero p{
+  color:#544d44;
+  font-size:clamp(15px,1.2vw,18px);
+  line-height:1.7;
+}
+body.o8-page .exp-hero.caliza-editorial-real-hero .exp-hero-corner{
+  color:#fffaf1;text-shadow:0 1px 15px #292722;
+  z-index:2;right:23px;bottom:24px;
+}
+body.o8-page .exp-hero.caliza-editorial-real-hero .o8-terracotta-rule{background:#a4785e}
+body.o8-page .caliza-family-media img,
+body.o8-page .o8-pillar>img,
+body.o8-page .caliza-project-archive-card>img{
+  object-position:center;
+  image-rendering:auto;
+}
+body.o8-page .caliza-project-archive-card>img{background:#e9e4dc}
+body.o8-page .caliza-family-media picture{display:block;width:100%;height:100%}
+body.o8-page .caliza-family-media picture>img{width:100%;height:100%;object-fit:contain;background:#eeeae4}
+body.o8-page .caliza-detail-visual picture{display:block;background:#ebe5dd}
+body.o8-page .caliza-detail-visual picture>img{display:block;width:100%;height:auto;max-height:640px;object-fit:contain}
+@media(max-width:760px){
+  body.o8-page .exp-hero.caliza-editorial-real-hero{
+    display:flex;flex-direction:column;
+    min-height:0;height:auto;
+    background:#f1ece5;
+  }
+  body.o8-page .exp-hero.caliza-editorial-real-hero::before{
+    width:100%;height:100%;
+  }
+  body.o8-page .exp-hero.caliza-editorial-real-hero>img.caliza-real-hero{
+    position:relative;order:1;
+    width:100%;height:clamp(245px,72vw,420px);min-height:0;
+    object-fit:contain;object-position:center;
+    background:#e4ded4;
+  }
+  body.o8-page .exp-hero.caliza-editorial-real-hero .exp-hero-content{
+    order:2;position:relative;
+    left:auto;top:auto;transform:none;
+    width:100%;max-width:none;
+    padding:clamp(30px,7vw,50px) 24px 48px;
+    background:#f1ece5;
+  }
+  body.o8-page .exp-hero.caliza-editorial-real-hero h1{
+    font-size:clamp(43px,10vw,62px);line-height:1.09;
+    margin:14px 0 16px;
+  }
+  body.o8-page .exp-hero.caliza-editorial-real-hero p{
+    font-size:15px;line-height:1.65;
+  }
+  body.o8-page .exp-hero.caliza-editorial-real-hero .exp-hero-corner{display:none}
+}
+
+
+/* R6 — Complete CALIZA source archive within the governing boutique design system. */
+body.o8-page .caliza-r6-section{max-width:var(--o8-w);margin:clamp(38px,5vw,76px) auto;padding:0 clamp(20px,4vw,70px)}
+body.o8-page .o8-section .caliza-r6-section,
+body.o8-page .exp-page-pad>.caliza-r6-section{padding-inline:0}
+body.o8-page .caliza-r6-group{margin-bottom:clamp(40px,6vw,88px)}
+body.o8-page .caliza-r6-lead{max-width:780px;margin:0 0 clamp(18px,2.7vw,35px)}
+body.o8-page .caliza-r6-lead .o8-overline{color:#57402f;letter-spacing:.18em}
+body.o8-page .caliza-r6-lead h2{font:400 clamp(32px,4vw,57px)/1.12 var(--font-serif);margin:12px 0 16px;color:var(--ink)}
+body.o8-page .caliza-r6-lead p{max-width:650px;font:400 15px/1.75 var(--font-sans);color:var(--ink-muted);margin:0}
+body.o8-page .caliza-r6-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(10px,1.5vw,22px)}
+body.o8-page .caliza-r6-card{background:#f0e9df;min-width:0;overflow:hidden;border:1px solid #dfd3c5;display:flex;flex-direction:column}
+body.o8-page .caliza-r6-card>figure{width:100%;aspect-ratio:4/3;margin:0;background:#ded4c8;display:grid;place-items:center;overflow:hidden}
+body.o8-page .caliza-r6-card>figure>img{width:100%;height:100%;object-fit:contain;object-position:center;transition:transform .45s ease}
+body.o8-page .caliza-r6-card:not(.caliza-r6-reference):hover>figure>img{transform:scale(1.025)}
+body.o8-page .caliza-r6-reference>figure{background:#e9e0d5}
+body.o8-page .caliza-r6-reference>figure>img{object-fit:cover;object-position:30% center;transform:scale(1.18);transform-origin:30% center}
+body.o8-page .caliza-r6-card>div{padding:clamp(14px,2vw,25px);flex:1}
+body.o8-page .caliza-r6-card span{display:block;font:600 11px/1.6 var(--font-sans);letter-spacing:.11em;text-transform:uppercase;color:#513c2d}
+body.o8-page .caliza-r6-card h3{font:400 clamp(21px,2.35vw,31px)/1.2 var(--font-serif);margin:8px 0 0}
+body.o8-page .caliza-r6-more{margin:24px 0 0;text-align:right}
+body.o8-page .caliza-r6-more a{display:inline-block;border-bottom:1px solid #998472;padding-bottom:7px;color:var(--ink);font-size:13px}
+body.o8-page .caliza-r6-home{padding-bottom:30px}
+body.o8-page .caliza-r6-home .caliza-r6-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+body.o8-page .caliza-r6-home .caliza-r6-card:nth-child(1)>figure{aspect-ratio:4/3}
+@media(max-width:900px){
+ body.o8-page .caliza-r6-grid,body.o8-page .caliza-r6-home .caliza-r6-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:600px){
+ body.o8-page .caliza-r6-section{padding-inline:20px}
+ body.o8-page .caliza-r6-grid,body.o8-page .caliza-r6-home .caliza-r6-grid{grid-template-columns:1fr}
+ body.o8-page .caliza-r6-card>figure{aspect-ratio:5/4}
+ body.o8-page .caliza-r6-card>div{padding:17px}
+ body.o8-page .caliza-r6-card h3{font-size:25px}
+ body.o8-page .caliza-r6-lead h2{font-size:37px}
+}
+@media(prefers-reduced-motion:reduce){
+ body.o8-page .caliza-r6-card>figure>img{transition:none}
+ body.o8-page .caliza-r6-card:not(.caliza-r6-reference):hover>figure>img{transform:none}
+}
+
 /* END boutique-v2.css */

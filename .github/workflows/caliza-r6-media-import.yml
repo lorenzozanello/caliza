@@ -1,0 +1,50 @@
+name: CALIZA R6 — verified media import into QA
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - feat/caliza-real-photos-editorial-v2-20261111
+    paths:
+      - '.qa-media/caliza-r6/**'
+      - 'web/scripts/import-caliza-r6-media.py'
+      - '.github/workflows/caliza-r6-media-import.yml'
+permissions:
+  contents: write
+concurrency:
+  group: caliza-r6-import-feature-qa
+  cancel-in-progress: false
+jobs:
+  import-r6:
+    if: github.ref == 'refs/heads/feat/caliza-real-photos-editorial-v2-20261111'
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feat/caliza-real-photos-editorial-v2-20261111
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check staged QA archive exists
+        id: staged
+        shell: bash
+        run: |
+          if test -f .qa-media/caliza-r6/chunk_00.bin; then
+            echo 'ready=true' >> "$GITHUB_OUTPUT"
+          else
+            echo 'ready=false' >> "$GITHUB_OUTPUT"
+          fi
+      - name: Import 140 source records after SHA256 validation
+        if: steps.staged.outputs.ready == 'true'
+        run: python web/scripts/import-caliza-r6-media.py
+      - name: Commit only curated derivatives and provenance; remove staging blobs
+        if: steps.staged.outputs.ready == 'true'
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add prototype/assets/img/editorial-r6 prototype/assets/data/r6-gallery.js docs/CALIZA_R6_REAL_ARCHIVE_PROVENANCE.json
+          git rm -r -q .qa-media/caliza-r6
+          git commit -m "build(caliza): 140 QA photo records as 280 responsive editorial assets" || exit 0
+          git push origin "HEAD:feat/caliza-real-photos-editorial-v2-20261111"
