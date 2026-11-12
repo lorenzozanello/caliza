@@ -148,3 +148,47 @@ test('auditoría de accesibilidad WCAG A/AA en todas las rutas importantes', asy
   }
   expect(findings).toEqual([])
 })
+
+
+test('R8: dirección de arte rectora y capturas editoriales en todas las secciones críticas', async ({ page }, info) => {
+  const routes = ['/', '/stone-design', '/living-design', '/stone-care', '/proyectos', '/living-design/coleccion', '/materiales', '/archivo'];
+  for (const route of routes) {
+    await page.goto('/index.html#' + route);
+    await page.evaluate(() => document.fonts.ready);
+    await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
+    await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 2)).toBe(true);
+    if (route === '/' || route === '/stone-design' || route === '/living-design' || route === '/stone-care') {
+      const hero=page.locator('.exp-hero.caliza-editorial-real-hero');
+      await expect(hero).toBeVisible();
+      const properties=await hero.evaluate(el => {
+        const img=el.querySelector('img')!;
+        const title=el.querySelector('h1')!;
+        return {
+          display:getComputedStyle(el).display,
+          position:getComputedStyle(img).position,
+          fit:getComputedStyle(img).objectFit,
+          serif:getComputedStyle(title).fontFamily,
+          loaded:img.complete && img.naturalWidth>0,
+          source:img.currentSrc
+        }
+      });
+      expect(properties.display).toBe('block');
+      expect(properties.position).toBe('absolute');
+      expect(properties.fit).toBe('cover');
+      expect(properties.serif).toMatch(/Playfair Display/);
+      expect(properties.loaded,route + ' real hero must load').toBe(true);
+    }
+    if (route === '/') {
+      await expect(page.locator('.caliza-r8-brand-cards .caliza-r8-image-card')).toHaveCount(3);
+      await expect(page.locator('.caliza-r8-project-mosaic a')).toHaveCount(3);
+      const first=page.locator('.caliza-r8-brand-cards .caliza-r8-image-card img').first();
+      await first.scrollIntoViewIfNeeded();
+      await expect.poll(() => first.evaluate(e => (e as HTMLImageElement).naturalWidth>0)).toBe(true);
+    }
+    await page.screenshot({
+      path: info.outputPath('r8-' + (route==='/' ? 'home' : route.replaceAll('/','-').replace(/^-/,'')) + '.png'),
+      fullPage:true,
+      animations:'disabled'
+    });
+  }
+});
