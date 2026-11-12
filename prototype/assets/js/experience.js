@@ -41,9 +41,12 @@
   const lineIcon = (name) => `<img class="brand-line-icon" src="${IMG}brand/symbol-${{ stone: 'stone-design', living: 'living-design', care: 'stone-care' }[name]}-primary.svg" alt="" aria-hidden="true" width="64" height="64">`;
   const disclaimer = ''; // Nota editorial discreta en el pie; etiquetas individuales en imágenes.
   // Prefer clean, source-faithful product crops. Never expose price-overlaid sale sheets.
+  // Individually reviewed: other crops still show printed labels, historic prices
+  // or incomplete object framing. Never expose those variants automatically.
+  const cleanVisualWhitelist = new Set(['012','015','035','037','044','048','049','051','061','067','075','086','087','090'].map(n => 'caliza-r6-' + n));
   const r6CleanCatalog = new Map(
     (Array.isArray(window.CALIZA_R6_CATALOG) ? window.CALIZA_R6_CATALOG : [])
-      .filter((r) => r && /^caliza-r6-\d{3}$/.test(r.id || '') &&
+      .filter((r) => r && cleanVisualWhitelist.has(r.id) && /^caliza-r6-\d{3}$/.test(r.id || '') &&
         /^catalog-r6\/caliza-r6-\d{3}-clean-1280\.webp$/.test(r.src || '') &&
         /^catalog-r6\/caliza-r6-\d{3}-clean-640\.webp$/.test(r.src640 || ''))
       .map((r) => [r.id, r])
