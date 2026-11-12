@@ -40,9 +40,19 @@
   const label = (text) => `<span class="o8-overline">${text}</span>`;
   const lineIcon = (name) => `<img class="brand-line-icon" src="${IMG}brand/symbol-${{ stone: 'stone-design', living: 'living-design', care: 'stone-care' }[name]}-primary.svg" alt="" aria-hidden="true" width="64" height="64">`;
   const disclaimer = ''; // Nota editorial discreta en el pie; etiquetas individuales en imágenes.
+  // Prefer clean, source-faithful product crops. Never expose price-overlaid sale sheets.
+  const r6CleanCatalog = new Map(
+    (Array.isArray(window.CALIZA_R6_CATALOG) ? window.CALIZA_R6_CATALOG : [])
+      .filter((r) => r && /^caliza-r6-\d{3}$/.test(r.id || '') &&
+        /^catalog-r6\/caliza-r6-\d{3}-clean-1280\.webp$/.test(r.src || '') &&
+        /^catalog-r6\/caliza-r6-\d{3}-clean-640\.webp$/.test(r.src640 || ''))
+      .map((r) => [r.id, r])
+  );
   const r6Archive = Array.isArray(window.CALIZA_R6_ARCHIVE) ? window.CALIZA_R6_ARCHIVE.filter((r) => r && !r.duplicate &&
     /^editorial-r6\/caliza-r6-\d{3}-1280\.webp$/.test(r.src || '') && /^editorial-r6\/caliza-r6-\d{3}-640\.webp$/.test(r.src640 || '') &&
-    !/IMG_5251|IMG_4778/i.test(r.original || '')) : [];
+    !/IMG_5251|IMG_4778/i.test(r.original || '') &&
+    (r.kind !== 'sale_sheet_reference' || r6CleanCatalog.has(r.id)))
+    .map(r => r.kind === 'sale_sheet_reference' ? {...r, ...r6CleanCatalog.get(r.id), kind:'sale_sheet_reference'} : r) : [];
   const r6Names = {cocinas:'Cocinas y superficies',lavamanos:'Lavamanos y baños','mesas-auxiliares':'Mesas auxiliares','mesas-comedor-piedra':'Mesas · base de piedra','mesas-comedor-hierro':'Mesas · base metálica','mesas-comedor-madera':'Mesas · base de madera','sillas-hogar':'Sillas para hogar','sillas-comerciales':'Sillas comerciales'};
   const r6Favorites = ['caliza-r6-128','caliza-r6-024','caliza-r6-116','caliza-r6-112','caliza-r6-135','caliza-r6-140'];
   function r6Cards(entries) {
