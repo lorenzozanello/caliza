@@ -32,7 +32,7 @@
     if (!slug || !widths.length) return '';
     const width = widths.at(-1);
     const ratio = Number.isFinite(m.aspectRatio) && m.aspectRatio > .25 && m.aspectRatio < 4 ? m.aspectRatio : 1.5;
-    const sizes = priority ? '100vw' : '(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw';
+    const sizes = priority ? '(max-width: 760px) 100vw, 55vw' : '(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw';
     const srcset = widths.map(w => IMG + 'approved/' + slug + '-' + w + '.webp ' + w + 'w').join(', ');
     return '<img class="' + cls + '" src="' + IMG + 'approved/' + slug + '-' + width + '.webp" srcset="' + srcset + '" sizes="' + sizes + '" width="' + width + '" height="' + Math.round(width / ratio) + '" alt="' + safeText(alt || m.alt || '') + '" loading="' + (priority ? 'eager' : 'lazy') + '" fetchpriority="' + (priority ? 'high' : 'auto') + '" decoding="async">';
   }
@@ -162,7 +162,7 @@
     </section>`;
 }
     function hero({ image, realKey, imageAlt = '', eyebrow, title, desc, cta, href, position = 'center' }) {
-    return `<section class="exp-hero">${realKey ? realPhoto(realKey, imageAlt, "caliza-real-hero", true) : `<img src="${IMG}${image}" alt="${safeText(imageAlt || "Ambientación conceptual")}" style="object-position:${position}" fetchpriority="high" decoding="async" width="1600" height="900">`}<div class="exp-hero-content">${label(eyebrow)}<h1>${title}</h1><span class="o8-terracotta-rule"></span><p>${desc}</p>${cta ? button(href, cta) : ''}</div><small class="exp-hero-corner">CALIZA GROUP / COLOMBIA</small></section>`;
+    return `<section class="exp-hero ${realKey ? "caliza-editorial-real-hero" : ""}">${realKey ? realPhoto(realKey, imageAlt, "caliza-real-hero", true) : `<img src="${IMG}${image}" alt="${safeText(imageAlt || "Ambientación conceptual")}" style="object-position:${position}" fetchpriority="high" decoding="async" width="1600" height="900">`}<div class="exp-hero-content">${label(eyebrow)}<h1>${title}</h1><span class="o8-terracotta-rule"></span><p>${desc}</p>${cta ? button(href, cta) : ''}</div><small class="exp-hero-corner">CALIZA GROUP / COLOMBIA</small></section>`;
   }
   function sectionHead(title, href, action = 'Ver todos') {
     return `<div class="o8-section-heading"><h2>${title}</h2>${href ? `<a href="#${href}">${action} <span aria-hidden="true">→</span></a>` : ''}</div>`;
