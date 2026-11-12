@@ -1071,4 +1071,19 @@ body.o8-page .caliza-r6-home .caliza-r6-card:nth-child(1)>figure{aspect-ratio:4/
  body.o8-page .caliza-r6-card:not(.caliza-r6-reference):hover>figure>img{transform:none}
 }
 
+
+/* R7: restore CTA contrast on light editorial hero panel, including mobile. */
+body.o8-page .exp-hero.caliza-editorial-real-hero .o8-button{
+  background:#173840;
+  border:1px solid #173840;
+  color:#fffdf8;
+}
+body.o8-page .exp-hero.caliza-editorial-real-hero .o8-button span{color:inherit}
+body.o8-page .exp-hero.caliza-editorial-real-hero .o8-button:hover,
+body.o8-page .exp-hero.caliza-editorial-real-hero .o8-button:focus-visible{
+  background:#2b5660;
+  border-color:#2b5660;
+  color:#fffdf8;
+}
+
 /* END boutique-v2.css */
