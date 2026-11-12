@@ -28,7 +28,7 @@ try {
   }catch(error){results.checks.push({width,error:String(error).slice(0,400)})}
   finally{await page.close()}
  }
- const api=await agent.request.newContext()
+ const api=await request.newContext()
  for(const path of ['/robots.txt','/sitemap.xml']){
   try{const r=await api.get(origin+path,{timeout:15000});results[path]={status:r.status(),text:(await r.text()).slice(0,1400),headers:{'content-type':r.headers()['content-type']}}}
   catch(error){results[path]={error:String(error).slice(0,320)}}
