@@ -1,5 +1,5 @@
 /* Read-only public-site QA. No cookies/credentials, no form submissions, no state mutation. */
-import { chromium } from '@playwright/test'
+import { chromium, request } from '@playwright/test'
 import fs from 'node:fs/promises'
 const origin='https://www.calizagroup.shop'
 const output='../artifacts/caliza-live-audit'
