@@ -240,3 +240,102 @@ body.o8-page .caliza-whatsapp-logo svg{width:30px;height:30px}
 @media(min-width:901px){
  body.o8-page .caliza-detail-content{padding-right:clamp(74px,7vw,106px)}
 }
+
+
+/* CALIZA / Editorial real photography R3.
+   Photographic honesty: contain/controlled crop, no magnification, no product alteration.
+   The original simulated hero remains available only on routes without real media. */
+body.o8-page .exp-hero.caliza-editorial-real-hero{
+  display:grid;
+  grid-template-columns:minmax(0,44%) minmax(0,56%);
+  min-height:clamp(510px,44vw,675px);
+  height:auto;
+  background:#e9e4dc;
+  color:#302c28;
+  isolation:isolate;
+}
+body.o8-page .exp-hero.caliza-editorial-real-hero::after{display:none}
+body.o8-page .exp-hero.caliza-editorial-real-hero::before{
+  content:"";position:absolute;z-index:0;pointer-events:none;
+  left:0;top:0;bottom:0;width:44%;
+  background:linear-gradient(130deg,#f5f1ea 0%,#ebe5da 100%);
+}
+body.o8-page .exp-hero.caliza-editorial-real-hero>img.caliza-real-hero{
+  grid-column:2;grid-row:1;
+  position:relative;inset:auto;z-index:0;
+  width:100%;height:100%;min-height:clamp(510px,44vw,675px);
+  object-fit:contain;object-position:center;
+  background:#d8d2c8;
+  filter:none;
+  max-width:100%;
+}
+body.o8-page .exp-hero.caliza-editorial-real-hero .exp-hero-content{
+  grid-column:1;grid-row:1;align-self:center;
+  position:relative;z-index:1;
+  left:auto;top:auto;transform:none;
+  width:100%;max-width:620px;
+  padding:clamp(32px,5.1vw,92px) clamp(25px,4.3vw,78px);
+  color:#302c28;
+}
+body.o8-page .exp-hero.caliza-editorial-real-hero .exp-hero-content .o8-overline{
+  color:#725d4a;
+  letter-spacing:.14em;
+}
+body.o8-page .exp-hero.caliza-editorial-real-hero h1{
+  color:#302c28;
+  font-size:clamp(47px,5.4vw,85px);
+  line-height:1.05;
+  text-wrap:balance;
+}
+body.o8-page .exp-hero.caliza-editorial-real-hero p{
+  color:#544d44;
+  font-size:clamp(15px,1.2vw,18px);
+  line-height:1.7;
+}
+body.o8-page .exp-hero.caliza-editorial-real-hero .exp-hero-corner{
+  color:#fffaf1;text-shadow:0 1px 15px #292722;
+  z-index:2;right:23px;bottom:24px;
+}
+body.o8-page .exp-hero.caliza-editorial-real-hero .o8-terracotta-rule{background:#a4785e}
+body.o8-page .caliza-family-media img,
+body.o8-page .o8-pillar>img,
+body.o8-page .caliza-project-archive-card>img{
+  object-position:center;
+  image-rendering:auto;
+}
+body.o8-page .caliza-project-archive-card>img{background:#e9e4dc}
+body.o8-page .caliza-family-media picture{display:block;width:100%;height:100%}
+body.o8-page .caliza-family-media picture>img{width:100%;height:100%;object-fit:contain;background:#eeeae4}
+body.o8-page .caliza-detail-visual picture{display:block;background:#ebe5dd}
+body.o8-page .caliza-detail-visual picture>img{display:block;width:100%;height:auto;max-height:640px;object-fit:contain}
+@media(max-width:760px){
+  body.o8-page .exp-hero.caliza-editorial-real-hero{
+    display:flex;flex-direction:column;
+    min-height:0;height:auto;
+    background:#f1ece5;
+  }
+  body.o8-page .exp-hero.caliza-editorial-real-hero::before{
+    width:100%;height:100%;
+  }
+  body.o8-page .exp-hero.caliza-editorial-real-hero>img.caliza-real-hero{
+    position:relative;order:1;
+    width:100%;height:clamp(245px,72vw,420px);min-height:0;
+    object-fit:contain;object-position:center;
+    background:#e4ded4;
+  }
+  body.o8-page .exp-hero.caliza-editorial-real-hero .exp-hero-content{
+    order:2;position:relative;
+    left:auto;top:auto;transform:none;
+    width:100%;max-width:none;
+    padding:clamp(30px,7vw,50px) 24px 48px;
+    background:#f1ece5;
+  }
+  body.o8-page .exp-hero.caliza-editorial-real-hero h1{
+    font-size:clamp(43px,10vw,62px);line-height:1.09;
+    margin:14px 0 16px;
+  }
+  body.o8-page .exp-hero.caliza-editorial-real-hero p{
+    font-size:15px;line-height:1.65;
+  }
+  body.o8-page .exp-hero.caliza-editorial-real-hero .exp-hero-corner{display:none}
+}
