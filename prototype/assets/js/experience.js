@@ -252,6 +252,16 @@
           ['care', 'caliza-r6-118', 'Stone Care', 'CALIZA Stone Care', 'Cuidado que prolonga la belleza.', '/stone-care'],
         ].map(([icon, image, name, brand, desc, href]) => `<a href="#${href}" class="o8-pillar caliza-r8-image-card">${realPhoto(image, `Fotografía auténtica del archivo CALIZA para ${brand}`) || picture(image, `Referencia editorial de ${brand}`)}<div class="o8-pillar-copy">${lineIcon(icon)}<div><span class="caliza-r8-card-kicker">CALIZA</span><h2>${name}</h2><p>${desc}</p><span class="caliza-r8-card-link">Explorar <span aria-hidden="true">→</span></span></div><b aria-hidden="true">→</b></div></a>`).join('')}
       </section>
+      <section class="caliza-r8-project-story" aria-labelledby="caliza-r8-projects-title">
+        <div class="caliza-r8-project-heading"><span class="caliza-r8-project-line" aria-hidden="true"></span><h2 id="caliza-r8-projects-title">PROYECTOS</h2><span class="caliza-r8-project-line" aria-hidden="true"></span></div>
+        <p class="caliza-r8-project-subtitle">ESPACIOS REALES EN PIEDRA NATURAL</p>
+        <div class="caliza-r8-project-mosaic">
+          <a href="#/stone-design/proyectos" class="caliza-r8-project-main">${realPhoto('kitchen-island-a', 'Cocina auténtica con isla de piedra natural de CALIZA')}<span>Arquitectura y piedra <span aria-hidden="true">↗</span></span></a>
+          <a href="#/stone-design/proyectos" class="caliza-r8-project-minor">${realPhoto('kitchen-portrait-a', 'Detalle real de superficie de cocina de CALIZA')}<span>Superficies <span aria-hidden="true">↗</span></span></a>
+          <a href="#/stone-design/proyectos" class="caliza-r8-project-minor">${realPhoto('basin-portrait', 'Lavamanos real de piedra de CALIZA')}<span>Material y detalle <span aria-hidden="true">↗</span></span></a>
+        </div>
+        <a class="caliza-r8-underlink" href="#/stone-design/proyectos">Explorar proyectos <span aria-hidden="true">→</span></a>
+      </section>
       <section class="caliza-journeys caliza-r8-journeys" aria-labelledby="journeys-title"><div class="caliza-journeys-lead">${label('Su próximo paso')}<h2 id="journeys-title">¿Qué desea hacer?</h2><p>Un recorrido claro desde la inspiración hasta una conversación con el equipo.</p></div><div class="caliza-journey-links">
       <a href="#/stone-design/brief"><span>01 / Crear</span><strong>Planear un espacio en piedra</strong><small>Preparar un brief de proyecto <span aria-hidden="true">→</span></small></a>
       <a href="#/living-design/coleccion"><span>02 / Habitar</span><strong>Explorar una familia</strong><small>Explorar posibilidades y consultar <span aria-hidden="true">→</span></small></a>
