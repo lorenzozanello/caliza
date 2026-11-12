@@ -148,3 +148,50 @@ test('auditoría de accesibilidad WCAG A/AA en todas las rutas importantes', asy
   }
   expect(findings).toEqual([])
 })
+
+
+test('R9: recuperar el sistema PR18 sin perder navegación, catálogo y trazabilidad', async ({ page }, info) => {
+  test.setTimeout(150_000);
+  const routes=['/','/stone-design','/living-design','/stone-care','/proyectos','/living-design/coleccion','/materiales','/archivo'];
+  for(const route of routes){
+    await page.goto('/index.html#'+route);
+    await page.evaluate(()=>document.fonts.ready);
+    await expect(page.getByRole('heading',{level:1})).toBeVisible();
+    await expect.poll(()=>page.evaluate(()=>document.documentElement.scrollWidth <= innerWidth+2)).toBe(true);
+    if(['/', '/stone-design','/living-design','/stone-care'].includes(route)){
+      const hero=page.locator('.exp-hero');
+      await expect(hero).toHaveCount(1);
+      await expect(hero.locator('img')).toHaveCount(1);
+      const properties=await hero.evaluate(el => {
+        const img=el.querySelector('img') as HTMLImageElement;
+        const heading=el.querySelector('h1') as HTMLElement;
+        return {realHero:el.classList.contains('caliza-editorial-real-hero'),
+          fit:getComputedStyle(img).objectFit,loaded:img.complete && img.naturalWidth>0,
+          serif:getComputedStyle(heading).fontFamily};
+      });
+      expect(properties.realHero).toBe(false);
+      expect(properties.fit).toBe('cover');
+      expect(properties.loaded).toBe(true);
+      expect(properties.serif).toMatch(/Playfair/);
+    }
+    if(route==='/'){
+      await expect(page.locator('.o8-pillars .o8-pillar')).toHaveCount(3);
+      await expect(page.locator('.caliza-r8-project-story')).toHaveCount(0);
+      await expect(page.locator('.caliza-r8-living-story')).toHaveCount(0);
+      await expect(page.locator('.caliza-r8-material-story')).toHaveCount(0);
+      await expect(page.locator('.exp-banner')).toHaveCount(2);
+      await expect(page.locator('.caliza-journeys')).toHaveCount(1);
+    }
+    const images=page.locator('#main img');
+    for(let i=0,n=Math.min(await images.count(),route==='/'?9:6);i<n;i++){
+      const im=images.nth(i);
+      if(!(await im.isVisible()))continue;
+      await im.scrollIntoViewIfNeeded();
+      await expect.poll(()=>im.evaluate(el=>(el as HTMLImageElement).complete && (el as HTMLImageElement).naturalWidth>0),
+        {timeout:10_000}).toBe(true);
+    }
+    await page.evaluate(()=>scrollTo(0,0));
+    await page.screenshot({path:info.outputPath('r9-'+(route==='/'?'home':route.replaceAll('/','-').replace(/^-/,'') )+'.png'),
+      fullPage:route==='/',animations:'disabled'});
+  }
+});

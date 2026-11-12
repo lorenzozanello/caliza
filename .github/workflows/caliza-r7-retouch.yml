@@ -1,0 +1,39 @@
+name: CALIZA R7 QA — build clean retained media
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - feat/caliza-r7-catalog-retouch-seo-audit-20261112
+    paths:
+      - 'web/scripts/build-caliza-r7-retouch.py'
+      - '.github/workflows/caliza-r7-retouch.yml'
+permissions:
+  contents: write
+concurrency:
+  group: caliza-r7-retouch-qa
+  cancel-in-progress: false
+jobs:
+  build:
+    if: github.ref == 'refs/heads/feat/caliza-r7-catalog-retouch-seo-audit-20261112'
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feat/caliza-r7-catalog-retouch-seo-audit-20261112
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned image dependency
+        run: python -m pip install 'Pillow==12.0.0'
+      - name: Deterministic owner-origin R7 derivatives
+        run: python web/scripts/build-caliza-r7-retouch.py
+      - name: Commit derived images and provenance only
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add prototype/assets/img/catalog-r7 prototype/assets/data/r7-catalog.js docs/CALIZA_R7_CATALOG_PROVENANCE.json
+          git commit -m "build(caliza): 27 R7 references as 54 safe product/detail WebP assets"
+          git push origin HEAD:feat/caliza-r7-catalog-retouch-seo-audit-20261112

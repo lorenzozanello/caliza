@@ -1,2 +1,1 @@
-User-agent: *
-Disallow: /
+User-agent: *\nAllow: /\n\nSitemap: https://www.calizagroup.shop/sitemap.xml\n

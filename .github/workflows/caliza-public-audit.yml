@@ -1,0 +1,38 @@
+name: CALIZA live-domain read-only visual and SEO audit
+on:
+  push:
+    branches:
+      - feat/caliza-r7-catalog-retouch-seo-audit-20261112
+    paths:
+      - 'web/scripts/caliza-public-visual-audit.mjs'
+      - '.github/workflows/caliza-public-audit.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  public-audit:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - name: Install locked browser tooling
+        working-directory: web
+        run: npm ci --ignore-scripts --no-audit --no-fund
+      - name: Chromium
+        working-directory: web
+        run: npx playwright install --with-deps chromium
+      - name: Read-only public-domain screenshot and SEO headers
+        working-directory: web
+        run: node scripts/caliza-public-visual-audit.mjs
+      - name: Preserve audit screenshots and JSON even on DNS failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: caliza-public-domain-qa
+          path: artifacts/caliza-live-audit
+          retention-days: 7
