@@ -33,7 +33,7 @@
           x.src === 'editorial-r6/caliza-r6-118-1280.webp' &&
           x.src640 === 'editorial-r6/caliza-r6-118-640.webp');
       if (photo) {
-        const sizes = priority ? '(max-width:760px) 100vw,55vw' : '(max-width:700px) 100vw,33vw';
+        const sizes = priority ? '100vw' : '(max-width:700px) 100vw,33vw';
         return '<img class="' + cls + '" src="' + IMG + photo.src + '" srcset="' +
           IMG + photo.src640 + ' 360w,' + IMG + photo.src + ' 720w" sizes="' + sizes +
           '" width="720" height="1280" alt="' + safeText(alt) + '" loading="' +
@@ -47,7 +47,7 @@
     if (!slug || !widths.length) return '';
     const width = widths.at(-1);
     const ratio = Number.isFinite(m.aspectRatio) && m.aspectRatio > .25 && m.aspectRatio < 4 ? m.aspectRatio : 1.5;
-    const sizes = priority ? '(max-width: 760px) 100vw, 55vw' : '(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw';
+    const sizes = priority ? '100vw' : '(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw';
     const srcset = widths.map(w => IMG + 'approved/' + slug + '-' + w + '.webp ' + w + 'w').join(', ');
     return '<img class="' + cls + '" src="' + IMG + 'approved/' + slug + '-' + width + '.webp" srcset="' + srcset + '" sizes="' + sizes + '" width="' + width + '" height="' + Math.round(width / ratio) + '" alt="' + safeText(alt || m.alt || '') + '" loading="' + (priority ? 'eager' : 'lazy') + '" fetchpriority="' + (priority ? 'high' : 'auto') + '" decoding="async">';
   }
