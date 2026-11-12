@@ -171,6 +171,7 @@
         <a href="#/living-design/coleccion" class="o8-text-link">Volver a las colecciones →</a>
       </div>
     </section>
+    ${r6FamilyGallery(item.slug)}
     <section class="caliza-detail-inquiry" aria-labelledby="family-inquiry-title">
       <div>${label('Asesoría a medida')}<h2 id="family-inquiry-title">Cuéntenos qué tiene en mente.</h2><p>Prepare una consulta sin inventar un pedido ni aceptar precios no confirmados.</p></div>
       <form id="family-inquiry-form" class="exp-contact-form">
@@ -219,6 +220,7 @@
       <a href="#/stone-care/diagnostico"><span>03 / Preservar</span><strong>Evaluar el cuidado</strong><small>Recibir orientación preliminar <span aria-hidden="true">→</span></small></a>
       </div></section>
       <section class="o8-section">${sectionHead('Familias para habitar', '/living-design/coleccion', 'Explorar familias')}<div class="caliza-family-grid caliza-family-grid-featured">${families.slice(0, 2).map(familyCard).join('')}</div></section>
+      <section class="o8-section caliza-r6-home"><div class="caliza-r6-lead">${label('De nuestro archivo')}<h2>Piedra real, múltiples maneras de habitar.</h2><p>Imágenes auténticas de CALIZA con tratamiento editorial homogéneo.</p></div>${r6Cards(r6Favorites.map(id => r6Archive.find(r => r.id === id)).filter(Boolean).slice(0,3))}<div class="caliza-r6-more"><a href="#/archivo">Explorar archivo visual →</a></div></section>
       <section class="o8-section">${sectionHead('La expresión de la materia', '/materiales', 'Explorar materiales')}${materialPreview()}</section>
       <section class="exp-banner">${realPhoto('kitchen-portrait-a', 'Cocina real de CALIZA con superficies de piedra')}<div>${label('Caliza Stone Design')}<h2>Espacios que perduran.</h2><p>Proyectos concebidos desde la materia y el oficio.</p>${button('/stone-design/brief', 'Iniciar proyecto')}</div></section>
       <section class="exp-banner exp-banner-care">${realPhoto('basin-main', 'Lavamanos de piedra clara de CALIZA')}<div>${label('Caliza Stone Care')}<h2>Cuidar también es diseñar.</h2><p>Conozca cómo preservar la belleza de la piedra.</p>${button('/stone-care/diagnostico', 'Consultar cuidado')}</div></section>
@@ -482,6 +484,7 @@
     if (route === '/') return home();
     if (route === '/stone-design') return stone();
     if (route === '/stone-design/proyectos' || route === '/proyectos') return projects();
+    if (route === '/archivo') return r6ArchivePage();
     if (route === '/stone-design/brief') return brief();
     if (route === '/living-design') return living();
     if (route === '/living-design/coleccion' || route === '/tienda') return collection();
