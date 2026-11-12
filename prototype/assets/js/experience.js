@@ -91,7 +91,9 @@
     if (!widths.length) return picture(src, alt);
     const sizes = '(max-width: 660px) 100vw, (max-width: 1200px) 50vw, 33vw';
     const srcset = (ext) => widths.map((w) => `${IMG}approved/${slug}-${w}.${ext} ${w}w`).join(', ');
-    return `<picture><source type="image/avif" srcset="${srcset('avif')}" sizes="${sizes}"><source type="image/webp" srcset="${srcset('webp')}" sizes="${sizes}"><img src="${IMG}${src}" alt="${alt}" loading="lazy" decoding="async" width="${widths.at(-1)}" height="${Math.round(widths.at(-1) * (Number.isFinite(imagenes.aspectRatio) && imagenes.aspectRatio > .25 && imagenes.aspectRatio < 4 ? 1 / imagenes.aspectRatio : .75))}"></picture>`;
+    const fallbackWidth = widths.filter((w) => w <= 1600).at(-1) || widths.at(-1);
+    const fallbackSrc = `approved/${slug}-${fallbackWidth}.webp`;
+    return `<picture><source type="image/avif" srcset="${srcset('avif')}" sizes="${sizes}"><source type="image/webp" srcset="${srcset('webp')}" sizes="${sizes}"><img src="${IMG}${fallbackSrc}" alt="${alt}" loading="lazy" decoding="async" width="${fallbackWidth}" height="${Math.round(fallbackWidth * (Number.isFinite(imagenes.aspectRatio) && imagenes.aspectRatio > .25 && imagenes.aspectRatio < 4 ? 1 / imagenes.aspectRatio : .75))}"></picture>`;
   }
   const editorialFamilyImages = Object.freeze({
     'mesas-de-comedor':'comedor.jpg',
@@ -121,7 +123,7 @@
   const options = (item.subfamilias || []).map((f) => `<option value="${safeText(f.nombre)}">${safeText(f.nombre)}</option>`).join('');
   return `${pageIntro('Living Design / Archivo de familias', safeText(item.name), safeText(item.description))}${subnav('/living-design/coleccion')}
     <section class="caliza-detail-layout">
-      <div class="caliza-detail-visual">${media}<p>Imagen conceptual de inspiración. La ficha individual se confirma con el equipo.</p></div>
+      <div class="caliza-detail-visual">${media}<p>${item.imagenes?.ambiente ? 'Fotografía real de CALIZA. Disponibilidad, especificaciones y acabados sujetos a confirmación.' : 'Imagen conceptual de inspiración. La ficha individual se confirma con el equipo.'}</p></div>
       <div class="caliza-detail-content">${label('Diseño bajo consulta')}
         <h2>Una pieza, muchas posibilidades.</h2>
         <p>Esta familia forma parte de las líneas documentadas de CALIZA. Converse con nuestro equipo para explorar posibilidades de diseño, materiales, medidas, acabados y condiciones de una propuesta a medida.</p>
