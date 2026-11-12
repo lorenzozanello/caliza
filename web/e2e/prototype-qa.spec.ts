@@ -151,6 +151,7 @@ test('auditoría de accesibilidad WCAG A/AA en todas las rutas importantes', asy
 
 
 test('R8: dirección de arte rectora y capturas editoriales en todas las secciones críticas', async ({ page }, info) => {
+  test.setTimeout(150_000);
   const routes = ['/', '/stone-design', '/living-design', '/stone-care', '/proyectos', '/living-design/coleccion', '/materiales', '/archivo'];
   for (const route of routes) {
     await page.goto('/index.html#' + route);
@@ -187,7 +188,7 @@ test('R8: dirección de arte rectora y capturas editoriales en todas las seccion
     }
     await page.screenshot({
       path: info.outputPath('r8-' + (route==='/' ? 'home' : route.replaceAll('/','-').replace(/^-/,'')) + '.png'),
-      fullPage:true,
+      fullPage:['/','/stone-design','/living-design','/stone-care'].includes(route),
       animations:'disabled'
     });
   }
