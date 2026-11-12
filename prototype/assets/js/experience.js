@@ -40,6 +40,32 @@
   const label = (text) => `<span class="o8-overline">${text}</span>`;
   const lineIcon = (name) => `<img class="brand-line-icon" src="${IMG}brand/symbol-${{ stone: 'stone-design', living: 'living-design', care: 'stone-care' }[name]}-primary.svg" alt="" aria-hidden="true" width="64" height="64">`;
   const disclaimer = ''; // Nota editorial discreta en el pie; etiquetas individuales en imágenes.
+  const r6Archive = Array.isArray(window.CALIZA_R6_ARCHIVE) ? window.CALIZA_R6_ARCHIVE.filter((r) => r && !r.duplicate &&
+    /^editorial-r6\/caliza-r6-\d{3}-1280\.webp$/.test(r.src || '') && /^editorial-r6\/caliza-r6-\d{3}-640\.webp$/.test(r.src640 || '') &&
+    !/IMG_5251|IMG_4778/i.test(r.original || '')) : [];
+  const r6Names = {cocinas:'Cocinas y superficies',lavamanos:'Lavamanos y baños','mesas-auxiliares':'Mesas auxiliares','mesas-comedor-piedra':'Mesas · base de piedra','mesas-comedor-hierro':'Mesas · base metálica','mesas-comedor-madera':'Mesas · base de madera','sillas-hogar':'Sillas para hogar','sillas-comerciales':'Sillas comerciales'};
+  const r6Favorites = ['caliza-r6-128','caliza-r6-024','caliza-r6-116','caliza-r6-112','caliza-r6-135','caliza-r6-140'];
+  function r6Cards(entries) {
+    return '<div class="caliza-r6-grid">' + entries.map((entry) => {
+      const ref = entry.kind === 'sale_sheet_reference';
+      const title = r6Names[entry.group] || 'Archivo CALIZA';
+      const label = ref ? 'Referencia comercial · Modelo por confirmar' : 'Fotografía auténtica · CALIZA';
+      const alt = (ref ? 'Recorte de lámina comercial CALIZA: ' : 'Fotografía real CALIZA: ') + title;
+      return '<article class="caliza-r6-card' + (ref ? ' caliza-r6-reference' : '') + '"><figure><img src="' + IMG + entry.src + '" srcset="' + IMG + entry.src640 + ' 640w, ' + IMG + entry.src + ' 1280w" sizes="(max-width:700px) 100vw,(max-width:1100px) 50vw,33vw" loading="lazy" decoding="async" alt="' + safeText(alt) + '"></figure><div><span>' + label + '</span><h3>' + safeText(title) + '</h3></div></article>';
+    }).join('') + '</div>';
+  }
+  function r6FamilyGallery(slug) {
+    const groups = slug === 'mesas-de-comedor' ? ['mesas-comedor-piedra','mesas-comedor-hierro','mesas-comedor-madera'] : slug === 'sillas-para-hogar' ? ['sillas-hogar'] : slug === 'sillas-comerciales' ? ['sillas-comerciales'] : slug === 'lavamanos' ? ['lavamanos'] : slug === 'mesas-auxiliares' ? ['mesas-auxiliares'] : [];
+    const items = r6Archive.filter(r => groups.includes(r.group));
+    return items.length ? '<section class="caliza-r6-section"><div class="caliza-r6-lead"><span class="o8-overline">Archivo de producto CALIZA</span><h2>Una familia, distintas expresiones.</h2><p>Fotografías de origen y referencias comerciales diferenciadas. Modelos, precios, materiales y disponibilidad siempre sujetos a confirmación del equipo.</p></div>' + r6Cards(items) + '</section>' : '';
+  }
+  function r6ArchivePage() {
+    return pageIntro('CALIZA / Archivo editorial','Materia y oficio documentados.','Imágenes reales del archivo CALIZA y referencias de catálogos históricos, clasificadas sin inventar fichas comerciales.') + '<section class="caliza-r6-section">' + Object.keys(r6Names).map(group => {
+      const items = r6Archive.filter(r => r.group === group);
+      return items.length ? '<section class="caliza-r6-group"><div class="caliza-r6-lead"><span class="o8-overline">CALIZA · Archivo de origen</span><h2>' + safeText(r6Names[group]) + '</h2><p>' + (items[0].kind === 'sale_sheet_reference' ? 'Referencias históricas de catálogo, sin precios ni stock verificados.' : 'Fotografías auténticas de obra o producto, sin ficha técnica validada.') + '</p></div>' + r6Cards(items) + '</section>' : '';
+    }).join('') + '</section>' + contactRibbon();
+  }
+
   const getRoute = () => {
     const raw = (location.hash.startsWith('#/') ? location.hash.substring(1) : '/').split('?')[0].replace(/\/+$/, '') || '/';
     if (raw === '/tienda' || raw === '/living-design/carrito' || raw.startsWith('/living-design/pieza/')) return '/living-design/coleccion';
