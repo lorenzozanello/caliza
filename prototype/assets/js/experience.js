@@ -51,18 +51,28 @@
         /^catalog-r6\/caliza-r6-\d{3}-clean-640\.webp$/.test(r.src640 || ''))
       .map((r) => [r.id, r])
   );
+  const r7CleanCatalog = new Map(
+    (Array.isArray(window.CALIZA_R7_CATALOG) ? window.CALIZA_R7_CATALOG : [])
+      .filter(r => r && /^caliza-r6-\d{3}$/.test(r.id || '') &&
+        /^catalog-r7\/caliza-r6-\d{3}-r7-1280\.webp$/.test(r.src || '') &&
+        /^catalog-r7\/caliza-r6-\d{3}-r7-640\.webp$/.test(r.src640 || '') &&
+        ['SALE_SHEET_DETAIL','SALE_SHEET_PRODUCT_CROP'].includes(r.kind) &&
+        r.review === 'NO_STOCK_PRICE_OR_SKU_CLAIMS')
+      .map(r => [r.id,r])
+  );
+  const cleanCatalog = new Map([...r6CleanCatalog, ...r7CleanCatalog]);
   const r6Archive = Array.isArray(window.CALIZA_R6_ARCHIVE) ? window.CALIZA_R6_ARCHIVE.filter((r) => r && !r.duplicate &&
     /^editorial-r6\/caliza-r6-\d{3}-1280\.webp$/.test(r.src || '') && /^editorial-r6\/caliza-r6-\d{3}-640\.webp$/.test(r.src640 || '') &&
     !/IMG_5251|IMG_4778/i.test(r.original || '') &&
-    (r.kind !== 'sale_sheet_reference' || r6CleanCatalog.has(r.id)))
-    .map(r => r.kind === 'sale_sheet_reference' ? {...r, ...r6CleanCatalog.get(r.id), kind:'sale_sheet_reference'} : r) : [];
+    (r.kind !== 'sale_sheet_reference' || cleanCatalog.has(r.id)))
+    .map(r => r.kind === 'sale_sheet_reference' ? {...r, ...cleanCatalog.get(r.id), kind:'sale_sheet_reference', kindR7:cleanCatalog.get(r.id).kind} : r) : [];
   const r6Names = {cocinas:'Cocinas y superficies',lavamanos:'Lavamanos y baños','mesas-auxiliares':'Mesas auxiliares','mesas-comedor-piedra':'Mesas · base de piedra','mesas-comedor-hierro':'Mesas · base metálica','mesas-comedor-madera':'Mesas · base de madera','sillas-hogar':'Sillas para hogar','sillas-comerciales':'Sillas comerciales'};
   const r6Favorites = ['caliza-r6-128','caliza-r6-024','caliza-r6-116','caliza-r6-112','caliza-r6-135','caliza-r6-140'];
   function r6Cards(entries) {
     return '<div class="caliza-r6-grid">' + entries.map((entry) => {
       const ref = entry.kind === 'sale_sheet_reference';
       const title = r6Names[entry.group] || 'Archivo CALIZA';
-      const label = ref ? 'Referencia comercial · Modelo por confirmar' : 'Fotografía auténtica · CALIZA';
+      const label = ref ? (entry.kind === 'sale_sheet_reference' && entry.src?.startsWith('catalog-r7/') && entry.kindR7 === 'SALE_SHEET_DETAIL' ? 'Detalle de referencia · Modelo por confirmar' : 'Referencia comercial · Modelo por confirmar') : 'Fotografía auténtica · CALIZA';
       const alt = (ref ? 'Recorte de lámina comercial CALIZA: ' : 'Fotografía real CALIZA: ') + title;
       return '<article class="caliza-r6-card' + (ref ? ' caliza-r6-reference' : '') + '"><figure><img src="' + IMG + entry.src + '" srcset="' + IMG + entry.src640 + ' 640w, ' + IMG + entry.src + ' 1280w" sizes="(max-width:700px) 100vw,(max-width:1100px) 50vw,33vw" loading="lazy" decoding="async" alt="' + safeText(alt) + '"></figure><div><span>' + label + '</span><h3>' + safeText(title) + '</h3></div></article>';
     }).join('') + '</div>';
