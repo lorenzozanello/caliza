@@ -602,6 +602,16 @@
   }
 
   document.addEventListener('click', (event) => {
+    // Prevent hash anchors from reclaiming keyboard focus after the new page
+    // has deliberately focused its H1. Do not intercept external links.
+    const internalLink = event.target.closest?.('a[href^="#/"]');
+    if (internalLink) {
+      event.preventDefault?.();
+      const requested = internalLink.getAttribute('href');
+      if (requested && requested !== location.hash) location.hash = requested;
+      else render();
+      return;
+    }
     if (event.target.closest('a[data-marketing-cta="whatsapp"]')) emitIntent('whatsapp_handoff');
     const target = event.target.closest('button');
     if (!target) return;
