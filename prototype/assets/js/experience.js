@@ -533,8 +533,15 @@
       window.scrollTo({ top: 0, behavior: 'instant' });
       const accessibleHeading = main.querySelector('h1');
       accessibleHeading?.setAttribute?.('tabindex', '-1');
-      if (accessibleHeading?.focus) accessibleHeading.focus({ preventScroll: true });
-      else main.focus({ preventScroll: true });
+      if (accessibleHeading?.focus) {
+        accessibleHeading.focus({ preventScroll: true });
+        // Ensure keyboard focus survives the anchor default action after a route change.
+        window.requestAnimationFrame?.(() => {
+          if (main.contains?.(accessibleHeading) && document.activeElement !== accessibleHeading && getRoute() === route) {
+            accessibleHeading.focus({ preventScroll: true });
+          }
+        });
+      } else main.focus({ preventScroll: true });
     }
     };
     // Navegación síncrona, sin capturas de toda la página. La animación root
