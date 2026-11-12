@@ -9,7 +9,7 @@ const browser=await chromium.launch({headless:true})
 const agent=await browser.newContext({ignoreHTTPSErrors:false})
 try {
  for(const width of [1440,390]) {
-  const page=await agent.newPage({viewport:{width,height:width===1440?900:844},deviceScaleFactor:1})
+  const page=await agent.newPage(); await page.setViewportSize({width,height:width===1440?900:844})
   try {
    const response=await page.goto(origin,{waitUntil:'domcontentloaded',timeout:25000})
    await page.waitForTimeout(1500)
