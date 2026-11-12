@@ -339,3 +339,44 @@ body.o8-page .caliza-detail-visual picture>img{display:block;width:100%;height:a
   }
   body.o8-page .exp-hero.caliza-editorial-real-hero .exp-hero-corner{display:none}
 }
+
+
+/* R6 — Complete CALIZA source archive within the governing boutique design system. */
+body.o8-page .caliza-r6-section{max-width:var(--o8-w);margin:clamp(38px,5vw,76px) auto;padding:0 clamp(20px,4vw,70px)}
+body.o8-page .o8-section .caliza-r6-section,
+body.o8-page .exp-page-pad>.caliza-r6-section{padding-inline:0}
+body.o8-page .caliza-r6-group{margin-bottom:clamp(40px,6vw,88px)}
+body.o8-page .caliza-r6-lead{max-width:780px;margin:0 0 clamp(18px,2.7vw,35px)}
+body.o8-page .caliza-r6-lead .o8-overline{color:#806752;letter-spacing:.18em}
+body.o8-page .caliza-r6-lead h2{font:400 clamp(32px,4vw,57px)/1.12 var(--font-serif);margin:12px 0 16px;color:var(--ink)}
+body.o8-page .caliza-r6-lead p{max-width:650px;font:400 15px/1.75 var(--font-sans);color:var(--ink-muted);margin:0}
+body.o8-page .caliza-r6-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(10px,1.5vw,22px)}
+body.o8-page .caliza-r6-card{background:#f0e9df;min-width:0;overflow:hidden;border:1px solid #dfd3c5;display:flex;flex-direction:column}
+body.o8-page .caliza-r6-card>figure{width:100%;aspect-ratio:4/3;margin:0;background:#ded4c8;display:grid;place-items:center;overflow:hidden}
+body.o8-page .caliza-r6-card>figure>img{width:100%;height:100%;object-fit:contain;object-position:center;transition:transform .45s ease}
+body.o8-page .caliza-r6-card:not(.caliza-r6-reference):hover>figure>img{transform:scale(1.025)}
+body.o8-page .caliza-r6-reference>figure{background:#e9e0d5}
+body.o8-page .caliza-r6-reference>figure>img{object-fit:cover;object-position:30% center;transform:scale(1.18);transform-origin:30% center}
+body.o8-page .caliza-r6-card>div{padding:clamp(14px,2vw,25px);flex:1}
+body.o8-page .caliza-r6-card span{display:block;font:500 10px/1.6 var(--font-sans);letter-spacing:.14em;text-transform:uppercase;color:#886b53}
+body.o8-page .caliza-r6-card h3{font:400 clamp(21px,2.35vw,31px)/1.2 var(--font-serif);margin:8px 0 0}
+body.o8-page .caliza-r6-more{margin:24px 0 0;text-align:right}
+body.o8-page .caliza-r6-more a{display:inline-block;border-bottom:1px solid #998472;padding-bottom:7px;color:var(--ink);font-size:13px}
+body.o8-page .caliza-r6-home{padding-bottom:30px}
+body.o8-page .caliza-r6-home .caliza-r6-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+body.o8-page .caliza-r6-home .caliza-r6-card:nth-child(1)>figure{aspect-ratio:4/3}
+@media(max-width:900px){
+ body.o8-page .caliza-r6-grid,body.o8-page .caliza-r6-home .caliza-r6-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:600px){
+ body.o8-page .caliza-r6-section{padding-inline:20px}
+ body.o8-page .caliza-r6-grid,body.o8-page .caliza-r6-home .caliza-r6-grid{grid-template-columns:1fr}
+ body.o8-page .caliza-r6-card>figure{aspect-ratio:5/4}
+ body.o8-page .caliza-r6-card>div{padding:17px}
+ body.o8-page .caliza-r6-card h3{font-size:25px}
+ body.o8-page .caliza-r6-lead h2{font-size:37px}
+}
+@media(prefers-reduced-motion:reduce){
+ body.o8-page .caliza-r6-card>figure>img{transition:none}
+ body.o8-page .caliza-r6-card:not(.caliza-r6-reference):hover>figure>img{transform:none}
+}
