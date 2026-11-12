@@ -25,6 +25,21 @@
   const picture = (name, alt, cls = '') => `<img class="${cls}" src="${IMG}${name}" alt="${safeText(alt)}" loading="lazy" decoding="async">`;
   // Only curated QA assets; no private Drive URLs or arbitrary media paths.
   function realPhoto(key, alt, cls = '', priority = false) {
+    // The Stone Care image is the actual IMG_1621 lavamanos project photograph;
+    // never use an AI-generated bathroom as documentation of a delivered job.
+    if (key === 'caliza-r6-118') {
+      const photo = (Array.isArray(window.CALIZA_R6_ARCHIVE) ? window.CALIZA_R6_ARCHIVE : [])
+        .find(x => x.id === key && x.kind === 'authentic_photo' && !x.duplicate &&
+          x.src === 'editorial-r6/caliza-r6-118-1280.webp' &&
+          x.src640 === 'editorial-r6/caliza-r6-118-640.webp');
+      if (photo) {
+        const sizes = priority ? '(max-width:760px) 100vw,55vw' : '(max-width:700px) 100vw,33vw';
+        return '<img class="' + cls + '" src="' + IMG + photo.src + '" srcset="' +
+          IMG + photo.src640 + ' 360w,' + IMG + photo.src + ' 720w" sizes="' + sizes +
+          '" width="720" height="1280" alt="' + safeText(alt) + '" loading="' +
+          (priority ? 'eager' : 'lazy') + '" fetchpriority="' + (priority ? 'high' : 'auto') + '" decoding="async">';
+      }
+    }
     const m = window.CALIZA_REAL_ARCHIVE?.[key];
     if (!m || !/^approved\/[a-z0-9-]+-[0-9]+\.webp$/.test(m.src || '')) return '';
     const slug = m.src.match(/^approved\/([a-z0-9-]+)-[0-9]+\.webp$/)?.[1];
@@ -234,7 +249,7 @@
         ${[
           ['stone', 'kitchen-portrait-a', 'Crear', 'Stone Design', 'Proyectos en piedra natural a medida.', '/stone-design'],
           ['living', 'dining-stone', 'Habitar', 'Living Design', 'Mobiliario y objetos que dan forma a la vida.', '/living-design'],
-          ['care', 'basin-main', 'Preservar', 'Stone Care', 'Cuidado y restauración para que la belleza perdure.', '/stone-care'],
+          ['care', 'caliza-r6-118', 'Preservar', 'Stone Care', 'Cuidado y restauración para que la belleza perdure.', '/stone-care'],
         ].map(([icon, image, name, brand, desc, href]) => `<a href="#${href}" class="o8-pillar">${realPhoto(image, `Fotografía auténtica del archivo CALIZA para ${brand}`) || picture(image, `Referencia editorial de ${brand}`)}<div class="o8-pillar-copy">${lineIcon(icon)}<div><h2>${name}</h2><span>${brand}</span><p>${desc}</p></div><b aria-hidden="true">→</b></div></a>`).join('')}
       </section>
       <section class="caliza-journeys" aria-labelledby="journeys-title"><div class="caliza-journeys-lead">${label('Su próximo paso')}<h2 id="journeys-title">¿Qué desea hacer?</h2><p>Un recorrido claro desde la inspiración hasta una conversación con el equipo.</p></div><div class="caliza-journey-links">
@@ -246,7 +261,7 @@
       <section class="o8-section caliza-r6-home"><div class="caliza-r6-lead">${label('De nuestro archivo')}<h2>Piedra real, múltiples maneras de habitar.</h2><p>Imágenes auténticas de CALIZA con tratamiento editorial homogéneo.</p></div>${r6Cards(r6Favorites.map(id => r6Archive.find(r => r.id === id)).filter(Boolean).slice(0,3))}<div class="caliza-r6-more"><a href="#/archivo">Explorar archivo visual →</a></div></section>
       <section class="o8-section">${sectionHead('La expresión de la materia', '/materiales', 'Explorar materiales')}${materialPreview()}</section>
       <section class="exp-banner">${realPhoto('kitchen-portrait-a', 'Cocina real de CALIZA con superficies de piedra')}<div>${label('Caliza Stone Design')}<h2>Espacios que perduran.</h2><p>Proyectos concebidos desde la materia y el oficio.</p>${button('/stone-design/brief', 'Iniciar proyecto')}</div></section>
-      <section class="exp-banner exp-banner-care">${realPhoto('basin-main', 'Lavamanos de piedra clara de CALIZA')}<div>${label('Caliza Stone Care')}<h2>Cuidar también es diseñar.</h2><p>Conozca cómo preservar la belleza de la piedra.</p>${button('/stone-care/diagnostico', 'Consultar cuidado')}</div></section>
+      <section class="exp-banner exp-banner-care">${realPhoto('caliza-r6-118', 'Lavamanos real de CALIZA con cubierta en piedra natural')}<div>${label('Caliza Stone Care')}<h2>Cuidar también es diseñar.</h2><p>Conozca cómo preservar la belleza de la piedra.</p>${button('/stone-care/diagnostico', 'Consultar cuidado')}</div></section>
       ${socialPreview()}
       ${contactRibbon()}${disclaimer}`;
   }
@@ -320,7 +335,7 @@
   }
 
   function care() {
-    return `${hero({ realKey: 'basin-portrait', imageAlt: 'Lavamanos auténtico de piedra clara del archivo CALIZA', image: 'option08-care.webp', eyebrow: 'Caliza Stone Care · Preservar', title: 'Cuidar también<br>es diseñar.', desc: 'Cuidado, protección y restauración para que la belleza de la piedra perdure.', cta: 'Iniciar diagnóstico', href: '/stone-care/diagnostico', position: '60% center' })}
+    return `${hero({ realKey: 'caliza-r6-118', imageAlt: 'Lavamanos real de CALIZA con recipiente metálico y cubierta de piedra natural', image: 'option08-care.webp', eyebrow: 'Caliza Stone Care · Preservar', title: 'Cuidar también<br>es diseñar.', desc: 'Cuidado, protección y restauración para que la belleza de la piedra perdure.', cta: 'Iniciar diagnóstico', href: '/stone-care/diagnostico', position: '60% center' })}
       <section class="exp-copy-split"><div>${lineIcon('care')}<h2>Preservar es conocer la materia.</h2></div><div><p>Las superficies naturales merecen un cuidado consciente. Desde una rutina preventiva hasta la evaluación de una restauración, cada decisión parte de reconocer la piedra.</p><p>El diagnóstico digital es únicamente orientativo; no sustituye la inspección de un especialista.</p></div></section>
       <section class="o8-section">${sectionHead('Nuestros frentes de cuidado', '/stone-care/diagnostico', 'Explorar diagnóstico')}<div class="exp-grid exp-grid-3 exp-service-cards">${[
         ['Limpieza', 'Rutinas adaptadas a la naturaleza de la superficie.'],
