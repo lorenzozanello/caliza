@@ -80,7 +80,7 @@ for (const route of routes) {
 for (const route of linkedRoutes) visit(route)
 assert.match(visit('/'), /La materia/)
 assert.match(visit('/'), /caliza-family-grid-featured/)
-assert.match(visit('/'), /caliza-r6-home/)
+assert.match(visit('/'), /o8-pillars/)
 assert.match(visit('/archivo'), /caliza-r6-grid/)
 assert.match(visit('/archivo'), /editorial-r6\/caliza-r6-/)
 assert.match(visit('/living-design/familia/sillas-para-hogar'), /catalog-r6\/caliza-r6-037-clean-/)
