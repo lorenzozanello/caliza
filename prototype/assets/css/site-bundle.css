@@ -1549,4 +1549,133 @@ body.o8-page .caliza-social-showcase-intro{max-width:100%}
 }
 @media(prefers-reduced-motion:reduce){body.o8-page .caliza-r8-project-mosaic img{transition:none}body.o8-page .caliza-r8-project-mosaic>a:hover img{transform:none}}
 
+
+/* R8 art-directed scene/subject/detail editorial pair; one intentional arch. */
+body.o8-page .caliza-r8-living-story{
+  display:grid;
+  grid-template-columns:1.15fr 1fr;
+  gap:0;
+  min-height:clamp(390px,38vw,550px);
+  max-width:var(--o8-w);
+  margin:clamp(70px,8vw,128px) auto;
+  padding:0 var(--o8-gap);
+}
+body.o8-page .caliza-r8-living-image{
+  overflow:hidden;background:var(--surface-sand);
+  min-height:390px;
+}
+body.o8-page .caliza-r8-living-image>img{
+  width:100%;height:100%;display:block;object-fit:cover;
+  object-position:center 52%;
+}
+body.o8-page .caliza-r8-living-copy{
+  display:flex;flex-direction:column;align-items:start;justify-content:center;
+  padding:clamp(30px,5vw,84px);
+  background:var(--surface-sand);
+  color:var(--ink);
+}
+body.o8-page .caliza-r8-living-copy .o8-overline{
+  color:var(--ink-muted);
+  font:500 11px/1.5 var(--font-sans);
+  letter-spacing:.18em;
+}
+body.o8-page .caliza-r8-living-copy h2{
+  margin:18px 0 20px;
+  color:var(--ink);
+  font:400 clamp(39px,5vw,70px)/1.08 var(--font-serif);
+}
+body.o8-page .caliza-r8-living-copy p{
+  color:var(--ink-muted);
+  font:300 clamp(15px,1.15vw,17px)/1.75 var(--font-sans);
+  max-width:420px;
+  margin:20px 0 25px;
+}
+body.o8-page .caliza-r8-living-copy .o8-button{
+  background:var(--primary);
+  color:var(--on-primary);
+  border:1px solid var(--primary);
+  min-height:44px;
+}
+body.o8-page .caliza-r8-material-story{
+  max-width:var(--o8-w);
+  margin:clamp(68px,7vw,118px) auto;
+  padding:0 var(--o8-gap);
+  display:grid;
+  grid-template-columns:minmax(0,.82fr) minmax(0,1.05fr) minmax(0,1.05fr);
+  align-items:stretch;
+  gap:clamp(16px,2.4vw,36px);
+  min-height:380px;
+}
+body.o8-page .caliza-r8-material-arch{
+  overflow:hidden;
+  align-self:center;
+  aspect-ratio:3/4;
+  max-height:405px;
+  border-radius:999px 999px 0 0;
+  background:var(--surface-sand);
+}
+body.o8-page .caliza-r8-material-arch>img{
+  width:100%;height:100%;object-fit:cover;
+  object-position:center;display:block;
+}
+body.o8-page .caliza-r8-material-copy{
+  display:flex;flex-direction:column;justify-content:center;
+  padding-block:35px;color:var(--ink);
+}
+body.o8-page .caliza-r8-material-copy .o8-overline{
+  font:500 11px/1.5 var(--font-sans);letter-spacing:.17em;color:var(--ink-muted);
+}
+body.o8-page .caliza-r8-material-copy h2{
+  margin:15px 0 16px;
+  font:400 clamp(38px,4vw,59px)/1.12 var(--font-serif);
+  color:var(--ink);
+}
+body.o8-page .caliza-r8-material-copy p{
+  font:300 15px/1.75 var(--font-sans);
+  color:var(--ink-muted);
+  max-width:340px;margin:0 0 15px;
+}
+body.o8-page .caliza-r8-material-photo{
+  min-height:370px;overflow:hidden;background:var(--surface-sand);
+}
+body.o8-page .caliza-r8-material-photo>img{
+  display:block;width:100%;height:100%;object-fit:cover;object-position:center;
+}
+@media(max-width:900px){
+ body.o8-page .caliza-r8-living-story{grid-template-columns:1fr 1fr;min-height:350px}
+ body.o8-page .caliza-r8-living-image{min-height:350px}
+ body.o8-page .caliza-r8-living-copy{padding:30px}
+ body.o8-page .caliza-r8-material-story{grid-template-columns:1fr 1.25fr;min-height:0}
+ body.o8-page .caliza-r8-material-arch{max-height:360px}
+ body.o8-page .caliza-r8-material-photo{display:none}
+}
+@media(max-width:760px){
+ body.o8-page .caliza-r8-living-story{
+   grid-template-columns:1fr;
+   margin:55px 18px;
+   padding:0;
+   min-height:0;
+ }
+ body.o8-page .caliza-r8-living-image{min-height:0;aspect-ratio:4/3}
+ body.o8-page .caliza-r8-living-copy{padding:30px 23px 35px}
+ body.o8-page .caliza-r8-living-copy h2{font-size:clamp(38px,9vw,54px)}
+ body.o8-page .caliza-r8-material-story{
+   display:grid;
+   grid-template-columns:minmax(0,36%) minmax(0,64%);
+   align-items:center;gap:0;
+   padding:0 18px;
+   margin-block:58px;
+ }
+ body.o8-page .caliza-r8-material-arch{
+   aspect-ratio:3/4;
+   max-height:310px;
+   align-self:center;
+   margin-right:15px;
+ }
+ body.o8-page .caliza-r8-material-copy{padding:18px 0}
+ body.o8-page .caliza-r8-material-copy h2{font-size:clamp(31px,8vw,48px)}
+ body.o8-page .caliza-r8-material-copy p{font-size:12px;line-height:1.65}
+ body.o8-page .caliza-r8-material-photo{display:none}
+}
+
 /* END boutique-v2.css */
