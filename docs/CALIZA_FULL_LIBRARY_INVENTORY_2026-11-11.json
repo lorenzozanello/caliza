@@ -17,7 +17,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P3_ARCHIVE_CONDITIONAL",
+      "reason": "Non-priority angle, possible installation context, lighting/perspective or repetition; not needed for primary editorial set",
+      "proposed_section": "Archive; future project context"
     },
     {
       "category": "Cocinas",
@@ -28,7 +33,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P2_GALLERY_CANDIDATE",
+      "reason": "Useful real product/architectural or detail visual; review angle, distracting objects, retouch and exact project context",
+      "proposed_section": "Projects / stone details / gallery"
     },
     {
       "category": "Cocinas",
@@ -39,7 +49,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P1_EDIT_CANDIDATE",
+      "reason": "Strong authentic composition for editorial presentation; crop/contrast/color and image integrity QA required",
+      "proposed_section": "Home / Stone Design / projects"
     },
     {
       "category": "Cocinas",
@@ -50,7 +65,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P3_ARCHIVE_CONDITIONAL",
+      "reason": "Non-priority angle, possible installation context, lighting/perspective or repetition; not needed for primary editorial set",
+      "proposed_section": "Archive; future project context"
     },
     {
       "category": "Cocinas",
@@ -61,7 +81,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P3_ARCHIVE_CONDITIONAL",
+      "reason": "Non-priority angle, possible installation context, lighting/perspective or repetition; not needed for primary editorial set",
+      "proposed_section": "Archive; future project context"
     },
     {
       "category": "Cocinas",
@@ -72,7 +97,12 @@
       "folder_id": null,
       "role": "video",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "representative opening frame; full-motion/audio review not certified",
+      "curatorial_decision": "EXCLUDE_FROM_WEBSITE",
+      "reason": "Blank/dark or embedded promotional overlays/unclear message; unsuitable without source-level review",
+      "proposed_section": "Archive only"
     },
     {
       "category": "Cocinas",
@@ -83,7 +113,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P1_EDIT_CANDIDATE",
+      "reason": "Strong authentic composition for editorial presentation; crop/contrast/color and image integrity QA required",
+      "proposed_section": "Home / Stone Design / projects"
     },
     {
       "category": "Cocinas",
@@ -94,7 +129,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P1_EDIT_CANDIDATE",
+      "reason": "Strong authentic composition for editorial presentation; crop/contrast/color and image integrity QA required",
+      "proposed_section": "Home / Stone Design / projects"
     },
     {
       "category": "Cocinas",
@@ -105,7 +145,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P3_ARCHIVE_CONDITIONAL",
+      "reason": "Non-priority angle, possible installation context, lighting/perspective or repetition; not needed for primary editorial set",
+      "proposed_section": "Archive; future project context"
     },
     {
       "category": "Cocinas",
@@ -116,7 +161,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P1_EDIT_CANDIDATE",
+      "reason": "Strong authentic composition for editorial presentation; crop/contrast/color and image integrity QA required",
+      "proposed_section": "Home / Stone Design / projects"
     },
     {
       "category": "Cocinas",
@@ -127,7 +177,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P2_GALLERY_CANDIDATE",
+      "reason": "Useful real product/architectural or detail visual; review angle, distracting objects, retouch and exact project context",
+      "proposed_section": "Projects / stone details / gallery"
     },
     {
       "category": "Cocinas",
@@ -138,7 +193,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P3_ARCHIVE_CONDITIONAL",
+      "reason": "Non-priority angle, possible installation context, lighting/perspective or repetition; not needed for primary editorial set",
+      "proposed_section": "Archive; future project context"
     },
     {
       "category": "Cocinas",
@@ -149,7 +209,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P3_ARCHIVE_CONDITIONAL",
+      "reason": "Non-priority angle, possible installation context, lighting/perspective or repetition; not needed for primary editorial set",
+      "proposed_section": "Archive; future project context"
     },
     {
       "category": "Cocinas",
@@ -160,7 +225,12 @@
       "folder_id": null,
       "role": "video",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "representative opening frame; full-motion/audio review not certified",
+      "curatorial_decision": "VIDEO_SHORTLIST_CONDITIONAL",
+      "reason": "Relevant stone, project, furniture or surface seen in frame; requires full-motion, audio, privacy and stabilization review",
+      "proposed_section": "Stone Design / projects"
     },
     {
       "category": "Cocinas",
@@ -171,7 +241,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P2_GALLERY_CANDIDATE",
+      "reason": "Useful real product/architectural or detail visual; review angle, distracting objects, retouch and exact project context",
+      "proposed_section": "Projects / stone details / gallery"
     },
     {
       "category": "Cocinas",
@@ -182,7 +257,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P2_GALLERY_CANDIDATE",
+      "reason": "Useful real product/architectural or detail visual; review angle, distracting objects, retouch and exact project context",
+      "proposed_section": "Projects / stone details / gallery"
     },
     {
       "category": "Cocinas",
@@ -193,7 +273,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P2_GALLERY_CANDIDATE",
+      "reason": "Useful real product/architectural or detail visual; review angle, distracting objects, retouch and exact project context",
+      "proposed_section": "Projects / stone details / gallery"
     },
     {
       "category": "Cocinas",
@@ -204,7 +289,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P2_GALLERY_CANDIDATE",
+      "reason": "Useful real product/architectural or detail visual; review angle, distracting objects, retouch and exact project context",
+      "proposed_section": "Projects / stone details / gallery"
     },
     {
       "category": "Cocinas",
@@ -215,7 +305,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P3_ARCHIVE_CONDITIONAL",
+      "reason": "Non-priority angle, possible installation context, lighting/perspective or repetition; not needed for primary editorial set",
+      "proposed_section": "Archive; future project context"
     },
     {
       "category": "Cocinas",
@@ -226,7 +321,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P2_GALLERY_CANDIDATE",
+      "reason": "Useful real product/architectural or detail visual; review angle, distracting objects, retouch and exact project context",
+      "proposed_section": "Projects / stone details / gallery"
     },
     {
       "category": "Cocinas",
@@ -237,7 +337,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P2_GALLERY_CANDIDATE",
+      "reason": "Useful real product/architectural or detail visual; review angle, distracting objects, retouch and exact project context",
+      "proposed_section": "Projects / stone details / gallery"
     },
     {
       "category": "Cocinas",
@@ -248,7 +353,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P2_GALLERY_CANDIDATE",
+      "reason": "Useful real product/architectural or detail visual; review angle, distracting objects, retouch and exact project context",
+      "proposed_section": "Projects / stone details / gallery"
     },
     {
       "category": "Cocinas",
@@ -259,7 +369,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P2_GALLERY_CANDIDATE",
+      "reason": "Useful real product/architectural or detail visual; review angle, distracting objects, retouch and exact project context",
+      "proposed_section": "Projects / stone details / gallery"
     },
     {
       "category": "Cocinas",
@@ -270,7 +385,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P2_GALLERY_CANDIDATE",
+      "reason": "Useful real product/architectural or detail visual; review angle, distracting objects, retouch and exact project context",
+      "proposed_section": "Projects / stone details / gallery"
     },
     {
       "category": "Cocinas",
@@ -281,7 +401,12 @@
       "folder_id": null,
       "role": "video",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "representative opening frame; full-motion/audio review not certified",
+      "curatorial_decision": "VIDEO_ARCHIVE_CONDITIONAL",
+      "reason": "Original video reviewed via frame sample; no clear site-ready edit established",
+      "proposed_section": "Archive, not autoplay"
     },
     {
       "category": "Cocinas",
@@ -292,7 +417,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P3_ARCHIVE_CONDITIONAL",
+      "reason": "Non-priority angle, possible installation context, lighting/perspective or repetition; not needed for primary editorial set",
+      "proposed_section": "Archive; future project context"
     },
     {
       "category": "Cocinas",
@@ -303,7 +433,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P3_ARCHIVE_CONDITIONAL",
+      "reason": "Non-priority angle, possible installation context, lighting/perspective or repetition; not needed for primary editorial set",
+      "proposed_section": "Archive; future project context"
     },
     {
       "category": "Cocinas",
@@ -314,7 +449,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P3_ARCHIVE_CONDITIONAL",
+      "reason": "Non-priority angle, possible installation context, lighting/perspective or repetition; not needed for primary editorial set",
+      "proposed_section": "Archive; future project context"
     },
     {
       "category": "Cocinas",
@@ -325,7 +465,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P3_ARCHIVE_CONDITIONAL",
+      "reason": "Non-priority angle, possible installation context, lighting/perspective or repetition; not needed for primary editorial set",
+      "proposed_section": "Archive; future project context"
     },
     {
       "category": "Cocinas",
@@ -336,7 +481,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P3_ARCHIVE_CONDITIONAL",
+      "reason": "Non-priority angle, possible installation context, lighting/perspective or repetition; not needed for primary editorial set",
+      "proposed_section": "Archive; future project context"
     },
     {
       "category": "Cocinas",
@@ -347,7 +497,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P3_ARCHIVE_CONDITIONAL",
+      "reason": "Non-priority angle, possible installation context, lighting/perspective or repetition; not needed for primary editorial set",
+      "proposed_section": "Archive; future project context"
     },
     {
       "category": "Cocinas",
@@ -358,7 +513,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P3_ARCHIVE_CONDITIONAL",
+      "reason": "Non-priority angle, possible installation context, lighting/perspective or repetition; not needed for primary editorial set",
+      "proposed_section": "Archive; future project context"
     },
     {
       "category": "Cocinas",
@@ -369,7 +529,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P3_ARCHIVE_CONDITIONAL",
+      "reason": "Non-priority angle, possible installation context, lighting/perspective or repetition; not needed for primary editorial set",
+      "proposed_section": "Archive; future project context"
     },
     {
       "category": "Cocinas",
@@ -380,7 +545,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P3_ARCHIVE_CONDITIONAL",
+      "reason": "Non-priority angle, possible installation context, lighting/perspective or repetition; not needed for primary editorial set",
+      "proposed_section": "Archive; future project context"
     },
     {
       "category": "Cocinas",
@@ -391,7 +561,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P1_EDIT_CANDIDATE",
+      "reason": "Strong authentic composition for editorial presentation; crop/contrast/color and image integrity QA required",
+      "proposed_section": "Home / Stone Design / projects"
     },
     {
       "category": "Cocinas",
@@ -402,7 +577,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P3_ARCHIVE_CONDITIONAL",
+      "reason": "Non-priority angle, possible installation context, lighting/perspective or repetition; not needed for primary editorial set",
+      "proposed_section": "Archive; future project context"
     },
     {
       "category": "Cocinas",
@@ -413,7 +593,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P3_ARCHIVE_CONDITIONAL",
+      "reason": "Non-priority angle, possible installation context, lighting/perspective or repetition; not needed for primary editorial set",
+      "proposed_section": "Archive; future project context"
     },
     {
       "category": "Cocinas",
@@ -424,7 +609,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P3_ARCHIVE_CONDITIONAL",
+      "reason": "Non-priority angle, possible installation context, lighting/perspective or repetition; not needed for primary editorial set",
+      "proposed_section": "Archive; future project context"
     },
     {
       "category": "Cocinas",
@@ -435,7 +625,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P3_ARCHIVE_CONDITIONAL",
+      "reason": "Non-priority angle, possible installation context, lighting/perspective or repetition; not needed for primary editorial set",
+      "proposed_section": "Archive; future project context"
     },
     {
       "category": "Cocinas",
@@ -446,7 +641,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P3_ARCHIVE_CONDITIONAL",
+      "reason": "Non-priority angle, possible installation context, lighting/perspective or repetition; not needed for primary editorial set",
+      "proposed_section": "Archive; future project context"
     },
     {
       "category": "Cocinas",
@@ -457,7 +657,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P3_ARCHIVE_CONDITIONAL",
+      "reason": "Non-priority angle, possible installation context, lighting/perspective or repetition; not needed for primary editorial set",
+      "proposed_section": "Archive; future project context"
     },
     {
       "category": "Cocinas",
@@ -468,7 +673,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P3_ARCHIVE_CONDITIONAL",
+      "reason": "Non-priority angle, possible installation context, lighting/perspective or repetition; not needed for primary editorial set",
+      "proposed_section": "Archive; future project context"
     },
     {
       "category": "Cocinas",
@@ -479,7 +689,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P3_ARCHIVE_CONDITIONAL",
+      "reason": "Non-priority angle, possible installation context, lighting/perspective or repetition; not needed for primary editorial set",
+      "proposed_section": "Archive; future project context"
     },
     {
       "category": "Cocinas",
@@ -490,7 +705,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P3_ARCHIVE_CONDITIONAL",
+      "reason": "Non-priority angle, possible installation context, lighting/perspective or repetition; not needed for primary editorial set",
+      "proposed_section": "Archive; future project context"
     },
     {
       "category": "Cocinas",
@@ -501,7 +721,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P3_ARCHIVE_CONDITIONAL",
+      "reason": "Non-priority angle, possible installation context, lighting/perspective or repetition; not needed for primary editorial set",
+      "proposed_section": "Archive; future project context"
     },
     {
       "category": "Cocinas",
@@ -512,7 +737,12 @@
       "folder_id": null,
       "role": "video",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "representative opening frame; full-motion/audio review not certified",
+      "curatorial_decision": "VIDEO_ARCHIVE_CONDITIONAL",
+      "reason": "Original video reviewed via frame sample; no clear site-ready edit established",
+      "proposed_section": "Archive, not autoplay"
     },
     {
       "category": "Cocinas",
@@ -523,7 +753,12 @@
       "folder_id": null,
       "role": "video",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "representative opening frame; full-motion/audio review not certified",
+      "curatorial_decision": "VIDEO_SHORTLIST_CONDITIONAL",
+      "reason": "Relevant stone, project, furniture or surface seen in frame; requires full-motion, audio, privacy and stabilization review",
+      "proposed_section": "Stone Design / projects"
     },
     {
       "category": "Cocinas",
@@ -534,7 +769,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P3_ARCHIVE_CONDITIONAL",
+      "reason": "Non-priority angle, possible installation context, lighting/perspective or repetition; not needed for primary editorial set",
+      "proposed_section": "Archive; future project context"
     },
     {
       "category": "Cocinas",
@@ -545,7 +785,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "EXCLUDE_DUPLICATE",
+      "reason": "Secondary duplicated/near-duplicated variant; retain canonical original, avoid repeated image in interface",
+      "proposed_section": "Archive"
     },
     {
       "category": "Cocinas",
@@ -556,7 +801,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P3_ARCHIVE_CONDITIONAL",
+      "reason": "Non-priority angle, possible installation context, lighting/perspective or repetition; not needed for primary editorial set",
+      "proposed_section": "Archive; future project context"
     },
     {
       "category": "Cocinas",
@@ -567,7 +817,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "EXCLUDE_DUPLICATE",
+      "reason": "Secondary duplicated/near-duplicated variant; retain canonical original, avoid repeated image in interface",
+      "proposed_section": "Archive"
     },
     {
       "category": "Cocinas",
@@ -578,7 +833,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P2_GALLERY_CANDIDATE",
+      "reason": "Useful real product/architectural or detail visual; review angle, distracting objects, retouch and exact project context",
+      "proposed_section": "Projects / stone details / gallery"
     },
     {
       "category": "Cocinas",
@@ -589,7 +849,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "EXCLUDE_DUPLICATE",
+      "reason": "Secondary duplicated/near-duplicated variant; retain canonical original, avoid repeated image in interface",
+      "proposed_section": "Archive"
     },
     {
       "category": "Cocinas",
@@ -600,7 +865,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P2_GALLERY_CANDIDATE",
+      "reason": "Useful real product/architectural or detail visual; review angle, distracting objects, retouch and exact project context",
+      "proposed_section": "Projects / stone details / gallery"
     },
     {
       "category": "Cocinas",
@@ -611,7 +881,12 @@
       "folder_id": null,
       "role": "video",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "representative opening frame; full-motion/audio review not certified",
+      "curatorial_decision": "VIDEO_ARCHIVE_CONDITIONAL",
+      "reason": "Original video reviewed via frame sample; no clear site-ready edit established",
+      "proposed_section": "Archive, not autoplay"
     },
     {
       "category": "Cocinas",
@@ -622,7 +897,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "EXCLUDE_DUPLICATE",
+      "reason": "Secondary duplicated/near-duplicated variant; retain canonical original, avoid repeated image in interface",
+      "proposed_section": "Archive"
     },
     {
       "category": "Cocinas",
@@ -633,7 +913,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P3_ARCHIVE_CONDITIONAL",
+      "reason": "Non-priority angle, possible installation context, lighting/perspective or repetition; not needed for primary editorial set",
+      "proposed_section": "Archive; future project context"
     },
     {
       "category": "Cocinas",
@@ -644,7 +929,12 @@
       "folder_id": null,
       "role": "video",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "representative opening frame; full-motion/audio review not certified",
+      "curatorial_decision": "EXCLUDE_FROM_WEBSITE",
+      "reason": "Blank/dark or embedded promotional overlays/unclear message; unsuitable without source-level review",
+      "proposed_section": "Archive only"
     },
     {
       "category": "Cocinas",
@@ -655,7 +945,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "EXCLUDE_DUPLICATE",
+      "reason": "Secondary duplicated/near-duplicated variant; retain canonical original, avoid repeated image in interface",
+      "proposed_section": "Archive"
     },
     {
       "category": "Cocinas",
@@ -666,7 +961,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P3_ARCHIVE_CONDITIONAL",
+      "reason": "Non-priority angle, possible installation context, lighting/perspective or repetition; not needed for primary editorial set",
+      "proposed_section": "Archive; future project context"
     },
     {
       "category": "Cocinas",
@@ -677,7 +977,12 @@
       "folder_id": null,
       "role": "video",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "representative opening frame; full-motion/audio review not certified",
+      "curatorial_decision": "VIDEO_ARCHIVE_CONDITIONAL",
+      "reason": "Original video reviewed via frame sample; no clear site-ready edit established",
+      "proposed_section": "Archive, not autoplay"
     },
     {
       "category": "Cocinas",
@@ -688,7 +993,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P3_ARCHIVE_CONDITIONAL",
+      "reason": "Non-priority angle, possible installation context, lighting/perspective or repetition; not needed for primary editorial set",
+      "proposed_section": "Archive; future project context"
     },
     {
       "category": "Cocinas",
@@ -699,7 +1009,12 @@
       "folder_id": null,
       "role": "video",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "representative opening frame; full-motion/audio review not certified",
+      "curatorial_decision": "VIDEO_SHORTLIST_CONDITIONAL",
+      "reason": "Relevant stone, project, furniture or surface seen in frame; requires full-motion, audio, privacy and stabilization review",
+      "proposed_section": "Stone Design / projects"
     },
     {
       "category": "Cocinas",
@@ -710,7 +1025,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P3_ARCHIVE_CONDITIONAL",
+      "reason": "Non-priority angle, possible installation context, lighting/perspective or repetition; not needed for primary editorial set",
+      "proposed_section": "Archive; future project context"
     },
     {
       "category": "Cocinas",
@@ -721,7 +1041,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P3_ARCHIVE_CONDITIONAL",
+      "reason": "Non-priority angle, possible installation context, lighting/perspective or repetition; not needed for primary editorial set",
+      "proposed_section": "Archive; future project context"
     },
     {
       "category": "Cocinas",
@@ -732,7 +1057,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P3_ARCHIVE_CONDITIONAL",
+      "reason": "Non-priority angle, possible installation context, lighting/perspective or repetition; not needed for primary editorial set",
+      "proposed_section": "Archive; future project context"
     },
     {
       "category": "Cocinas",
@@ -743,7 +1073,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P3_ARCHIVE_CONDITIONAL",
+      "reason": "Non-priority angle, possible installation context, lighting/perspective or repetition; not needed for primary editorial set",
+      "proposed_section": "Archive; future project context"
     },
     {
       "category": "Cocinas",
@@ -754,7 +1089,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P3_ARCHIVE_CONDITIONAL",
+      "reason": "Non-priority angle, possible installation context, lighting/perspective or repetition; not needed for primary editorial set",
+      "proposed_section": "Archive; future project context"
     },
     {
       "category": "Cocinas",
@@ -765,7 +1105,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P2_GALLERY_CANDIDATE",
+      "reason": "Useful real product/architectural or detail visual; review angle, distracting objects, retouch and exact project context",
+      "proposed_section": "Projects / stone details / gallery"
     },
     {
       "category": "Cocinas",
@@ -776,7 +1121,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P3_ARCHIVE_CONDITIONAL",
+      "reason": "Non-priority angle, possible installation context, lighting/perspective or repetition; not needed for primary editorial set",
+      "proposed_section": "Archive; future project context"
     },
     {
       "category": "Lavamanos",
@@ -787,7 +1137,12 @@
       "folder_id": null,
       "role": "video",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "representative opening frame; full-motion/audio review not certified",
+      "curatorial_decision": "VIDEO_SHORTLIST_CONDITIONAL",
+      "reason": "Relevant stone, project, furniture or surface seen in frame; requires full-motion, audio, privacy and stabilization review",
+      "proposed_section": "Stone Design / lavamanos"
     },
     {
       "category": "Lavamanos",
@@ -798,7 +1153,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P2_GALLERY_CANDIDATE",
+      "reason": "Useful real product/architectural or detail visual; review angle, distracting objects, retouch and exact project context",
+      "proposed_section": "Lavamanos / gallery"
     },
     {
       "category": "Lavamanos",
@@ -809,7 +1169,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P1_EDIT_CANDIDATE",
+      "reason": "Strong authentic composition for editorial presentation; crop/contrast/color and image integrity QA required",
+      "proposed_section": "Stone Design / lavamanos"
     },
     {
       "category": "Lavamanos",
@@ -820,7 +1185,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P1_EDIT_CANDIDATE",
+      "reason": "Strong authentic composition for editorial presentation; crop/contrast/color and image integrity QA required",
+      "proposed_section": "Stone Design / lavamanos"
     },
     {
       "category": "Lavamanos",
@@ -831,7 +1201,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "EXCLUDE_DUPLICATE",
+      "reason": "Secondary duplicated/near-duplicated variant; retain canonical original, avoid repeated image in interface",
+      "proposed_section": "Archive"
     },
     {
       "category": "Lavamanos",
@@ -842,7 +1217,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P2_GALLERY_CANDIDATE",
+      "reason": "Useful real product/architectural or detail visual; review angle, distracting objects, retouch and exact project context",
+      "proposed_section": "Lavamanos / gallery"
     },
     {
       "category": "Lavamanos",
@@ -853,7 +1233,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P2_GALLERY_CANDIDATE",
+      "reason": "Useful real product/architectural or detail visual; review angle, distracting objects, retouch and exact project context",
+      "proposed_section": "Lavamanos / gallery"
     },
     {
       "category": "Lavamanos",
@@ -864,7 +1249,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P3_ARCHIVE_CONDITIONAL",
+      "reason": "Non-priority angle, possible installation context, lighting/perspective or repetition; not needed for primary editorial set",
+      "proposed_section": "Archive; future project context"
     },
     {
       "category": "Lavamanos",
@@ -875,7 +1265,12 @@
       "folder_id": null,
       "role": "video",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "representative opening frame; full-motion/audio review not certified",
+      "curatorial_decision": "VIDEO_ARCHIVE_CONDITIONAL",
+      "reason": "Original video reviewed via frame sample; no clear site-ready edit established",
+      "proposed_section": "Archive, not autoplay"
     },
     {
       "category": "Lavamanos",
@@ -886,7 +1281,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P3_ARCHIVE_CONDITIONAL",
+      "reason": "Non-priority angle, possible installation context, lighting/perspective or repetition; not needed for primary editorial set",
+      "proposed_section": "Archive; future project context"
     },
     {
       "category": "Lavamanos",
@@ -897,7 +1297,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P3_ARCHIVE_CONDITIONAL",
+      "reason": "Non-priority angle, possible installation context, lighting/perspective or repetition; not needed for primary editorial set",
+      "proposed_section": "Archive; future project context"
     },
     {
       "category": "Lavamanos",
@@ -908,7 +1313,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P3_ARCHIVE_CONDITIONAL",
+      "reason": "Non-priority angle, possible installation context, lighting/perspective or repetition; not needed for primary editorial set",
+      "proposed_section": "Archive; future project context"
     },
     {
       "category": "Lavamanos",
@@ -919,7 +1329,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P2_GALLERY_CANDIDATE",
+      "reason": "Useful real product/architectural or detail visual; review angle, distracting objects, retouch and exact project context",
+      "proposed_section": "Lavamanos / gallery"
     },
     {
       "category": "Lavamanos",
@@ -930,7 +1345,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P2_GALLERY_CANDIDATE",
+      "reason": "Useful real product/architectural or detail visual; review angle, distracting objects, retouch and exact project context",
+      "proposed_section": "Lavamanos / gallery"
     },
     {
       "category": "Lavamanos",
@@ -941,7 +1361,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P3_ARCHIVE_CONDITIONAL",
+      "reason": "Non-priority angle, possible installation context, lighting/perspective or repetition; not needed for primary editorial set",
+      "proposed_section": "Archive; future project context"
     },
     {
       "category": "Lavamanos",
@@ -952,7 +1377,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P2_GALLERY_CANDIDATE",
+      "reason": "Useful real product/architectural or detail visual; review angle, distracting objects, retouch and exact project context",
+      "proposed_section": "Lavamanos / gallery"
     },
     {
       "category": "Lavamanos",
@@ -963,7 +1393,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P1_EDIT_CANDIDATE",
+      "reason": "Strong authentic composition for editorial presentation; crop/contrast/color and image integrity QA required",
+      "proposed_section": "Stone Design / lavamanos"
     },
     {
       "category": "Lavamanos",
@@ -974,7 +1409,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "EXCLUDE_DUPLICATE",
+      "reason": "Secondary duplicated/near-duplicated variant; retain canonical original, avoid repeated image in interface",
+      "proposed_section": "Archive"
     },
     {
       "category": "Lavamanos",
@@ -985,7 +1425,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P2_GALLERY_CANDIDATE",
+      "reason": "Useful real product/architectural or detail visual; review angle, distracting objects, retouch and exact project context",
+      "proposed_section": "Lavamanos / gallery"
     },
     {
       "category": "Lavamanos",
@@ -996,7 +1441,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P2_GALLERY_CANDIDATE",
+      "reason": "Useful real product/architectural or detail visual; review angle, distracting objects, retouch and exact project context",
+      "proposed_section": "Lavamanos / gallery"
     },
     {
       "category": "Lavamanos",
@@ -1007,7 +1457,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P2_GALLERY_CANDIDATE",
+      "reason": "Useful real product/architectural or detail visual; review angle, distracting objects, retouch and exact project context",
+      "proposed_section": "Lavamanos / gallery"
     },
     {
       "category": "Lavamanos",
@@ -1018,7 +1473,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P2_GALLERY_CANDIDATE",
+      "reason": "Useful real product/architectural or detail visual; review angle, distracting objects, retouch and exact project context",
+      "proposed_section": "Lavamanos / gallery"
     },
     {
       "category": "Lavamanos",
@@ -1029,7 +1489,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P2_GALLERY_CANDIDATE",
+      "reason": "Useful real product/architectural or detail visual; review angle, distracting objects, retouch and exact project context",
+      "proposed_section": "Lavamanos / gallery"
     },
     {
       "category": "Lavamanos",
@@ -1040,7 +1505,12 @@
       "folder_id": null,
       "role": "video",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "representative opening frame; full-motion/audio review not certified",
+      "curatorial_decision": "VIDEO_SHORTLIST_CONDITIONAL",
+      "reason": "Relevant stone, project, furniture or surface seen in frame; requires full-motion, audio, privacy and stabilization review",
+      "proposed_section": "Stone Design / lavamanos"
     },
     {
       "category": "Lavamanos",
@@ -1051,7 +1521,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P3_ARCHIVE_CONDITIONAL",
+      "reason": "Non-priority angle, possible installation context, lighting/perspective or repetition; not needed for primary editorial set",
+      "proposed_section": "Archive; future project context"
     },
     {
       "category": "Lavamanos",
@@ -1062,7 +1537,12 @@
       "folder_id": null,
       "role": "video",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "representative opening frame; full-motion/audio review not certified",
+      "curatorial_decision": "VIDEO_SHORTLIST_CONDITIONAL",
+      "reason": "Relevant stone, project, furniture or surface seen in frame; requires full-motion, audio, privacy and stabilization review",
+      "proposed_section": "Stone Design / lavamanos"
     },
     {
       "category": "Lavamanos",
@@ -1073,7 +1553,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P1_EDIT_CANDIDATE",
+      "reason": "Strong authentic composition for editorial presentation; crop/contrast/color and image integrity QA required",
+      "proposed_section": "Stone Design / lavamanos"
     },
     {
       "category": "Lavamanos",
@@ -1084,7 +1569,12 @@
       "folder_id": null,
       "role": "video",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "representative opening frame; full-motion/audio review not certified",
+      "curatorial_decision": "VIDEO_SHORTLIST_CONDITIONAL",
+      "reason": "Relevant stone, project, furniture or surface seen in frame; requires full-motion, audio, privacy and stabilization review",
+      "proposed_section": "Stone Design / lavamanos"
     },
     {
       "category": "Lavamanos",
@@ -1095,7 +1585,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P2_GALLERY_CANDIDATE",
+      "reason": "Useful real product/architectural or detail visual; review angle, distracting objects, retouch and exact project context",
+      "proposed_section": "Lavamanos / gallery"
     },
     {
       "category": "Lavamanos",
@@ -1106,7 +1601,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P2_GALLERY_CANDIDATE",
+      "reason": "Useful real product/architectural or detail visual; review angle, distracting objects, retouch and exact project context",
+      "proposed_section": "Lavamanos / gallery"
     },
     {
       "category": "Lavamanos",
@@ -1117,7 +1617,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P2_GALLERY_CANDIDATE",
+      "reason": "Useful real product/architectural or detail visual; review angle, distracting objects, retouch and exact project context",
+      "proposed_section": "Lavamanos / gallery"
     },
     {
       "category": "Lavamanos",
@@ -1128,7 +1633,12 @@
       "folder_id": null,
       "role": "video",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "representative opening frame; full-motion/audio review not certified",
+      "curatorial_decision": "VIDEO_ARCHIVE_CONDITIONAL",
+      "reason": "Original video reviewed via frame sample; no clear site-ready edit established",
+      "proposed_section": "Archive, not autoplay"
     },
     {
       "category": "Lavamanos",
@@ -1139,7 +1649,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P3_ARCHIVE_CONDITIONAL",
+      "reason": "Non-priority angle, possible installation context, lighting/perspective or repetition; not needed for primary editorial set",
+      "proposed_section": "Archive; future project context"
     },
     {
       "category": "Lavamanos",
@@ -1150,7 +1665,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "EXCLUDE_DUPLICATE",
+      "reason": "Secondary duplicated/near-duplicated variant; retain canonical original, avoid repeated image in interface",
+      "proposed_section": "Archive"
     },
     {
       "category": "Lavamanos",
@@ -1161,7 +1681,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P3_ARCHIVE_CONDITIONAL",
+      "reason": "Non-priority angle, possible installation context, lighting/perspective or repetition; not needed for primary editorial set",
+      "proposed_section": "Archive; future project context"
     },
     {
       "category": "Lavamanos",
@@ -1172,7 +1697,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "EXCLUDE_DUPLICATE",
+      "reason": "Secondary duplicated/near-duplicated variant; retain canonical original, avoid repeated image in interface",
+      "proposed_section": "Archive"
     },
     {
       "category": "Lavamanos",
@@ -1183,7 +1713,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P2_GALLERY_CANDIDATE",
+      "reason": "Useful real product/architectural or detail visual; review angle, distracting objects, retouch and exact project context",
+      "proposed_section": "Lavamanos / gallery"
     },
     {
       "category": "Lavamanos",
@@ -1194,7 +1729,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P3_ARCHIVE_CONDITIONAL",
+      "reason": "Non-priority angle, possible installation context, lighting/perspective or repetition; not needed for primary editorial set",
+      "proposed_section": "Archive; future project context"
     },
     {
       "category": "Lavamanos",
@@ -1205,7 +1745,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P2_GALLERY_CANDIDATE",
+      "reason": "Useful real product/architectural or detail visual; review angle, distracting objects, retouch and exact project context",
+      "proposed_section": "Lavamanos / gallery"
     },
     {
       "category": "Sillas hogar",
@@ -1216,7 +1761,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "REFERENCE_SALE_SHEET_ONLY",
+      "reason": "Graphic marketing sheet, typography, branding or embedded prices visible; do not present as standalone commercial photo without clean verified crop",
+      "proposed_section": "Product editorial reference only"
     },
     {
       "category": "Sillas hogar",
@@ -1227,7 +1777,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "REFERENCE_SALE_SHEET_ONLY",
+      "reason": "Graphic marketing sheet, typography, branding or embedded prices visible; do not present as standalone commercial photo without clean verified crop",
+      "proposed_section": "Product editorial reference only"
     },
     {
       "category": "Sillas hogar",
@@ -1238,7 +1793,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "REFERENCE_SALE_SHEET_ONLY",
+      "reason": "Graphic marketing sheet, typography, branding or embedded prices visible; do not present as standalone commercial photo without clean verified crop",
+      "proposed_section": "Product editorial reference only"
     },
     {
       "category": "Sillas hogar",
@@ -1249,7 +1809,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "REFERENCE_SALE_SHEET_ONLY",
+      "reason": "Graphic marketing sheet, typography, branding or embedded prices visible; do not present as standalone commercial photo without clean verified crop",
+      "proposed_section": "Product editorial reference only"
     },
     {
       "category": "Sillas hogar",
@@ -1260,7 +1825,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "REFERENCE_SALE_SHEET_ONLY",
+      "reason": "Graphic marketing sheet, typography, branding or embedded prices visible; do not present as standalone commercial photo without clean verified crop",
+      "proposed_section": "Product editorial reference only"
     },
     {
       "category": "Sillas hogar",
@@ -1271,7 +1841,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "REFERENCE_SALE_SHEET_ONLY",
+      "reason": "Graphic marketing sheet, typography, branding or embedded prices visible; do not present as standalone commercial photo without clean verified crop",
+      "proposed_section": "Product editorial reference only"
     },
     {
       "category": "Sillas hogar",
@@ -1282,7 +1857,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "REFERENCE_SALE_SHEET_ONLY",
+      "reason": "Graphic marketing sheet, typography, branding or embedded prices visible; do not present as standalone commercial photo without clean verified crop",
+      "proposed_section": "Product editorial reference only"
     },
     {
       "category": "Sillas hogar",
@@ -1293,7 +1873,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "REFERENCE_SALE_SHEET_ONLY",
+      "reason": "Graphic marketing sheet, typography, branding or embedded prices visible; do not present as standalone commercial photo without clean verified crop",
+      "proposed_section": "Product editorial reference only"
     },
     {
       "category": "Sillas hogar",
@@ -1304,7 +1889,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "REFERENCE_SALE_SHEET_ONLY",
+      "reason": "Graphic marketing sheet, typography, branding or embedded prices visible; do not present as standalone commercial photo without clean verified crop",
+      "proposed_section": "Product editorial reference only"
     },
     {
       "category": "Sillas hogar",
@@ -1315,7 +1905,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "REFERENCE_SALE_SHEET_ONLY",
+      "reason": "Graphic marketing sheet, typography, branding or embedded prices visible; do not present as standalone commercial photo without clean verified crop",
+      "proposed_section": "Product editorial reference only"
     },
     {
       "category": "Sillas hogar",
@@ -1326,7 +1921,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "REFERENCE_SALE_SHEET_ONLY",
+      "reason": "Graphic marketing sheet, typography, branding or embedded prices visible; do not present as standalone commercial photo without clean verified crop",
+      "proposed_section": "Product editorial reference only"
     },
     {
       "category": "Sillas hogar",
@@ -1337,7 +1937,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "REFERENCE_SALE_SHEET_ONLY",
+      "reason": "Graphic marketing sheet, typography, branding or embedded prices visible; do not present as standalone commercial photo without clean verified crop",
+      "proposed_section": "Product editorial reference only"
     },
     {
       "category": "Sillas hogar",
@@ -1348,7 +1953,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "REFERENCE_SALE_SHEET_ONLY",
+      "reason": "Graphic marketing sheet, typography, branding or embedded prices visible; do not present as standalone commercial photo without clean verified crop",
+      "proposed_section": "Product editorial reference only"
     },
     {
       "category": "Sillas hogar",
@@ -1359,7 +1969,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "REFERENCE_SALE_SHEET_ONLY",
+      "reason": "Graphic marketing sheet, typography, branding or embedded prices visible; do not present as standalone commercial photo without clean verified crop",
+      "proposed_section": "Product editorial reference only"
     },
     {
       "category": "Sillas comerciales",
@@ -1370,7 +1985,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "REFERENCE_SALE_SHEET_ONLY",
+      "reason": "Graphic marketing sheet, typography, branding or embedded prices visible; do not present as standalone commercial photo without clean verified crop",
+      "proposed_section": "Product editorial reference only"
     },
     {
       "category": "Sillas comerciales",
@@ -1381,7 +2001,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "REFERENCE_SALE_SHEET_ONLY",
+      "reason": "Graphic marketing sheet, typography, branding or embedded prices visible; do not present as standalone commercial photo without clean verified crop",
+      "proposed_section": "Product editorial reference only"
     },
     {
       "category": "Sillas comerciales",
@@ -1392,7 +2017,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "REFERENCE_SALE_SHEET_ONLY",
+      "reason": "Graphic marketing sheet, typography, branding or embedded prices visible; do not present as standalone commercial photo without clean verified crop",
+      "proposed_section": "Product editorial reference only"
     },
     {
       "category": "Sillas comerciales",
@@ -1403,7 +2033,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "REFERENCE_SALE_SHEET_ONLY",
+      "reason": "Graphic marketing sheet, typography, branding or embedded prices visible; do not present as standalone commercial photo without clean verified crop",
+      "proposed_section": "Product editorial reference only"
     },
     {
       "category": "Sillas comerciales",
@@ -1414,7 +2049,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "REFERENCE_SALE_SHEET_ONLY",
+      "reason": "Graphic marketing sheet, typography, branding or embedded prices visible; do not present as standalone commercial photo without clean verified crop",
+      "proposed_section": "Product editorial reference only"
     },
     {
       "category": "Mesas auxiliares",
@@ -1425,7 +2065,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "P1_EDIT_CANDIDATE",
+      "reason": "Strong authentic composition for editorial presentation; crop/contrast/color and image integrity QA required",
+      "proposed_section": "Living Design / detail"
     },
     {
       "category": "Mesas auxiliares",
@@ -1436,7 +2081,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "REFERENCE_SALE_SHEET_ONLY",
+      "reason": "Graphic marketing sheet, typography, branding or embedded prices visible; do not present as standalone commercial photo without clean verified crop",
+      "proposed_section": "Product editorial reference only"
     },
     {
       "category": "Mesas auxiliares",
@@ -1447,7 +2097,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "REFERENCE_SALE_SHEET_ONLY",
+      "reason": "Graphic marketing sheet, typography, branding or embedded prices visible; do not present as standalone commercial photo without clean verified crop",
+      "proposed_section": "Product editorial reference only"
     },
     {
       "category": "Mesas auxiliares",
@@ -1458,7 +2113,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "REFERENCE_SALE_SHEET_ONLY",
+      "reason": "Graphic marketing sheet, typography, branding or embedded prices visible; do not present as standalone commercial photo without clean verified crop",
+      "proposed_section": "Product editorial reference only"
     },
     {
       "category": "Mesas auxiliares",
@@ -1469,7 +2129,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "REFERENCE_SALE_SHEET_ONLY",
+      "reason": "Graphic marketing sheet, typography, branding or embedded prices visible; do not present as standalone commercial photo without clean verified crop",
+      "proposed_section": "Product editorial reference only"
     },
     {
       "category": "Mesas auxiliares",
@@ -1480,7 +2145,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "REFERENCE_SALE_SHEET_ONLY",
+      "reason": "Graphic marketing sheet, typography, branding or embedded prices visible; do not present as standalone commercial photo without clean verified crop",
+      "proposed_section": "Product editorial reference only"
     },
     {
       "category": "Mesas auxiliares",
@@ -1491,7 +2161,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "REFERENCE_SALE_SHEET_ONLY",
+      "reason": "Graphic marketing sheet, typography, branding or embedded prices visible; do not present as standalone commercial photo without clean verified crop",
+      "proposed_section": "Product editorial reference only"
     },
     {
       "category": "Mesas auxiliares",
@@ -1502,7 +2177,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "REFERENCE_SALE_SHEET_ONLY",
+      "reason": "Graphic marketing sheet, typography, branding or embedded prices visible; do not present as standalone commercial photo without clean verified crop",
+      "proposed_section": "Product editorial reference only"
     },
     {
       "category": "Mesas auxiliares",
@@ -1513,7 +2193,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "REFERENCE_SALE_SHEET_ONLY",
+      "reason": "Graphic marketing sheet, typography, branding or embedded prices visible; do not present as standalone commercial photo without clean verified crop",
+      "proposed_section": "Product editorial reference only"
     },
     {
       "category": "Mesas comedor piedra",
@@ -1524,7 +2209,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "REFERENCE_SALE_SHEET_ONLY",
+      "reason": "Graphic marketing sheet, typography, branding or embedded prices visible; do not present as standalone commercial photo without clean verified crop",
+      "proposed_section": "Product editorial reference only"
     },
     {
       "category": "Mesas comedor piedra",
@@ -1535,7 +2225,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "REFERENCE_SALE_SHEET_ONLY",
+      "reason": "Graphic marketing sheet, typography, branding or embedded prices visible; do not present as standalone commercial photo without clean verified crop",
+      "proposed_section": "Product editorial reference only"
     },
     {
       "category": "Mesas comedor piedra",
@@ -1546,7 +2241,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "REFERENCE_SALE_SHEET_ONLY",
+      "reason": "Graphic marketing sheet, typography, branding or embedded prices visible; do not present as standalone commercial photo without clean verified crop",
+      "proposed_section": "Product editorial reference only"
     },
     {
       "category": "Mesas comedor piedra",
@@ -1557,7 +2257,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "REFERENCE_SALE_SHEET_ONLY",
+      "reason": "Graphic marketing sheet, typography, branding or embedded prices visible; do not present as standalone commercial photo without clean verified crop",
+      "proposed_section": "Product editorial reference only"
     },
     {
       "category": "Mesas comedor piedra",
@@ -1568,7 +2273,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "REFERENCE_SALE_SHEET_ONLY",
+      "reason": "Graphic marketing sheet, typography, branding or embedded prices visible; do not present as standalone commercial photo without clean verified crop",
+      "proposed_section": "Product editorial reference only"
     },
     {
       "category": "Mesas comedor hierro",
@@ -1579,7 +2289,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "REFERENCE_SALE_SHEET_ONLY",
+      "reason": "Graphic marketing sheet, typography, branding or embedded prices visible; do not present as standalone commercial photo without clean verified crop",
+      "proposed_section": "Product editorial reference only"
     },
     {
       "category": "Mesas comedor hierro",
@@ -1590,7 +2305,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "REFERENCE_SALE_SHEET_ONLY",
+      "reason": "Graphic marketing sheet, typography, branding or embedded prices visible; do not present as standalone commercial photo without clean verified crop",
+      "proposed_section": "Product editorial reference only"
     },
     {
       "category": "Mesas comedor hierro",
@@ -1601,7 +2321,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "REFERENCE_SALE_SHEET_ONLY",
+      "reason": "Graphic marketing sheet, typography, branding or embedded prices visible; do not present as standalone commercial photo without clean verified crop",
+      "proposed_section": "Product editorial reference only"
     },
     {
       "category": "Mesas comedor hierro",
@@ -1612,7 +2337,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "REFERENCE_SALE_SHEET_ONLY",
+      "reason": "Graphic marketing sheet, typography, branding or embedded prices visible; do not present as standalone commercial photo without clean verified crop",
+      "proposed_section": "Product editorial reference only"
     },
     {
       "category": "Mesas comedor hierro",
@@ -1623,7 +2353,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "REFERENCE_SALE_SHEET_ONLY",
+      "reason": "Graphic marketing sheet, typography, branding or embedded prices visible; do not present as standalone commercial photo without clean verified crop",
+      "proposed_section": "Product editorial reference only"
     },
     {
       "category": "Mesas comedor madera",
@@ -1634,7 +2369,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "REFERENCE_SALE_SHEET_ONLY",
+      "reason": "Graphic marketing sheet, typography, branding or embedded prices visible; do not present as standalone commercial photo without clean verified crop",
+      "proposed_section": "Product editorial reference only"
     },
     {
       "category": "Mesas comedor madera",
@@ -1645,7 +2385,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "REFERENCE_SALE_SHEET_ONLY",
+      "reason": "Graphic marketing sheet, typography, branding or embedded prices visible; do not present as standalone commercial photo without clean verified crop",
+      "proposed_section": "Product editorial reference only"
     },
     {
       "category": "Mesas comedor madera",
@@ -1656,7 +2401,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "REFERENCE_SALE_SHEET_ONLY",
+      "reason": "Graphic marketing sheet, typography, branding or embedded prices visible; do not present as standalone commercial photo without clean verified crop",
+      "proposed_section": "Product editorial reference only"
     },
     {
       "category": "Mesas comedor madera",
@@ -1667,7 +2417,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "REFERENCE_SALE_SHEET_ONLY",
+      "reason": "Graphic marketing sheet, typography, branding or embedded prices visible; do not present as standalone commercial photo without clean verified crop",
+      "proposed_section": "Product editorial reference only"
     },
     {
       "category": "Mesas comedor madera",
@@ -1678,7 +2433,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "REFERENCE_SALE_SHEET_ONLY",
+      "reason": "Graphic marketing sheet, typography, branding or embedded prices visible; do not present as standalone commercial photo without clean verified crop",
+      "proposed_section": "Product editorial reference only"
     },
     {
       "category": "Mesas comedor madera",
@@ -1689,7 +2449,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "REFERENCE_SALE_SHEET_ONLY",
+      "reason": "Graphic marketing sheet, typography, branding or embedded prices visible; do not present as standalone commercial photo without clean verified crop",
+      "proposed_section": "Product editorial reference only"
     },
     {
       "category": "Mesas comedor madera",
@@ -1700,7 +2465,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "REFERENCE_SALE_SHEET_ONLY",
+      "reason": "Graphic marketing sheet, typography, branding or embedded prices visible; do not present as standalone commercial photo without clean verified crop",
+      "proposed_section": "Product editorial reference only"
     },
     {
       "category": "Mesas comedor madera",
@@ -1711,7 +2481,12 @@
       "folder_id": null,
       "role": "photo",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "source image/contact-sheet visual review; editorial classification",
+      "curatorial_decision": "REFERENCE_SALE_SHEET_ONLY",
+      "reason": "Graphic marketing sheet, typography, branding or embedded prices visible; do not present as standalone commercial photo without clean verified crop",
+      "proposed_section": "Product editorial reference only"
     },
     {
       "category": "Videos generales",
@@ -1722,7 +2497,12 @@
       "folder_id": null,
       "role": "video",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "representative opening frame; full-motion/audio review not certified",
+      "curatorial_decision": "EXCLUDE_FROM_WEBSITE",
+      "reason": "Blank/dark or embedded promotional overlays/unclear message; unsuitable without source-level review",
+      "proposed_section": "Archive only"
     },
     {
       "category": "Videos generales",
@@ -1733,7 +2513,12 @@
       "folder_id": null,
       "role": "video",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "representative opening frame; full-motion/audio review not certified",
+      "curatorial_decision": "VIDEO_SHORTLIST_CONDITIONAL",
+      "reason": "Relevant stone, project, furniture or surface seen in frame; requires full-motion, audio, privacy and stabilization review",
+      "proposed_section": "Stone Design / projects"
     },
     {
       "category": "Videos generales",
@@ -1744,7 +2529,12 @@
       "folder_id": null,
       "role": "video",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "representative opening frame; full-motion/audio review not certified",
+      "curatorial_decision": "VIDEO_SHORTLIST_CONDITIONAL",
+      "reason": "Relevant stone, project, furniture or surface seen in frame; requires full-motion, audio, privacy and stabilization review",
+      "proposed_section": "Stone Design / projects"
     },
     {
       "category": "Videos generales",
@@ -1755,7 +2545,12 @@
       "folder_id": null,
       "role": "video",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "representative opening frame; full-motion/audio review not certified",
+      "curatorial_decision": "VIDEO_SHORTLIST_CONDITIONAL",
+      "reason": "Relevant stone, project, furniture or surface seen in frame; requires full-motion, audio, privacy and stabilization review",
+      "proposed_section": "Living Design / social"
     },
     {
       "category": "Videos generales",
@@ -1766,7 +2561,12 @@
       "folder_id": null,
       "role": "video",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "representative opening frame; full-motion/audio review not certified",
+      "curatorial_decision": "EXCLUDE_FROM_WEBSITE",
+      "reason": "Blank/dark or embedded promotional overlays/unclear message; unsuitable without source-level review",
+      "proposed_section": "Archive only"
     },
     {
       "category": "Videos generales",
@@ -1777,7 +2577,12 @@
       "folder_id": null,
       "role": "video",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "representative opening frame; full-motion/audio review not certified",
+      "curatorial_decision": "VIDEO_ARCHIVE_CONDITIONAL",
+      "reason": "Original video reviewed via frame sample; no clear site-ready edit established",
+      "proposed_section": "Archive, not autoplay"
     },
     {
       "category": "Videos generales",
@@ -1788,7 +2593,12 @@
       "folder_id": null,
       "role": "video",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "representative opening frame; full-motion/audio review not certified",
+      "curatorial_decision": "VIDEO_ARCHIVE_CONDITIONAL",
+      "reason": "Original video reviewed via frame sample; no clear site-ready edit established",
+      "proposed_section": "Archive, not autoplay"
     },
     {
       "category": "Videos generales",
@@ -1799,7 +2609,12 @@
       "folder_id": null,
       "role": "video",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "representative opening frame; full-motion/audio review not certified",
+      "curatorial_decision": "VIDEO_SHORTLIST_CONDITIONAL",
+      "reason": "Relevant stone, project, furniture or surface seen in frame; requires full-motion, audio, privacy and stabilization review",
+      "proposed_section": "Stone Design / projects"
     },
     {
       "category": "Videos generales",
@@ -1810,7 +2625,12 @@
       "folder_id": null,
       "role": "video",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "representative opening frame; full-motion/audio review not certified",
+      "curatorial_decision": "VIDEO_SHORTLIST_CONDITIONAL",
+      "reason": "Relevant stone, project, furniture or surface seen in frame; requires full-motion, audio, privacy and stabilization review",
+      "proposed_section": "Living Design / social"
     },
     {
       "category": "Videos generales",
@@ -1821,7 +2641,12 @@
       "folder_id": null,
       "role": "video",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "representative opening frame; full-motion/audio review not certified",
+      "curatorial_decision": "VIDEO_SHORTLIST_CONDITIONAL",
+      "reason": "Relevant stone, project, furniture or surface seen in frame; requires full-motion, audio, privacy and stabilization review",
+      "proposed_section": "Living Design / social"
     },
     {
       "category": "Videos generales",
@@ -1832,7 +2657,12 @@
       "folder_id": null,
       "role": "video",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "representative opening frame; full-motion/audio review not certified",
+      "curatorial_decision": "VIDEO_ARCHIVE_CONDITIONAL",
+      "reason": "Original video reviewed via frame sample; no clear site-ready edit established",
+      "proposed_section": "Archive, not autoplay"
     },
     {
       "category": "Videos generales",
@@ -1843,7 +2673,12 @@
       "folder_id": null,
       "role": "video",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "representative opening frame; full-motion/audio review not certified",
+      "curatorial_decision": "VIDEO_SHORTLIST_CONDITIONAL",
+      "reason": "Relevant stone, project, furniture or surface seen in frame; requires full-motion, audio, privacy and stabilization review",
+      "proposed_section": "Stone Design / projects"
     },
     {
       "category": "Videos generales",
@@ -1854,7 +2689,12 @@
       "folder_id": null,
       "role": "video",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "representative opening frame; full-motion/audio review not certified",
+      "curatorial_decision": "VIDEO_SHORTLIST_CONDITIONAL",
+      "reason": "Relevant stone, project, furniture or surface seen in frame; requires full-motion, audio, privacy and stabilization review",
+      "proposed_section": "Stone Design / projects"
     },
     {
       "category": "Videos generales",
@@ -1865,7 +2705,12 @@
       "folder_id": null,
       "role": "video",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "representative opening frame; full-motion/audio review not certified",
+      "curatorial_decision": "VIDEO_ARCHIVE_CONDITIONAL",
+      "reason": "Original video reviewed via frame sample; no clear site-ready edit established",
+      "proposed_section": "Archive, not autoplay"
     },
     {
       "category": "Videos generales",
@@ -1876,7 +2721,12 @@
       "folder_id": null,
       "role": "video",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "representative opening frame; full-motion/audio review not certified",
+      "curatorial_decision": "VIDEO_SHORTLIST_CONDITIONAL",
+      "reason": "Relevant stone, project, furniture or surface seen in frame; requires full-motion, audio, privacy and stabilization review",
+      "proposed_section": "Living Design / social"
     },
     {
       "category": "Videos generales",
@@ -1887,7 +2737,12 @@
       "folder_id": null,
       "role": "video",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "representative opening frame; full-motion/audio review not certified",
+      "curatorial_decision": "VIDEO_SHORTLIST_CONDITIONAL",
+      "reason": "Relevant stone, project, furniture or surface seen in frame; requires full-motion, audio, privacy and stabilization review",
+      "proposed_section": "Living Design / social"
     },
     {
       "category": "Videos generales",
@@ -1898,7 +2753,12 @@
       "folder_id": null,
       "role": "video",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "representative opening frame; full-motion/audio review not certified",
+      "curatorial_decision": "VIDEO_SHORTLIST_CONDITIONAL",
+      "reason": "Relevant stone, project, furniture or surface seen in frame; requires full-motion, audio, privacy and stabilization review",
+      "proposed_section": "Stone Design / projects"
     },
     {
       "category": "Videos generales",
@@ -1909,7 +2769,12 @@
       "folder_id": null,
       "role": "video",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "representative opening frame; full-motion/audio review not certified",
+      "curatorial_decision": "VIDEO_SHORTLIST_CONDITIONAL",
+      "reason": "Relevant stone, project, furniture or surface seen in frame; requires full-motion, audio, privacy and stabilization review",
+      "proposed_section": "Living Design / social"
     },
     {
       "category": "Videos generales",
@@ -1920,7 +2785,12 @@
       "folder_id": null,
       "role": "video",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "representative opening frame; full-motion/audio review not certified",
+      "curatorial_decision": "VIDEO_SHORTLIST_CONDITIONAL",
+      "reason": "Relevant stone, project, furniture or surface seen in frame; requires full-motion, audio, privacy and stabilization review",
+      "proposed_section": "Living Design / social"
     },
     {
       "category": "Videos generales",
@@ -1931,7 +2801,12 @@
       "folder_id": null,
       "role": "video",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "representative opening frame; full-motion/audio review not certified",
+      "curatorial_decision": "EXCLUDE_FROM_WEBSITE",
+      "reason": "Blank/dark or embedded promotional overlays/unclear message; unsuitable without source-level review",
+      "proposed_section": "Archive only"
     },
     {
       "category": "Videos generales",
@@ -1942,7 +2817,12 @@
       "folder_id": null,
       "role": "video",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "representative opening frame; full-motion/audio review not certified",
+      "curatorial_decision": "VIDEO_ARCHIVE_CONDITIONAL",
+      "reason": "Original video reviewed via frame sample; no clear site-ready edit established",
+      "proposed_section": "Archive, not autoplay"
     },
     {
       "category": "Videos generales",
@@ -1953,7 +2833,12 @@
       "folder_id": null,
       "role": "video",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "representative opening frame; full-motion/audio review not certified",
+      "curatorial_decision": "EXCLUDE_FROM_WEBSITE",
+      "reason": "Blank/dark or embedded promotional overlays/unclear message; unsuitable without source-level review",
+      "proposed_section": "Archive only"
     },
     {
       "category": "Videos generales",
@@ -1964,7 +2849,32 @@
       "folder_id": null,
       "role": "video",
       "review_status": "metadata_verified_visual_pending",
-      "publication": "HOLD"
+      "publication": "HOLD",
+      "editorial_review_date": "2026-11-11",
+      "visual_method": "representative opening frame; full-motion/audio review not certified",
+      "curatorial_decision": "VIDEO_SHORTLIST_CONDITIONAL",
+      "reason": "Relevant stone, project, furniture or surface seen in frame; requires full-motion, audio, privacy and stabilization review",
+      "proposed_section": "Stone Design / projects"
     }
-  ]
+  ],
+  "review": {
+    "method": "Image contact sheets + full source files for photographs; first representative frame per unique video, NOT complete time-domain viewing",
+    "photo_records": 140,
+    "video_records": 38,
+    "video_unique_files": 36,
+    "source_photo_exact_duplicate_pairs_minimum": 8,
+    "rights": "Owner expressly authorized all folder material for CALIZA website; editorial clearance does not imply SKU, price or project claims",
+    "publication_gate": "All on hold until corrected derivatives, visual acceptance, CI and Vercel Preview independent review",
+    "warning": "Marketing sell sheets with price overlays must not be published as unedited photos; all videos require full-motion/audio review before activation."
+  },
+  "summary": {
+    "P3_ARCHIVE_CONDITIONAL": 46,
+    "P2_GALLERY_CANDIDATE": 30,
+    "P1_EDIT_CANDIDATE": 10,
+    "EXCLUDE_FROM_WEBSITE": 6,
+    "VIDEO_SHORTLIST_CONDITIONAL": 21,
+    "VIDEO_ARCHIVE_CONDITIONAL": 11,
+    "EXCLUDE_DUPLICATE": 9,
+    "REFERENCE_SALE_SHEET_ONLY": 45
+  }
 }
