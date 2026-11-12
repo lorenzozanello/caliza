@@ -1,0 +1,494 @@
+{
+  "records": 27,
+  "derivatives": 54,
+  "source": "R6 verified clean references",
+  "no_product_pixel_generation": true,
+  "items": [
+    {
+      "id": "caliza-r6-006",
+      "src": "catalog-r7/caliza-r6-006-r7-1280.webp",
+      "src640": "catalog-r7/caliza-r6-006-r7-640.webp",
+      "crop_box": [
+        0.015,
+        0.46,
+        0.995,
+        0.76
+      ],
+      "source_sha256": "435a84c45ace43689fa0ca651033b1021443d43269724d1d49769519f24cf179",
+      "derived_sha256": {
+        "640": "9ff69db97ecfba82b4678cdd65bdb4edcf6bd5c02dac39da172de033dfdefcc9",
+        "1280": "b75c0494e9d476c77f703ed1d4b67ded7b2d0bac2a7a584d3ef225db56f7af80"
+      },
+      "kind": "SALE_SHEET_DETAIL",
+      "review": "NO_STOCK_PRICE_OR_SKU_CLAIMS"
+    },
+    {
+      "id": "caliza-r6-007",
+      "src": "catalog-r7/caliza-r6-007-r7-1280.webp",
+      "src640": "catalog-r7/caliza-r6-007-r7-640.webp",
+      "crop_box": [
+        0.055,
+        0.34,
+        0.96,
+        0.8
+      ],
+      "source_sha256": "3ffa45569967c698e8fc6a6ba134df5c99280e71704d6f99306791c0d1fd8c63",
+      "derived_sha256": {
+        "640": "1d9daacac47b1f637b043a48f1efcd1ee62295e4de9f626ee726f3050978e243",
+        "1280": "a55297e01878689608e08077fd0d73d1870b4f03d7466ab10632c1331e3b89df"
+      },
+      "kind": "SALE_SHEET_DETAIL",
+      "review": "NO_STOCK_PRICE_OR_SKU_CLAIMS"
+    },
+    {
+      "id": "caliza-r6-008",
+      "src": "catalog-r7/caliza-r6-008-r7-1280.webp",
+      "src640": "catalog-r7/caliza-r6-008-r7-640.webp",
+      "crop_box": [
+        0.01,
+        0.55,
+        0.99,
+        0.83
+      ],
+      "source_sha256": "a117d813f3e9efb0949b9bf4d4c9e603b6ece888399c6785f3e0d153f2635e28",
+      "derived_sha256": {
+        "640": "f48092d6c3971f7331c44549aba6d1869e0c6ac876385877fe431d0dcca33f07",
+        "1280": "7bee6cd38f26ff1c79cc3de0725e37efd80c02f9c8ebdf124452b773621a52b4"
+      },
+      "kind": "SALE_SHEET_DETAIL",
+      "review": "NO_STOCK_PRICE_OR_SKU_CLAIMS"
+    },
+    {
+      "id": "caliza-r6-009",
+      "src": "catalog-r7/caliza-r6-009-r7-1280.webp",
+      "src640": "catalog-r7/caliza-r6-009-r7-640.webp",
+      "crop_box": [
+        0.2,
+        0.06,
+        0.73,
+        0.91
+      ],
+      "source_sha256": "7ac4131a721977a3adeb886edb0442b06b5904159e6f5bcff38681918459e8ec",
+      "derived_sha256": {
+        "640": "db6e575f7be64679cccf4b91d1241d9ed26a3ab82461616bd6c9d792870679ab",
+        "1280": "414398e9dbcee654e1d995e3f91dd7013cebbed2a3ec1f7f2cb9ca7958ef8e56"
+      },
+      "kind": "SALE_SHEET_PRODUCT_CROP",
+      "review": "NO_STOCK_PRICE_OR_SKU_CLAIMS"
+    },
+    {
+      "id": "caliza-r6-014",
+      "src": "catalog-r7/caliza-r6-014-r7-1280.webp",
+      "src640": "catalog-r7/caliza-r6-014-r7-640.webp",
+      "crop_box": [
+        0.08,
+        0.14,
+        0.94,
+        0.97
+      ],
+      "source_sha256": "7b0cb87ec75fea793ca03ed7afb811c8850740081f403fede421e7738113b40d",
+      "derived_sha256": {
+        "640": "317a32ed5117c5b64f9f73d9e416529baadfa109bac5ef372ffa23a90dd82b24",
+        "1280": "3a430c9f487108d4fe407ea1f4fe6a35eb3e58b44d4cbe3678d5fdecbbe7c17c"
+      },
+      "kind": "SALE_SHEET_PRODUCT_CROP",
+      "review": "NO_STOCK_PRICE_OR_SKU_CLAIMS"
+    },
+    {
+      "id": "caliza-r6-021",
+      "src": "catalog-r7/caliza-r6-021-r7-1280.webp",
+      "src640": "catalog-r7/caliza-r6-021-r7-640.webp",
+      "crop_box": [
+        0.02,
+        0.4,
+        0.97,
+        0.84
+      ],
+      "source_sha256": "3539854f6dfa4ef4d19783429f4bcb8b8320ee8f70991b497a221ff1655885eb",
+      "derived_sha256": {
+        "640": "2a1379588fe997120e516a1b18d9d96adcd1623f0d0cf899f7abbf2cd8751730",
+        "1280": "96d73f86c5414fd4a0931f90dcfaf5d5c9dce3c197c5a8f7118f43bb65f5aaa9"
+      },
+      "kind": "SALE_SHEET_DETAIL",
+      "review": "NO_STOCK_PRICE_OR_SKU_CLAIMS"
+    },
+    {
+      "id": "caliza-r6-031",
+      "src": "catalog-r7/caliza-r6-031-r7-1280.webp",
+      "src640": "catalog-r7/caliza-r6-031-r7-640.webp",
+      "crop_box": [
+        0.19,
+        0.08,
+        0.73,
+        0.94
+      ],
+      "source_sha256": "7faf72f3c0191f70b71a2f784fe638144a1ef4cc0a91770848aee2e4abc52b38",
+      "derived_sha256": {
+        "640": "08fc496248766dce9b816e7b6b0b3efb508f894925c0b6ebae11f46afe56b3ef",
+        "1280": "51674228307a3bba2ecdc77286bfab51a7e1ff2b81973af80ea539a7743e8625"
+      },
+      "kind": "SALE_SHEET_PRODUCT_CROP",
+      "review": "NO_STOCK_PRICE_OR_SKU_CLAIMS"
+    },
+    {
+      "id": "caliza-r6-033",
+      "src": "catalog-r7/caliza-r6-033-r7-1280.webp",
+      "src640": "catalog-r7/caliza-r6-033-r7-640.webp",
+      "crop_box": [
+        0.02,
+        0.61,
+        0.97,
+        0.9
+      ],
+      "source_sha256": "aec40f9c0ade19a7d0327038ea39ca1ddfbc19c80822681c70b31ce175ae3b3c",
+      "derived_sha256": {
+        "640": "fee02c0d6b472fb3359373dd7ad08c310d5157c5391b31a219b5945d9aac80c7",
+        "1280": "ebd0be6394877a043fdcd595e439035e9013138f03cdfd058b9544c414738c72"
+      },
+      "kind": "SALE_SHEET_DETAIL",
+      "review": "NO_STOCK_PRICE_OR_SKU_CLAIMS"
+    },
+    {
+      "id": "caliza-r6-038",
+      "src": "catalog-r7/caliza-r6-038-r7-1280.webp",
+      "src640": "catalog-r7/caliza-r6-038-r7-640.webp",
+      "crop_box": [
+        0.18,
+        0.06,
+        0.74,
+        0.94
+      ],
+      "source_sha256": "f164083c5cddd9ea98529c592d2b25146b8cea75af77285e85cbfeb9696dc031",
+      "derived_sha256": {
+        "640": "23c9c22b847e4c485922dc5a790b98179888826840b941b6d220291c49c68b7c",
+        "1280": "2909f56c3f03343d31d7b9881880cac10a7497bfb138da461bdde751b777fa57"
+      },
+      "kind": "SALE_SHEET_PRODUCT_CROP",
+      "review": "NO_STOCK_PRICE_OR_SKU_CLAIMS"
+    },
+    {
+      "id": "caliza-r6-040",
+      "src": "catalog-r7/caliza-r6-040-r7-1280.webp",
+      "src640": "catalog-r7/caliza-r6-040-r7-640.webp",
+      "crop_box": [
+        0.09,
+        0.17,
+        0.94,
+        0.94
+      ],
+      "source_sha256": "35dbad080720aa7321e4e30175f944f70512cd4c35e244f7e8754db490e30e36",
+      "derived_sha256": {
+        "640": "e5b16ff305eb24721bd2aeeaccc69d30e157a00a6d61e9dd65fbbce6a2f9a866",
+        "1280": "c495635b117138bf8fa93bd9a1f38ef1a31cbd426ce78a38bfa6c4fda16088ba"
+      },
+      "kind": "SALE_SHEET_PRODUCT_CROP",
+      "review": "NO_STOCK_PRICE_OR_SKU_CLAIMS"
+    },
+    {
+      "id": "caliza-r6-041",
+      "src": "catalog-r7/caliza-r6-041-r7-1280.webp",
+      "src640": "catalog-r7/caliza-r6-041-r7-640.webp",
+      "crop_box": [
+        0.02,
+        0.35,
+        0.98,
+        0.87
+      ],
+      "source_sha256": "aab7ef6752b75128f6cddcc95fbc1ece7b3b6d3d24c6a3ee6351344777408182",
+      "derived_sha256": {
+        "640": "ccc8356adbd5bebfadaa0cef0e6492d6c349e2b6b5d44660de96e7a8430b7fd0",
+        "1280": "26b49c3ac8f86406aefbd2331023b68d03bc590966bd1af3b0a622f9a4e228d1"
+      },
+      "kind": "SALE_SHEET_DETAIL",
+      "review": "NO_STOCK_PRICE_OR_SKU_CLAIMS"
+    },
+    {
+      "id": "caliza-r6-043",
+      "src": "catalog-r7/caliza-r6-043-r7-1280.webp",
+      "src640": "catalog-r7/caliza-r6-043-r7-640.webp",
+      "crop_box": [
+        0.18,
+        0.08,
+        0.75,
+        0.94
+      ],
+      "source_sha256": "89aaf5488212523b3be2a494d0cf2ac22ebeb00004179eae9b2949a9855bc3fb",
+      "derived_sha256": {
+        "640": "b8ae6be1cc173edbbdd66ce2bfbbc2efb4e751feee1f66514abcdb4ddb5c1d8b",
+        "1280": "73ca1ae0b5b75140f4736c69171bb520bbdd3b6923c1ce8bdaca4d10a68ff3eb"
+      },
+      "kind": "SALE_SHEET_PRODUCT_CROP",
+      "review": "NO_STOCK_PRICE_OR_SKU_CLAIMS"
+    },
+    {
+      "id": "caliza-r6-045",
+      "src": "catalog-r7/caliza-r6-045-r7-1280.webp",
+      "src640": "catalog-r7/caliza-r6-045-r7-640.webp",
+      "crop_box": [
+        0.01,
+        0.2,
+        0.99,
+        0.69
+      ],
+      "source_sha256": "f18146514beb62d75c35a1c6e9181a0d78076581f67d344d22e694c25e2b5b65",
+      "derived_sha256": {
+        "640": "21d762a7cf73d57e2a32195a701e7f7a80e9f54e03ed01a7d54daef557d57fac",
+        "1280": "439c94f9fabc5f1a2eb24bd1f790dfb77856ecec05403e99f83c864df3d584e3"
+      },
+      "kind": "SALE_SHEET_DETAIL",
+      "review": "NO_STOCK_PRICE_OR_SKU_CLAIMS"
+    },
+    {
+      "id": "caliza-r6-054",
+      "src": "catalog-r7/caliza-r6-054-r7-1280.webp",
+      "src640": "catalog-r7/caliza-r6-054-r7-640.webp",
+      "crop_box": [
+        0.42,
+        0.13,
+        0.97,
+        0.89
+      ],
+      "source_sha256": "c122b2b94d27ef41f64c7b7918e7b73d5e89947a99f5b64b24a710ab058bbdf7",
+      "derived_sha256": {
+        "640": "c040c62736bf460c626c174491a07e2b8f3da2b42461fdf7fa98538ca50bf037",
+        "1280": "70e04befbf2d338b5a0501c6a3631fe005cb0606360ce37b0f68d8c4c7815c55"
+      },
+      "kind": "SALE_SHEET_DETAIL",
+      "review": "NO_STOCK_PRICE_OR_SKU_CLAIMS"
+    },
+    {
+      "id": "caliza-r6-056",
+      "src": "catalog-r7/caliza-r6-056-r7-1280.webp",
+      "src640": "catalog-r7/caliza-r6-056-r7-640.webp",
+      "crop_box": [
+        0.45,
+        0.18,
+        0.98,
+        0.91
+      ],
+      "source_sha256": "8116b1ff181cd989c7d77c20b5d189a091e89eb0912073bae0495743d3524bba",
+      "derived_sha256": {
+        "640": "72037805909ade48e27142c90943cfd329b77e9a61eab26aabb03ae0b107b2db",
+        "1280": "0c074c80e7caf113081170550f732282dbe691e39d16c90e10d5b7f8e45f1890"
+      },
+      "kind": "SALE_SHEET_DETAIL",
+      "review": "NO_STOCK_PRICE_OR_SKU_CLAIMS"
+    },
+    {
+      "id": "caliza-r6-057",
+      "src": "catalog-r7/caliza-r6-057-r7-1280.webp",
+      "src640": "catalog-r7/caliza-r6-057-r7-640.webp",
+      "crop_box": [
+        0.18,
+        0.07,
+        0.75,
+        0.95
+      ],
+      "source_sha256": "41eb05034e6ca64d38599aa474f602e65f0ec0c8137f958e78677685d2c3bf93",
+      "derived_sha256": {
+        "640": "dbf1618f101e5e4b46a9b9e1baab9bbe2b343e7b04bf6429c097258b91ce1ec0",
+        "1280": "dd76100a20b888c273c1cc0c1cbfb7e6c1cc87689475d1978d6de3895bbdd281"
+      },
+      "kind": "SALE_SHEET_PRODUCT_CROP",
+      "review": "NO_STOCK_PRICE_OR_SKU_CLAIMS"
+    },
+    {
+      "id": "caliza-r6-058",
+      "src": "catalog-r7/caliza-r6-058-r7-1280.webp",
+      "src640": "catalog-r7/caliza-r6-058-r7-640.webp",
+      "crop_box": [
+        0.04,
+        0.13,
+        0.96,
+        0.81
+      ],
+      "source_sha256": "c7847d382d130e00444a9fa313360e0afbc4712240c181a7b3825b15a0326e1a",
+      "derived_sha256": {
+        "640": "bf5f7b2bd71afe2bdbd076a76de85a9fb738b6ac8663daf82783aba105786b51",
+        "1280": "a0371262943a87913d0569c42be621c29296c72e13de7ec857aef0b5abcf6709"
+      },
+      "kind": "SALE_SHEET_DETAIL",
+      "review": "NO_STOCK_PRICE_OR_SKU_CLAIMS"
+    },
+    {
+      "id": "caliza-r6-060",
+      "src": "catalog-r7/caliza-r6-060-r7-1280.webp",
+      "src640": "catalog-r7/caliza-r6-060-r7-640.webp",
+      "crop_box": [
+        0.03,
+        0.14,
+        0.97,
+        0.83
+      ],
+      "source_sha256": "b2f3e7e22cfaf4608b120c1c636f6075fc7c9441e953465234d8753db2d9d7ae",
+      "derived_sha256": {
+        "640": "fa7377e82a558de31887befa3e8482f3cd72a894b1e0347f529ede03acca3e6b",
+        "1280": "ad45b9d8c2efd3600cff405c0347d3264af407de70ec3dbc017ec6d1eb28673f"
+      },
+      "kind": "SALE_SHEET_DETAIL",
+      "review": "NO_STOCK_PRICE_OR_SKU_CLAIMS"
+    },
+    {
+      "id": "caliza-r6-062",
+      "src": "catalog-r7/caliza-r6-062-r7-1280.webp",
+      "src640": "catalog-r7/caliza-r6-062-r7-640.webp",
+      "crop_box": [
+        0.09,
+        0.16,
+        0.94,
+        0.96
+      ],
+      "source_sha256": "ca3008afcfb139482a87a2acd258407e12651264bcb7a940b469d10fa973f59c",
+      "derived_sha256": {
+        "640": "58bf92803b836e086599ed10fd63a80536f9ccb154add9f86a35ef22f1e7a9c0",
+        "1280": "07b3e9fa587600ab55d359370b427461f9ef1eaae273d09c04e0042aabafc30e"
+      },
+      "kind": "SALE_SHEET_PRODUCT_CROP",
+      "review": "NO_STOCK_PRICE_OR_SKU_CLAIMS"
+    },
+    {
+      "id": "caliza-r6-063",
+      "src": "catalog-r7/caliza-r6-063-r7-1280.webp",
+      "src640": "catalog-r7/caliza-r6-063-r7-640.webp",
+      "crop_box": [
+        0.02,
+        0.43,
+        0.97,
+        0.87
+      ],
+      "source_sha256": "a3bce02df21eb673f06468f6eb4c407300baf06741f487c088fd1d49a5f5a3a6",
+      "derived_sha256": {
+        "640": "e92bc5294a58a3c4b6c41dec4e31fb6cf180cb82170b217ee147bbf4cc6d12f8",
+        "1280": "c3ab84ebce602fa48b57cc69a8bb48c7238a95df3bbe6ce0257b3dc9cdf38cd9"
+      },
+      "kind": "SALE_SHEET_DETAIL",
+      "review": "NO_STOCK_PRICE_OR_SKU_CLAIMS"
+    },
+    {
+      "id": "caliza-r6-065",
+      "src": "catalog-r7/caliza-r6-065-r7-1280.webp",
+      "src640": "catalog-r7/caliza-r6-065-r7-640.webp",
+      "crop_box": [
+        0.02,
+        0.18,
+        0.98,
+        0.7
+      ],
+      "source_sha256": "5ca582a4d27a852f98a964cd4493db98432f91eb9ded529eb85ad1e0687594ad",
+      "derived_sha256": {
+        "640": "13e95eb3fc28302be0eb4856bd604e63a6d435cef39bbb55417d88fdc8255c32",
+        "1280": "8e6ea89581fe7170b9af7abda8fcfb1485c2bb1a8e476be16ae7ae25cab50597"
+      },
+      "kind": "SALE_SHEET_DETAIL",
+      "review": "NO_STOCK_PRICE_OR_SKU_CLAIMS"
+    },
+    {
+      "id": "caliza-r6-078",
+      "src": "catalog-r7/caliza-r6-078-r7-1280.webp",
+      "src640": "catalog-r7/caliza-r6-078-r7-640.webp",
+      "crop_box": [
+        0.17,
+        0.06,
+        0.66,
+        0.95
+      ],
+      "source_sha256": "2b142aeaef2e95163d2d1d489a1dc7288b6d28bb11e15e4e477d8b2db959b6c2",
+      "derived_sha256": {
+        "640": "acb24ebfc9985f666fbf77422a2714ccfc2efb591c1b258ddadab05ea2782725",
+        "1280": "e64860e97fe9921aabd094770df0f1077bb47167f87a021db029955ce7ccf1bd"
+      },
+      "kind": "SALE_SHEET_PRODUCT_CROP",
+      "review": "NO_STOCK_PRICE_OR_SKU_CLAIMS"
+    },
+    {
+      "id": "caliza-r6-080",
+      "src": "catalog-r7/caliza-r6-080-r7-1280.webp",
+      "src640": "catalog-r7/caliza-r6-080-r7-640.webp",
+      "crop_box": [
+        0.18,
+        0.07,
+        0.72,
+        0.86
+      ],
+      "source_sha256": "9762213fbc3569d7e019693793503ed72fc8350710ac850866ce4f8972dac214",
+      "derived_sha256": {
+        "640": "dc7351696ff4cb3da3cfaa70e901f64b5f784d8f87b218c165cfac35559dc6cb",
+        "1280": "d3af7bdbc910c590cdb1172261cc2af763b0c85f7502317860b7dda055428839"
+      },
+      "kind": "SALE_SHEET_PRODUCT_CROP",
+      "review": "NO_STOCK_PRICE_OR_SKU_CLAIMS"
+    },
+    {
+      "id": "caliza-r6-083",
+      "src": "catalog-r7/caliza-r6-083-r7-1280.webp",
+      "src640": "catalog-r7/caliza-r6-083-r7-640.webp",
+      "crop_box": [
+        0.02,
+        0.59,
+        0.98,
+        0.87
+      ],
+      "source_sha256": "f346bfcaec447944c6372a0cda2e0b92ed232ed8dc155ddedcefbc1904180f23",
+      "derived_sha256": {
+        "640": "a4d931bfd02e74312a2428b1c199f23e70dcba362da4027b6191b60aedb3306c",
+        "1280": "839bb8c2fb970929ce941a2e7bb465d7588bfadcd6e846e9e9d97cc22267d6d4"
+      },
+      "kind": "SALE_SHEET_DETAIL",
+      "review": "NO_STOCK_PRICE_OR_SKU_CLAIMS"
+    },
+    {
+      "id": "caliza-r6-085",
+      "src": "catalog-r7/caliza-r6-085-r7-1280.webp",
+      "src640": "catalog-r7/caliza-r6-085-r7-640.webp",
+      "crop_box": [
+        0.09,
+        0.13,
+        0.96,
+        0.95
+      ],
+      "source_sha256": "48a1b6f3e9bce1e35c758ad01b9cdf5b30a9788cfd302d0bae731a2a0c51b15b",
+      "derived_sha256": {
+        "640": "6e98bcf473d28da630cfc66c6325106cef19b7bd53f85e6533142d172841abf9",
+        "1280": "02bf8581cd059acac060fbba84c1c0003a2514dbd879f0703b817cf949f56d34"
+      },
+      "kind": "SALE_SHEET_PRODUCT_CROP",
+      "review": "NO_STOCK_PRICE_OR_SKU_CLAIMS"
+    },
+    {
+      "id": "caliza-r6-092",
+      "src": "catalog-r7/caliza-r6-092-r7-1280.webp",
+      "src640": "catalog-r7/caliza-r6-092-r7-640.webp",
+      "crop_box": [
+        0.01,
+        0.44,
+        0.99,
+        0.81
+      ],
+      "source_sha256": "8b5aa6e8383d7d7989a2d8bc4387e6c586fdb79a07376f81c7676bbf4cf84e1d",
+      "derived_sha256": {
+        "640": "0f8b24b8a7d9255da6c06d7675824fc2fe2d423f0a980c11b158e9e0ec2a6f5c",
+        "1280": "5c8f988841dfa0bd0b7db439047dcd44d737a6996bba5a2f694785a9ea05e088"
+      },
+      "kind": "SALE_SHEET_DETAIL",
+      "review": "NO_STOCK_PRICE_OR_SKU_CLAIMS"
+    },
+    {
+      "id": "caliza-r6-094",
+      "src": "catalog-r7/caliza-r6-094-r7-1280.webp",
+      "src640": "catalog-r7/caliza-r6-094-r7-640.webp",
+      "crop_box": [
+        0.11,
+        0.16,
+        0.94,
+        0.95
+      ],
+      "source_sha256": "9e71bb58fc3fa08b34c5040a1d15f32280cb3d25cbc0f987af8b5ede806884fa",
+      "derived_sha256": {
+        "640": "c545d8e2c6328ca69d168c9113c6cbd4ede668ac4145f763ad016539062a7fff",
+        "1280": "1e96e03bfd64c3a427a3f418a52f944e6665f182c9d4af065c857eb05c76e376"
+      },
+      "kind": "SALE_SHEET_PRODUCT_CROP",
+      "review": "NO_STOCK_PRICE_OR_SKU_CLAIMS"
+    }
+  ]
+}
