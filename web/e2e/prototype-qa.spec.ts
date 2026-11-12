@@ -186,6 +186,17 @@ test('R8: dirección de arte rectora y capturas editoriales en todas las seccion
       await first.scrollIntoViewIfNeeded();
       await expect.poll(() => first.evaluate(e => (e as HTMLImageElement).naturalWidth>0)).toBe(true);
     }
+    // Exercise lazy loading in the viewport before making a full-page capture.
+    // This distinguishes an actual broken image from a screenshot of an unloaded asset.
+    const images = page.locator('#main img');
+    const inspectLimit = route === '/archivo' ? 10 : 28;
+    for (let i = 0, n = Math.min(await images.count(), inspectLimit); i < n; i++) {
+      const img = images.nth(i);
+      await img.scrollIntoViewIfNeeded();
+      await expect.poll(() => img.evaluate(el => (el as HTMLImageElement).complete && (el as HTMLImageElement).naturalWidth > 0), { timeout: 10_000 }).toBe(true);
+    }
+    await page.evaluate(() => window.scrollTo(0, 0));
+    await page.waitForTimeout(220);
     await page.screenshot({
       path: info.outputPath('r8-' + (route==='/' ? 'home' : route.replaceAll('/','-').replace(/^-/,'')) + '.png'),
       fullPage:['/','/stone-design','/living-design','/stone-care'].includes(route),
