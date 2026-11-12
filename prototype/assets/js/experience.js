@@ -262,6 +262,16 @@
         </div>
         <a class="caliza-r8-underlink" href="#/stone-design/proyectos">Explorar proyectos <span aria-hidden="true">→</span></a>
       </section>
+      <section class="caliza-r8-living-story" aria-labelledby="caliza-r8-living-title">
+        <div class="caliza-r8-living-image">${realPhoto('side-table-kai', 'Mesa auxiliar real de piedra natural de CALIZA')}</div>
+        <div class="caliza-r8-living-copy">
+          ${label('CALIZA Living Design')}
+          <h2 id="caliza-r8-living-title">Diseño que<br>habita contigo.</h2>
+          <span class="o8-terracotta-rule"></span>
+          <p>Piezas en piedra natural que aportan carácter, equilibrio y permanencia.</p>
+          ${button('/living-design/coleccion', 'Conocer Living Design')}
+        </div>
+      </section>
       <section class="caliza-journeys caliza-r8-journeys" aria-labelledby="journeys-title"><div class="caliza-journeys-lead">${label('Su próximo paso')}<h2 id="journeys-title">¿Qué desea hacer?</h2><p>Un recorrido claro desde la inspiración hasta una conversación con el equipo.</p></div><div class="caliza-journey-links">
       <a href="#/stone-design/brief"><span>01 / Crear</span><strong>Planear un espacio en piedra</strong><small>Preparar un brief de proyecto <span aria-hidden="true">→</span></small></a>
       <a href="#/living-design/coleccion"><span>02 / Habitar</span><strong>Explorar una familia</strong><small>Explorar posibilidades y consultar <span aria-hidden="true">→</span></small></a>
@@ -269,7 +279,16 @@
       </div></section>
       <section class="o8-section caliza-r8-featured-families">${sectionHead('Familias para habitar', '/living-design/coleccion', 'Explorar familias')}<div class="caliza-family-grid caliza-family-grid-featured">${families.slice(0, 2).map(familyCard).join('')}</div></section>
       <section class="o8-section caliza-r6-home caliza-r8-editorial-archive"><div class="caliza-r6-lead">${label('De nuestro archivo')}<h2>Piedra real, múltiples maneras de habitar.</h2><p>Imágenes auténticas de CALIZA con tratamiento editorial homogéneo.</p></div>${r6Cards(r6Favorites.map(id => r6Archive.find(r => r.id === id)).filter(Boolean).slice(0,3))}<div class="caliza-r6-more"><a href="#/archivo">Explorar archivo visual →</a></div></section>
-      <section class="o8-section caliza-r8-materials">${sectionHead('La expresión de la materia', '/materiales', 'Explorar materiales')}${materialPreview()}</section>
+      <section class="caliza-r8-material-story" aria-labelledby="caliza-r8-material-title">
+        <div class="caliza-r8-material-arch">${realPhoto('basin-main', 'Detalle de superficie de piedra real de CALIZA')}</div>
+        <div class="caliza-r8-material-copy">
+          ${label('Nuestra materia')}
+          <h2 id="caliza-r8-material-title">Texturas<br>que perduran.</h2>
+          <p>Vetas y superficies reales que invitan a explorar la materia antes de darle forma.</p>
+          <a class="caliza-r8-underlink" href="#/materiales">Conocer materiales <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="caliza-r8-material-photo">${realPhoto('kitchen-island-b', 'Aplicación real de piedra natural en cocina de CALIZA')}</div>
+      </section>
       <section class="exp-banner caliza-r8-stone-banner">${realPhoto('kitchen-portrait-a', 'Cocina real de CALIZA con superficies de piedra')}<div>${label('Caliza Stone Design')}<h2>Espacios que perduran.</h2><p>Proyectos concebidos desde la materia y el oficio.</p>${button('/stone-design/brief', 'Iniciar proyecto')}</div></section>
       <section class="exp-banner exp-banner-care caliza-r8-care-banner">${realPhoto('caliza-r6-118', 'Lavamanos real de CALIZA con cubierta en piedra natural')}<div>${label('Caliza Stone Care')}<h2>Cuidar también es diseñar.</h2><p>Conozca cómo preservar la belleza de la piedra.</p>${button('/stone-care/diagnostico', 'Consultar cuidado')}</div></section>
       ${socialPreview()}
