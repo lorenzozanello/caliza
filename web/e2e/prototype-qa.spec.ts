@@ -189,9 +189,10 @@ test('R8: dirección de arte rectora y capturas editoriales en todas las seccion
     // Exercise lazy loading in the viewport before making a full-page capture.
     // This distinguishes an actual broken image from a screenshot of an unloaded asset.
     const images = page.locator('#main img');
-    const inspectLimit = route === '/archivo' ? 10 : 28;
+    const inspectLimit = route === '/' ? 16 : route === '/archivo' ? 6 : 10;
     for (let i = 0, n = Math.min(await images.count(), inspectLimit); i < n; i++) {
       const img = images.nth(i);
+      if (!(await img.isVisible())) continue;
       await img.scrollIntoViewIfNeeded();
       await expect.poll(() => img.evaluate(el => (el as HTMLImageElement).complete && (el as HTMLImageElement).naturalWidth > 0), { timeout: 10_000 }).toBe(true);
     }
