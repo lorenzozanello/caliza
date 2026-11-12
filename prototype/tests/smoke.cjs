@@ -45,6 +45,7 @@ vm.runInContext(fs.readFileSync(path.join(root, 'assets/data/approved-media.js')
 vm.runInContext(fs.readFileSync(path.join(root, 'assets/data/catalogo.js'), 'utf8'), context)
 vm.runInContext(fs.readFileSync(path.join(root, 'assets/data/r6-gallery.js'), 'utf8'), context)
 vm.runInContext(fs.readFileSync(path.join(root, 'assets/data/r6-catalog.js'), 'utf8'), context)
+vm.runInContext(fs.readFileSync(path.join(root, 'assets/data/r7-catalog.js'), 'utf8'), context)
 vm.runInContext(code, context)
 
 function visit(route) {
@@ -86,6 +87,10 @@ assert.match(visit('/living-design/familia/sillas-para-hogar'), /catalog-r6\/cal
 assert.doesNotMatch(visit('/archivo'), /editorial-r6\/caliza-r6-006-1280\.webp/)
 assert.doesNotMatch(visit('/archivo'), /catalog-r6\/caliza-r6-006-clean-/)
 assert.match(visit('/archivo'), /catalog-r6\/caliza-r6-012-clean-/)
+assert.match(visit('/archivo'), /catalog-r7\/caliza-r6-006-r7-/)
+assert.match(visit('/archivo'), /Detalle de referencia/)
+assert.doesNotMatch(visit('/archivo'), /catalog-r6\/caliza-r6-006-clean-/)
+assert.equal((visit('/archivo').match(/catalog-r7\/caliza-r6-/g)||[]).length >= 27,true)
 assert.match(visit('/living-design/familia/lavamanos'), /Fotografía auténtica · CALIZA/)
 assert.doesNotMatch(visit('/'), /¿Qué te gustaría hacer?/)
 assert.equal(document.title, 'La materia toma forma. · CALIZA GROUP')
